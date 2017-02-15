@@ -38,6 +38,6 @@ while finished == 0:
 	MemUtil = nvmlDeviceGetUtilizationRates(GPU0).memory
 	ResultString = str(UsedMemoryPercent)+","+str(PCI_GB_S)+","+str(GPUUtil)+","+str(MemUtil)+"\n"
 	log.write(ResultString)
-	time.sleep(1) # updated in 1 second intervals 
+	#time.sleep(1) # updated in 1 second intervals 
 log.close()
 nvmlShutdown()
