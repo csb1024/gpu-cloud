@@ -1,5 +1,0 @@
-#ifdef 
-
-#else
-
-#end 
