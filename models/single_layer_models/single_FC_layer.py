@@ -66,6 +66,7 @@ init = tf.global_variables_initializer()
 
 # Launch the graph
 with tf.Session(config=config) as sess:
+	run_metadata = tf.RunMetadata()
 	sess.run(init)
 	#shutil.copyfile("monitor_log.txt","init_log.txt")
 	batch_x, batch_y = mnist.train.next_batch(batch_size)
@@ -90,7 +91,9 @@ with tf.Session(config=config) as sess:
 	# time.sleep(3)
 	#sess.partial_run(h, dummy)
 	#shutil.copyfile("monitor_log.txt","backprop_log.txt")
-	_, c = sess.run([optimizer, cost], feed_dict={x: batch_x, y: batch_y})
+	_, c = sess.run([optimizer, cost], feed_dict={x: batch_x, y: batch_y},options=tf.RunOptions(trace_level=tf.RunOptions.FULL_TRACE, output_partition_graphs=True), run_metadata=run_metadata)
+	with open("/home/sbchoi/FC_out.txt","w") as out:
+		out.write(str(run_metadata))
 	#shutil.copyfile("monitor_log.txt")
 	#sess.run(backprop, feed_dict={x: batch_x, y: batch_y})
 	#print(final)
