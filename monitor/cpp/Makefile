@@ -7,8 +7,7 @@ else
 endif
 
 CFLAGS  := -I ../include -I /usr/include/nvidia/gdk/
-LDFLAGS := -lnvidia-ml -L $(NVML_LIB)
-
+LDFLAGS := -lnvidia-ml -L $(NVML_LIB) 
 mon: mon.o
 	$(CC) $< $(LDFLAGS) -o $@
 	-@mv mon nvml_mon

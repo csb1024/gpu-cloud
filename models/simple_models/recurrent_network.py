@@ -86,28 +86,28 @@ init = tf.global_variables_initializer()
 with tf.Session() as sess:
     sess.run(init)
     step = 1
-    step_limit = 1
+#    step_limit = 1
     # Keep training until reach max iterations
-    while step <= step_limit:
+    while step * batch_size < training_iters:
         batch_x, batch_y = mnist.train.next_batch(batch_size)
         # Reshape data to get 28 seq of 28 elements
         batch_x = batch_x.reshape((batch_size, n_steps, n_input))
         # Run optimization op (backprop)
-        sess.run(optimizer, feed_dict={x: batch_x, y: batch_y})
-        if step % display_step == 0:
+        sess.run(pred, feed_dict={x: batch_x, y: batch_y})
+#if step % display_step == 0:
             # Calculate batch accuracy
-            acc = sess.run(accuracy, feed_dict={x: batch_x, y: batch_y})
+#acc = sess.run(accuracy, feed_dict={x: batch_x, y: batch_y})
             # Calculate batch loss
-            loss = sess.run(cost, feed_dict={x: batch_x, y: batch_y})
-            print("Iter " + str(step*batch_size) + ", Minibatch Loss= " + \
-                  "{:.6f}".format(loss) + ", Training Accuracy= " + \
-                  "{:.5f}".format(acc))
+#loss = sess.run(cost, feed_dict={x: batch_x, y: batch_y})
+#            print("Iter " + str(step*batch_size) + ", Minibatch Loss= " + \
+#                  "{:.6f}".format(loss) + ", Training Accuracy= " + \
+#                  "{:.5f}".format(acc))
         step += 1
-    print("Optimization Finished!")
+    print("LSTM optimization Finished!")
 
     # Calculate accuracy for 128 mnist test images
-    test_len = 128
-    test_data = mnist.test.images[:test_len].reshape((-1, n_steps, n_input))
-    test_label = mnist.test.labels[:test_len]
-    print("Testing Accuracy:", \
-        sess.run(accuracy, feed_dict={x: test_data, y: test_label}))
+#    test_len = 128
+##    test_data = mnist.test.images[:test_len].reshape((-1, n_steps, n_input))
+#    test_label = mnist.test.labels[:test_len]
+#    print("Testing Accuracy:", \
+#        sess.run(accuracy, feed_dict={x: test_data, y: test_label}))

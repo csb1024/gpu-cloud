@@ -88,23 +88,24 @@ pred = tf.add(tf.matmul(afc1, weights['out']), biases['out'])
 # Define loss and optimizer
 forward_result = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits=pred, labels=y))
 optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(forward_result)
-with tf.control_dependencies([optimizer]):
-	dummy = tf.constant(0)
 # Evaluate model
 correct_pred = tf.equal(tf.argmax(pred, 1), tf.argmax(y, 1))
 accuracy = tf.reduce_mean(tf.cast(correct_pred, tf.float32))
 
 # Initializing the variables
 init = tf.global_variables_initializer()
-
+run_options=tf.RunOptions(trace_level=tf.RunOptions.FULL_TRACE,output_partition_graphs=True)
 # Launch the graph
 with tf.Session(config=config) as sess:
+    run_metadata = tf.RunMetadata()
     sess.run(init)
 #shutil.copyfile("monitor_log.txt", "conv_init_log.txt")
     # Keep training until reach max iterations
     batch_x, batch_y = mnist.train.next_batch(batch_size)
     # Run FeedForwward
-    _, c = sess.run([optimizer, forward_result], feed_dict={x: batch_x, y: batch_y})
+    _, c = sess.run([optimizer, forward_result], feed_dict={x: batch_x, y: batch_y}, options=run_options,run_metadata=run_metadata)
+    with open("/home/sbchoi/conv_out.txt","w") as out:
+    	out.write(str(run_metadata))
     #shutil.copyfile("monitor_log.txt", "conv_forward.txt")
     #sess.run([forward_result,optimizer], feed_dict={ x: batch_x, y: batch_y})
     #shutil.copyfile("monitor_log.txt", "conv_backprop.txt")

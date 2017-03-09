@@ -10,16 +10,15 @@ fi
 
 #some paramemeters need to be hardcoded 
 CODE="$1"
-NVPROF_LOG="out.txt"
-TF_VLOG_1="vlog1.log"
-TF_VLOG_2="vlog2.log"
+PYTHON="/usr/bin/python"
 LIST="kernel_list.txt" # list of the kernels to analyze
 RESULT="kernel_perf_list.txt" # list of kernels and their performance
 
 # serperate each metric by white space
-PERF_ARGS="sm_efficiency,gld_throughput,gst_throughput,dram_read_throughput,dram_write_throughput"
-PERF_ARGS="sm_efficiency"
 
+
+#PERF_ARGS="sm_efficiency,ipc,dram_read_throughput,dram_write_throughput"
+PERF_ARGS="all"
 
 # nvprof --kernels SwapDimension --metrics sm_efficiency python train.py
 
@@ -33,5 +32,5 @@ kernels=`cat $LIST`
 for kernel in ${kernels}; do
 result_file="${kernel}_perf.txt"
 echo "analyzing ${kernel}, results will be stored in ${result_file}"
-nvprof -f --kernels ${kernel} --metrics ${PERF_ARGS} --log-file ${result_file} python ${CODE} 1>/dev/null 2> /dev/null
+nvprof -f --kernels ${kernel} --metrics ${PERF_ARGS} --log-file ${result_file} $PYTHON ${CODE} 1>/dev/null 2> /dev/null
 done

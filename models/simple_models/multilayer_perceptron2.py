@@ -17,6 +17,7 @@ import tensorflow as tf
 import shutil
 import subprocess
 import time
+import sys
 LOG_FILE="monitor_log.txt"
 
 #run monitor program
@@ -29,8 +30,8 @@ batch_size = 100
 display_step = 1
 
 # Network Parameters
-n_hidden_1 = 256 # 1st layer number of features
-n_hidden_2 = 256 # 2nd layer number of features
+n_hidden_1 = sys.argv[1]  # 1st layer number of features
+n_hidden_2 = sys.argv[2]  # 2nd layer number of features
 n_input = 784 # MNIST data input (img shape: 28*28)
 n_classes = 10 # MNIST total classes (0-9 digits)
 

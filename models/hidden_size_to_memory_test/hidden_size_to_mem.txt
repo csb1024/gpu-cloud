@@ -1,0 +1,126 @@
+<<size 10>>
+
+ node_name: "Variable_1"
+      all_start_micros: 1488957111882101
+      op_end_rel_micros: 2
+      all_end_rel_micros: 19
+      memory {
+        allocator_name: "gpu_bfc"
+      }    
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 10
+            }    
+            dim {
+              size: 10
+            }    
+          }    
+          allocation_description {
+            requested_bytes: 400
+            allocated_bytes: 512
+            allocator_name: "gpu_bfc"
+            allocation_id: 42
+            has_single_reference: true 
+            ptr: 1108286147584
+          }    
+        }
+      }
+      timeline_label: "Variable_1 = VariableV2()"
+      scheduled_micros: 1488957111882099
+
+ node_name: "Variable_2"
+      all_start_micros: 1488957111882122
+      op_start_rel_micros: 1
+      op_end_rel_micros: 4
+      all_end_rel_micros: 6
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 10
+            }
+            dim {
+              size: 10
+            }
+          }
+          allocation_description {
+            requested_bytes: 400
+            allocated_bytes: 512
+            allocator_name: "gpu_bfc"
+            allocation_id: 43
+            has_single_reference: true
+            ptr: 1108286246656
+          }
+        }
+      }
+      timeline_label: "Variable_2 = VariableV2()"
+      scheduled_micros: 1488957111882119
+
+ node_name: "Variable_1/Adam"
+      all_start_micros: 1488957111882202
+      op_end_rel_micros: 2
+      all_end_rel_micros: 5
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 10
+            }
+            dim {
+              size: 10
+            }
+          }
+          allocation_description {
+            requested_bytes: 400
+            allocated_bytes: 512
+            allocator_name: "gpu_bfc"
+            allocation_id: 19
+            has_single_reference: true
+            ptr: 1108286243072
+          }
+        }
+      }
+      timeline_label: "Variable_1/Adam = VariableV2()"
+      scheduled_micros: 1488957111882200
+
+  node_name: "Variable_1/Adam_1"
+      all_start_micros: 1488957111882209
+      op_end_rel_micros: 2
+      all_end_rel_micros: 4
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 10
+            }
+            dim {
+              size: 10
+            }
+          }
+          allocation_description {
+            requested_bytes: 400
+            allocated_bytes: 512
+            allocator_name: "gpu_bfc"
+            allocation_id: 20
+            has_single_reference: true
+            ptr: 1108286243584
+          }
+        }
+      }
+      timeline_label: "Variable_1/Adam_1 = VariableV2()"
+      scheduled_micros: 1488957111882207

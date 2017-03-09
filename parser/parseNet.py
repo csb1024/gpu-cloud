@@ -45,7 +45,10 @@ def main():
     elif args.phase != "ALL":
         raise ValueError("Unknown phase: " + args.phase)
 #caffe.draw.draw_net_to_file(net, args.output_image_file, args.rankdir,phase)
-    print(text_format.MessageToString(net))
-
+#print(text_format.MessageToString(net))
+    output = open(args.output_text_file,"w")
+    output.write(text_format.MessageToString(net))
+    output.close()
+    
 if __name__ == '__main__':
     main()

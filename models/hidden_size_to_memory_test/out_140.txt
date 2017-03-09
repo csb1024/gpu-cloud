@@ -1,0 +1,7769 @@
+step_stats {
+  dev_stats {
+    device: "/job:localhost/replica:0/task:0/cpu:0"
+    node_stats {
+      node_name: "_SOURCE"
+      all_start_micros: 1488970761089468
+      op_start_rel_micros: 2
+      op_end_rel_micros: 2
+      all_end_rel_micros: 10
+      memory {
+        allocator_name: "cpu"
+      }
+      timeline_label: "_SOURCE = NoOp()"
+      scheduled_micros: 1488970761089452
+    }
+  }
+  dev_stats {
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    node_stats {
+      node_name: "_SOURCE"
+      all_start_micros: 1488970761089462
+      op_start_rel_micros: 7
+      op_end_rel_micros: 17
+      all_end_rel_micros: 23
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      timeline_label: "_SOURCE = NoOp()"
+      scheduled_micros: 1488970761089441
+    }
+    node_stats {
+      node_name: "Variable"
+      all_start_micros: 1488970761089542
+      op_end_rel_micros: 7
+      all_end_rel_micros: 18
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 784
+            }
+            dim {
+              size: 140
+            }
+          }
+          allocation_description {
+            requested_bytes: 439040
+            allocated_bytes: 512000
+            allocator_name: "gpu_bfc"
+            allocation_id: 43
+            has_single_reference: true
+            ptr: 1108293545472
+          }
+        }
+      }
+      timeline_label: "Variable = VariableV2()"
+      scheduled_micros: 1488970761089485
+    }
+    node_stats {
+      node_name: "Variable_1"
+      all_start_micros: 1488970761089562
+      op_end_rel_micros: 2
+      all_end_rel_micros: 4
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 140
+            }
+            dim {
+              size: 140
+            }
+          }
+          allocation_description {
+            requested_bytes: 78400
+            allocated_bytes: 78592
+            allocator_name: "gpu_bfc"
+            allocation_id: 44
+            has_single_reference: true
+            ptr: 1108294057472
+          }
+        }
+      }
+      timeline_label: "Variable_1 = VariableV2()"
+      scheduled_micros: 1488970761089560
+    }
+    node_stats {
+      node_name: "Variable_2"
+      all_start_micros: 1488970761089566
+      op_start_rel_micros: 1
+      op_end_rel_micros: 1
+      all_end_rel_micros: 3
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 140
+            }
+            dim {
+              size: 10
+            }
+          }
+          allocation_description {
+            requested_bytes: 5600
+            allocated_bytes: 5632
+            allocator_name: "gpu_bfc"
+            allocation_id: 45
+            has_single_reference: true
+            ptr: 1108292404992
+          }
+        }
+      }
+      timeline_label: "Variable_2 = VariableV2()"
+      scheduled_micros: 1488970761089566
+    }
+    node_stats {
+      node_name: "Variable_3"
+      all_start_micros: 1488970761089570
+      op_end_rel_micros: 1
+      all_end_rel_micros: 2
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 140
+            }
+          }
+          allocation_description {
+            requested_bytes: 560
+            allocated_bytes: 768
+            allocator_name: "gpu_bfc"
+            allocation_id: 46
+            has_single_reference: true
+            ptr: 1108293539840
+          }
+        }
+      }
+      timeline_label: "Variable_3 = VariableV2()"
+      scheduled_micros: 1488970761089569
+    }
+    node_stats {
+      node_name: "Variable_4"
+      all_start_micros: 1488970761089573
+      op_end_rel_micros: 1
+      all_end_rel_micros: 3
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 140
+            }
+          }
+          allocation_description {
+            requested_bytes: 560
+            allocated_bytes: 768
+            allocator_name: "gpu_bfc"
+            allocation_id: 47
+            has_single_reference: true
+            ptr: 1108292403200
+          }
+        }
+      }
+      timeline_label: "Variable_4 = VariableV2()"
+      scheduled_micros: 1488970761089572
+    }
+    node_stats {
+      node_name: "Variable_5"
+      all_start_micros: 1488970761089577
+      op_end_rel_micros: 2
+      all_end_rel_micros: 3
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 10
+            }
+          }
+          allocation_description {
+            requested_bytes: 40
+            allocated_bytes: 256
+            allocator_name: "gpu_bfc"
+            allocation_id: 48
+            has_single_reference: true
+            ptr: 1108292403968
+          }
+        }
+      }
+      timeline_label: "Variable_5 = VariableV2()"
+      scheduled_micros: 1488970761089576
+    }
+    node_stats {
+      node_name: "concat/values_0"
+      all_start_micros: 1488970761089582
+      op_end_rel_micros: 1
+      all_end_rel_micros: 3
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_INT32
+          shape {
+            dim {
+              size: 1
+            }
+          }
+          allocation_description {
+            requested_bytes: 4
+            allocated_bytes: 256
+            allocator_name: "cuda_host_bfc"
+            allocation_id: 15
+            ptr: 1108288210176
+          }
+        }
+      }
+      timeline_label: "concat/values_0 = Const()"
+      scheduled_micros: 1488970761089580
+    }
+    node_stats {
+      node_name: "concat/axis"
+      all_start_micros: 1488970761089586
+      op_start_rel_micros: 1
+      op_end_rel_micros: 2
+      all_end_rel_micros: 3
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_INT32
+          shape {
+          }
+          allocation_description {
+            requested_bytes: 4
+            allocated_bytes: 256
+            allocator_name: "cuda_host_bfc"
+            allocation_id: 16
+            ptr: 1108288210432
+          }
+        }
+      }
+      timeline_label: "concat/axis = Const()"
+      scheduled_micros: 1488970761089585
+    }
+    node_stats {
+      node_name: "Slice_2/begin"
+      all_start_micros: 1488970761089591
+      op_end_rel_micros: 1
+      all_end_rel_micros: 3
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_INT32
+          shape {
+            dim {
+              size: 1
+            }
+          }
+          allocation_description {
+            requested_bytes: 4
+            allocated_bytes: 256
+            allocator_name: "cuda_host_bfc"
+            allocation_id: 17
+            ptr: 1108288210688
+          }
+        }
+      }
+      timeline_label: "Slice_2/begin = Const()"
+      scheduled_micros: 1488970761089589
+    }
+    node_stats {
+      node_name: "gradients/Mean_grad/Shape_2"
+      all_start_micros: 1488970761089595
+      op_end_rel_micros: 1
+      all_end_rel_micros: 2
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_INT32
+          shape {
+            dim {
+            }
+          }
+        }
+      }
+      timeline_label: "gradients/Mean_grad/Shape_2 = Const()"
+      scheduled_micros: 1488970761089594
+    }
+    node_stats {
+      node_name: "gradients/Mean_grad/Maximum/y"
+      all_start_micros: 1488970761089599
+      op_end_rel_micros: 1
+      all_end_rel_micros: 3
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_INT32
+          shape {
+          }
+          allocation_description {
+            requested_bytes: 4
+            allocated_bytes: 256
+            allocator_name: "cuda_host_bfc"
+            allocation_id: 18
+            ptr: 1108288210944
+          }
+        }
+      }
+      timeline_label: "gradients/Mean_grad/Maximum/y = Const()"
+      scheduled_micros: 1488970761089597
+    }
+    node_stats {
+      node_name: "gradients/SoftmaxCrossEntropyWithLogits_grad/ExpandDims/dim"
+      all_start_micros: 1488970761089603
+      op_end_rel_micros: 1
+      all_end_rel_micros: 2
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_INT32
+          shape {
+          }
+          allocation_description {
+            requested_bytes: 4
+            allocated_bytes: 256
+            allocator_name: "cuda_host_bfc"
+            allocation_id: 19
+            ptr: 1108288211200
+          }
+        }
+      }
+      timeline_label: "gradients/SoftmaxCrossEntropyWithLogits_grad/ExpandDims/dim = Const()"
+      scheduled_micros: 1488970761089602
+    }
+    node_stats {
+      node_name: "gradients/add_grad/Shape_1"
+      all_start_micros: 1488970761089606
+      op_start_rel_micros: 1
+      op_end_rel_micros: 1
+      all_end_rel_micros: 3
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_INT32
+          shape {
+            dim {
+              size: 1
+            }
+          }
+          allocation_description {
+            requested_bytes: 4
+            allocated_bytes: 256
+            allocator_name: "cuda_host_bfc"
+            allocation_id: 20
+            ptr: 1108288211456
+          }
+        }
+      }
+      timeline_label: "gradients/add_grad/Shape_1 = Const()"
+      scheduled_micros: 1488970761089605
+    }
+    node_stats {
+      node_name: "gradients/Add_1_grad/Shape_1"
+      all_start_micros: 1488970761089610
+      op_end_rel_micros: 1
+      all_end_rel_micros: 3
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_INT32
+          shape {
+            dim {
+              size: 1
+            }
+          }
+          allocation_description {
+            requested_bytes: 4
+            allocated_bytes: 256
+            allocator_name: "cuda_host_bfc"
+            allocation_id: 21
+            ptr: 1108288211712
+          }
+        }
+      }
+      timeline_label: "gradients/Add_1_grad/Shape_1 = Const()"
+      scheduled_micros: 1488970761089609
+    }
+    node_stats {
+      node_name: "beta1_power"
+      all_start_micros: 1488970761089614
+      op_end_rel_micros: 2
+      all_end_rel_micros: 3
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+          }
+          allocation_description {
+            requested_bytes: 4
+            allocated_bytes: 256
+            allocator_name: "gpu_bfc"
+            allocation_id: 17
+            has_single_reference: true
+            ptr: 1108292489216
+          }
+        }
+      }
+      timeline_label: "beta1_power = VariableV2()"
+      scheduled_micros: 1488970761089613
+    }
+    node_stats {
+      node_name: "beta2_power"
+      all_start_micros: 1488970761089618
+      op_start_rel_micros: 1
+      op_end_rel_micros: 2
+      all_end_rel_micros: 3
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+          }
+          allocation_description {
+            requested_bytes: 4
+            allocated_bytes: 256
+            allocator_name: "gpu_bfc"
+            allocation_id: 18
+            has_single_reference: true
+            ptr: 1108292489472
+          }
+        }
+      }
+      timeline_label: "beta2_power = VariableV2()"
+      scheduled_micros: 1488970761089617
+    }
+    node_stats {
+      node_name: "Variable/Adam"
+      all_start_micros: 1488970761089622
+      op_start_rel_micros: 1
+      op_end_rel_micros: 3
+      all_end_rel_micros: 5
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 784
+            }
+            dim {
+              size: 140
+            }
+          }
+          allocation_description {
+            requested_bytes: 439040
+            allocated_bytes: 439040
+            allocator_name: "gpu_bfc"
+            allocation_id: 19
+            has_single_reference: true
+            ptr: 1108292489728
+          }
+        }
+      }
+      timeline_label: "Variable/Adam = VariableV2()"
+      scheduled_micros: 1488970761089621
+    }
+    node_stats {
+      node_name: "Variable/Adam_1"
+      all_start_micros: 1488970761089629
+      op_end_rel_micros: 2
+      all_end_rel_micros: 4
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 784
+            }
+            dim {
+              size: 140
+            }
+          }
+          allocation_description {
+            requested_bytes: 439040
+            allocated_bytes: 439040
+            allocator_name: "gpu_bfc"
+            allocation_id: 20
+            has_single_reference: true
+            ptr: 1108292928768
+          }
+        }
+      }
+      timeline_label: "Variable/Adam_1 = VariableV2()"
+      scheduled_micros: 1488970761089627
+    }
+    node_stats {
+      node_name: "Variable_1/Adam"
+      all_start_micros: 1488970761089634
+      op_end_rel_micros: 3
+      all_end_rel_micros: 5
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 140
+            }
+            dim {
+              size: 140
+            }
+          }
+          allocation_description {
+            requested_bytes: 78400
+            allocated_bytes: 78592
+            allocator_name: "gpu_bfc"
+            allocation_id: 21
+            has_single_reference: true
+            ptr: 1108293367808
+          }
+        }
+      }
+      timeline_label: "Variable_1/Adam = VariableV2()"
+      scheduled_micros: 1488970761089633
+    }
+    node_stats {
+      node_name: "Variable_1/Adam_1"
+      all_start_micros: 1488970761089640
+      op_end_rel_micros: 2
+      all_end_rel_micros: 4
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 140
+            }
+            dim {
+              size: 140
+            }
+          }
+          allocation_description {
+            requested_bytes: 78400
+            allocated_bytes: 78592
+            allocator_name: "gpu_bfc"
+            allocation_id: 22
+            has_single_reference: true
+            ptr: 1108293446400
+          }
+        }
+      }
+      timeline_label: "Variable_1/Adam_1 = VariableV2()"
+      scheduled_micros: 1488970761089639
+    }
+    node_stats {
+      node_name: "Variable_2/Adam"
+      all_start_micros: 1488970761089645
+      op_end_rel_micros: 2
+      all_end_rel_micros: 3
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 140
+            }
+            dim {
+              size: 10
+            }
+          }
+          allocation_description {
+            requested_bytes: 5600
+            allocated_bytes: 5632
+            allocator_name: "gpu_bfc"
+            allocation_id: 23
+            has_single_reference: true
+            ptr: 1108293524992
+          }
+        }
+      }
+      timeline_label: "Variable_2/Adam = VariableV2()"
+      scheduled_micros: 1488970761089644
+    }
+    node_stats {
+      node_name: "Variable_2/Adam_1"
+      all_start_micros: 1488970761089655
+      op_end_rel_micros: 2
+      all_end_rel_micros: 4
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 140
+            }
+            dim {
+              size: 10
+            }
+          }
+          allocation_description {
+            requested_bytes: 5600
+            allocated_bytes: 5632
+            allocator_name: "gpu_bfc"
+            allocation_id: 24
+            has_single_reference: true
+            ptr: 1108293530624
+          }
+        }
+      }
+      timeline_label: "Variable_2/Adam_1 = VariableV2()"
+      scheduled_micros: 1488970761089648
+    }
+    node_stats {
+      node_name: "Variable_3/Adam"
+      all_start_micros: 1488970761089660
+      op_end_rel_micros: 2
+      all_end_rel_micros: 3
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 140
+            }
+          }
+          allocation_description {
+            requested_bytes: 560
+            allocated_bytes: 768
+            allocator_name: "gpu_bfc"
+            allocation_id: 25
+            has_single_reference: true
+            ptr: 1108293536256
+          }
+        }
+      }
+      timeline_label: "Variable_3/Adam = VariableV2()"
+      scheduled_micros: 1488970761089659
+    }
+    node_stats {
+      node_name: "Variable_3/Adam_1"
+      all_start_micros: 1488970761089665
+      op_end_rel_micros: 2
+      all_end_rel_micros: 3
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 140
+            }
+          }
+          allocation_description {
+            requested_bytes: 560
+            allocated_bytes: 768
+            allocator_name: "gpu_bfc"
+            allocation_id: 26
+            has_single_reference: true
+            ptr: 1108293537024
+          }
+        }
+      }
+      timeline_label: "Variable_3/Adam_1 = VariableV2()"
+      scheduled_micros: 1488970761089663
+    }
+    node_stats {
+      node_name: "Variable_4/Adam"
+      all_start_micros: 1488970761089669
+      op_start_rel_micros: 1
+      op_end_rel_micros: 2
+      all_end_rel_micros: 3
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 140
+            }
+          }
+          allocation_description {
+            requested_bytes: 560
+            allocated_bytes: 768
+            allocator_name: "gpu_bfc"
+            allocation_id: 27
+            has_single_reference: true
+            ptr: 1108293537792
+          }
+        }
+      }
+      timeline_label: "Variable_4/Adam = VariableV2()"
+      scheduled_micros: 1488970761089668
+    }
+    node_stats {
+      node_name: "Variable_4/Adam_1"
+      all_start_micros: 1488970761089673
+      op_start_rel_micros: 1
+      op_end_rel_micros: 2
+      all_end_rel_micros: 4
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 140
+            }
+          }
+          allocation_description {
+            requested_bytes: 560
+            allocated_bytes: 768
+            allocator_name: "gpu_bfc"
+            allocation_id: 28
+            has_single_reference: true
+            ptr: 1108293538560
+          }
+        }
+      }
+      timeline_label: "Variable_4/Adam_1 = VariableV2()"
+      scheduled_micros: 1488970761089672
+    }
+    node_stats {
+      node_name: "Variable_5/Adam"
+      all_start_micros: 1488970761089678
+      op_start_rel_micros: 2
+      op_end_rel_micros: 3
+      all_end_rel_micros: 4
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 10
+            }
+          }
+          allocation_description {
+            requested_bytes: 40
+            allocated_bytes: 256
+            allocator_name: "gpu_bfc"
+            allocation_id: 29
+            has_single_reference: true
+            ptr: 1108293539328
+          }
+        }
+      }
+      timeline_label: "Variable_5/Adam = VariableV2()"
+      scheduled_micros: 1488970761089677
+    }
+    node_stats {
+      node_name: "Variable_5/Adam_1"
+      all_start_micros: 1488970761089683
+      op_end_rel_micros: 1
+      all_end_rel_micros: 1
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 10
+            }
+          }
+          allocation_description {
+            requested_bytes: 40
+            allocated_bytes: 256
+            allocator_name: "gpu_bfc"
+            allocation_id: 30
+            has_single_reference: true
+            ptr: 1108293539584
+          }
+        }
+      }
+      timeline_label: "Variable_5/Adam_1 = VariableV2()"
+      scheduled_micros: 1488970761089682
+    }
+    node_stats {
+      node_name: "Adam/learning_rate"
+      all_start_micros: 1488970761089685
+      op_start_rel_micros: 1
+      op_end_rel_micros: 2
+      all_end_rel_micros: 3
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+          }
+          allocation_description {
+            requested_bytes: 4
+            allocated_bytes: 256
+            allocator_name: "gpu_bfc"
+            allocation_id: 49
+            ptr: 1108292404224
+          }
+        }
+      }
+      timeline_label: "Adam/learning_rate = Const()"
+      scheduled_micros: 1488970761089684
+    }
+    node_stats {
+      node_name: "Adam/beta1"
+      all_start_micros: 1488970761089689
+      op_end_rel_micros: 1
+      all_end_rel_micros: 2
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+          }
+          allocation_description {
+            requested_bytes: 4
+            allocated_bytes: 256
+            allocator_name: "gpu_bfc"
+            allocation_id: 50
+            ptr: 1108292404480
+          }
+        }
+      }
+      timeline_label: "Adam/beta1 = Const()"
+      scheduled_micros: 1488970761089688
+    }
+    node_stats {
+      node_name: "Adam/beta2"
+      all_start_micros: 1488970761089692
+      op_end_rel_micros: 1
+      all_end_rel_micros: 2
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+          }
+          allocation_description {
+            requested_bytes: 4
+            allocated_bytes: 256
+            allocator_name: "gpu_bfc"
+            allocation_id: 51
+            ptr: 1108292404736
+          }
+        }
+      }
+      timeline_label: "Adam/beta2 = Const()"
+      scheduled_micros: 1488970761089691
+    }
+    node_stats {
+      node_name: "Adam/epsilon"
+      all_start_micros: 1488970761089695
+      op_start_rel_micros: 1
+      op_end_rel_micros: 2
+      all_end_rel_micros: 3
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+          }
+          allocation_description {
+            requested_bytes: 4
+            allocated_bytes: 256
+            allocator_name: "gpu_bfc"
+            allocation_id: 52
+            ptr: 1108293540608
+          }
+        }
+      }
+      timeline_label: "Adam/epsilon = Const()"
+      scheduled_micros: 1488970761089694
+    }
+    node_stats {
+      node_name: "Slice/begin/_1__cf__1"
+      all_start_micros: 1488970761089699
+      op_end_rel_micros: 1
+      all_end_rel_micros: 2
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_INT32
+          shape {
+            dim {
+              size: 1
+            }
+          }
+          allocation_description {
+            requested_bytes: 4
+            allocated_bytes: 256
+            allocator_name: "cuda_host_bfc"
+            allocation_id: 26
+            ptr: 1108288211968
+          }
+        }
+      }
+      timeline_label: "Slice/begin/_1__cf__1 = Const()"
+      scheduled_micros: 1488970761089698
+    }
+    node_stats {
+      node_name: "gradients/Mean_grad/Reshape/_3__cf__3"
+      all_start_micros: 1488970761089702
+      op_end_rel_micros: 1
+      all_end_rel_micros: 1
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 1
+            }
+          }
+          allocation_description {
+            requested_bytes: 4
+            allocated_bytes: 256
+            allocator_name: "gpu_bfc"
+            allocation_id: 53
+            ptr: 1108293540864
+          }
+        }
+      }
+      timeline_label: "gradients/Mean_grad/Reshape/_3__cf__3 = Const()"
+      scheduled_micros: 1488970761089701
+    }
+    node_stats {
+      node_name: "Variable/read"
+      all_start_micros: 1488970761089704
+      op_start_rel_micros: 1
+      op_end_rel_micros: 1
+      all_end_rel_micros: 2
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 784
+            }
+            dim {
+              size: 140
+            }
+          }
+          allocation_description {
+            requested_bytes: 439040
+            allocated_bytes: 512000
+            allocator_name: "gpu_bfc"
+            allocation_id: 43
+            ptr: 1108293545472
+          }
+        }
+      }
+      timeline_label: "Variable/read = Identity(Variable)"
+      scheduled_micros: 1488970761089703
+    }
+    node_stats {
+      node_name: "Variable_1/read"
+      all_start_micros: 1488970761089707
+      op_start_rel_micros: 1
+      op_end_rel_micros: 1
+      all_end_rel_micros: 4
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 140
+            }
+            dim {
+              size: 140
+            }
+          }
+          allocation_description {
+            requested_bytes: 78400
+            allocated_bytes: 78592
+            allocator_name: "gpu_bfc"
+            allocation_id: 44
+            ptr: 1108294057472
+          }
+        }
+      }
+      timeline_label: "Variable_1/read = Identity(Variable_1)"
+      scheduled_micros: 1488970761089706
+    }
+    node_stats {
+      node_name: "Variable_2/read"
+      all_start_micros: 1488970761089712
+      op_end_rel_micros: 1
+      all_end_rel_micros: 1
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 140
+            }
+            dim {
+              size: 10
+            }
+          }
+          allocation_description {
+            requested_bytes: 5600
+            allocated_bytes: 5632
+            allocator_name: "gpu_bfc"
+            allocation_id: 45
+            ptr: 1108292404992
+          }
+        }
+      }
+      timeline_label: "Variable_2/read = Identity(Variable_2)"
+      scheduled_micros: 1488970761089711
+    }
+    node_stats {
+      node_name: "Variable_3/read"
+      all_start_micros: 1488970761089715
+      op_end_rel_micros: 1
+      all_end_rel_micros: 2
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 140
+            }
+          }
+          allocation_description {
+            requested_bytes: 560
+            allocated_bytes: 768
+            allocator_name: "gpu_bfc"
+            allocation_id: 46
+            ptr: 1108293539840
+          }
+        }
+      }
+      timeline_label: "Variable_3/read = Identity(Variable_3)"
+      scheduled_micros: 1488970761089713
+    }
+    node_stats {
+      node_name: "Variable_4/read"
+      all_start_micros: 1488970761089718
+      op_end_rel_micros: 1
+      all_end_rel_micros: 2
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 140
+            }
+          }
+          allocation_description {
+            requested_bytes: 560
+            allocated_bytes: 768
+            allocator_name: "gpu_bfc"
+            allocation_id: 47
+            ptr: 1108292403200
+          }
+        }
+      }
+      timeline_label: "Variable_4/read = Identity(Variable_4)"
+      scheduled_micros: 1488970761089717
+    }
+    node_stats {
+      node_name: "Variable_5/read"
+      all_start_micros: 1488970761089721
+      op_start_rel_micros: 1
+      op_end_rel_micros: 1
+      all_end_rel_micros: 2
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 10
+            }
+          }
+          allocation_description {
+            requested_bytes: 40
+            allocated_bytes: 256
+            allocator_name: "gpu_bfc"
+            allocation_id: 48
+            ptr: 1108292403968
+          }
+        }
+      }
+      timeline_label: "Variable_5/read = Identity(Variable_5)"
+      scheduled_micros: 1488970761089720
+    }
+    node_stats {
+      node_name: "beta1_power/read"
+      all_start_micros: 1488970761089740
+      op_start_rel_micros: 1
+      op_end_rel_micros: 2
+      all_end_rel_micros: 4
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+          }
+          allocation_description {
+            requested_bytes: 4
+            allocated_bytes: 256
+            allocator_name: "gpu_bfc"
+            allocation_id: 17
+            ptr: 1108292489216
+          }
+        }
+      }
+      timeline_label: "beta1_power/read = Identity(beta1_power)"
+      scheduled_micros: 1488970761089733
+    }
+    node_stats {
+      node_name: "beta2_power/read"
+      all_start_micros: 1488970761089746
+      op_end_rel_micros: 1
+      all_end_rel_micros: 2
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+          }
+          allocation_description {
+            requested_bytes: 4
+            allocated_bytes: 256
+            allocator_name: "gpu_bfc"
+            allocation_id: 18
+            ptr: 1108292489472
+          }
+        }
+      }
+      timeline_label: "beta2_power/read = Identity(beta2_power)"
+      scheduled_micros: 1488970761089744
+    }
+    node_stats {
+      node_name: "Shape_2"
+      all_start_micros: 1488970761089835
+      op_end_rel_micros: 11
+      all_end_rel_micros: 13
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      memory {
+        allocator_name: "cpu_pool"
+        total_bytes: 8
+      }
+      output {
+        tensor_description {
+          dtype: DT_INT32
+          shape {
+            dim {
+              size: 2
+            }
+          }
+          allocation_description {
+            requested_bytes: 8
+            allocator_name: "cpu_pool"
+            ptr: 139777779892352
+          }
+        }
+      }
+      timeline_label: "Shape_2 = Shape(_recv_Placeholder_1_0/_5)"
+      scheduled_micros: 1488970761089833
+    }
+    node_stats {
+      node_name: "Slice_1"
+      all_start_micros: 1488970761089850
+      op_start_rel_micros: 1
+      op_end_rel_micros: 13
+      all_end_rel_micros: 16
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      memory {
+        allocator_name: "cpu_pool"
+        total_bytes: 4
+      }
+      output {
+        tensor_description {
+          dtype: DT_INT32
+          shape {
+            dim {
+              size: 1
+            }
+          }
+          allocation_description {
+            requested_bytes: 4
+            allocator_name: "cpu_pool"
+            ptr: 139777778908672
+          }
+        }
+      }
+      timeline_label: "Slice_1 = Slice(Shape_2, Slice_1/begin, Slice_1/size)"
+      scheduled_micros: 1488970761089848
+    }
+    node_stats {
+      node_name: "concat_1"
+      all_start_micros: 1488970761089868
+      op_end_rel_micros: 19
+      all_end_rel_micros: 21
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      memory {
+        allocator_name: "cpu_pool"
+        total_bytes: 8
+      }
+      output {
+        tensor_description {
+          dtype: DT_INT32
+          shape {
+            dim {
+              size: 2
+            }
+          }
+          allocation_description {
+            requested_bytes: 8
+            allocator_name: "cpu_pool"
+            ptr: 139777779892352
+          }
+        }
+      }
+      timeline_label: "concat_1 = ConcatV2(concat_1/values_0, Slice_1, concat_1/axis)"
+      scheduled_micros: 1488970761089866
+    }
+    node_stats {
+      node_name: "Reshape_1"
+      all_start_micros: 1488970761089891
+      op_end_rel_micros: 2
+      all_end_rel_micros: 4
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 100
+            }
+            dim {
+              size: 10
+            }
+          }
+          allocation_description {
+            requested_bytes: 4000
+            allocated_bytes: 4352
+            allocator_name: "gpu_bfc"
+            allocation_id: 54
+            ptr: 1108293541120
+          }
+        }
+      }
+      timeline_label: "Reshape_1 = Reshape(_recv_Placeholder_1_0/_5, concat_1)"
+      scheduled_micros: 1488970761089889
+    }
+    node_stats {
+      node_name: "gradients/Mean_grad/Prod_1"
+      all_start_micros: 1488970761089842
+      op_start_rel_micros: 1
+      op_end_rel_micros: 67
+      all_end_rel_micros: 69
+      memory {
+        allocator_name: "gpu_bfc"
+        total_bytes: 512
+        peak_bytes: 512
+      }
+      output {
+        tensor_description {
+          dtype: DT_INT32
+          shape {
+          }
+          allocation_description {
+            requested_bytes: 4
+            allocated_bytes: 256
+            allocator_name: "gpu_bfc"
+            allocation_id: 58
+            has_single_reference: true
+            ptr: 1108286638592
+          }
+        }
+      }
+      timeline_label: "gradients/Mean_grad/Prod_1 = Prod(gradients/Mean_grad/Shape_2/_1, gradients/Mean_grad/Const_1)"
+      scheduled_micros: 1488970761089841
+    }
+    node_stats {
+      node_name: "gradients/Mean_grad/Maximum"
+      all_start_micros: 1488970761089977
+      op_start_rel_micros: 1
+      op_end_rel_micros: 14
+      all_end_rel_micros: 18
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      memory {
+        allocator_name: "cpu_pool"
+        total_bytes: 4
+      }
+      output {
+        tensor_description {
+          dtype: DT_INT32
+          shape {
+          }
+          allocation_description {
+            requested_bytes: 4
+            allocator_name: "cpu_pool"
+            ptr: 139777778908672
+          }
+        }
+      }
+      timeline_label: "gradients/Mean_grad/Maximum = Maximum(gradients/Mean_grad/Prod_1/_3, gradients/Mean_grad/Maximum/y)"
+      scheduled_micros: 1488970761089976
+    }
+    node_stats {
+      node_name: "MatMul"
+      all_start_micros: 1488970761089826
+      op_start_rel_micros: 1
+      op_end_rel_micros: 146542
+      all_end_rel_micros: 146561
+      memory {
+        allocator_name: "gpu_bfc"
+        total_bytes: 78592
+        peak_bytes: 78592
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 100
+            }
+            dim {
+              size: 140
+            }
+          }
+          allocation_description {
+            requested_bytes: 56000
+            allocated_bytes: 78592
+            allocator_name: "gpu_bfc"
+            allocation_id: 56
+            has_single_reference: true
+            ptr: 1108292410624
+          }
+        }
+      }
+      timeline_label: "MatMul = MatMul(_recv_Placeholder_0/_7, Variable/read)"
+      scheduled_micros: 1488970761089824
+    }
+    node_stats {
+      node_name: "gradients/Add_grad/Shape"
+      all_start_micros: 1488970761236397
+      op_start_rel_micros: 3
+      op_end_rel_micros: 15
+      all_end_rel_micros: 17
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      memory {
+        allocator_name: "cpu_pool"
+        total_bytes: 8
+      }
+      output {
+        tensor_description {
+          dtype: DT_INT32
+          shape {
+            dim {
+              size: 2
+            }
+          }
+          allocation_description {
+            requested_bytes: 8
+            allocator_name: "cpu_pool"
+            ptr: 139777779892352
+          }
+        }
+      }
+      timeline_label: "gradients/Add_grad/Shape = Shape(MatMul)"
+      scheduled_micros: 1488970761236387
+    }
+    node_stats {
+      node_name: "Add"
+      all_start_micros: 1488970761236416
+      op_end_rel_micros: 34
+      all_end_rel_micros: 38
+      memory {
+        allocator_name: "gpu_bfc"
+        total_bytes: 56064
+        peak_bytes: 56064
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 100
+            }
+            dim {
+              size: 140
+            }
+          }
+          allocation_description {
+            requested_bytes: 56000
+            allocated_bytes: 56064
+            allocator_name: "gpu_bfc"
+            allocation_id: 59
+            has_single_reference: true
+            ptr: 1108286638336
+          }
+        }
+      }
+      timeline_label: "Add = Add(MatMul, Variable_3/read)"
+      scheduled_micros: 1488970761236414
+    }
+    node_stats {
+      node_name: "gradients/Add_grad/BroadcastGradientArgs"
+      all_start_micros: 1488970761236456
+      op_start_rel_micros: 1
+      op_end_rel_micros: 6
+      all_end_rel_micros: 8
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      memory {
+        allocator_name: "cpu_pool"
+        total_bytes: 4
+      }
+      output {
+        tensor_description {
+          dtype: DT_INT32
+          shape {
+            dim {
+            }
+          }
+        }
+      }
+      output {
+        slot: 1
+        tensor_description {
+          dtype: DT_INT32
+          shape {
+            dim {
+              size: 1
+            }
+          }
+          allocation_description {
+            requested_bytes: 4
+            allocator_name: "cpu_pool"
+            ptr: 139778032930496
+          }
+        }
+      }
+      timeline_label: "gradients/Add_grad/BroadcastGradientArgs = BroadcastGradientArgs(gradients/Add_grad/Shape, gradients/Add_grad/Shape_1)"
+      scheduled_micros: 1488970761236454
+    }
+    node_stats {
+      node_name: "Relu"
+      all_start_micros: 1488970761236465
+      op_end_rel_micros: 17
+      all_end_rel_micros: 21
+      memory {
+        allocator_name: "gpu_bfc"
+        total_bytes: 78592
+        peak_bytes: 78592
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 100
+            }
+            dim {
+              size: 140
+            }
+          }
+          allocation_description {
+            requested_bytes: 56000
+            allocated_bytes: 78592
+            allocator_name: "gpu_bfc"
+            allocation_id: 60
+            has_single_reference: true
+            ptr: 1108292410624
+          }
+        }
+      }
+      timeline_label: "Relu = Relu(Add)"
+      scheduled_micros: 1488970761236464
+    }
+    node_stats {
+      node_name: "MatMul_1"
+      all_start_micros: 1488970761236488
+      op_end_rel_micros: 22
+      all_end_rel_micros: 24
+      memory {
+        allocator_name: "gpu_bfc"
+        total_bytes: 56064
+        peak_bytes: 56064
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 100
+            }
+            dim {
+              size: 140
+            }
+          }
+          allocation_description {
+            requested_bytes: 56000
+            allocated_bytes: 56064
+            allocator_name: "gpu_bfc"
+            allocation_id: 61
+            has_single_reference: true
+            ptr: 1108286638336
+          }
+        }
+      }
+      timeline_label: "MatMul_1 = MatMul(Relu, Variable_1/read)"
+      scheduled_micros: 1488970761236486
+    }
+    node_stats {
+      node_name: "gradients/Add_1_grad/Shape"
+      all_start_micros: 1488970761236514
+      op_end_rel_micros: 2
+      all_end_rel_micros: 3
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      memory {
+        allocator_name: "cpu_pool"
+        total_bytes: 8
+      }
+      output {
+        tensor_description {
+          dtype: DT_INT32
+          shape {
+            dim {
+              size: 2
+            }
+          }
+          allocation_description {
+            requested_bytes: 8
+            allocator_name: "cpu_pool"
+            ptr: 139777357749856
+          }
+        }
+      }
+      timeline_label: "gradients/Add_1_grad/Shape = Shape(MatMul_1)"
+      scheduled_micros: 1488970761236512
+    }
+    node_stats {
+      node_name: "Add_1"
+      all_start_micros: 1488970761236518
+      op_end_rel_micros: 12
+      all_end_rel_micros: 14
+      memory {
+        allocator_name: "gpu_bfc"
+        total_bytes: 56064
+        peak_bytes: 56064
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 100
+            }
+            dim {
+              size: 140
+            }
+          }
+          allocation_description {
+            requested_bytes: 56000
+            allocated_bytes: 56064
+            allocator_name: "gpu_bfc"
+            allocation_id: 62
+            has_single_reference: true
+            ptr: 1108286694400
+          }
+        }
+      }
+      timeline_label: "Add_1 = Add(MatMul_1, Variable_4/read)"
+      scheduled_micros: 1488970761236517
+    }
+    node_stats {
+      node_name: "gradients/Add_1_grad/BroadcastGradientArgs"
+      all_start_micros: 1488970761236533
+      op_start_rel_micros: 1
+      op_end_rel_micros: 3
+      all_end_rel_micros: 4
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      memory {
+        allocator_name: "cpu_pool"
+        total_bytes: 4
+      }
+      output {
+        tensor_description {
+          dtype: DT_INT32
+          shape {
+            dim {
+            }
+          }
+        }
+      }
+      output {
+        slot: 1
+        tensor_description {
+          dtype: DT_INT32
+          shape {
+            dim {
+              size: 1
+            }
+          }
+          allocation_description {
+            requested_bytes: 4
+            allocator_name: "cpu_pool"
+            ptr: 139777357748928
+          }
+        }
+      }
+      timeline_label: "gradients/Add_1_grad/BroadcastGradientArgs = BroadcastGradientArgs(gradients/Add_1_grad/Shape, gradients/Add_1_grad/Shape_1)"
+      scheduled_micros: 1488970761236532
+    }
+    node_stats {
+      node_name: "Relu_1"
+      all_start_micros: 1488970761236538
+      op_start_rel_micros: 1
+      op_end_rel_micros: 10
+      all_end_rel_micros: 13
+      memory {
+        allocator_name: "gpu_bfc"
+        total_bytes: 56064
+        peak_bytes: 56064
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 100
+            }
+            dim {
+              size: 140
+            }
+          }
+          allocation_description {
+            requested_bytes: 56000
+            allocated_bytes: 56064
+            allocator_name: "gpu_bfc"
+            allocation_id: 63
+            has_single_reference: true
+            ptr: 1108286638336
+          }
+        }
+      }
+      timeline_label: "Relu_1 = Relu(Add_1)"
+      scheduled_micros: 1488970761236537
+    }
+    node_stats {
+      node_name: "MatMul_2"
+      all_start_micros: 1488970761236552
+      op_start_rel_micros: 1
+      op_end_rel_micros: 19
+      all_end_rel_micros: 20
+      memory {
+        allocator_name: "gpu_bfc"
+        total_bytes: 4096
+        peak_bytes: 4096
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 100
+            }
+            dim {
+              size: 10
+            }
+          }
+          allocation_description {
+            requested_bytes: 4000
+            allocated_bytes: 4096
+            allocator_name: "gpu_bfc"
+            allocation_id: 64
+            has_single_reference: true
+            ptr: 1108286694400
+          }
+        }
+      }
+      timeline_label: "MatMul_2 = MatMul(Relu_1, Variable_2/read)"
+      scheduled_micros: 1488970761236551
+    }
+    node_stats {
+      node_name: "gradients/add_grad/Shape"
+      all_start_micros: 1488970761236574
+      op_end_rel_micros: 2
+      all_end_rel_micros: 3
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      memory {
+        allocator_name: "cpu_pool"
+        total_bytes: 8
+      }
+      output {
+        tensor_description {
+          dtype: DT_INT32
+          shape {
+            dim {
+              size: 2
+            }
+          }
+          allocation_description {
+            requested_bytes: 8
+            allocator_name: "cpu_pool"
+            ptr: 139777357755616
+          }
+        }
+      }
+      timeline_label: "gradients/add_grad/Shape = Shape(MatMul_2)"
+      scheduled_micros: 1488970761236572
+    }
+    node_stats {
+      node_name: "add"
+      all_start_micros: 1488970761236578
+      op_start_rel_micros: 1
+      op_end_rel_micros: 11
+      all_end_rel_micros: 13
+      memory {
+        allocator_name: "gpu_bfc"
+        total_bytes: 4096
+        peak_bytes: 4096
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 100
+            }
+            dim {
+              size: 10
+            }
+          }
+          allocation_description {
+            requested_bytes: 4000
+            allocated_bytes: 4096
+            allocator_name: "gpu_bfc"
+            allocation_id: 65
+            has_single_reference: true
+            ptr: 1108286698496
+          }
+        }
+      }
+      timeline_label: "add = Add(MatMul_2, Variable_5/read)"
+      scheduled_micros: 1488970761236577
+    }
+    node_stats {
+      node_name: "gradients/add_grad/BroadcastGradientArgs"
+      all_start_micros: 1488970761236593
+      op_end_rel_micros: 2
+      all_end_rel_micros: 4
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      memory {
+        allocator_name: "cpu_pool"
+        total_bytes: 4
+      }
+      output {
+        tensor_description {
+          dtype: DT_INT32
+          shape {
+            dim {
+            }
+          }
+        }
+      }
+      output {
+        slot: 1
+        tensor_description {
+          dtype: DT_INT32
+          shape {
+            dim {
+              size: 1
+            }
+          }
+          allocation_description {
+            requested_bytes: 4
+            allocator_name: "cpu_pool"
+            ptr: 139777357754752
+          }
+        }
+      }
+      timeline_label: "gradients/add_grad/BroadcastGradientArgs = BroadcastGradientArgs(gradients/add_grad/Shape, gradients/add_grad/Shape_1)"
+      scheduled_micros: 1488970761236591
+    }
+    node_stats {
+      node_name: "Shape"
+      all_start_micros: 1488970761236598
+      op_end_rel_micros: 1
+      all_end_rel_micros: 2
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      memory {
+        allocator_name: "cpu_pool"
+        total_bytes: 8
+      }
+      output {
+        tensor_description {
+          dtype: DT_INT32
+          shape {
+            dim {
+              size: 2
+            }
+          }
+          allocation_description {
+            requested_bytes: 8
+            allocator_name: "cpu_pool"
+            ptr: 139777357759360
+          }
+        }
+      }
+      timeline_label: "Shape = Shape(add)"
+      scheduled_micros: 1488970761236597
+    }
+    node_stats {
+      node_name: "Slice"
+      all_start_micros: 1488970761236601
+      op_start_rel_micros: 1
+      op_end_rel_micros: 6
+      all_end_rel_micros: 7
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      memory {
+        allocator_name: "cpu_pool"
+        total_bytes: 4
+      }
+      output {
+        tensor_description {
+          dtype: DT_INT32
+          shape {
+            dim {
+              size: 1
+            }
+          }
+          allocation_description {
+            requested_bytes: 4
+            allocator_name: "cpu_pool"
+            ptr: 139777357761184
+          }
+        }
+      }
+      timeline_label: "Slice = Slice(Shape_1, Slice/begin, Slice/size)"
+      scheduled_micros: 1488970761236600
+    }
+    node_stats {
+      node_name: "Slice_2"
+      all_start_micros: 1488970761236612
+      op_end_rel_micros: 2
+      all_end_rel_micros: 3
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      memory {
+        allocator_name: "cpu_pool"
+        total_bytes: 4
+      }
+      output {
+        tensor_description {
+          dtype: DT_INT32
+          shape {
+            dim {
+              size: 1
+            }
+          }
+          allocation_description {
+            requested_bytes: 4
+            allocator_name: "cpu_pool"
+            ptr: 139778033017632
+          }
+        }
+      }
+      timeline_label: "Slice_2 = Slice(Shape, Slice_2/begin, Slice_2/size)"
+      scheduled_micros: 1488970761236608
+    }
+    node_stats {
+      node_name: "concat"
+      all_start_micros: 1488970761236616
+      op_end_rel_micros: 8
+      all_end_rel_micros: 10
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      memory {
+        allocator_name: "cpu_pool"
+        total_bytes: 8
+      }
+      output {
+        tensor_description {
+          dtype: DT_INT32
+          shape {
+            dim {
+              size: 2
+            }
+          }
+          allocation_description {
+            requested_bytes: 8
+            allocator_name: "cpu_pool"
+            ptr: 139778033018688
+          }
+        }
+      }
+      timeline_label: "concat = ConcatV2(concat/values_0, Slice, concat/axis)"
+      scheduled_micros: 1488970761236615
+    }
+    node_stats {
+      node_name: "Reshape"
+      all_start_micros: 1488970761236627
+      op_end_rel_micros: 2
+      all_end_rel_micros: 3
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 100
+            }
+            dim {
+              size: 10
+            }
+          }
+          allocation_description {
+            requested_bytes: 4000
+            allocated_bytes: 4096
+            allocator_name: "gpu_bfc"
+            allocation_id: 65
+            ptr: 1108286698496
+          }
+        }
+      }
+      timeline_label: "Reshape = Reshape(add, concat)"
+      scheduled_micros: 1488970761236625
+    }
+    node_stats {
+      node_name: "SoftmaxCrossEntropyWithLogits"
+      all_start_micros: 1488970761236632
+      op_end_rel_micros: 121
+      all_end_rel_micros: 125
+      memory {
+        allocator_name: "gpu_bfc"
+        total_bytes: 9728
+        peak_bytes: 9728
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 100
+            }
+          }
+          allocation_description {
+            requested_bytes: 400
+            allocated_bytes: 512
+            allocator_name: "gpu_bfc"
+            allocation_id: 67
+            has_single_reference: true
+            ptr: 1108286694912
+          }
+        }
+      }
+      output {
+        slot: 1
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 100
+            }
+            dim {
+              size: 10
+            }
+          }
+          allocation_description {
+            requested_bytes: 4000
+            allocated_bytes: 4096
+            allocator_name: "gpu_bfc"
+            allocation_id: 68
+            has_single_reference: true
+            ptr: 1108286702592
+          }
+        }
+      }
+      timeline_label: "SoftmaxCrossEntropyWithLogits = SoftmaxCrossEntropyWithLogits(Reshape, Reshape_1)"
+      scheduled_micros: 1488970761236630
+    }
+    node_stats {
+      node_name: "gradients/Reshape_2_grad/Shape"
+      all_start_micros: 1488970761236759
+      op_start_rel_micros: 1
+      op_end_rel_micros: 3
+      all_end_rel_micros: 5
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      memory {
+        allocator_name: "cpu_pool"
+        total_bytes: 4
+      }
+      output {
+        tensor_description {
+          dtype: DT_INT32
+          shape {
+            dim {
+              size: 1
+            }
+          }
+          allocation_description {
+            requested_bytes: 4
+            allocator_name: "cpu_pool"
+            ptr: 139777357761184
+          }
+        }
+      }
+      timeline_label: "gradients/Reshape_2_grad/Shape = Shape(SoftmaxCrossEntropyWithLogits)"
+      scheduled_micros: 1488970761236757
+    }
+    node_stats {
+      node_name: "gradients/SoftmaxCrossEntropyWithLogits_grad/PreventGradient"
+      all_start_micros: 1488970761236765
+      op_end_rel_micros: 2
+      all_end_rel_micros: 3
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 100
+            }
+            dim {
+              size: 10
+            }
+          }
+          allocation_description {
+            requested_bytes: 4000
+            allocated_bytes: 4096
+            allocator_name: "gpu_bfc"
+            allocation_id: 68
+            ptr: 1108286702592
+          }
+        }
+      }
+      timeline_label: "gradients/SoftmaxCrossEntropyWithLogits_grad/PreventGradient = PreventGradient(SoftmaxCrossEntropyWithLogits:1)"
+      scheduled_micros: 1488970761236764
+    }
+    node_stats {
+      node_name: "Reshape_2"
+      all_start_micros: 1488970761236769
+      op_end_rel_micros: 1
+      all_end_rel_micros: 2
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 100
+            }
+          }
+          allocation_description {
+            requested_bytes: 400
+            allocated_bytes: 512
+            allocator_name: "gpu_bfc"
+            allocation_id: 67
+            ptr: 1108286694912
+          }
+        }
+      }
+      timeline_label: "Reshape_2 = Reshape(SoftmaxCrossEntropyWithLogits, Slice_2)"
+      scheduled_micros: 1488970761236768
+    }
+    node_stats {
+      node_name: "gradients/Mean_grad/Shape"
+      all_start_micros: 1488970761236773
+      op_start_rel_micros: 1
+      op_end_rel_micros: 9
+      all_end_rel_micros: 11
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      memory {
+        allocator_name: "cuda_host_bfc"
+        total_bytes: 256
+        peak_bytes: 256
+      }
+      output {
+        tensor_description {
+          dtype: DT_INT32
+          shape {
+            dim {
+              size: 1
+            }
+          }
+          allocation_description {
+            requested_bytes: 4
+            allocated_bytes: 256
+            allocator_name: "cuda_host_bfc"
+            allocation_id: 29
+            has_single_reference: true
+            ptr: 1108288212224
+          }
+        }
+      }
+      timeline_label: "gradients/Mean_grad/Shape = Shape(Reshape_2)"
+      scheduled_micros: 1488970761236771
+    }
+    node_stats {
+      node_name: "Mean"
+      all_start_micros: 1488970761236786
+      op_start_rel_micros: 1
+      op_end_rel_micros: 25
+      all_end_rel_micros: 27
+      memory {
+        allocator_name: "gpu_bfc"
+        total_bytes: 512
+        peak_bytes: 512
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+          }
+          allocation_description {
+            requested_bytes: 4
+            allocated_bytes: 256
+            allocator_name: "gpu_bfc"
+            allocation_id: 72
+            has_single_reference: true
+            ptr: 1108286694656
+          }
+        }
+      }
+      timeline_label: "Mean = Mean(Reshape_2, Const)"
+      scheduled_micros: 1488970761236784
+    }
+    node_stats {
+      node_name: "gradients/Mean_grad/Tile"
+      all_start_micros: 1488970761236835
+      op_start_rel_micros: 1
+      op_end_rel_micros: 29
+      all_end_rel_micros: 31
+      memory {
+        allocator_name: "gpu_bfc"
+        total_bytes: 512
+        peak_bytes: 512
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 100
+            }
+          }
+          allocation_description {
+            requested_bytes: 400
+            allocated_bytes: 512
+            allocator_name: "gpu_bfc"
+            allocation_id: 73
+            has_single_reference: true
+            ptr: 1108293541120
+          }
+        }
+      }
+      timeline_label: "gradients/Mean_grad/Tile = Tile(gradients/Mean_grad/Reshape, gradients/Mean_grad/Shape)"
+      scheduled_micros: 1488970761236824
+    }
+    node_stats {
+      node_name: "gradients/Mean_grad/Prod"
+      all_start_micros: 1488970761236949
+      op_start_rel_micros: 1
+      op_end_rel_micros: 7
+      all_end_rel_micros: 11
+      memory {
+        allocator_name: "gpu_bfc"
+        total_bytes: 256
+        peak_bytes: 256
+      }
+      output {
+        tensor_description {
+          dtype: DT_INT32
+          shape {
+          }
+          allocation_description {
+            requested_bytes: 4
+            allocated_bytes: 256
+            allocator_name: "gpu_bfc"
+            allocation_id: 74
+            ptr: 1108286694400
+          }
+        }
+      }
+      timeline_label: "gradients/Mean_grad/Prod = Prod(gradients/Mean_grad/Shape_1/_9, gradients/Mean_grad/Const)"
+      scheduled_micros: 1488970761236947
+    }
+    node_stats {
+      node_name: "gradients/Mean_grad/floordiv"
+      all_start_micros: 1488970761237012
+      op_start_rel_micros: 2
+      op_end_rel_micros: 16
+      all_end_rel_micros: 20
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      memory {
+        allocator_name: "cuda_host_bfc"
+        total_bytes: 256
+        peak_bytes: 256
+      }
+      output {
+        tensor_description {
+          dtype: DT_INT32
+          shape {
+          }
+          allocation_description {
+            requested_bytes: 4
+            allocated_bytes: 256
+            allocator_name: "cuda_host_bfc"
+            allocation_id: 32
+            has_single_reference: true
+            ptr: 1108288212736
+          }
+        }
+      }
+      timeline_label: "gradients/Mean_grad/floordiv = FloorDiv(gradients/Mean_grad/Prod/_11, gradients/Mean_grad/Maximum)"
+      scheduled_micros: 1488970761237011
+    }
+    node_stats {
+      node_name: "gradients/Mean_grad/Cast"
+      all_start_micros: 1488970761237075
+      op_start_rel_micros: 1
+      op_end_rel_micros: 29
+      all_end_rel_micros: 32
+      memory {
+        allocator_name: "gpu_bfc"
+        total_bytes: 256
+        peak_bytes: 256
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+          }
+          allocation_description {
+            requested_bytes: 4
+            allocated_bytes: 256
+            allocator_name: "gpu_bfc"
+            allocation_id: 77
+            has_single_reference: true
+            ptr: 1108293541888
+          }
+        }
+      }
+      timeline_label: "gradients/Mean_grad/Cast = Cast(gradients/Mean_grad/floordiv/_13)"
+      scheduled_micros: 1488970761237074
+    }
+    node_stats {
+      node_name: "gradients/Mean_grad/truediv"
+      all_start_micros: 1488970761237109
+      op_start_rel_micros: 1
+      op_end_rel_micros: 25
+      all_end_rel_micros: 29
+      memory {
+        allocator_name: "gpu_bfc"
+        total_bytes: 512
+        peak_bytes: 512
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 100
+            }
+          }
+          allocation_description {
+            requested_bytes: 400
+            allocated_bytes: 512
+            allocator_name: "gpu_bfc"
+            allocation_id: 78
+            has_single_reference: true
+            ptr: 1108293542144
+          }
+        }
+      }
+      timeline_label: "gradients/Mean_grad/truediv = RealDiv(gradients/Mean_grad/Tile, gradients/Mean_grad/Cast)"
+      scheduled_micros: 1488970761237107
+    }
+    node_stats {
+      node_name: "gradients/Reshape_2_grad/Reshape"
+      all_start_micros: 1488970761237140
+      op_start_rel_micros: 1
+      op_end_rel_micros: 2
+      all_end_rel_micros: 4
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 100
+            }
+          }
+          allocation_description {
+            requested_bytes: 400
+            allocated_bytes: 512
+            allocator_name: "gpu_bfc"
+            allocation_id: 78
+            ptr: 1108293542144
+          }
+        }
+      }
+      timeline_label: "gradients/Reshape_2_grad/Reshape = Reshape(gradients/Mean_grad/truediv, gradients/Reshape_2_grad/Shape)"
+      scheduled_micros: 1488970761237138
+    }
+    node_stats {
+      node_name: "gradients/SoftmaxCrossEntropyWithLogits_grad/ExpandDims"
+      all_start_micros: 1488970761237149
+      op_start_rel_micros: 1
+      op_end_rel_micros: 3
+      all_end_rel_micros: 5
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 100
+            }
+            dim {
+              size: 1
+            }
+          }
+          allocation_description {
+            requested_bytes: 400
+            allocated_bytes: 512
+            allocator_name: "gpu_bfc"
+            allocation_id: 78
+            ptr: 1108293542144
+          }
+        }
+      }
+      timeline_label: "gradients/SoftmaxCrossEntropyWithLogits_grad/ExpandDims = ExpandDims(gradients/Reshape_2_grad/Reshape, gradients/SoftmaxCrossEntropyWithLogits_grad/ExpandDims/dim)"
+      scheduled_micros: 1488970761237144
+    }
+    node_stats {
+      node_name: "gradients/SoftmaxCrossEntropyWithLogits_grad/mul"
+      all_start_micros: 1488970761237156
+      op_end_rel_micros: 22
+      all_end_rel_micros: 26
+      memory {
+        allocator_name: "gpu_bfc"
+        total_bytes: 4096
+        peak_bytes: 4096
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 100
+            }
+            dim {
+              size: 10
+            }
+          }
+          allocation_description {
+            requested_bytes: 4000
+            allocated_bytes: 4096
+            allocator_name: "gpu_bfc"
+            allocation_id: 79
+            has_single_reference: true
+            ptr: 1108286694400
+          }
+        }
+      }
+      timeline_label: "gradients/SoftmaxCrossEntropyWithLogits_grad/mul = Mul(gradients/SoftmaxCrossEntropyWithLogits_grad/ExpandDims, gradients/SoftmaxCrossEntropyWithLogits_grad/PreventGradient)"
+      scheduled_micros: 1488970761237154
+    }
+    node_stats {
+      node_name: "gradients/Reshape_grad/Reshape"
+      all_start_micros: 1488970761237185
+      op_end_rel_micros: 1
+      all_end_rel_micros: 3
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 100
+            }
+            dim {
+              size: 10
+            }
+          }
+          allocation_description {
+            requested_bytes: 4000
+            allocated_bytes: 4096
+            allocator_name: "gpu_bfc"
+            allocation_id: 79
+            ptr: 1108286694400
+          }
+        }
+      }
+      timeline_label: "gradients/Reshape_grad/Reshape = Reshape(gradients/SoftmaxCrossEntropyWithLogits_grad/mul, gradients/Reshape_grad/Shape)"
+      scheduled_micros: 1488970761237182
+    }
+    node_stats {
+      node_name: "gradients/add_grad/Sum"
+      all_start_micros: 1488970761237190
+      op_start_rel_micros: 1
+      op_end_rel_micros: 7
+      all_end_rel_micros: 11
+      memory {
+        allocator_name: "gpu_bfc"
+        total_bytes: 256
+        peak_bytes: 256
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 100
+            }
+            dim {
+              size: 10
+            }
+          }
+          allocation_description {
+            requested_bytes: 4000
+            allocated_bytes: 4096
+            allocator_name: "gpu_bfc"
+            allocation_id: 79
+            ptr: 1108286694400
+          }
+        }
+      }
+      timeline_label: "gradients/add_grad/Sum = Sum(gradients/Reshape_grad/Reshape, gradients/add_grad/BroadcastGradientArgs)"
+      scheduled_micros: 1488970761237188
+    }
+    node_stats {
+      node_name: "gradients/add_grad/Sum_1"
+      all_start_micros: 1488970761237203
+      op_end_rel_micros: 24
+      all_end_rel_micros: 26
+      memory {
+        allocator_name: "gpu_bfc"
+        total_bytes: 512
+        peak_bytes: 512
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 10
+            }
+          }
+          allocation_description {
+            requested_bytes: 40
+            allocated_bytes: 256
+            allocator_name: "gpu_bfc"
+            allocation_id: 82
+            has_single_reference: true
+            ptr: 1108293541376
+          }
+        }
+      }
+      timeline_label: "gradients/add_grad/Sum_1 = Sum(gradients/Reshape_grad/Reshape, gradients/add_grad/BroadcastGradientArgs:1)"
+      scheduled_micros: 1488970761237201
+    }
+    node_stats {
+      node_name: "gradients/add_grad/Reshape"
+      all_start_micros: 1488970761237231
+      op_start_rel_micros: 1
+      op_end_rel_micros: 2
+      all_end_rel_micros: 4
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 100
+            }
+            dim {
+              size: 10
+            }
+          }
+          allocation_description {
+            requested_bytes: 4000
+            allocated_bytes: 4096
+            allocator_name: "gpu_bfc"
+            allocation_id: 79
+            ptr: 1108286694400
+          }
+        }
+      }
+      timeline_label: "gradients/add_grad/Reshape = Reshape(gradients/add_grad/Sum, gradients/add_grad/Shape)"
+      scheduled_micros: 1488970761237229
+    }
+    node_stats {
+      node_name: "gradients/add_grad/Reshape_1"
+      all_start_micros: 1488970761237237
+      op_end_rel_micros: 1
+      all_end_rel_micros: 3
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 10
+            }
+          }
+          allocation_description {
+            requested_bytes: 40
+            allocated_bytes: 256
+            allocator_name: "gpu_bfc"
+            allocation_id: 82
+            ptr: 1108293541376
+          }
+        }
+      }
+      timeline_label: "gradients/add_grad/Reshape_1 = Reshape(gradients/add_grad/Sum_1, gradients/add_grad/Shape_1)"
+      scheduled_micros: 1488970761237235
+    }
+    node_stats {
+      node_name: "gradients/add_grad/tuple/group_deps"
+      all_start_micros: 1488970761237243
+      op_start_rel_micros: 1
+      op_end_rel_micros: 2
+      all_end_rel_micros: 2
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      timeline_label: "gradients/add_grad/tuple/group_deps = NoOp(^gradients/add_grad/Reshape, ^gradients/add_grad/Reshape_1)"
+      scheduled_micros: 1488970761237240
+    }
+    node_stats {
+      node_name: "gradients/add_grad/tuple/control_dependency"
+      all_start_micros: 1488970761237247
+      op_start_rel_micros: 1
+      op_end_rel_micros: 1
+      all_end_rel_micros: 3
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 100
+            }
+            dim {
+              size: 10
+            }
+          }
+          allocation_description {
+            requested_bytes: 4000
+            allocated_bytes: 4096
+            allocator_name: "gpu_bfc"
+            allocation_id: 79
+            ptr: 1108286694400
+          }
+        }
+      }
+      timeline_label: "gradients/add_grad/tuple/control_dependency = Identity(gradients/add_grad/Reshape, ^gradients/add_grad/tuple/group_deps)"
+      scheduled_micros: 1488970761237245
+    }
+    node_stats {
+      node_name: "gradients/add_grad/tuple/control_dependency_1"
+      all_start_micros: 1488970761237251
+      op_end_rel_micros: 1
+      all_end_rel_micros: 3
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 10
+            }
+          }
+          allocation_description {
+            requested_bytes: 40
+            allocated_bytes: 256
+            allocator_name: "gpu_bfc"
+            allocation_id: 82
+            ptr: 1108293541376
+          }
+        }
+      }
+      timeline_label: "gradients/add_grad/tuple/control_dependency_1 = Identity(gradients/add_grad/Reshape_1, ^gradients/add_grad/tuple/group_deps)"
+      scheduled_micros: 1488970761237250
+    }
+    node_stats {
+      node_name: "gradients/MatMul_2_grad/MatMul"
+      all_start_micros: 1488970761237256
+      op_end_rel_micros: 27
+      all_end_rel_micros: 29
+      memory {
+        allocator_name: "gpu_bfc"
+        total_bytes: 56064
+        peak_bytes: 56064
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 100
+            }
+            dim {
+              size: 140
+            }
+          }
+          allocation_description {
+            requested_bytes: 56000
+            allocated_bytes: 56064
+            allocator_name: "gpu_bfc"
+            allocation_id: 83
+            has_single_reference: true
+            ptr: 1108286698496
+          }
+        }
+      }
+      timeline_label: "gradients/MatMul_2_grad/MatMul = MatMul(gradients/add_grad/tuple/control_dependency, Variable_2/read)"
+      scheduled_micros: 1488970761237254
+    }
+    node_stats {
+      node_name: "gradients/MatMul_2_grad/MatMul_1"
+      all_start_micros: 1488970761237287
+      op_start_rel_micros: 1
+      op_end_rel_micros: 19
+      all_end_rel_micros: 22
+      memory {
+        allocator_name: "gpu_bfc"
+        total_bytes: 5632
+        peak_bytes: 5632
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 140
+            }
+            dim {
+              size: 10
+            }
+          }
+          allocation_description {
+            requested_bytes: 5600
+            allocated_bytes: 5632
+            allocator_name: "gpu_bfc"
+            allocation_id: 84
+            has_single_reference: true
+            ptr: 1108286754560
+          }
+        }
+      }
+      timeline_label: "gradients/MatMul_2_grad/MatMul_1 = MatMul(Relu_1, gradients/add_grad/tuple/control_dependency)"
+      scheduled_micros: 1488970761237285
+    }
+    node_stats {
+      node_name: "Adam/update_Variable_5/ApplyAdam"
+      all_start_micros: 1488970761237311
+      op_start_rel_micros: 1
+      op_end_rel_micros: 51
+      all_end_rel_micros: 55
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 10
+            }
+          }
+          allocation_description {
+            requested_bytes: 40
+            allocated_bytes: 256
+            allocator_name: "gpu_bfc"
+            allocation_id: 48
+            has_single_reference: true
+            ptr: 1108292403968
+          }
+        }
+      }
+      timeline_label: "Adam/update_Variable_5/ApplyAdam = ApplyAdam(Variable_5, Variable_5/Adam, Variable_5/Adam_1, beta1_power/read, beta2_power/read, Adam/learning_rate, Adam/beta1, Adam/beta2, Adam/epsilon, gradients/add_grad/tuple/control_dependency_1)"
+      scheduled_micros: 1488970761237309
+    }
+    node_stats {
+      node_name: "gradients/MatMul_2_grad/tuple/group_deps"
+      all_start_micros: 1488970761237369
+      op_start_rel_micros: 1
+      op_end_rel_micros: 2
+      all_end_rel_micros: 3
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      timeline_label: "gradients/MatMul_2_grad/tuple/group_deps = NoOp(^gradients/MatMul_2_grad/MatMul, ^gradients/MatMul_2_grad/MatMul_1)"
+      scheduled_micros: 1488970761237366
+    }
+    node_stats {
+      node_name: "gradients/MatMul_2_grad/tuple/control_dependency"
+      all_start_micros: 1488970761237374
+      op_start_rel_micros: 1
+      op_end_rel_micros: 1
+      all_end_rel_micros: 3
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 100
+            }
+            dim {
+              size: 140
+            }
+          }
+          allocation_description {
+            requested_bytes: 56000
+            allocated_bytes: 56064
+            allocator_name: "gpu_bfc"
+            allocation_id: 83
+            ptr: 1108286698496
+          }
+        }
+      }
+      timeline_label: "gradients/MatMul_2_grad/tuple/control_dependency = Identity(gradients/MatMul_2_grad/MatMul, ^gradients/MatMul_2_grad/tuple/group_deps)"
+      scheduled_micros: 1488970761237372
+    }
+    node_stats {
+      node_name: "gradients/MatMul_2_grad/tuple/control_dependency_1"
+      all_start_micros: 1488970761237381
+      op_start_rel_micros: 1
+      op_end_rel_micros: 2
+      all_end_rel_micros: 3
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 140
+            }
+            dim {
+              size: 10
+            }
+          }
+          allocation_description {
+            requested_bytes: 5600
+            allocated_bytes: 5632
+            allocator_name: "gpu_bfc"
+            allocation_id: 84
+            ptr: 1108286754560
+          }
+        }
+      }
+      timeline_label: "gradients/MatMul_2_grad/tuple/control_dependency_1 = Identity(gradients/MatMul_2_grad/MatMul_1, ^gradients/MatMul_2_grad/tuple/group_deps)"
+      scheduled_micros: 1488970761237377
+    }
+    node_stats {
+      node_name: "gradients/Relu_1_grad/ReluGrad"
+      all_start_micros: 1488970761237386
+      op_end_rel_micros: 16
+      all_end_rel_micros: 20
+      memory {
+        allocator_name: "gpu_bfc"
+        total_bytes: 56064
+        peak_bytes: 56064
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 100
+            }
+            dim {
+              size: 140
+            }
+          }
+          allocation_description {
+            requested_bytes: 56000
+            allocated_bytes: 56064
+            allocator_name: "gpu_bfc"
+            allocation_id: 85
+            has_single_reference: true
+            ptr: 1108286760192
+          }
+        }
+      }
+      timeline_label: "gradients/Relu_1_grad/ReluGrad = ReluGrad(gradients/MatMul_2_grad/tuple/control_dependency, Relu_1)"
+      scheduled_micros: 1488970761237384
+    }
+    node_stats {
+      node_name: "Adam/update_Variable_2/ApplyAdam"
+      all_start_micros: 1488970761237408
+      op_start_rel_micros: 1
+      op_end_rel_micros: 33
+      all_end_rel_micros: 39
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 140
+            }
+            dim {
+              size: 10
+            }
+          }
+          allocation_description {
+            requested_bytes: 5600
+            allocated_bytes: 5632
+            allocator_name: "gpu_bfc"
+            allocation_id: 45
+            has_single_reference: true
+            ptr: 1108292404992
+          }
+        }
+      }
+      timeline_label: "Adam/update_Variable_2/ApplyAdam = ApplyAdam(Variable_2, Variable_2/Adam, Variable_2/Adam_1, beta1_power/read, beta2_power/read, Adam/learning_rate, Adam/beta1, Adam/beta2, Adam/epsilon, gradients/MatMul_2_grad/tuple/control_dependency_1)"
+      scheduled_micros: 1488970761237406
+    }
+    node_stats {
+      node_name: "gradients/Add_1_grad/Sum"
+      all_start_micros: 1488970761237450
+      op_start_rel_micros: 1
+      op_end_rel_micros: 4
+      all_end_rel_micros: 6
+      memory {
+        allocator_name: "gpu_bfc"
+        total_bytes: 256
+        peak_bytes: 256
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 100
+            }
+            dim {
+              size: 140
+            }
+          }
+          allocation_description {
+            requested_bytes: 56000
+            allocated_bytes: 56064
+            allocator_name: "gpu_bfc"
+            allocation_id: 85
+            ptr: 1108286760192
+          }
+        }
+      }
+      timeline_label: "gradients/Add_1_grad/Sum = Sum(gradients/Relu_1_grad/ReluGrad, gradients/Add_1_grad/BroadcastGradientArgs)"
+      scheduled_micros: 1488970761237447
+    }
+    node_stats {
+      node_name: "gradients/Add_1_grad/Sum_1"
+      all_start_micros: 1488970761237458
+      op_end_rel_micros: 27
+      all_end_rel_micros: 29
+      memory {
+        allocator_name: "gpu_bfc"
+        total_bytes: 1024
+        peak_bytes: 1024
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 140
+            }
+          }
+          allocation_description {
+            requested_bytes: 560
+            allocated_bytes: 768
+            allocator_name: "gpu_bfc"
+            allocation_id: 88
+            has_single_reference: true
+            ptr: 1108293541376
+          }
+        }
+      }
+      timeline_label: "gradients/Add_1_grad/Sum_1 = Sum(gradients/Relu_1_grad/ReluGrad, gradients/Add_1_grad/BroadcastGradientArgs:1)"
+      scheduled_micros: 1488970761237456
+    }
+    node_stats {
+      node_name: "gradients/Add_1_grad/Reshape"
+      all_start_micros: 1488970761237490
+      op_end_rel_micros: 1
+      all_end_rel_micros: 3
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 100
+            }
+            dim {
+              size: 140
+            }
+          }
+          allocation_description {
+            requested_bytes: 56000
+            allocated_bytes: 56064
+            allocator_name: "gpu_bfc"
+            allocation_id: 85
+            ptr: 1108286760192
+          }
+        }
+      }
+      timeline_label: "gradients/Add_1_grad/Reshape = Reshape(gradients/Add_1_grad/Sum, gradients/Add_1_grad/Shape)"
+      scheduled_micros: 1488970761237487
+    }
+    node_stats {
+      node_name: "gradients/Add_1_grad/Reshape_1"
+      all_start_micros: 1488970761237495
+      op_start_rel_micros: 2
+      op_end_rel_micros: 4
+      all_end_rel_micros: 6
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 140
+            }
+          }
+          allocation_description {
+            requested_bytes: 560
+            allocated_bytes: 768
+            allocator_name: "gpu_bfc"
+            allocation_id: 88
+            ptr: 1108293541376
+          }
+        }
+      }
+      timeline_label: "gradients/Add_1_grad/Reshape_1 = Reshape(gradients/Add_1_grad/Sum_1, gradients/Add_1_grad/Shape_1)"
+      scheduled_micros: 1488970761237493
+    }
+    node_stats {
+      node_name: "gradients/Add_1_grad/tuple/group_deps"
+      all_start_micros: 1488970761237502
+      op_end_rel_micros: 1
+      all_end_rel_micros: 2
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      timeline_label: "gradients/Add_1_grad/tuple/group_deps = NoOp(^gradients/Add_1_grad/Reshape, ^gradients/Add_1_grad/Reshape_1)"
+      scheduled_micros: 1488970761237501
+    }
+    node_stats {
+      node_name: "gradients/Add_1_grad/tuple/control_dependency"
+      all_start_micros: 1488970761237505
+      op_start_rel_micros: 1
+      op_end_rel_micros: 1
+      all_end_rel_micros: 3
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 100
+            }
+            dim {
+              size: 140
+            }
+          }
+          allocation_description {
+            requested_bytes: 56000
+            allocated_bytes: 56064
+            allocator_name: "gpu_bfc"
+            allocation_id: 85
+            ptr: 1108286760192
+          }
+        }
+      }
+      timeline_label: "gradients/Add_1_grad/tuple/control_dependency = Identity(gradients/Add_1_grad/Reshape, ^gradients/Add_1_grad/tuple/group_deps)"
+      scheduled_micros: 1488970761237504
+    }
+    node_stats {
+      node_name: "gradients/Add_1_grad/tuple/control_dependency_1"
+      all_start_micros: 1488970761237509
+      op_end_rel_micros: 1
+      all_end_rel_micros: 3
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 140
+            }
+          }
+          allocation_description {
+            requested_bytes: 560
+            allocated_bytes: 768
+            allocator_name: "gpu_bfc"
+            allocation_id: 88
+            ptr: 1108293541376
+          }
+        }
+      }
+      timeline_label: "gradients/Add_1_grad/tuple/control_dependency_1 = Identity(gradients/Add_1_grad/Reshape_1, ^gradients/Add_1_grad/tuple/group_deps)"
+      scheduled_micros: 1488970761237508
+    }
+    node_stats {
+      node_name: "gradients/MatMul_1_grad/MatMul"
+      all_start_micros: 1488970761237513
+      op_end_rel_micros: 20
+      all_end_rel_micros: 22
+      memory {
+        allocator_name: "gpu_bfc"
+        total_bytes: 56064
+        peak_bytes: 56064
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 100
+            }
+            dim {
+              size: 140
+            }
+          }
+          allocation_description {
+            requested_bytes: 56000
+            allocated_bytes: 56064
+            allocator_name: "gpu_bfc"
+            allocation_id: 89
+            has_single_reference: true
+            ptr: 1108286638336
+          }
+        }
+      }
+      timeline_label: "gradients/MatMul_1_grad/MatMul = MatMul(gradients/Add_1_grad/tuple/control_dependency, Variable_1/read)"
+      scheduled_micros: 1488970761237512
+    }
+    node_stats {
+      node_name: "gradients/MatMul_1_grad/MatMul_1"
+      all_start_micros: 1488970761237539
+      op_start_rel_micros: 1
+      op_end_rel_micros: 21
+      all_end_rel_micros: 24
+      memory {
+        allocator_name: "gpu_bfc"
+        total_bytes: 78592
+        peak_bytes: 78592
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 140
+            }
+            dim {
+              size: 140
+            }
+          }
+          allocation_description {
+            requested_bytes: 78400
+            allocated_bytes: 78592
+            allocator_name: "gpu_bfc"
+            allocation_id: 90
+            has_single_reference: true
+            ptr: 1108286816256
+          }
+        }
+      }
+      timeline_label: "gradients/MatMul_1_grad/MatMul_1 = MatMul(Relu, gradients/Add_1_grad/tuple/control_dependency)"
+      scheduled_micros: 1488970761237535
+    }
+    node_stats {
+      node_name: "Adam/update_Variable_4/ApplyAdam"
+      all_start_micros: 1488970761237565
+      op_start_rel_micros: 1
+      op_end_rel_micros: 31
+      all_end_rel_micros: 34
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 140
+            }
+          }
+          allocation_description {
+            requested_bytes: 560
+            allocated_bytes: 768
+            allocator_name: "gpu_bfc"
+            allocation_id: 47
+            has_single_reference: true
+            ptr: 1108292403200
+          }
+        }
+      }
+      timeline_label: "Adam/update_Variable_4/ApplyAdam = ApplyAdam(Variable_4, Variable_4/Adam, Variable_4/Adam_1, beta1_power/read, beta2_power/read, Adam/learning_rate, Adam/beta1, Adam/beta2, Adam/epsilon, gradients/Add_1_grad/tuple/control_dependency_1)"
+      scheduled_micros: 1488970761237563
+    }
+    node_stats {
+      node_name: "gradients/MatMul_1_grad/tuple/group_deps"
+      all_start_micros: 1488970761237602
+      op_start_rel_micros: 1
+      op_end_rel_micros: 2
+      all_end_rel_micros: 2
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      timeline_label: "gradients/MatMul_1_grad/tuple/group_deps = NoOp(^gradients/MatMul_1_grad/MatMul, ^gradients/MatMul_1_grad/MatMul_1)"
+      scheduled_micros: 1488970761237599
+    }
+    node_stats {
+      node_name: "gradients/MatMul_1_grad/tuple/control_dependency"
+      all_start_micros: 1488970761237606
+      op_start_rel_micros: 4
+      op_end_rel_micros: 5
+      all_end_rel_micros: 6
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 100
+            }
+            dim {
+              size: 140
+            }
+          }
+          allocation_description {
+            requested_bytes: 56000
+            allocated_bytes: 56064
+            allocator_name: "gpu_bfc"
+            allocation_id: 89
+            ptr: 1108286638336
+          }
+        }
+      }
+      timeline_label: "gradients/MatMul_1_grad/tuple/control_dependency = Identity(gradients/MatMul_1_grad/MatMul, ^gradients/MatMul_1_grad/tuple/group_deps)"
+      scheduled_micros: 1488970761237604
+    }
+    node_stats {
+      node_name: "gradients/MatMul_1_grad/tuple/control_dependency_1"
+      all_start_micros: 1488970761237614
+      op_end_rel_micros: 1
+      all_end_rel_micros: 2
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 140
+            }
+            dim {
+              size: 140
+            }
+          }
+          allocation_description {
+            requested_bytes: 78400
+            allocated_bytes: 78592
+            allocator_name: "gpu_bfc"
+            allocation_id: 90
+            ptr: 1108286816256
+          }
+        }
+      }
+      timeline_label: "gradients/MatMul_1_grad/tuple/control_dependency_1 = Identity(gradients/MatMul_1_grad/MatMul_1, ^gradients/MatMul_1_grad/tuple/group_deps)"
+      scheduled_micros: 1488970761237612
+    }
+    node_stats {
+      node_name: "gradients/Relu_grad/ReluGrad"
+      all_start_micros: 1488970761237618
+      op_end_rel_micros: 14
+      all_end_rel_micros: 17
+      memory {
+        allocator_name: "gpu_bfc"
+        total_bytes: 56064
+        peak_bytes: 56064
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 100
+            }
+            dim {
+              size: 140
+            }
+          }
+          allocation_description {
+            requested_bytes: 56000
+            allocated_bytes: 56064
+            allocator_name: "gpu_bfc"
+            allocation_id: 91
+            has_single_reference: true
+            ptr: 1108286694400
+          }
+        }
+      }
+      timeline_label: "gradients/Relu_grad/ReluGrad = ReluGrad(gradients/MatMul_1_grad/tuple/control_dependency, Relu)"
+      scheduled_micros: 1488970761237616
+    }
+    node_stats {
+      node_name: "Adam/update_Variable_1/ApplyAdam"
+      all_start_micros: 1488970761237637
+      op_start_rel_micros: 2
+      op_end_rel_micros: 29
+      all_end_rel_micros: 35
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 140
+            }
+            dim {
+              size: 140
+            }
+          }
+          allocation_description {
+            requested_bytes: 78400
+            allocated_bytes: 78592
+            allocator_name: "gpu_bfc"
+            allocation_id: 44
+            has_single_reference: true
+            ptr: 1108294057472
+          }
+        }
+      }
+      timeline_label: "Adam/update_Variable_1/ApplyAdam = ApplyAdam(Variable_1, Variable_1/Adam, Variable_1/Adam_1, beta1_power/read, beta2_power/read, Adam/learning_rate, Adam/beta1, Adam/beta2, Adam/epsilon, gradients/MatMul_1_grad/tuple/control_dependency_1)"
+      scheduled_micros: 1488970761237635
+    }
+    node_stats {
+      node_name: "gradients/Add_grad/Sum"
+      all_start_micros: 1488970761237674
+      op_start_rel_micros: 1
+      op_end_rel_micros: 4
+      all_end_rel_micros: 6
+      memory {
+        allocator_name: "gpu_bfc"
+        total_bytes: 256
+        peak_bytes: 256
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 100
+            }
+            dim {
+              size: 140
+            }
+          }
+          allocation_description {
+            requested_bytes: 56000
+            allocated_bytes: 56064
+            allocator_name: "gpu_bfc"
+            allocation_id: 91
+            ptr: 1108286694400
+          }
+        }
+      }
+      timeline_label: "gradients/Add_grad/Sum = Sum(gradients/Relu_grad/ReluGrad, gradients/Add_grad/BroadcastGradientArgs)"
+      scheduled_micros: 1488970761237672
+    }
+    node_stats {
+      node_name: "gradients/Add_grad/Sum_1"
+      all_start_micros: 1488970761237681
+      op_start_rel_micros: 1
+      op_end_rel_micros: 23
+      all_end_rel_micros: 26
+      memory {
+        allocator_name: "gpu_bfc"
+        total_bytes: 1024
+        peak_bytes: 1024
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 140
+            }
+          }
+          allocation_description {
+            requested_bytes: 560
+            allocated_bytes: 768
+            allocator_name: "gpu_bfc"
+            allocation_id: 94
+            has_single_reference: true
+            ptr: 1108293541376
+          }
+        }
+      }
+      timeline_label: "gradients/Add_grad/Sum_1 = Sum(gradients/Relu_grad/ReluGrad, gradients/Add_grad/BroadcastGradientArgs:1)"
+      scheduled_micros: 1488970761237680
+    }
+    node_stats {
+      node_name: "gradients/Add_grad/Reshape"
+      all_start_micros: 1488970761237709
+      op_start_rel_micros: 1
+      op_end_rel_micros: 2
+      all_end_rel_micros: 4
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 100
+            }
+            dim {
+              size: 140
+            }
+          }
+          allocation_description {
+            requested_bytes: 56000
+            allocated_bytes: 56064
+            allocator_name: "gpu_bfc"
+            allocation_id: 91
+            ptr: 1108286694400
+          }
+        }
+      }
+      timeline_label: "gradients/Add_grad/Reshape = Reshape(gradients/Add_grad/Sum, gradients/Add_grad/Shape)"
+      scheduled_micros: 1488970761237707
+    }
+    node_stats {
+      node_name: "gradients/Add_grad/Reshape_1"
+      all_start_micros: 1488970761237714
+      op_start_rel_micros: 1
+      op_end_rel_micros: 2
+      all_end_rel_micros: 6
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 140
+            }
+          }
+          allocation_description {
+            requested_bytes: 560
+            allocated_bytes: 768
+            allocator_name: "gpu_bfc"
+            allocation_id: 94
+            ptr: 1108293541376
+          }
+        }
+      }
+      timeline_label: "gradients/Add_grad/Reshape_1 = Reshape(gradients/Add_grad/Sum_1, gradients/Add_grad/Shape_1)"
+      scheduled_micros: 1488970761237713
+    }
+    node_stats {
+      node_name: "gradients/Add_grad/tuple/group_deps"
+      all_start_micros: 1488970761237721
+      op_start_rel_micros: 1
+      op_end_rel_micros: 2
+      all_end_rel_micros: 2
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      timeline_label: "gradients/Add_grad/tuple/group_deps = NoOp(^gradients/Add_grad/Reshape, ^gradients/Add_grad/Reshape_1)"
+      scheduled_micros: 1488970761237720
+    }
+    node_stats {
+      node_name: "gradients/Add_grad/tuple/control_dependency"
+      all_start_micros: 1488970761237725
+      op_end_rel_micros: 1
+      all_end_rel_micros: 2
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 100
+            }
+            dim {
+              size: 140
+            }
+          }
+          allocation_description {
+            requested_bytes: 56000
+            allocated_bytes: 56064
+            allocator_name: "gpu_bfc"
+            allocation_id: 91
+            ptr: 1108286694400
+          }
+        }
+      }
+      timeline_label: "gradients/Add_grad/tuple/control_dependency = Identity(gradients/Add_grad/Reshape, ^gradients/Add_grad/tuple/group_deps)"
+      scheduled_micros: 1488970761237723
+    }
+    node_stats {
+      node_name: "gradients/Add_grad/tuple/control_dependency_1"
+      all_start_micros: 1488970761237729
+      op_end_rel_micros: 1
+      all_end_rel_micros: 2
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 140
+            }
+          }
+          allocation_description {
+            requested_bytes: 560
+            allocated_bytes: 768
+            allocator_name: "gpu_bfc"
+            allocation_id: 94
+            ptr: 1108293541376
+          }
+        }
+      }
+      timeline_label: "gradients/Add_grad/tuple/control_dependency_1 = Identity(gradients/Add_grad/Reshape_1, ^gradients/Add_grad/tuple/group_deps)"
+      scheduled_micros: 1488970761237727
+    }
+    node_stats {
+      node_name: "gradients/MatMul_grad/MatMul"
+      all_start_micros: 1488970761237733
+      op_end_rel_micros: 18
+      all_end_rel_micros: 21
+      memory {
+        allocator_name: "gpu_bfc"
+        total_bytes: 409856
+        peak_bytes: 409856
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 100
+            }
+            dim {
+              size: 784
+            }
+          }
+          allocation_description {
+            requested_bytes: 313600
+            allocated_bytes: 409856
+            allocator_name: "gpu_bfc"
+            allocation_id: 95
+            has_single_reference: true
+            ptr: 1108286750464
+          }
+        }
+      }
+      timeline_label: "[gpu_bfc 0.4MB 0.4MB] gradients/MatMul_grad/MatMul = MatMul(gradients/Add_grad/tuple/control_dependency, Variable/read)"
+      scheduled_micros: 1488970761237731
+    }
+    node_stats {
+      node_name: "gradients/MatMul_grad/MatMul_1"
+      all_start_micros: 1488970761237768
+      op_end_rel_micros: 383
+      all_end_rel_micros: 391
+      memory {
+        allocator_name: "gpu_bfc"
+        total_bytes: 439040
+        peak_bytes: 439040
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 784
+            }
+            dim {
+              size: 140
+            }
+          }
+          allocation_description {
+            requested_bytes: 439040
+            allocated_bytes: 439040
+            allocator_name: "gpu_bfc"
+            allocation_id: 96
+            has_single_reference: true
+            ptr: 1108298694656
+          }
+        }
+      }
+      timeline_label: "[gpu_bfc 0.4MB 0.4MB] gradients/MatMul_grad/MatMul_1 = MatMul(_recv_Placeholder_0/_7, gradients/Add_grad/tuple/control_dependency)"
+      scheduled_micros: 1488970761237754
+    }
+    node_stats {
+      node_name: "Adam/update_Variable_3/ApplyAdam"
+      all_start_micros: 1488970761238167
+      op_start_rel_micros: 2
+      op_end_rel_micros: 42
+      all_end_rel_micros: 47
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 140
+            }
+          }
+          allocation_description {
+            requested_bytes: 560
+            allocated_bytes: 768
+            allocator_name: "gpu_bfc"
+            allocation_id: 46
+            has_single_reference: true
+            ptr: 1108293539840
+          }
+        }
+      }
+      timeline_label: "Adam/update_Variable_3/ApplyAdam = ApplyAdam(Variable_3, Variable_3/Adam, Variable_3/Adam_1, beta1_power/read, beta2_power/read, Adam/learning_rate, Adam/beta1, Adam/beta2, Adam/epsilon, gradients/Add_grad/tuple/control_dependency_1)"
+      scheduled_micros: 1488970761238159
+    }
+    node_stats {
+      node_name: "gradients/MatMul_grad/tuple/group_deps"
+      all_start_micros: 1488970761238219
+      op_end_rel_micros: 2
+      all_end_rel_micros: 2
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      timeline_label: "gradients/MatMul_grad/tuple/group_deps = NoOp(^gradients/MatMul_grad/MatMul, ^gradients/MatMul_grad/MatMul_1)"
+      scheduled_micros: 1488970761238214
+    }
+    node_stats {
+      node_name: "gradients/MatMul_grad/tuple/control_dependency_1"
+      all_start_micros: 1488970761238223
+      op_end_rel_micros: 1
+      all_end_rel_micros: 2
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 784
+            }
+            dim {
+              size: 140
+            }
+          }
+          allocation_description {
+            requested_bytes: 439040
+            allocated_bytes: 439040
+            allocator_name: "gpu_bfc"
+            allocation_id: 96
+            ptr: 1108298694656
+          }
+        }
+      }
+      timeline_label: "gradients/MatMul_grad/tuple/control_dependency_1 = Identity(gradients/MatMul_grad/MatMul_1, ^gradients/MatMul_grad/tuple/group_deps)"
+      scheduled_micros: 1488970761238221
+    }
+    node_stats {
+      node_name: "Adam/update_Variable/ApplyAdam"
+      all_start_micros: 1488970761238226
+      op_start_rel_micros: 4
+      op_end_rel_micros: 28
+      all_end_rel_micros: 31
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+            dim {
+              size: 784
+            }
+            dim {
+              size: 140
+            }
+          }
+          allocation_description {
+            requested_bytes: 439040
+            allocated_bytes: 512000
+            allocator_name: "gpu_bfc"
+            allocation_id: 43
+            has_single_reference: true
+            ptr: 1108293545472
+          }
+        }
+      }
+      timeline_label: "Adam/update_Variable/ApplyAdam = ApplyAdam(Variable, Variable/Adam, Variable/Adam_1, beta1_power/read, beta2_power/read, Adam/learning_rate, Adam/beta1, Adam/beta2, Adam/epsilon, gradients/MatMul_grad/tuple/control_dependency_1)"
+      scheduled_micros: 1488970761238225
+    }
+    node_stats {
+      node_name: "Adam/mul"
+      all_start_micros: 1488970761238260
+      op_end_rel_micros: 14
+      all_end_rel_micros: 15
+      memory {
+        allocator_name: "gpu_bfc"
+        total_bytes: 256
+        peak_bytes: 256
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+          }
+          allocation_description {
+            requested_bytes: 4
+            allocated_bytes: 256
+            allocator_name: "gpu_bfc"
+            allocation_id: 97
+            has_single_reference: true
+            ptr: 1108293541120
+          }
+        }
+      }
+      timeline_label: "Adam/mul = Mul(beta1_power/read, Adam/beta1, ^Adam/update_Variable/ApplyAdam, ^Adam/update_Variable_1/ApplyAdam, ^Adam/update_Variable_2/ApplyAdam, ^Adam/update_Variable_3/ApplyAdam, ^Adam/update_Variable_4/ApplyAdam, ^Adam/update_Variable_5/ApplyAdam)"
+      scheduled_micros: 1488970761238257
+    }
+    node_stats {
+      node_name: "Adam/mul_1"
+      all_start_micros: 1488970761238277
+      op_start_rel_micros: 1
+      op_end_rel_micros: 10
+      all_end_rel_micros: 11
+      memory {
+        allocator_name: "gpu_bfc"
+        total_bytes: 256
+        peak_bytes: 256
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+          }
+          allocation_description {
+            requested_bytes: 4
+            allocated_bytes: 256
+            allocator_name: "gpu_bfc"
+            allocation_id: 98
+            has_single_reference: true
+            ptr: 1108293541376
+          }
+        }
+      }
+      timeline_label: "Adam/mul_1 = Mul(beta2_power/read, Adam/beta2, ^Adam/update_Variable/ApplyAdam, ^Adam/update_Variable_1/ApplyAdam, ^Adam/update_Variable_2/ApplyAdam, ^Adam/update_Variable_3/ApplyAdam, ^Adam/update_Variable_4/ApplyAdam, ^Adam/update_Variable_5/ApplyAdam)"
+      scheduled_micros: 1488970761238275
+    }
+    node_stats {
+      node_name: "Adam/Assign"
+      all_start_micros: 1488970761238293
+      op_end_rel_micros: 18
+      all_end_rel_micros: 20
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+          }
+          allocation_description {
+            requested_bytes: 4
+            allocated_bytes: 256
+            allocator_name: "gpu_bfc"
+            allocation_id: 17
+            has_single_reference: true
+            ptr: 1108292489216
+          }
+        }
+      }
+      timeline_label: "Adam/Assign = Assign(beta1_power, Adam/mul)"
+      scheduled_micros: 1488970761238288
+    }
+    node_stats {
+      node_name: "Adam/Assign_1"
+      all_start_micros: 1488970761238315
+      op_start_rel_micros: 1
+      op_end_rel_micros: 10
+      all_end_rel_micros: 12
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      output {
+        tensor_description {
+          dtype: DT_FLOAT
+          shape {
+          }
+          allocation_description {
+            requested_bytes: 4
+            allocated_bytes: 256
+            allocator_name: "gpu_bfc"
+            allocation_id: 18
+            has_single_reference: true
+            ptr: 1108292489472
+          }
+        }
+      }
+      timeline_label: "Adam/Assign_1 = Assign(beta2_power, Adam/mul_1)"
+      scheduled_micros: 1488970761238313
+    }
+    node_stats {
+      node_name: "Adam"
+      all_start_micros: 1488970761238328
+      op_start_rel_micros: 1
+      op_end_rel_micros: 1
+      all_end_rel_micros: 4
+      memory {
+        allocator_name: "gpu_bfc"
+      }
+      timeline_label: "Adam = NoOp(^Adam/update_Variable/ApplyAdam, ^Adam/update_Variable_1/ApplyAdam, ^Adam/update_Variable_2/ApplyAdam, ^Adam/update_Variable_3/ApplyAdam, ^Adam/update_Variable_4/ApplyAdam, ^Adam/update_Variable_5/ApplyAdam, ^Adam/Assign, ^Adam/Assign_1)"
+      scheduled_micros: 1488970761238327
+    }
+  }
+}
+partition_graphs {
+  node {
+    name: "_recv_Placeholder_0/_7"
+    op: "_Recv"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "client_terminated"
+      value {
+        b: false
+      }
+    }
+    attr {
+      key: "recv_device"
+      value {
+        s: "/job:localhost/replica:0/task:0/gpu:0"
+      }
+    }
+    attr {
+      key: "send_device"
+      value {
+        s: "/job:localhost/replica:0/task:0/cpu:0"
+      }
+    }
+    attr {
+      key: "send_device_incarnation"
+      value {
+        i: 1
+      }
+    }
+    attr {
+      key: "tensor_name"
+      value {
+        s: "edge_315__recv_Placeholder_0"
+      }
+    }
+    attr {
+      key: "tensor_type"
+      value {
+        type: DT_FLOAT
+      }
+    }
+  }
+  node {
+    name: "_recv_Placeholder_1_0/_5"
+    op: "_Recv"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "client_terminated"
+      value {
+        b: false
+      }
+    }
+    attr {
+      key: "recv_device"
+      value {
+        s: "/job:localhost/replica:0/task:0/gpu:0"
+      }
+    }
+    attr {
+      key: "send_device"
+      value {
+        s: "/job:localhost/replica:0/task:0/cpu:0"
+      }
+    }
+    attr {
+      key: "send_device_incarnation"
+      value {
+        i: 1
+      }
+    }
+    attr {
+      key: "tensor_name"
+      value {
+        s: "edge_316__recv_Placeholder_1_0"
+      }
+    }
+    attr {
+      key: "tensor_type"
+      value {
+        type: DT_FLOAT
+      }
+    }
+  }
+  node {
+    name: "Shape_2"
+    op: "Shape"
+    input: "_recv_Placeholder_1_0/_5"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "out_type"
+      value {
+        type: DT_INT32
+      }
+    }
+  }
+  node {
+    name: "Variable"
+    op: "VariableV2"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "container"
+      value {
+        s: ""
+      }
+    }
+    attr {
+      key: "dtype"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "shape"
+      value {
+        shape {
+          dim {
+            size: 784
+          }
+          dim {
+            size: 140
+          }
+        }
+      }
+    }
+    attr {
+      key: "shared_name"
+      value {
+        s: ""
+      }
+    }
+  }
+  node {
+    name: "Variable/read"
+    op: "Identity"
+    input: "Variable"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "_class"
+      value {
+        list {
+          s: "loc:@Variable"
+        }
+      }
+    }
+  }
+  node {
+    name: "MatMul"
+    op: "MatMul"
+    input: "_recv_Placeholder_0/_7"
+    input: "Variable/read"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "transpose_a"
+      value {
+        b: false
+      }
+    }
+    attr {
+      key: "transpose_b"
+      value {
+        b: false
+      }
+    }
+  }
+  node {
+    name: "gradients/Add_grad/Shape"
+    op: "Shape"
+    input: "MatMul"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "out_type"
+      value {
+        type: DT_INT32
+      }
+    }
+  }
+  node {
+    name: "Variable_1"
+    op: "VariableV2"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "container"
+      value {
+        s: ""
+      }
+    }
+    attr {
+      key: "dtype"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "shape"
+      value {
+        shape {
+          dim {
+            size: 140
+          }
+          dim {
+            size: 140
+          }
+        }
+      }
+    }
+    attr {
+      key: "shared_name"
+      value {
+        s: ""
+      }
+    }
+  }
+  node {
+    name: "Variable_1/read"
+    op: "Identity"
+    input: "Variable_1"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "_class"
+      value {
+        list {
+          s: "loc:@Variable_1"
+        }
+      }
+    }
+  }
+  node {
+    name: "Variable_2"
+    op: "VariableV2"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "container"
+      value {
+        s: ""
+      }
+    }
+    attr {
+      key: "dtype"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "shape"
+      value {
+        shape {
+          dim {
+            size: 140
+          }
+          dim {
+            size: 10
+          }
+        }
+      }
+    }
+    attr {
+      key: "shared_name"
+      value {
+        s: ""
+      }
+    }
+  }
+  node {
+    name: "Variable_2/read"
+    op: "Identity"
+    input: "Variable_2"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "_class"
+      value {
+        list {
+          s: "loc:@Variable_2"
+        }
+      }
+    }
+  }
+  node {
+    name: "Variable_3"
+    op: "VariableV2"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "container"
+      value {
+        s: ""
+      }
+    }
+    attr {
+      key: "dtype"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "shape"
+      value {
+        shape {
+          dim {
+            size: 140
+          }
+        }
+      }
+    }
+    attr {
+      key: "shared_name"
+      value {
+        s: ""
+      }
+    }
+  }
+  node {
+    name: "Variable_3/read"
+    op: "Identity"
+    input: "Variable_3"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "_class"
+      value {
+        list {
+          s: "loc:@Variable_3"
+        }
+      }
+    }
+  }
+  node {
+    name: "Add"
+    op: "Add"
+    input: "MatMul"
+    input: "Variable_3/read"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+  }
+  node {
+    name: "Relu"
+    op: "Relu"
+    input: "Add"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+  }
+  node {
+    name: "MatMul_1"
+    op: "MatMul"
+    input: "Relu"
+    input: "Variable_1/read"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "transpose_a"
+      value {
+        b: false
+      }
+    }
+    attr {
+      key: "transpose_b"
+      value {
+        b: false
+      }
+    }
+  }
+  node {
+    name: "gradients/Add_1_grad/Shape"
+    op: "Shape"
+    input: "MatMul_1"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "out_type"
+      value {
+        type: DT_INT32
+      }
+    }
+  }
+  node {
+    name: "Variable_4"
+    op: "VariableV2"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "container"
+      value {
+        s: ""
+      }
+    }
+    attr {
+      key: "dtype"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "shape"
+      value {
+        shape {
+          dim {
+            size: 140
+          }
+        }
+      }
+    }
+    attr {
+      key: "shared_name"
+      value {
+        s: ""
+      }
+    }
+  }
+  node {
+    name: "Variable_4/read"
+    op: "Identity"
+    input: "Variable_4"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "_class"
+      value {
+        list {
+          s: "loc:@Variable_4"
+        }
+      }
+    }
+  }
+  node {
+    name: "Add_1"
+    op: "Add"
+    input: "MatMul_1"
+    input: "Variable_4/read"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+  }
+  node {
+    name: "Relu_1"
+    op: "Relu"
+    input: "Add_1"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+  }
+  node {
+    name: "MatMul_2"
+    op: "MatMul"
+    input: "Relu_1"
+    input: "Variable_2/read"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "transpose_a"
+      value {
+        b: false
+      }
+    }
+    attr {
+      key: "transpose_b"
+      value {
+        b: false
+      }
+    }
+  }
+  node {
+    name: "gradients/add_grad/Shape"
+    op: "Shape"
+    input: "MatMul_2"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "out_type"
+      value {
+        type: DT_INT32
+      }
+    }
+  }
+  node {
+    name: "Variable_5"
+    op: "VariableV2"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "container"
+      value {
+        s: ""
+      }
+    }
+    attr {
+      key: "dtype"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "shape"
+      value {
+        shape {
+          dim {
+            size: 10
+          }
+        }
+      }
+    }
+    attr {
+      key: "shared_name"
+      value {
+        s: ""
+      }
+    }
+  }
+  node {
+    name: "Variable_5/read"
+    op: "Identity"
+    input: "Variable_5"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "_class"
+      value {
+        list {
+          s: "loc:@Variable_5"
+        }
+      }
+    }
+  }
+  node {
+    name: "add"
+    op: "Add"
+    input: "MatMul_2"
+    input: "Variable_5/read"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+  }
+  node {
+    name: "Shape"
+    op: "Shape"
+    input: "add"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "out_type"
+      value {
+        type: DT_INT32
+      }
+    }
+  }
+  node {
+    name: "Slice"
+    op: "Slice"
+    input: "Shape"
+    input: "Slice/begin/_1__cf__1"
+    input: "Slice/begin/_1__cf__1"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "Index"
+      value {
+        type: DT_INT32
+      }
+    }
+    attr {
+      key: "T"
+      value {
+        type: DT_INT32
+      }
+    }
+  }
+  node {
+    name: "concat/values_0"
+    op: "Const"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "dtype"
+      value {
+        type: DT_INT32
+      }
+    }
+    attr {
+      key: "value"
+      value {
+        tensor {
+          dtype: DT_INT32
+          tensor_shape {
+            dim {
+              size: 1
+            }
+          }
+          int_val: -1
+        }
+      }
+    }
+  }
+  node {
+    name: "concat/axis"
+    op: "Const"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "dtype"
+      value {
+        type: DT_INT32
+      }
+    }
+    attr {
+      key: "value"
+      value {
+        tensor {
+          dtype: DT_INT32
+          tensor_shape {
+          }
+          int_val: 0
+        }
+      }
+    }
+  }
+  node {
+    name: "concat"
+    op: "ConcatV2"
+    input: "concat/values_0"
+    input: "Slice"
+    input: "concat/axis"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "N"
+      value {
+        i: 2
+      }
+    }
+    attr {
+      key: "T"
+      value {
+        type: DT_INT32
+      }
+    }
+    attr {
+      key: "Tidx"
+      value {
+        type: DT_INT32
+      }
+    }
+  }
+  node {
+    name: "Reshape"
+    op: "Reshape"
+    input: "add"
+    input: "concat"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "Tshape"
+      value {
+        type: DT_INT32
+      }
+    }
+  }
+  node {
+    name: "Slice_1"
+    op: "Slice"
+    input: "Shape_2"
+    input: "Slice/begin/_1__cf__1"
+    input: "Slice/begin/_1__cf__1"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "Index"
+      value {
+        type: DT_INT32
+      }
+    }
+    attr {
+      key: "T"
+      value {
+        type: DT_INT32
+      }
+    }
+  }
+  node {
+    name: "concat_1"
+    op: "ConcatV2"
+    input: "concat/values_0"
+    input: "Slice_1"
+    input: "concat/axis"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "N"
+      value {
+        i: 2
+      }
+    }
+    attr {
+      key: "T"
+      value {
+        type: DT_INT32
+      }
+    }
+    attr {
+      key: "Tidx"
+      value {
+        type: DT_INT32
+      }
+    }
+  }
+  node {
+    name: "Reshape_1"
+    op: "Reshape"
+    input: "_recv_Placeholder_1_0/_5"
+    input: "concat_1"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "Tshape"
+      value {
+        type: DT_INT32
+      }
+    }
+  }
+  node {
+    name: "SoftmaxCrossEntropyWithLogits"
+    op: "SoftmaxCrossEntropyWithLogits"
+    input: "Reshape"
+    input: "Reshape_1"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+  }
+  node {
+    name: "gradients/Reshape_2_grad/Shape"
+    op: "Shape"
+    input: "SoftmaxCrossEntropyWithLogits"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "out_type"
+      value {
+        type: DT_INT32
+      }
+    }
+  }
+  node {
+    name: "gradients/SoftmaxCrossEntropyWithLogits_grad/PreventGradient"
+    op: "PreventGradient"
+    input: "SoftmaxCrossEntropyWithLogits:1"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+  }
+  node {
+    name: "Slice_2/begin"
+    op: "Const"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "dtype"
+      value {
+        type: DT_INT32
+      }
+    }
+    attr {
+      key: "value"
+      value {
+        tensor {
+          dtype: DT_INT32
+          tensor_shape {
+            dim {
+              size: 1
+            }
+          }
+          int_val: 0
+        }
+      }
+    }
+  }
+  node {
+    name: "Slice_2"
+    op: "Slice"
+    input: "Shape"
+    input: "Slice_2/begin"
+    input: "Slice/begin/_1__cf__1"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "Index"
+      value {
+        type: DT_INT32
+      }
+    }
+    attr {
+      key: "T"
+      value {
+        type: DT_INT32
+      }
+    }
+  }
+  node {
+    name: "Reshape_2"
+    op: "Reshape"
+    input: "SoftmaxCrossEntropyWithLogits"
+    input: "Slice_2"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "Tshape"
+      value {
+        type: DT_INT32
+      }
+    }
+  }
+  node {
+    name: "gradients/Mean_grad/Shape"
+    op: "Shape"
+    input: "Reshape_2"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "out_type"
+      value {
+        type: DT_INT32
+      }
+    }
+  }
+  node {
+    name: "gradients/Mean_grad/Shape_1/_8"
+    op: "_HostSend"
+    input: "gradients/Mean_grad/Shape"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_INT32
+      }
+    }
+    attr {
+      key: "client_terminated"
+      value {
+        b: false
+      }
+    }
+    attr {
+      key: "recv_device"
+      value {
+        s: "/job:localhost/replica:0/task:0/gpu:0"
+      }
+    }
+    attr {
+      key: "send_device"
+      value {
+        s: "/job:localhost/replica:0/task:0/gpu:0"
+      }
+    }
+    attr {
+      key: "send_device_incarnation"
+      value {
+        i: 1
+      }
+    }
+    attr {
+      key: "tensor_name"
+      value {
+        s: "edge_81_gradients/Mean_grad/Shape_1"
+      }
+    }
+  }
+  node {
+    name: "gradients/Mean_grad/Shape_1/_9"
+    op: "_Recv"
+    input: "^gradients/Mean_grad/Shape_1/_8"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "client_terminated"
+      value {
+        b: false
+      }
+    }
+    attr {
+      key: "recv_device"
+      value {
+        s: "/job:localhost/replica:0/task:0/gpu:0"
+      }
+    }
+    attr {
+      key: "send_device"
+      value {
+        s: "/job:localhost/replica:0/task:0/gpu:0"
+      }
+    }
+    attr {
+      key: "send_device_incarnation"
+      value {
+        i: 1
+      }
+    }
+    attr {
+      key: "tensor_name"
+      value {
+        s: "edge_81_gradients/Mean_grad/Shape_1"
+      }
+    }
+    attr {
+      key: "tensor_type"
+      value {
+        type: DT_INT32
+      }
+    }
+  }
+  node {
+    name: "Mean"
+    op: "Mean"
+    input: "Reshape_2"
+    input: "Slice_2/begin"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "Tidx"
+      value {
+        type: DT_INT32
+      }
+    }
+    attr {
+      key: "keep_dims"
+      value {
+        b: false
+      }
+    }
+  }
+  node {
+    name: "Mean/_14"
+    op: "_Send"
+    input: "Mean"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "client_terminated"
+      value {
+        b: false
+      }
+    }
+    attr {
+      key: "recv_device"
+      value {
+        s: "/job:localhost/replica:0/task:0/cpu:0"
+      }
+    }
+    attr {
+      key: "send_device"
+      value {
+        s: "/job:localhost/replica:0/task:0/gpu:0"
+      }
+    }
+    attr {
+      key: "send_device_incarnation"
+      value {
+        i: 1
+      }
+    }
+    attr {
+      key: "tensor_name"
+      value {
+        s: "edge_35_Mean"
+      }
+    }
+  }
+  node {
+    name: "gradients/Mean_grad/Tile"
+    op: "Tile"
+    input: "gradients/Mean_grad/Reshape/_3__cf__3"
+    input: "gradients/Mean_grad/Shape"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "Tmultiples"
+      value {
+        type: DT_INT32
+      }
+    }
+  }
+  node {
+    name: "gradients/Mean_grad/Shape_2"
+    op: "Const"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "dtype"
+      value {
+        type: DT_INT32
+      }
+    }
+    attr {
+      key: "value"
+      value {
+        tensor {
+          dtype: DT_INT32
+          tensor_shape {
+            dim {
+            }
+          }
+        }
+      }
+    }
+  }
+  node {
+    name: "gradients/Mean_grad/Shape_2/_0"
+    op: "_HostSend"
+    input: "gradients/Mean_grad/Shape_2"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_INT32
+      }
+    }
+    attr {
+      key: "client_terminated"
+      value {
+        b: false
+      }
+    }
+    attr {
+      key: "recv_device"
+      value {
+        s: "/job:localhost/replica:0/task:0/gpu:0"
+      }
+    }
+    attr {
+      key: "send_device"
+      value {
+        s: "/job:localhost/replica:0/task:0/gpu:0"
+      }
+    }
+    attr {
+      key: "send_device_incarnation"
+      value {
+        i: 1
+      }
+    }
+    attr {
+      key: "tensor_name"
+      value {
+        s: "edge_5_gradients/Mean_grad/Shape_2"
+      }
+    }
+  }
+  node {
+    name: "gradients/Mean_grad/Shape_2/_1"
+    op: "_Recv"
+    input: "^gradients/Mean_grad/Shape_2/_0"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "client_terminated"
+      value {
+        b: false
+      }
+    }
+    attr {
+      key: "recv_device"
+      value {
+        s: "/job:localhost/replica:0/task:0/gpu:0"
+      }
+    }
+    attr {
+      key: "send_device"
+      value {
+        s: "/job:localhost/replica:0/task:0/gpu:0"
+      }
+    }
+    attr {
+      key: "send_device_incarnation"
+      value {
+        i: 1
+      }
+    }
+    attr {
+      key: "tensor_name"
+      value {
+        s: "edge_5_gradients/Mean_grad/Shape_2"
+      }
+    }
+    attr {
+      key: "tensor_type"
+      value {
+        type: DT_INT32
+      }
+    }
+  }
+  node {
+    name: "gradients/Mean_grad/Prod"
+    op: "Prod"
+    input: "gradients/Mean_grad/Shape_1/_9"
+    input: "Slice_2/begin"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_INT32
+      }
+    }
+    attr {
+      key: "Tidx"
+      value {
+        type: DT_INT32
+      }
+    }
+    attr {
+      key: "keep_dims"
+      value {
+        b: false
+      }
+    }
+  }
+  node {
+    name: "gradients/Mean_grad/Prod/_10"
+    op: "_Send"
+    input: "gradients/Mean_grad/Prod"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_INT32
+      }
+    }
+    attr {
+      key: "client_terminated"
+      value {
+        b: false
+      }
+    }
+    attr {
+      key: "recv_device"
+      value {
+        s: "/job:localhost/replica:0/task:0/gpu:0"
+      }
+    }
+    attr {
+      key: "send_device"
+      value {
+        s: "/job:localhost/replica:0/task:0/gpu:0"
+      }
+    }
+    attr {
+      key: "send_device_incarnation"
+      value {
+        i: 1
+      }
+    }
+    attr {
+      key: "tensor_name"
+      value {
+        s: "edge_83_gradients/Mean_grad/Prod"
+      }
+    }
+  }
+  node {
+    name: "gradients/Mean_grad/Prod/_11"
+    op: "_HostRecv"
+    input: "^gradients/Mean_grad/Prod/_10"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "client_terminated"
+      value {
+        b: false
+      }
+    }
+    attr {
+      key: "recv_device"
+      value {
+        s: "/job:localhost/replica:0/task:0/gpu:0"
+      }
+    }
+    attr {
+      key: "send_device"
+      value {
+        s: "/job:localhost/replica:0/task:0/gpu:0"
+      }
+    }
+    attr {
+      key: "send_device_incarnation"
+      value {
+        i: 1
+      }
+    }
+    attr {
+      key: "tensor_name"
+      value {
+        s: "edge_83_gradients/Mean_grad/Prod"
+      }
+    }
+    attr {
+      key: "tensor_type"
+      value {
+        type: DT_INT32
+      }
+    }
+  }
+  node {
+    name: "gradients/Mean_grad/Prod_1"
+    op: "Prod"
+    input: "gradients/Mean_grad/Shape_2/_1"
+    input: "Slice_2/begin"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_INT32
+      }
+    }
+    attr {
+      key: "Tidx"
+      value {
+        type: DT_INT32
+      }
+    }
+    attr {
+      key: "keep_dims"
+      value {
+        b: false
+      }
+    }
+  }
+  node {
+    name: "gradients/Mean_grad/Prod_1/_2"
+    op: "_Send"
+    input: "gradients/Mean_grad/Prod_1"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_INT32
+      }
+    }
+    attr {
+      key: "client_terminated"
+      value {
+        b: false
+      }
+    }
+    attr {
+      key: "recv_device"
+      value {
+        s: "/job:localhost/replica:0/task:0/gpu:0"
+      }
+    }
+    attr {
+      key: "send_device"
+      value {
+        s: "/job:localhost/replica:0/task:0/gpu:0"
+      }
+    }
+    attr {
+      key: "send_device_incarnation"
+      value {
+        i: 1
+      }
+    }
+    attr {
+      key: "tensor_name"
+      value {
+        s: "edge_7_gradients/Mean_grad/Prod_1"
+      }
+    }
+  }
+  node {
+    name: "gradients/Mean_grad/Prod_1/_3"
+    op: "_HostRecv"
+    input: "^gradients/Mean_grad/Prod_1/_2"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "client_terminated"
+      value {
+        b: false
+      }
+    }
+    attr {
+      key: "recv_device"
+      value {
+        s: "/job:localhost/replica:0/task:0/gpu:0"
+      }
+    }
+    attr {
+      key: "send_device"
+      value {
+        s: "/job:localhost/replica:0/task:0/gpu:0"
+      }
+    }
+    attr {
+      key: "send_device_incarnation"
+      value {
+        i: 1
+      }
+    }
+    attr {
+      key: "tensor_name"
+      value {
+        s: "edge_7_gradients/Mean_grad/Prod_1"
+      }
+    }
+    attr {
+      key: "tensor_type"
+      value {
+        type: DT_INT32
+      }
+    }
+  }
+  node {
+    name: "gradients/Mean_grad/Maximum/y"
+    op: "Const"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "dtype"
+      value {
+        type: DT_INT32
+      }
+    }
+    attr {
+      key: "value"
+      value {
+        tensor {
+          dtype: DT_INT32
+          tensor_shape {
+          }
+          int_val: 1
+        }
+      }
+    }
+  }
+  node {
+    name: "gradients/Mean_grad/Maximum"
+    op: "Maximum"
+    input: "gradients/Mean_grad/Prod_1/_3"
+    input: "gradients/Mean_grad/Maximum/y"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_INT32
+      }
+    }
+  }
+  node {
+    name: "gradients/Mean_grad/floordiv"
+    op: "FloorDiv"
+    input: "gradients/Mean_grad/Prod/_11"
+    input: "gradients/Mean_grad/Maximum"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_INT32
+      }
+    }
+  }
+  node {
+    name: "gradients/Mean_grad/floordiv/_12"
+    op: "_HostSend"
+    input: "gradients/Mean_grad/floordiv"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_INT32
+      }
+    }
+    attr {
+      key: "client_terminated"
+      value {
+        b: false
+      }
+    }
+    attr {
+      key: "recv_device"
+      value {
+        s: "/job:localhost/replica:0/task:0/gpu:0"
+      }
+    }
+    attr {
+      key: "send_device"
+      value {
+        s: "/job:localhost/replica:0/task:0/gpu:0"
+      }
+    }
+    attr {
+      key: "send_device_incarnation"
+      value {
+        i: 1
+      }
+    }
+    attr {
+      key: "tensor_name"
+      value {
+        s: "edge_85_gradients/Mean_grad/floordiv"
+      }
+    }
+  }
+  node {
+    name: "gradients/Mean_grad/floordiv/_13"
+    op: "_Recv"
+    input: "^gradients/Mean_grad/floordiv/_12"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "client_terminated"
+      value {
+        b: false
+      }
+    }
+    attr {
+      key: "recv_device"
+      value {
+        s: "/job:localhost/replica:0/task:0/gpu:0"
+      }
+    }
+    attr {
+      key: "send_device"
+      value {
+        s: "/job:localhost/replica:0/task:0/gpu:0"
+      }
+    }
+    attr {
+      key: "send_device_incarnation"
+      value {
+        i: 1
+      }
+    }
+    attr {
+      key: "tensor_name"
+      value {
+        s: "edge_85_gradients/Mean_grad/floordiv"
+      }
+    }
+    attr {
+      key: "tensor_type"
+      value {
+        type: DT_INT32
+      }
+    }
+  }
+  node {
+    name: "gradients/Mean_grad/Cast"
+    op: "Cast"
+    input: "gradients/Mean_grad/floordiv/_13"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "DstT"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "SrcT"
+      value {
+        type: DT_INT32
+      }
+    }
+  }
+  node {
+    name: "gradients/Mean_grad/truediv"
+    op: "RealDiv"
+    input: "gradients/Mean_grad/Tile"
+    input: "gradients/Mean_grad/Cast"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+  }
+  node {
+    name: "gradients/Reshape_2_grad/Reshape"
+    op: "Reshape"
+    input: "gradients/Mean_grad/truediv"
+    input: "gradients/Reshape_2_grad/Shape"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "Tshape"
+      value {
+        type: DT_INT32
+      }
+    }
+  }
+  node {
+    name: "gradients/SoftmaxCrossEntropyWithLogits_grad/ExpandDims/dim"
+    op: "Const"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "dtype"
+      value {
+        type: DT_INT32
+      }
+    }
+    attr {
+      key: "value"
+      value {
+        tensor {
+          dtype: DT_INT32
+          tensor_shape {
+          }
+          int_val: -1
+        }
+      }
+    }
+  }
+  node {
+    name: "gradients/SoftmaxCrossEntropyWithLogits_grad/ExpandDims"
+    op: "ExpandDims"
+    input: "gradients/Reshape_2_grad/Reshape"
+    input: "gradients/SoftmaxCrossEntropyWithLogits_grad/ExpandDims/dim"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "Tdim"
+      value {
+        type: DT_INT32
+      }
+    }
+  }
+  node {
+    name: "gradients/SoftmaxCrossEntropyWithLogits_grad/mul"
+    op: "Mul"
+    input: "gradients/SoftmaxCrossEntropyWithLogits_grad/ExpandDims"
+    input: "gradients/SoftmaxCrossEntropyWithLogits_grad/PreventGradient"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+  }
+  node {
+    name: "gradients/Reshape_grad/Reshape"
+    op: "Reshape"
+    input: "gradients/SoftmaxCrossEntropyWithLogits_grad/mul"
+    input: "Shape"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "Tshape"
+      value {
+        type: DT_INT32
+      }
+    }
+  }
+  node {
+    name: "gradients/add_grad/Shape_1"
+    op: "Const"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "dtype"
+      value {
+        type: DT_INT32
+      }
+    }
+    attr {
+      key: "value"
+      value {
+        tensor {
+          dtype: DT_INT32
+          tensor_shape {
+            dim {
+              size: 1
+            }
+          }
+          int_val: 10
+        }
+      }
+    }
+  }
+  node {
+    name: "gradients/add_grad/BroadcastGradientArgs"
+    op: "BroadcastGradientArgs"
+    input: "gradients/add_grad/Shape"
+    input: "gradients/add_grad/Shape_1"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_INT32
+      }
+    }
+  }
+  node {
+    name: "gradients/add_grad/Sum"
+    op: "Sum"
+    input: "gradients/Reshape_grad/Reshape"
+    input: "gradients/add_grad/BroadcastGradientArgs"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "Tidx"
+      value {
+        type: DT_INT32
+      }
+    }
+    attr {
+      key: "keep_dims"
+      value {
+        b: false
+      }
+    }
+  }
+  node {
+    name: "gradients/add_grad/Reshape"
+    op: "Reshape"
+    input: "gradients/add_grad/Sum"
+    input: "gradients/add_grad/Shape"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "Tshape"
+      value {
+        type: DT_INT32
+      }
+    }
+  }
+  node {
+    name: "gradients/add_grad/Sum_1"
+    op: "Sum"
+    input: "gradients/Reshape_grad/Reshape"
+    input: "gradients/add_grad/BroadcastGradientArgs:1"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "Tidx"
+      value {
+        type: DT_INT32
+      }
+    }
+    attr {
+      key: "keep_dims"
+      value {
+        b: false
+      }
+    }
+  }
+  node {
+    name: "gradients/add_grad/Reshape_1"
+    op: "Reshape"
+    input: "gradients/add_grad/Sum_1"
+    input: "gradients/add_grad/Shape_1"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "Tshape"
+      value {
+        type: DT_INT32
+      }
+    }
+  }
+  node {
+    name: "gradients/add_grad/tuple/group_deps"
+    op: "NoOp"
+    input: "^gradients/add_grad/Reshape"
+    input: "^gradients/add_grad/Reshape_1"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+  }
+  node {
+    name: "gradients/add_grad/tuple/control_dependency"
+    op: "Identity"
+    input: "gradients/add_grad/Reshape"
+    input: "^gradients/add_grad/tuple/group_deps"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "_class"
+      value {
+        list {
+          s: "loc:@gradients/add_grad/Reshape"
+        }
+      }
+    }
+  }
+  node {
+    name: "gradients/MatMul_2_grad/MatMul"
+    op: "MatMul"
+    input: "gradients/add_grad/tuple/control_dependency"
+    input: "Variable_2/read"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "transpose_a"
+      value {
+        b: false
+      }
+    }
+    attr {
+      key: "transpose_b"
+      value {
+        b: true
+      }
+    }
+  }
+  node {
+    name: "gradients/MatMul_2_grad/MatMul_1"
+    op: "MatMul"
+    input: "Relu_1"
+    input: "gradients/add_grad/tuple/control_dependency"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "transpose_a"
+      value {
+        b: true
+      }
+    }
+    attr {
+      key: "transpose_b"
+      value {
+        b: false
+      }
+    }
+  }
+  node {
+    name: "gradients/MatMul_2_grad/tuple/group_deps"
+    op: "NoOp"
+    input: "^gradients/MatMul_2_grad/MatMul"
+    input: "^gradients/MatMul_2_grad/MatMul_1"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+  }
+  node {
+    name: "gradients/MatMul_2_grad/tuple/control_dependency"
+    op: "Identity"
+    input: "gradients/MatMul_2_grad/MatMul"
+    input: "^gradients/MatMul_2_grad/tuple/group_deps"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "_class"
+      value {
+        list {
+          s: "loc:@gradients/MatMul_2_grad/MatMul"
+        }
+      }
+    }
+  }
+  node {
+    name: "gradients/Relu_1_grad/ReluGrad"
+    op: "ReluGrad"
+    input: "gradients/MatMul_2_grad/tuple/control_dependency"
+    input: "Relu_1"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+  }
+  node {
+    name: "gradients/MatMul_2_grad/tuple/control_dependency_1"
+    op: "Identity"
+    input: "gradients/MatMul_2_grad/MatMul_1"
+    input: "^gradients/MatMul_2_grad/tuple/group_deps"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "_class"
+      value {
+        list {
+          s: "loc:@gradients/MatMul_2_grad/MatMul_1"
+        }
+      }
+    }
+  }
+  node {
+    name: "gradients/add_grad/tuple/control_dependency_1"
+    op: "Identity"
+    input: "gradients/add_grad/Reshape_1"
+    input: "^gradients/add_grad/tuple/group_deps"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "_class"
+      value {
+        list {
+          s: "loc:@gradients/add_grad/Reshape_1"
+        }
+      }
+    }
+  }
+  node {
+    name: "gradients/Add_1_grad/Shape_1"
+    op: "Const"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "dtype"
+      value {
+        type: DT_INT32
+      }
+    }
+    attr {
+      key: "value"
+      value {
+        tensor {
+          dtype: DT_INT32
+          tensor_shape {
+            dim {
+              size: 1
+            }
+          }
+          int_val: 140
+        }
+      }
+    }
+  }
+  node {
+    name: "gradients/Add_1_grad/BroadcastGradientArgs"
+    op: "BroadcastGradientArgs"
+    input: "gradients/Add_1_grad/Shape"
+    input: "gradients/Add_1_grad/Shape_1"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_INT32
+      }
+    }
+  }
+  node {
+    name: "gradients/Add_1_grad/Sum"
+    op: "Sum"
+    input: "gradients/Relu_1_grad/ReluGrad"
+    input: "gradients/Add_1_grad/BroadcastGradientArgs"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "Tidx"
+      value {
+        type: DT_INT32
+      }
+    }
+    attr {
+      key: "keep_dims"
+      value {
+        b: false
+      }
+    }
+  }
+  node {
+    name: "gradients/Add_1_grad/Reshape"
+    op: "Reshape"
+    input: "gradients/Add_1_grad/Sum"
+    input: "gradients/Add_1_grad/Shape"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "Tshape"
+      value {
+        type: DT_INT32
+      }
+    }
+  }
+  node {
+    name: "gradients/Add_1_grad/Sum_1"
+    op: "Sum"
+    input: "gradients/Relu_1_grad/ReluGrad"
+    input: "gradients/Add_1_grad/BroadcastGradientArgs:1"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "Tidx"
+      value {
+        type: DT_INT32
+      }
+    }
+    attr {
+      key: "keep_dims"
+      value {
+        b: false
+      }
+    }
+  }
+  node {
+    name: "gradients/Add_1_grad/Reshape_1"
+    op: "Reshape"
+    input: "gradients/Add_1_grad/Sum_1"
+    input: "gradients/Add_1_grad/Shape_1"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "Tshape"
+      value {
+        type: DT_INT32
+      }
+    }
+  }
+  node {
+    name: "gradients/Add_1_grad/tuple/group_deps"
+    op: "NoOp"
+    input: "^gradients/Add_1_grad/Reshape"
+    input: "^gradients/Add_1_grad/Reshape_1"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+  }
+  node {
+    name: "gradients/Add_1_grad/tuple/control_dependency"
+    op: "Identity"
+    input: "gradients/Add_1_grad/Reshape"
+    input: "^gradients/Add_1_grad/tuple/group_deps"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "_class"
+      value {
+        list {
+          s: "loc:@gradients/Add_1_grad/Reshape"
+        }
+      }
+    }
+  }
+  node {
+    name: "gradients/MatMul_1_grad/MatMul"
+    op: "MatMul"
+    input: "gradients/Add_1_grad/tuple/control_dependency"
+    input: "Variable_1/read"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "transpose_a"
+      value {
+        b: false
+      }
+    }
+    attr {
+      key: "transpose_b"
+      value {
+        b: true
+      }
+    }
+  }
+  node {
+    name: "gradients/MatMul_1_grad/MatMul_1"
+    op: "MatMul"
+    input: "Relu"
+    input: "gradients/Add_1_grad/tuple/control_dependency"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "transpose_a"
+      value {
+        b: true
+      }
+    }
+    attr {
+      key: "transpose_b"
+      value {
+        b: false
+      }
+    }
+  }
+  node {
+    name: "gradients/MatMul_1_grad/tuple/group_deps"
+    op: "NoOp"
+    input: "^gradients/MatMul_1_grad/MatMul"
+    input: "^gradients/MatMul_1_grad/MatMul_1"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+  }
+  node {
+    name: "gradients/MatMul_1_grad/tuple/control_dependency"
+    op: "Identity"
+    input: "gradients/MatMul_1_grad/MatMul"
+    input: "^gradients/MatMul_1_grad/tuple/group_deps"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "_class"
+      value {
+        list {
+          s: "loc:@gradients/MatMul_1_grad/MatMul"
+        }
+      }
+    }
+  }
+  node {
+    name: "gradients/Relu_grad/ReluGrad"
+    op: "ReluGrad"
+    input: "gradients/MatMul_1_grad/tuple/control_dependency"
+    input: "Relu"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+  }
+  node {
+    name: "gradients/MatMul_1_grad/tuple/control_dependency_1"
+    op: "Identity"
+    input: "gradients/MatMul_1_grad/MatMul_1"
+    input: "^gradients/MatMul_1_grad/tuple/group_deps"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "_class"
+      value {
+        list {
+          s: "loc:@gradients/MatMul_1_grad/MatMul_1"
+        }
+      }
+    }
+  }
+  node {
+    name: "gradients/Add_1_grad/tuple/control_dependency_1"
+    op: "Identity"
+    input: "gradients/Add_1_grad/Reshape_1"
+    input: "^gradients/Add_1_grad/tuple/group_deps"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "_class"
+      value {
+        list {
+          s: "loc:@gradients/Add_1_grad/Reshape_1"
+        }
+      }
+    }
+  }
+  node {
+    name: "gradients/Add_grad/BroadcastGradientArgs"
+    op: "BroadcastGradientArgs"
+    input: "gradients/Add_grad/Shape"
+    input: "gradients/Add_1_grad/Shape_1"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_INT32
+      }
+    }
+  }
+  node {
+    name: "gradients/Add_grad/Sum"
+    op: "Sum"
+    input: "gradients/Relu_grad/ReluGrad"
+    input: "gradients/Add_grad/BroadcastGradientArgs"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "Tidx"
+      value {
+        type: DT_INT32
+      }
+    }
+    attr {
+      key: "keep_dims"
+      value {
+        b: false
+      }
+    }
+  }
+  node {
+    name: "gradients/Add_grad/Reshape"
+    op: "Reshape"
+    input: "gradients/Add_grad/Sum"
+    input: "gradients/Add_grad/Shape"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "Tshape"
+      value {
+        type: DT_INT32
+      }
+    }
+  }
+  node {
+    name: "gradients/Add_grad/Sum_1"
+    op: "Sum"
+    input: "gradients/Relu_grad/ReluGrad"
+    input: "gradients/Add_grad/BroadcastGradientArgs:1"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "Tidx"
+      value {
+        type: DT_INT32
+      }
+    }
+    attr {
+      key: "keep_dims"
+      value {
+        b: false
+      }
+    }
+  }
+  node {
+    name: "gradients/Add_grad/Reshape_1"
+    op: "Reshape"
+    input: "gradients/Add_grad/Sum_1"
+    input: "gradients/Add_1_grad/Shape_1"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "Tshape"
+      value {
+        type: DT_INT32
+      }
+    }
+  }
+  node {
+    name: "gradients/Add_grad/tuple/group_deps"
+    op: "NoOp"
+    input: "^gradients/Add_grad/Reshape"
+    input: "^gradients/Add_grad/Reshape_1"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+  }
+  node {
+    name: "gradients/Add_grad/tuple/control_dependency"
+    op: "Identity"
+    input: "gradients/Add_grad/Reshape"
+    input: "^gradients/Add_grad/tuple/group_deps"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "_class"
+      value {
+        list {
+          s: "loc:@gradients/Add_grad/Reshape"
+        }
+      }
+    }
+  }
+  node {
+    name: "gradients/MatMul_grad/MatMul"
+    op: "MatMul"
+    input: "gradients/Add_grad/tuple/control_dependency"
+    input: "Variable/read"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "transpose_a"
+      value {
+        b: false
+      }
+    }
+    attr {
+      key: "transpose_b"
+      value {
+        b: true
+      }
+    }
+  }
+  node {
+    name: "gradients/MatMul_grad/MatMul_1"
+    op: "MatMul"
+    input: "_recv_Placeholder_0/_7"
+    input: "gradients/Add_grad/tuple/control_dependency"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "transpose_a"
+      value {
+        b: true
+      }
+    }
+    attr {
+      key: "transpose_b"
+      value {
+        b: false
+      }
+    }
+  }
+  node {
+    name: "gradients/MatMul_grad/tuple/group_deps"
+    op: "NoOp"
+    input: "^gradients/MatMul_grad/MatMul"
+    input: "^gradients/MatMul_grad/MatMul_1"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+  }
+  node {
+    name: "gradients/MatMul_grad/tuple/control_dependency_1"
+    op: "Identity"
+    input: "gradients/MatMul_grad/MatMul_1"
+    input: "^gradients/MatMul_grad/tuple/group_deps"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "_class"
+      value {
+        list {
+          s: "loc:@gradients/MatMul_grad/MatMul_1"
+        }
+      }
+    }
+  }
+  node {
+    name: "gradients/Add_grad/tuple/control_dependency_1"
+    op: "Identity"
+    input: "gradients/Add_grad/Reshape_1"
+    input: "^gradients/Add_grad/tuple/group_deps"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "_class"
+      value {
+        list {
+          s: "loc:@gradients/Add_grad/Reshape_1"
+        }
+      }
+    }
+  }
+  node {
+    name: "beta1_power"
+    op: "VariableV2"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "_class"
+      value {
+        list {
+          s: "loc:@Variable"
+        }
+      }
+    }
+    attr {
+      key: "container"
+      value {
+        s: ""
+      }
+    }
+    attr {
+      key: "dtype"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "shape"
+      value {
+        shape {
+        }
+      }
+    }
+    attr {
+      key: "shared_name"
+      value {
+        s: ""
+      }
+    }
+  }
+  node {
+    name: "beta1_power/read"
+    op: "Identity"
+    input: "beta1_power"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "_class"
+      value {
+        list {
+          s: "loc:@Variable"
+        }
+      }
+    }
+  }
+  node {
+    name: "beta2_power"
+    op: "VariableV2"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "_class"
+      value {
+        list {
+          s: "loc:@Variable"
+        }
+      }
+    }
+    attr {
+      key: "container"
+      value {
+        s: ""
+      }
+    }
+    attr {
+      key: "dtype"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "shape"
+      value {
+        shape {
+        }
+      }
+    }
+    attr {
+      key: "shared_name"
+      value {
+        s: ""
+      }
+    }
+  }
+  node {
+    name: "beta2_power/read"
+    op: "Identity"
+    input: "beta2_power"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "_class"
+      value {
+        list {
+          s: "loc:@Variable"
+        }
+      }
+    }
+  }
+  node {
+    name: "Variable/Adam"
+    op: "VariableV2"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "_class"
+      value {
+        list {
+          s: "loc:@Variable"
+        }
+      }
+    }
+    attr {
+      key: "container"
+      value {
+        s: ""
+      }
+    }
+    attr {
+      key: "dtype"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "shape"
+      value {
+        shape {
+          dim {
+            size: 784
+          }
+          dim {
+            size: 140
+          }
+        }
+      }
+    }
+    attr {
+      key: "shared_name"
+      value {
+        s: ""
+      }
+    }
+  }
+  node {
+    name: "Variable/Adam_1"
+    op: "VariableV2"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "_class"
+      value {
+        list {
+          s: "loc:@Variable"
+        }
+      }
+    }
+    attr {
+      key: "container"
+      value {
+        s: ""
+      }
+    }
+    attr {
+      key: "dtype"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "shape"
+      value {
+        shape {
+          dim {
+            size: 784
+          }
+          dim {
+            size: 140
+          }
+        }
+      }
+    }
+    attr {
+      key: "shared_name"
+      value {
+        s: ""
+      }
+    }
+  }
+  node {
+    name: "Variable_1/Adam"
+    op: "VariableV2"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "_class"
+      value {
+        list {
+          s: "loc:@Variable_1"
+        }
+      }
+    }
+    attr {
+      key: "container"
+      value {
+        s: ""
+      }
+    }
+    attr {
+      key: "dtype"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "shape"
+      value {
+        shape {
+          dim {
+            size: 140
+          }
+          dim {
+            size: 140
+          }
+        }
+      }
+    }
+    attr {
+      key: "shared_name"
+      value {
+        s: ""
+      }
+    }
+  }
+  node {
+    name: "Variable_1/Adam_1"
+    op: "VariableV2"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "_class"
+      value {
+        list {
+          s: "loc:@Variable_1"
+        }
+      }
+    }
+    attr {
+      key: "container"
+      value {
+        s: ""
+      }
+    }
+    attr {
+      key: "dtype"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "shape"
+      value {
+        shape {
+          dim {
+            size: 140
+          }
+          dim {
+            size: 140
+          }
+        }
+      }
+    }
+    attr {
+      key: "shared_name"
+      value {
+        s: ""
+      }
+    }
+  }
+  node {
+    name: "Variable_2/Adam"
+    op: "VariableV2"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "_class"
+      value {
+        list {
+          s: "loc:@Variable_2"
+        }
+      }
+    }
+    attr {
+      key: "container"
+      value {
+        s: ""
+      }
+    }
+    attr {
+      key: "dtype"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "shape"
+      value {
+        shape {
+          dim {
+            size: 140
+          }
+          dim {
+            size: 10
+          }
+        }
+      }
+    }
+    attr {
+      key: "shared_name"
+      value {
+        s: ""
+      }
+    }
+  }
+  node {
+    name: "Variable_2/Adam_1"
+    op: "VariableV2"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "_class"
+      value {
+        list {
+          s: "loc:@Variable_2"
+        }
+      }
+    }
+    attr {
+      key: "container"
+      value {
+        s: ""
+      }
+    }
+    attr {
+      key: "dtype"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "shape"
+      value {
+        shape {
+          dim {
+            size: 140
+          }
+          dim {
+            size: 10
+          }
+        }
+      }
+    }
+    attr {
+      key: "shared_name"
+      value {
+        s: ""
+      }
+    }
+  }
+  node {
+    name: "Variable_3/Adam"
+    op: "VariableV2"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "_class"
+      value {
+        list {
+          s: "loc:@Variable_3"
+        }
+      }
+    }
+    attr {
+      key: "container"
+      value {
+        s: ""
+      }
+    }
+    attr {
+      key: "dtype"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "shape"
+      value {
+        shape {
+          dim {
+            size: 140
+          }
+        }
+      }
+    }
+    attr {
+      key: "shared_name"
+      value {
+        s: ""
+      }
+    }
+  }
+  node {
+    name: "Variable_3/Adam_1"
+    op: "VariableV2"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "_class"
+      value {
+        list {
+          s: "loc:@Variable_3"
+        }
+      }
+    }
+    attr {
+      key: "container"
+      value {
+        s: ""
+      }
+    }
+    attr {
+      key: "dtype"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "shape"
+      value {
+        shape {
+          dim {
+            size: 140
+          }
+        }
+      }
+    }
+    attr {
+      key: "shared_name"
+      value {
+        s: ""
+      }
+    }
+  }
+  node {
+    name: "Variable_4/Adam"
+    op: "VariableV2"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "_class"
+      value {
+        list {
+          s: "loc:@Variable_4"
+        }
+      }
+    }
+    attr {
+      key: "container"
+      value {
+        s: ""
+      }
+    }
+    attr {
+      key: "dtype"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "shape"
+      value {
+        shape {
+          dim {
+            size: 140
+          }
+        }
+      }
+    }
+    attr {
+      key: "shared_name"
+      value {
+        s: ""
+      }
+    }
+  }
+  node {
+    name: "Variable_4/Adam_1"
+    op: "VariableV2"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "_class"
+      value {
+        list {
+          s: "loc:@Variable_4"
+        }
+      }
+    }
+    attr {
+      key: "container"
+      value {
+        s: ""
+      }
+    }
+    attr {
+      key: "dtype"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "shape"
+      value {
+        shape {
+          dim {
+            size: 140
+          }
+        }
+      }
+    }
+    attr {
+      key: "shared_name"
+      value {
+        s: ""
+      }
+    }
+  }
+  node {
+    name: "Variable_5/Adam"
+    op: "VariableV2"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "_class"
+      value {
+        list {
+          s: "loc:@Variable_5"
+        }
+      }
+    }
+    attr {
+      key: "container"
+      value {
+        s: ""
+      }
+    }
+    attr {
+      key: "dtype"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "shape"
+      value {
+        shape {
+          dim {
+            size: 10
+          }
+        }
+      }
+    }
+    attr {
+      key: "shared_name"
+      value {
+        s: ""
+      }
+    }
+  }
+  node {
+    name: "Variable_5/Adam_1"
+    op: "VariableV2"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "_class"
+      value {
+        list {
+          s: "loc:@Variable_5"
+        }
+      }
+    }
+    attr {
+      key: "container"
+      value {
+        s: ""
+      }
+    }
+    attr {
+      key: "dtype"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "shape"
+      value {
+        shape {
+          dim {
+            size: 10
+          }
+        }
+      }
+    }
+    attr {
+      key: "shared_name"
+      value {
+        s: ""
+      }
+    }
+  }
+  node {
+    name: "Adam/learning_rate"
+    op: "Const"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "dtype"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "value"
+      value {
+        tensor {
+          dtype: DT_FLOAT
+          tensor_shape {
+          }
+          float_val: 0.0010000000475
+        }
+      }
+    }
+  }
+  node {
+    name: "Adam/beta1"
+    op: "Const"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "dtype"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "value"
+      value {
+        tensor {
+          dtype: DT_FLOAT
+          tensor_shape {
+          }
+          float_val: 0.899999976158
+        }
+      }
+    }
+  }
+  node {
+    name: "Adam/beta2"
+    op: "Const"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "dtype"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "value"
+      value {
+        tensor {
+          dtype: DT_FLOAT
+          tensor_shape {
+          }
+          float_val: 0.999000012875
+        }
+      }
+    }
+  }
+  node {
+    name: "Adam/epsilon"
+    op: "Const"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "dtype"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "value"
+      value {
+        tensor {
+          dtype: DT_FLOAT
+          tensor_shape {
+          }
+          float_val: 9.99999993923e-09
+        }
+      }
+    }
+  }
+  node {
+    name: "Adam/update_Variable/ApplyAdam"
+    op: "ApplyAdam"
+    input: "Variable"
+    input: "Variable/Adam"
+    input: "Variable/Adam_1"
+    input: "beta1_power/read"
+    input: "beta2_power/read"
+    input: "Adam/learning_rate"
+    input: "Adam/beta1"
+    input: "Adam/beta2"
+    input: "Adam/epsilon"
+    input: "gradients/MatMul_grad/tuple/control_dependency_1"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "_class"
+      value {
+        list {
+          s: "loc:@Variable"
+        }
+      }
+    }
+    attr {
+      key: "use_locking"
+      value {
+        b: false
+      }
+    }
+  }
+  node {
+    name: "Adam/update_Variable_3/ApplyAdam"
+    op: "ApplyAdam"
+    input: "Variable_3"
+    input: "Variable_3/Adam"
+    input: "Variable_3/Adam_1"
+    input: "beta1_power/read"
+    input: "beta2_power/read"
+    input: "Adam/learning_rate"
+    input: "Adam/beta1"
+    input: "Adam/beta2"
+    input: "Adam/epsilon"
+    input: "gradients/Add_grad/tuple/control_dependency_1"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "_class"
+      value {
+        list {
+          s: "loc:@Variable_3"
+        }
+      }
+    }
+    attr {
+      key: "use_locking"
+      value {
+        b: false
+      }
+    }
+  }
+  node {
+    name: "Adam/update_Variable_1/ApplyAdam"
+    op: "ApplyAdam"
+    input: "Variable_1"
+    input: "Variable_1/Adam"
+    input: "Variable_1/Adam_1"
+    input: "beta1_power/read"
+    input: "beta2_power/read"
+    input: "Adam/learning_rate"
+    input: "Adam/beta1"
+    input: "Adam/beta2"
+    input: "Adam/epsilon"
+    input: "gradients/MatMul_1_grad/tuple/control_dependency_1"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "_class"
+      value {
+        list {
+          s: "loc:@Variable_1"
+        }
+      }
+    }
+    attr {
+      key: "use_locking"
+      value {
+        b: false
+      }
+    }
+  }
+  node {
+    name: "Adam/update_Variable_4/ApplyAdam"
+    op: "ApplyAdam"
+    input: "Variable_4"
+    input: "Variable_4/Adam"
+    input: "Variable_4/Adam_1"
+    input: "beta1_power/read"
+    input: "beta2_power/read"
+    input: "Adam/learning_rate"
+    input: "Adam/beta1"
+    input: "Adam/beta2"
+    input: "Adam/epsilon"
+    input: "gradients/Add_1_grad/tuple/control_dependency_1"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "_class"
+      value {
+        list {
+          s: "loc:@Variable_4"
+        }
+      }
+    }
+    attr {
+      key: "use_locking"
+      value {
+        b: false
+      }
+    }
+  }
+  node {
+    name: "Adam/update_Variable_2/ApplyAdam"
+    op: "ApplyAdam"
+    input: "Variable_2"
+    input: "Variable_2/Adam"
+    input: "Variable_2/Adam_1"
+    input: "beta1_power/read"
+    input: "beta2_power/read"
+    input: "Adam/learning_rate"
+    input: "Adam/beta1"
+    input: "Adam/beta2"
+    input: "Adam/epsilon"
+    input: "gradients/MatMul_2_grad/tuple/control_dependency_1"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "_class"
+      value {
+        list {
+          s: "loc:@Variable_2"
+        }
+      }
+    }
+    attr {
+      key: "use_locking"
+      value {
+        b: false
+      }
+    }
+  }
+  node {
+    name: "Adam/update_Variable_5/ApplyAdam"
+    op: "ApplyAdam"
+    input: "Variable_5"
+    input: "Variable_5/Adam"
+    input: "Variable_5/Adam_1"
+    input: "beta1_power/read"
+    input: "beta2_power/read"
+    input: "Adam/learning_rate"
+    input: "Adam/beta1"
+    input: "Adam/beta2"
+    input: "Adam/epsilon"
+    input: "gradients/add_grad/tuple/control_dependency_1"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "_class"
+      value {
+        list {
+          s: "loc:@Variable_5"
+        }
+      }
+    }
+    attr {
+      key: "use_locking"
+      value {
+        b: false
+      }
+    }
+  }
+  node {
+    name: "Adam/mul"
+    op: "Mul"
+    input: "beta1_power/read"
+    input: "Adam/beta1"
+    input: "^Adam/update_Variable/ApplyAdam"
+    input: "^Adam/update_Variable_1/ApplyAdam"
+    input: "^Adam/update_Variable_2/ApplyAdam"
+    input: "^Adam/update_Variable_3/ApplyAdam"
+    input: "^Adam/update_Variable_4/ApplyAdam"
+    input: "^Adam/update_Variable_5/ApplyAdam"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "_class"
+      value {
+        list {
+          s: "loc:@Variable"
+        }
+      }
+    }
+  }
+  node {
+    name: "Adam/Assign"
+    op: "Assign"
+    input: "beta1_power"
+    input: "Adam/mul"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "_class"
+      value {
+        list {
+          s: "loc:@Variable"
+        }
+      }
+    }
+    attr {
+      key: "use_locking"
+      value {
+        b: false
+      }
+    }
+    attr {
+      key: "validate_shape"
+      value {
+        b: true
+      }
+    }
+  }
+  node {
+    name: "Adam/mul_1"
+    op: "Mul"
+    input: "beta2_power/read"
+    input: "Adam/beta2"
+    input: "^Adam/update_Variable/ApplyAdam"
+    input: "^Adam/update_Variable_1/ApplyAdam"
+    input: "^Adam/update_Variable_2/ApplyAdam"
+    input: "^Adam/update_Variable_3/ApplyAdam"
+    input: "^Adam/update_Variable_4/ApplyAdam"
+    input: "^Adam/update_Variable_5/ApplyAdam"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "_class"
+      value {
+        list {
+          s: "loc:@Variable"
+        }
+      }
+    }
+  }
+  node {
+    name: "Adam/Assign_1"
+    op: "Assign"
+    input: "beta2_power"
+    input: "Adam/mul_1"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "_class"
+      value {
+        list {
+          s: "loc:@Variable"
+        }
+      }
+    }
+    attr {
+      key: "use_locking"
+      value {
+        b: false
+      }
+    }
+    attr {
+      key: "validate_shape"
+      value {
+        b: true
+      }
+    }
+  }
+  node {
+    name: "Adam"
+    op: "NoOp"
+    input: "^Adam/update_Variable/ApplyAdam"
+    input: "^Adam/update_Variable_1/ApplyAdam"
+    input: "^Adam/update_Variable_2/ApplyAdam"
+    input: "^Adam/update_Variable_3/ApplyAdam"
+    input: "^Adam/update_Variable_4/ApplyAdam"
+    input: "^Adam/update_Variable_5/ApplyAdam"
+    input: "^Adam/Assign"
+    input: "^Adam/Assign_1"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+  }
+  node {
+    name: "Slice/begin/_1__cf__1"
+    op: "Const"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "dtype"
+      value {
+        type: DT_INT32
+      }
+    }
+    attr {
+      key: "value"
+      value {
+        tensor {
+          dtype: DT_INT32
+          tensor_shape {
+            dim {
+              size: 1
+            }
+          }
+          int_val: 1
+        }
+      }
+    }
+  }
+  node {
+    name: "gradients/Mean_grad/Reshape/_3__cf__3"
+    op: "Const"
+    device: "/job:localhost/replica:0/task:0/gpu:0"
+    attr {
+      key: "dtype"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "value"
+      value {
+        tensor {
+          dtype: DT_FLOAT
+          tensor_shape {
+            dim {
+              size: 1
+            }
+          }
+          float_val: 1.0
+        }
+      }
+    }
+  }
+  versions {
+    producer: 21
+  }
+}
+partition_graphs {
+  node {
+    name: "Mean/_15"
+    op: "_Recv"
+    device: "/job:localhost/replica:0/task:0/cpu:0"
+    attr {
+      key: "client_terminated"
+      value {
+        b: false
+      }
+    }
+    attr {
+      key: "recv_device"
+      value {
+        s: "/job:localhost/replica:0/task:0/cpu:0"
+      }
+    }
+    attr {
+      key: "send_device"
+      value {
+        s: "/job:localhost/replica:0/task:0/gpu:0"
+      }
+    }
+    attr {
+      key: "send_device_incarnation"
+      value {
+        i: 1
+      }
+    }
+    attr {
+      key: "tensor_name"
+      value {
+        s: "edge_35_Mean"
+      }
+    }
+    attr {
+      key: "tensor_type"
+      value {
+        type: DT_FLOAT
+      }
+    }
+  }
+  node {
+    name: "_send_Mean_0"
+    op: "_Send"
+    input: "Mean/_15"
+    device: "/job:localhost/replica:0/task:0/cpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "client_terminated"
+      value {
+        b: true
+      }
+    }
+    attr {
+      key: "recv_device"
+      value {
+        s: "/job:localhost/replica:0/task:0/cpu:0"
+      }
+    }
+    attr {
+      key: "send_device"
+      value {
+        s: "/job:localhost/replica:0/task:0/cpu:0"
+      }
+    }
+    attr {
+      key: "send_device_incarnation"
+      value {
+        i: -3043669541106496893
+      }
+    }
+    attr {
+      key: "tensor_name"
+      value {
+        s: "Mean:0"
+      }
+    }
+  }
+  node {
+    name: "_recv_Placeholder_1_0"
+    op: "_Recv"
+    device: "/job:localhost/replica:0/task:0/cpu:0"
+    attr {
+      key: "client_terminated"
+      value {
+        b: true
+      }
+    }
+    attr {
+      key: "recv_device"
+      value {
+        s: "/job:localhost/replica:0/task:0/cpu:0"
+      }
+    }
+    attr {
+      key: "send_device"
+      value {
+        s: "/job:localhost/replica:0/task:0/cpu:0"
+      }
+    }
+    attr {
+      key: "send_device_incarnation"
+      value {
+        i: -3043669541106496893
+      }
+    }
+    attr {
+      key: "tensor_name"
+      value {
+        s: "Placeholder_1:0"
+      }
+    }
+    attr {
+      key: "tensor_type"
+      value {
+        type: DT_FLOAT
+      }
+    }
+  }
+  node {
+    name: "_recv_Placeholder_1_0/_4"
+    op: "_Send"
+    input: "_recv_Placeholder_1_0"
+    device: "/job:localhost/replica:0/task:0/cpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "client_terminated"
+      value {
+        b: false
+      }
+    }
+    attr {
+      key: "recv_device"
+      value {
+        s: "/job:localhost/replica:0/task:0/gpu:0"
+      }
+    }
+    attr {
+      key: "send_device"
+      value {
+        s: "/job:localhost/replica:0/task:0/cpu:0"
+      }
+    }
+    attr {
+      key: "send_device_incarnation"
+      value {
+        i: 1
+      }
+    }
+    attr {
+      key: "tensor_name"
+      value {
+        s: "edge_316__recv_Placeholder_1_0"
+      }
+    }
+  }
+  node {
+    name: "_recv_Placeholder_0"
+    op: "_Recv"
+    device: "/job:localhost/replica:0/task:0/cpu:0"
+    attr {
+      key: "client_terminated"
+      value {
+        b: true
+      }
+    }
+    attr {
+      key: "recv_device"
+      value {
+        s: "/job:localhost/replica:0/task:0/cpu:0"
+      }
+    }
+    attr {
+      key: "send_device"
+      value {
+        s: "/job:localhost/replica:0/task:0/cpu:0"
+      }
+    }
+    attr {
+      key: "send_device_incarnation"
+      value {
+        i: -3043669541106496893
+      }
+    }
+    attr {
+      key: "tensor_name"
+      value {
+        s: "Placeholder:0"
+      }
+    }
+    attr {
+      key: "tensor_type"
+      value {
+        type: DT_FLOAT
+      }
+    }
+  }
+  node {
+    name: "_recv_Placeholder_0/_6"
+    op: "_Send"
+    input: "_recv_Placeholder_0"
+    device: "/job:localhost/replica:0/task:0/cpu:0"
+    attr {
+      key: "T"
+      value {
+        type: DT_FLOAT
+      }
+    }
+    attr {
+      key: "client_terminated"
+      value {
+        b: false
+      }
+    }
+    attr {
+      key: "recv_device"
+      value {
+        s: "/job:localhost/replica:0/task:0/gpu:0"
+      }
+    }
+    attr {
+      key: "send_device"
+      value {
+        s: "/job:localhost/replica:0/task:0/cpu:0"
+      }
+    }
+    attr {
+      key: "send_device_incarnation"
+      value {
+        i: 1
+      }
+    }
+    attr {
+      key: "tensor_name"
+      value {
+        s: "edge_315__recv_Placeholder_0"
+      }
+    }
+  }
+  versions {
+    producer: 21
+  }
+}

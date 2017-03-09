@@ -1,0 +1,11 @@
+==28373== NVPROF is profiling process 28373, command: /usr/bin/python recurrent_network.py
+==28373== Profiling application: /usr/bin/python recurrent_network.py
+==28373== Profiling result:
+==28373== Metric result:
+Invocations                               Metric Name                        Metric Description         Min         Max         Avg
+Device "GeForce GTX 1080 (0)"
+    Kernel: void tensorflow::_GLOBAL__N__51_tmpxft_00000dd7_00000000_7_split_lib_gpu_cu_cpp1_ii_893aa502::SplitOpKernel<float>(float const *, int, int, int, tensorflow::CudaDeviceArrayStruct<tensorflow::_GLOBAL__N__51_tmpxft_00000dd7_00000000_7_split_lib_gpu_cu_cpp1_ii_893aa502::SplitOpKernel<float>*, int=8>)
+         56                      dram_read_throughput             Device Memory Read Throughput  5.0396GB/s  14.677GB/s  7.0054GB/s
+         56                     dram_write_throughput            Device Memory Write Throughput  95.491GB/s  156.08GB/s  138.67GB/s
+         56                               sm_activity                   Multiprocessor Activity      53.03%      75.60%      69.86%
+         56                              executed_ipc                              Executed IPC    1.435997    1.748532    1.672569

@@ -30,7 +30,7 @@ dropout = 0.75 # Dropout, probability to keep units
 #by CSB, tell GPU to allocate as only as much memory required during runtime
 #config = tf.ConfigProto()
 config = tf.ConfigProto(log_device_placement=False)
-config.gpu_options.allow_growth = True
+#config.gpu_options.allow_growth = True
 
 # tf Graph input
 x = tf.placeholder(tf.float32, [None, n_input])
@@ -115,25 +115,26 @@ init = tf.global_variables_initializer()
 # Launch the graph
 with tf.Session(config=config) as sess:
     sess.run(init)
-    step_limit = 1
-    step = 0
+    
+#step_limit = 1
+    step = 1
     # Keep training until reach max iterations
-    while step < step_limit:
+    while step * batch_size < training_iters:
         batch_x, batch_y = mnist.train.next_batch(batch_size)
         # Run optimization op (backprop)
-        sess.run(optimizer, feed_dict={x: batch_x, y: batch_y,
+        sess.run(pred, feed_dict={x: batch_x, y: batch_y,
                                        keep_prob: dropout})
 #    if step % display_step == 0:
             # Calculate batch loss and accuracy
-        loss, acc = sess.run([cost, accuracy], feed_dict={x: batch_x,
-                                                              y: batch_y,
-                                                              keep_prob: 1.})
+#loss, acc = sess.run([cost, accuracy], feed_dict={x: batch_x,
+#                                                             y: batch_y,
+#                                                             keep_prob: 1.})
 #            print("Iter " + str(step*batch_size) + ", Minibatch Loss= " + \
 #                  "{:.6f}".format(loss) + ", Training Accuracy= " + \
 #                  "{:.5f}".format(acc))
         step += 1
-        print(step)
-#    print("Optimization Finished!")
+#        print(step)
+    print("Conv net Optimization Finished!")
 
     # Calculate accuracy for 256 mnist test images
 #    print("Testing Accuracy:", \
