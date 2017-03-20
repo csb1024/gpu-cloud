@@ -12,7 +12,7 @@ int main(int argc, char* argv[])
     char check, finish; //flag values
     char buffer1[100]={0,};
     nvmlDevice_t gpu0, gpu1, gpu2, gpu3;
-
+    unsigned int g0_link_bandwidth, currLinkGen, maxBandwidth;
     nvmlProcessInfo_t pInfo[32];
     unsigned int nProc = 32;
     unsigned int  pciInfo;
@@ -35,6 +35,22 @@ int main(int argc, char* argv[])
     //First initialize NVML library
     nvmlInit();
     nvmlDeviceGetHandleByIndex(0, &gpu0);
+    nvmlDeviceGetCurrPcieLinkWidth(gpu0, &g0_link_bandwidth);
+    nvmlDeviceGetCurrPcieLinkGeneration(gpu0, &currLinkGen); 
+    if (currLinkGen == 1)
+	    maxBandwidth = 0.25 * g0_link_bandwidth;
+    else if(currLinkGen == 2)
+	    maxBandwidth = 0.5 * g0_link_bandwidth;
+    else if(currLinkGen == 3)
+	    maxBandwidth = 0.985 * g0_link_bandwidth;
+    else //gen4
+	    maxBandwidth = 1.969 * g0_link_bandwidth;
+
+
+    printf("link width : %u \n",g0_link_bandwidth);
+    printf("link generation : %u\n",currLinkGen);
+    printf("link max bandwidth : %u GB/s \n",maxBandwidth);
+
     check=0;
 
     finish=0;
@@ -52,7 +68,7 @@ int main(int argc, char* argv[])
 		continue;
 	}	
 	if (check == 0){
-		fprintf(fp,"Memory Usage, PCI TX(GB/s), PCI RX(GB/s), Core Util, Mem Util \n");
+		fprintf(fp,"Memory Usage, PCI TX(%%), PCI RX(%%), Core Util, Mem Util \n");
 		clock_gettime(CLOCK_MONOTONIC_RAW, &start);
 	}
 	check = 1;
@@ -62,8 +78,12 @@ int main(int argc, char* argv[])
 	tx=pciInfo;
 	nvmlDeviceGetPcieThroughput(gpu0, NVML_PCIE_UTIL_RX_BYTES,&pciInfo);
 	rx=pciInfo;
+	
 	tx= ((float)tx)/1024/1024;
 	rx= ((float)rx)/1024/1024;
+	tx = tx / maxBandwidth * 100;
+	rx = tx / maxBandwidth * 100;
+
         
 	memUsage = ((float)memInfo.used) / memInfo.total*100;
 	result=nvmlDeviceGetUtilizationRates(gpu0, &utilInfo);
