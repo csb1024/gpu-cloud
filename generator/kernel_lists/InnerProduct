@@ -1,0 +1,4 @@
+magma_lds128_sgemm_kernel
+gemmk1_kernel<float
+gemv2N_kernel_val
+maxwell_sgemm_128x128_raggedMn_nn

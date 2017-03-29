@@ -1,0 +1,34 @@
+
+caffe::sync_conv_groups(void) [11632]"
+caffe::sync_conv_groups(void) [13397]"
+caffe::sync_conv_groups(void) [14014]"
+[CUDA memcpy DtoD]"
+[CUDA memcpy DtoH]"
+[CUDA memcpy HtoD]"
+[CUDA memset]"
+cudnn::maxwell::gemm::computeBOffsetsKernel(cudnn::maxwell::gemm::ComputeBOffsetsParams) [14007]"
+cudnn::maxwell::gemm::computeOffsetsKernel(cudnn::maxwell::gemm::ComputeOffsetsParams) [11511]"
+cudnn::maxwell::gemm::computeOffsetsKernel(cudnn::maxwell::gemm::ComputeOffsetsParams) [13343]"
+cudnn::maxwell::gemm::computeWgradOffsetsKernel(cudnn::maxwell::gemm::ComputeOffsetsParams) [14002]"
+maxwell_scudnn_128x32_interior_nn [11532]"
+maxwell_scudnn_128x32_interior_nn [13363]"
+maxwell_scudnn_128x32_stridedB_splitK_interior_nn [14011]"
+maxwell_sgemm_128x128_raggedMn_nn [13937]"
+Name"
+void add_tensor_kernel_v3<int=2
+void asum_kernel<float
+void axpy_kernel_val<float
+void caffe::MaxPoolBackward<float>(int
+void caffe::MaxPoolForward<float>(int
+void caffe::SGDUpdate<float>(int
+void caffe::SoftmaxLossBackwardGPU<float>(int
+void caffe::SoftmaxLossForwardGPU<float>(int
+void calc_bias_diff<int=2
+void cudnn::detail::softmax_fw_kernel<int=2
+void dot_kernel<float
+void gemmk1_kernel<float
+void gemv2N_kernel_val<float
+void magma_lds128_sgemm_kernel<bool=0
+void magma_lds128_sgemm_kernel<bool=1
+void reduce_1Block_kernel<float
+void scal_kernel_val<float

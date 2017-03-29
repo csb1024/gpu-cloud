@@ -5,31 +5,14 @@ from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter
 from google.protobuf import text_format
 import caffe
 from caffe.proto import caffe_pb2
-
-"""
-The input vectors of Scenario 2
-<Conv Layers>
-
-<Data Layer>
-
-<Common Layer - Innerproduct>
-
-<Dropout>
-
-
-"""
-def parsePoolingLayer(layer):
-
-def parseDataLayer(layer):
-
 def parseConvLayer(layer,prev_output):
-      # empty input vector for conv layer
+      #input vector
       vector = []
-
       #parameters for input vector 
       stride = 0
       kernel_size = 0
       output_size = 0
+      padding = 0
       input_size = prev_output
      
       # stride
@@ -43,63 +26,40 @@ def parseConvLayer(layer,prev_output):
 	 kernel_size = layer.convolution_param.kernel_size[0] * layer.convolution_param.kernel_size[0]# only one
       else:
 	 kernel_size = layer.convolution_param.kernel_size[1] * layer.convolution_param.kernel_size[2]
+
+      # padding 
+      if len(layer.convolution_param.pad) == 0: # no padding
+         padding = 0
+      elif len(layer.convolution_param.pad) == 1:
+         padding = layer.convolution_param.pad[0] * layer.convolution_param.pad[0]
+      else:
+         padding = layer.convolution_param.pad[1] * layer.convolution_param.pad[2]      
+      
       output_size = layer.convolution_param.num_output
       vector.append(stride)
       vector.append(kernel_size)
+      vector.append(padding)
       vector.append(output_size)
       vector.append(input_size)
+      # needs to be changed to the 'real' size in the future
       next_layer_input = output_size
       return [vector, next_layer_input]
 
 
 def parseLayers(net_prototxt,phase):
 # list of variables(and vectors) to maintain thoughout the execution
-   layer_num = 0
    batch_size = 0
-   next_layer_input=0
+   next_layer_input=1024 # arbitrary input for now, should be changed in the future
 #input_size = 0
-   conv_num = 0
-   conv_output = []
-   conv_stride = []  
-   conv_kernel = []
-   ip_num = 0
-   ip_output = []
-   pool_num = 0
-   pool_stride = []
-   pool_kernel = []
 # output_type = 0
    for layer in net_prototxt.layer:
-      if layer.type == "Data":
-	 for layer_phase in layer.include:
-	   if layer_phase.phase == phase:
-	      batch_size = layer.data_param.batch_size
-	      parseDataLayer(layer)
-      elif layer.type == "Convolution":
-         [vector, next_layer_input]=parseConvLayer(layer,next_layer_input)
-	 # stride
-     elif layer.type == "Pooling":
-	 pool_num = pool_num + 1
-	 pool_stride.append(layer.pooling_param.stride)
-	 pool_kernel.append(layer.pooling_param.kernel_size)
-	 parsePoolingLayer(layer)
-      elif layer.type == "InnerProduct":
-	 ip_num = ip_num + 1
-	 ip_output.append(layer.inner_product_param.num_output)
-    layer_num = layer_num + 1
+       if layer.type == "Data":
+          for layer_phase in layer.include:
+             if layer_phase.phase == phase:
+	         batch_size = layer.data_param.batch_size
+       elif layer.type == "Convolution":
+          [vector, next_layer_input]=parseConvLayer(layer,next_layer_input)
    
-# The following will change for scenario 2 
-   vector = []
-   vector.append(layer_num)
-   vector.append(batch_size)
-   vector.append(conv_num)
-   vector.append(sum(conv_output))
-   vector.append(min(conv_stride))
-   vector.append(min(conv_kernel))
-   vector.append(ip_num)
-   vector.append(sum(ip_output))
-   vector.append(pool_num)
-   vector.append(min(pool_stride))
-   vector.append(min(pool_kernel))
    return vector
 
 
@@ -140,7 +100,7 @@ def main():
     while i < len(input_vector):
     	print i+1,"th item : ",input_vector[i]
 	i = i+1
-    print('Printing net to %s' % args.output_text_file)
+    print('Printing layer vector to %s' % args.output_text_file)
     output = open(args.output_text_file,"w")
     i=0
     while i < len(input_vector):

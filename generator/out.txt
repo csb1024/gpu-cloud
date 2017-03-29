@@ -1,0 +1,15 @@
+==23838== NVPROF is profiling process 23838, command: /home/sbchoi/git/caffe/build/tools/caffe train --solver lenet_solver.prototxt
+==23838== Profiling application: /home/sbchoi/git/caffe/build/tools/caffe train --solver lenet_solver.prototxt
+==23838== Profiling result:
+==23838== Metric result:
+Invocations                               Metric Name                        Metric Description         Min         Max         Avg
+Device "GeForce GTX 1080 (0)"
+    Kernel: void magma_lds128_sgemm_kernel<bool=0, bool=1, int=6, int=6, int=4, int=3, int=4>(int, int, int, float const *, int, float const *, int, float*, int, int, int, float const *, float const *, float, float, int)
+          1                            ecc_throughput                            ECC Throughput  0.00000B/s  0.00000B/s  0.00000B/s
+          1                              executed_ipc                              Executed IPC    1.329970    1.329970    1.329970
+    Kernel: void magma_lds128_sgemm_kernel<bool=1, bool=0, int=6, int=6, int=4, int=3, int=4>(int, int, int, float const *, int, float const *, int, float*, int, int, int, float const *, float const *, float, float, int)
+          2                            ecc_throughput                            ECC Throughput  0.00000B/s  0.00000B/s  0.00000B/s
+          2                              executed_ipc                              Executed IPC    1.274784    1.285015    1.279900
+    Kernel: maxwell_sgemm_128x128_raggedMn_nn
+          1                            ecc_throughput                            ECC Throughput  0.00000B/s  0.00000B/s  0.00000B/s
+          1                              executed_ipc                              Executed IPC    0.586819    0.586819    0.586819

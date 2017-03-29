@@ -1,0 +1,4 @@
+==21316== NVPROF is profiling process 21316, command: /usr/bin/python conv_net.py
+==21316== Profiling application: /usr/bin/python conv_net.py
+==21316== Profiling result:
+No events/metrics were profiled.

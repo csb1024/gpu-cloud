@@ -1,0 +1,4 @@
+==12061== NVPROF is profiling process 12061, command: /usr/bin/python conv_net.py
+==12061== Profiling application: /usr/bin/python conv_net.py
+==12061== Profiling result:
+No events/metrics were profiled.

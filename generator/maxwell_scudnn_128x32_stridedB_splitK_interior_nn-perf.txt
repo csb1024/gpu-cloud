@@ -1,0 +1,11 @@
+==2520== NVPROF is profiling process 2520, command: /home/sbchoi/git/caffe/build/tools/caffe train --solver=lenet_solver.prototxt
+==2520== Some kernel(s) will be replayed on device 0 in order to collect all events/metrics.
+==2520== Profiling application: /home/sbchoi/git/caffe/build/tools/caffe train --solver=lenet_solver.prototxt
+==2520== Profiling result:
+==2520== Metric result:
+Invocations                               Metric Name                        Metric Description         Min         Max         Avg
+Device "GeForce GTX 1080 (0)"
+    Kernel: maxwell_scudnn_128x32_stridedB_splitK_interior_nn
+          1                          dram_utilization                 Device Memory Utilization     Low (1)     Low (1)     Low (1)
+          1                        achieved_occupancy                        Achieved Occupancy    0.076249    0.076249    0.076249
+          1                        sysmem_utilization                 System Memory Utilization     Low (1)     Low (1)     Low (1)

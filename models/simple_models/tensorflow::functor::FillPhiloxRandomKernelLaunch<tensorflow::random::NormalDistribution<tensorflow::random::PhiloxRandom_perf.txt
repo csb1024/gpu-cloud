@@ -1,0 +1,4 @@
+==29404== NVPROF is profiling process 29404, command: /usr/bin/python conv_net.py
+==29404== Profiling application: /usr/bin/python conv_net.py
+==29404== Profiling result:
+No events/metrics were profiled.

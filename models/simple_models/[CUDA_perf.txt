@@ -1,0 +1,4 @@
+==19839== NVPROF is profiling process 19839, command: /usr/bin/python conv_net.py
+==19839== Profiling application: /usr/bin/python conv_net.py
+==19839== Profiling result:
+No events/metrics were profiled.

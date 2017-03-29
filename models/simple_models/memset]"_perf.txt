@@ -1,0 +1,4 @@
+==3918== NVPROF is profiling process 3918, command: /usr/bin/python conv_net.py
+==3918== Profiling application: /usr/bin/python conv_net.py
+==3918== Profiling result:
+No events/metrics were profiled.

@@ -1,0 +1,20 @@
+==10993== NVPROF is profiling process 10993, command: /home/sbchoi/git/caffe/build/tools/caffe train --solver=lenet_solver.prototxt
+==10993== Profiling application: /home/sbchoi/git/caffe/build/tools/caffe train --solver=lenet_solver.prototxt
+==10993== Profiling result:
+==10993== Metric result:
+Invocations                               Metric Name                        Metric Description         Min         Max         Avg
+Device "GeForce GTX 1080 (0)"
+    Kernel: void gemmk1_kernel<float, int=256, int=5, bool=0, bool=0, bool=0, bool=0>(cublasGemmk1Params<float>, float const *, float const *, float*)
+          2                              executed_ipc                              Executed IPC    0.199570    0.201713    0.200641
+    Kernel: cudnn::maxwell::gemm::computeWgradOffsetsKernel(cudnn::maxwell::gemm::ComputeOffsetsParams)
+          1                              executed_ipc                              Executed IPC    0.058135    0.058135    0.058135
+    Kernel: cudnn::maxwell::gemm::computeOffsetsKernel(cudnn::maxwell::gemm::ComputeOffsetsParams)
+          2                              executed_ipc                              Executed IPC    0.127670    0.149408    0.138539
+    Kernel: void magma_lds128_sgemm_kernel<bool=1, bool=0, int=6, int=6, int=4, int=3, int=4>(int, int, int, float const *, int, float const *, int, float*, int, int, int, float const *, float const *, float, float, int)
+          2                              executed_ipc                              Executed IPC    1.273609    1.281658    1.277634
+    Kernel: void magma_lds128_sgemm_kernel<bool=0, bool=1, int=6, int=6, int=4, int=3, int=4>(int, int, int, float const *, int, float const *, int, float*, int, int, int, float const *, float const *, float, float, int)
+          1                              executed_ipc                              Executed IPC    1.307422    1.307422    1.307422
+    Kernel: maxwell_sgemm_128x128_raggedMn_nn
+          1                              executed_ipc                              Executed IPC    0.590019    0.590019    0.590019
+    Kernel: cudnn::maxwell::gemm::computeBOffsetsKernel(cudnn::maxwell::gemm::ComputeBOffsetsParams)
+          1                              executed_ipc                              Executed IPC    0.068234    0.068234    0.068234

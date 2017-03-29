@@ -1,0 +1,173 @@
+
+
+
+Name"
+
+[CUDA memcpy HtoD]"
+[CUDA memcpy HtoD]"
+[CUDA memcpy HtoD]"
+[CUDA memcpy HtoD]"
+[CUDA memcpy HtoD]"
+[CUDA memcpy HtoD]"
+[CUDA memcpy HtoD]"
+[CUDA memcpy HtoD]"
+[CUDA memcpy HtoD]"
+[CUDA memcpy HtoD]"
+[CUDA memcpy DtoH]"
+[CUDA memcpy DtoH]"
+[CUDA memcpy HtoD]"
+[CUDA memcpy HtoD]"
+[CUDA memcpy DtoH]"
+[CUDA memcpy DtoH]"
+[CUDA memcpy HtoD]"
+[CUDA memcpy HtoD]"
+[CUDA memcpy DtoH]"
+[CUDA memcpy DtoH]"
+[CUDA memcpy HtoD]"
+[CUDA memcpy HtoD]"
+[CUDA memcpy DtoH]"
+[CUDA memcpy DtoH]"
+[CUDA memcpy HtoD]"
+[CUDA memcpy HtoD]"
+[CUDA memcpy HtoD]"
+[CUDA memcpy HtoD]"
+[CUDA memcpy HtoD]"
+[CUDA memcpy HtoD]"
+[CUDA memcpy HtoD]"
+[CUDA memcpy HtoD]"
+[CUDA memcpy HtoD]"
+[CUDA memcpy HtoD]"
+[CUDA memcpy HtoD]"
+[CUDA memcpy HtoD]"
+[CUDA memcpy HtoD]"
+[CUDA memcpy HtoD]"
+[CUDA memcpy HtoD]"
+[CUDA memcpy HtoD]"
+[CUDA memcpy DtoH]"
+[CUDA memcpy HtoD]"
+[CUDA memcpy DtoH]"
+[CUDA memcpy HtoD]"
+[CUDA memcpy HtoD]"
+[CUDA memcpy HtoD]"
+[CUDA memcpy DtoH]"
+[CUDA memcpy DtoH]"
+[CUDA memcpy HtoD]"
+[CUDA memcpy HtoD]"
+[CUDA memcpy DtoH]"
+[CUDA memcpy DtoH]"
+[CUDA memcpy HtoD]"
+[CUDA memset]"
+[CUDA memset]"
+[CUDA memset]"
+[CUDA memset]"
+[CUDA memset]"
+[CUDA memset]"
+[CUDA memset]"
+[CUDA memset]"
+[CUDA memcpy HtoD]"
+[CUDA memset]"
+cudnn::maxwell::gemm::computeOffsetsKernel(cudnn::maxwell::gemm::ComputeOffsetsParams) [11511]"
+maxwell_scudnn_128x32_interior_nn [11532]"
+[CUDA memcpy HtoD]"
+void add_tensor_kernel_v3<int=2
+caffe::sync_conv_groups(void) [11632]"
+[CUDA memset]"
+[CUDA memset]"
+[CUDA memcpy HtoD]"
+void caffe::MaxPoolForward<float>(int
+[CUDA memcpy HtoD]"
+[CUDA memset]"
+[CUDA memcpy DtoH]"
+[CUDA memcpy HtoD]"
+[CUDA memcpy DtoH]"
+void magma_lds128_sgemm_kernel<bool=1
+[CUDA memcpy HtoD]"
+[CUDA memcpy HtoD]"
+void gemmk1_kernel<float
+[CUDA memcpy DtoH]"
+[CUDA memcpy DtoH]"
+[CUDA memset]"
+void cudnn::detail::softmax_fw_kernel<int=2
+[CUDA memcpy HtoD]"
+void dot_kernel<float
+void reduce_1Block_kernel<float
+[CUDA memcpy DtoH]"
+[CUDA memset]"
+void caffe::SoftmaxLossForwardGPU<float>(int
+void asum_kernel<float
+void asum_kernel<float
+[CUDA memcpy DtoH]"
+[CUDA memcpy HtoD]"
+[CUDA memcpy HtoD]"
+void dot_kernel<float
+void reduce_1Block_kernel<float
+[CUDA memcpy DtoH]"
+[CUDA memset]"
+cudnn::maxwell::gemm::computeOffsetsKernel(cudnn::maxwell::gemm::ComputeOffsetsParams) [13343]"
+maxwell_scudnn_128x32_interior_nn [13363]"
+void add_tensor_kernel_v3<int=2
+caffe::sync_conv_groups(void) [13397]"
+[CUDA memset]"
+[CUDA memset]"
+[CUDA memcpy HtoD]"
+void caffe::MaxPoolForward<float>(int
+[CUDA memcpy HtoD]"
+[CUDA memset]"
+void magma_lds128_sgemm_kernel<bool=1
+[CUDA memcpy HtoD]"
+void gemmk1_kernel<float
+[CUDA memset]"
+void cudnn::detail::softmax_fw_kernel<int=2
+[CUDA memcpy HtoD]"
+void dot_kernel<float
+void reduce_1Block_kernel<float
+[CUDA memcpy DtoH]"
+[CUDA memset]"
+void caffe::SoftmaxLossForwardGPU<float>(int
+void asum_kernel<float
+void asum_kernel<float
+[CUDA memcpy DtoH]"
+[CUDA memcpy HtoD]"
+[CUDA memcpy HtoD]"
+void dot_kernel<float
+void reduce_1Block_kernel<float
+[CUDA memcpy DtoH]"
+[CUDA memcpy DtoD]"
+void caffe::SoftmaxLossBackwardGPU<float>(int
+void scal_kernel_val<float
+void magma_lds128_sgemm_kernel<bool=0
+void gemv2N_kernel_val<float
+[CUDA memset]"
+maxwell_sgemm_128x128_raggedMn_nn [13937]"
+[CUDA memset]"
+[CUDA memset]"
+void caffe::MaxPoolBackward<float>(int
+void calc_bias_diff<int=2
+cudnn::maxwell::gemm::computeWgradOffsetsKernel(cudnn::maxwell::gemm::ComputeOffsetsParams) [14002]"
+cudnn::maxwell::gemm::computeBOffsetsKernel(cudnn::maxwell::gemm::ComputeBOffsetsParams) [14007]"
+maxwell_scudnn_128x32_stridedB_splitK_interior_nn [14011]"
+caffe::sync_conv_groups(void) [14014]"
+void axpy_kernel_val<float
+[CUDA memset]"
+void caffe::SGDUpdate<float>(int
+void axpy_kernel_val<float
+[CUDA memset]"
+void caffe::SGDUpdate<float>(int
+void axpy_kernel_val<float
+[CUDA memset]"
+void caffe::SGDUpdate<float>(int
+void axpy_kernel_val<float
+[CUDA memset]"
+void caffe::SGDUpdate<float>(int
+void axpy_kernel_val<float
+void axpy_kernel_val<float
+void axpy_kernel_val<float
+void axpy_kernel_val<float
+[CUDA memcpy DtoH]"
+[CUDA memcpy DtoH]"
+[CUDA memcpy DtoH]"
+[CUDA memcpy DtoH]"
+[CUDA memcpy DtoH]"
+[CUDA memcpy DtoH]"
+[CUDA memcpy DtoH]"
+[CUDA memcpy DtoH]"

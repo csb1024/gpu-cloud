@@ -1,0 +1,35 @@
+name: "random_gen_single_conv_net"
+layer {
+  name: "DummyData_rand"
+  type: "DummyData"
+  top: "data"
+  dummy_data_param {
+    shape {
+      dim: 30
+      dim: 86
+      dim: 24
+      dim: 24
+    }
+  }
+}
+layer {
+  name: "IP_rand"
+  type: "InnerProduct"
+  bottom: "data"
+  top: "IP1"
+  param {
+    lr_mult: 1
+  }
+  param {
+    lr_mult: 1
+  }
+  inner_product_param {
+    num_output: 1080
+    weight_filler {
+      type: "constant"
+    }
+    bias_filler {
+      type: "constant"
+    }
+  }
+}
