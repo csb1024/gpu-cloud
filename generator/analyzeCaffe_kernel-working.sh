@@ -16,7 +16,7 @@ SOLVER="$1"
 LAYER="$2"
 CAFFE='/home/sbchoi/git/caffe/build/tools/caffe'
 KERNEL_DIR='/home/sbchoi/git/gpu-cloud/generator/kernel_lists'
-PERF_ARGS="dram_utilization,achieved_occupancy,sysmem_utilization,executed_ipc" # string to be passed as argiment for --metric 
+PERF_ARGS="dram_utilization,achieved_occupancy,sysmem_utilization" # string to be passed as argiment for --metric 
 NVPROF_LOG_DIR='/home/sbchoi/git/gpu-cloud/generator/nvprof_log'
 CAFFE_LOG='caffe_debug'
 
@@ -31,8 +31,9 @@ for entry in `ls $KERNEL_DIR`; do
 done 
 kernels=`cat $KERNEL_DIR/$LIST`
 for kernel in ${kernels}; do
-result_file=$kernel-perf.txt
-echo "analyzing ${kernel}, results will be stored in ${result_file}"
-
-nvprof --csv --kernels ${kernel} --metrics ${PERF_ARGS} --log-file $NVPROF_LOG_DIR/${result_file} $CAFFE train --solver=$SOLVER  1>/dev/null 2>$CAFFE_LOG
+  kernel_list=$kernel_list,$kernel
 done
+result_file=$LAYER-perf.txt
+echo "analyzing ${kernel_list}, results will be stored in ${result_file}"
+
+nvprof --csv --kernels ${kernel_list} --metrics ${PERF_ARGS} --log-file $NVPROF_LOG_DIR/${result_file} $CAFFE train --solver=$SOLVER  1>/dev/null 2>$CAFFE_LOG

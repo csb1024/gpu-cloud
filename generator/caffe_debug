@@ -1,0 +1,544 @@
+I0404 20:27:32.876073 20560 caffe.cpp:218] Using GPUs 0
+I0404 20:27:32.987788 20560 caffe.cpp:223] GPU 0: GeForce GTX 1080
+I0404 20:27:33.264432 20560 solver.cpp:44] Initializing solver from parameters: 
+test_iter: 1
+test_interval: 500
+base_lr: 0.01
+display: 100
+max_iter: 1
+lr_policy: "inv"
+gamma: 0.0001
+power: 0.75
+momentum: 0.9
+weight_decay: 0.0005
+snapshot: 5000
+snapshot_prefix: "./"
+solver_mode: GPU
+device_id: 0
+net: "out.prototxt"
+train_state {
+  level: 0
+  stage: ""
+}
+I0404 20:27:33.264621 20560 solver.cpp:87] Creating training net from net file: out.prototxt
+I0404 20:27:33.265064 20560 net.cpp:296] The NetState phase (0) differed from the phase (1) specified by a rule in layer x_test
+I0404 20:27:33.265074 20560 net.cpp:296] The NetState phase (0) differed from the phase (1) specified by a rule in layer y_test
+I0404 20:27:33.265089 20560 net.cpp:296] The NetState phase (0) differed from the phase (1) specified by a rule in layer accuracy
+I0404 20:27:33.265143 20560 net.cpp:53] Initializing net from parameters: 
+name: "DummyNetbyHand"
+state {
+  phase: TRAIN
+  level: 0
+  stage: ""
+}
+layer {
+  name: "x_train"
+  type: "DummyData"
+  top: "data"
+  include {
+    phase: TRAIN
+  }
+  dummy_data_param {
+    data_filler {
+      type: "constant"
+    }
+    shape {
+      dim: 14
+      dim: 3
+      dim: 192
+      dim: 192
+    }
+  }
+}
+layer {
+  name: "y_train"
+  type: "DummyData"
+  top: "label"
+  include {
+    phase: TRAIN
+  }
+  dummy_data_param {
+    data_filler {
+      type: "constant"
+    }
+    shape {
+      dim: 14
+    }
+  }
+}
+layer {
+  name: "CONV"
+  type: "Convolution"
+  bottom: "data"
+  top: "conv1"
+  param {
+    lr_mult: 1
+  }
+  param {
+    lr_mult: 1
+  }
+  convolution_param {
+    num_output: 48
+    kernel_size: 8
+    stride: 2
+    weight_filler {
+      type: "gaussian"
+    }
+    bias_filler {
+      type: "gaussian"
+    }
+  }
+}
+layer {
+  name: "POOLING"
+  type: "Pooling"
+  bottom: "conv1"
+  top: "pool1"
+  pooling_param {
+    pool: MAX
+    kernel_size: 2
+    stride: 1
+  }
+}
+layer {
+  name: "IP"
+  type: "InnerProduct"
+  bottom: "pool1"
+  top: "ip2"
+  param {
+    lr_mult: 1
+  }
+  param {
+    lr_mult: 1
+  }
+  inner_product_param {
+    num_output: 927
+    weight_filler {
+      type: "gaussian"
+    }
+    bias_filler {
+      type: "gaussian"
+    }
+  }
+}
+layer {
+  name: "loss"
+  type: "SoftmaxWithLoss"
+  bottom: "ip2"
+  bottom: "label"
+  top: "loss"
+}
+I0404 20:27:33.265419 20560 layer_factory.hpp:77] Creating layer x_train
+I0404 20:27:33.265460 20560 net.cpp:86] Creating Layer x_train
+I0404 20:27:33.265478 20560 net.cpp:382] x_train -> data
+I0404 20:27:33.271113 20560 net.cpp:124] Setting up x_train
+I0404 20:27:33.271162 20560 net.cpp:131] Top shape: 14 3 192 192 (1548288)
+I0404 20:27:33.271169 20560 net.cpp:139] Memory required for data: 6193152
+I0404 20:27:33.271195 20560 layer_factory.hpp:77] Creating layer y_train
+I0404 20:27:33.271245 20560 net.cpp:86] Creating Layer y_train
+I0404 20:27:33.271276 20560 net.cpp:382] y_train -> label
+I0404 20:27:33.271430 20560 net.cpp:124] Setting up y_train
+I0404 20:27:33.271442 20560 net.cpp:131] Top shape: 14 (14)
+I0404 20:27:33.271447 20560 net.cpp:139] Memory required for data: 6193208
+I0404 20:27:33.271453 20560 layer_factory.hpp:77] Creating layer CONV
+I0404 20:27:33.271491 20560 net.cpp:86] Creating Layer CONV
+I0404 20:27:33.271507 20560 net.cpp:408] CONV <- data
+I0404 20:27:33.271543 20560 net.cpp:382] CONV -> conv1
+I0404 20:27:33.273699 20560 cudnn_conv_layer.cpp:21] start cudnn_conv LayerSetUp()
+I0404 20:27:33.451115 20560 cudnn_conv_layer.cpp:89] End cudnn_conv LayerSetUp()
+I0404 20:27:33.451258 20560 cudnn_conv_layer.cpp:96] Start cudnn_conv reshape()
+I0404 20:27:33.451289 20560 cudnn_conv_layer.cpp:196]  [CONV] reallocate 155700
+I0404 20:27:33.451467 20560 cudnn_conv_layer.cpp:234] End cudnn_conv reshape()
+I0404 20:27:33.451475 20560 net.cpp:124] Setting up CONV
+I0404 20:27:33.451488 20560 net.cpp:131] Top shape: 14 48 93 93 (5812128)
+I0404 20:27:33.451493 20560 net.cpp:139] Memory required for data: 29441720
+I0404 20:27:33.451550 20560 layer_factory.hpp:77] Creating layer POOLING
+I0404 20:27:33.451584 20560 net.cpp:86] Creating Layer POOLING
+I0404 20:27:33.451599 20560 net.cpp:408] POOLING <- conv1
+I0404 20:27:33.451617 20560 net.cpp:382] POOLING -> pool1
+I0404 20:27:33.451679 20560 net.cpp:124] Setting up POOLING
+I0404 20:27:33.451691 20560 net.cpp:131] Top shape: 14 48 92 92 (5687808)
+I0404 20:27:33.451695 20560 net.cpp:139] Memory required for data: 52192952
+I0404 20:27:33.451700 20560 layer_factory.hpp:77] Creating layer IP
+I0404 20:27:33.451720 20560 net.cpp:86] Creating Layer IP
+I0404 20:27:33.451726 20560 net.cpp:408] IP <- pool1
+I0404 20:27:33.451740 20560 net.cpp:382] IP -> ip2
+I0404 20:27:33.451758 20560 inner_product_layer.cpp:21] Start IP LayerSetUp
+I0404 20:27:59.718513 20560 inner_product_layer.cpp:56] End IP LayerSetUp
+I0404 20:27:59.718538 20560 inner_product_layer.cpp:69] Start IP Reshape()
+I0404 20:27:59.718590 20560 inner_product_layer.cpp:84] End IP Reshape()
+I0404 20:27:59.718597 20560 net.cpp:124] Setting up IP
+I0404 20:27:59.718610 20560 net.cpp:131] Top shape: 14 927 (12978)
+I0404 20:27:59.718614 20560 net.cpp:139] Memory required for data: 52244864
+I0404 20:27:59.718643 20560 layer_factory.hpp:77] Creating layer loss
+I0404 20:27:59.718670 20560 net.cpp:86] Creating Layer loss
+I0404 20:27:59.718678 20560 net.cpp:408] loss <- ip2
+I0404 20:27:59.718690 20560 net.cpp:408] loss <- label
+I0404 20:27:59.718703 20560 net.cpp:382] loss -> loss
+I0404 20:27:59.718725 20560 layer_factory.hpp:77] Creating layer loss
+I0404 20:27:59.719020 20560 net.cpp:124] Setting up loss
+I0404 20:27:59.719033 20560 net.cpp:131] Top shape: (1)
+I0404 20:27:59.719036 20560 net.cpp:134]     with loss weight 1
+I0404 20:27:59.719050 20560 net.cpp:139] Memory required for data: 52244868
+I0404 20:27:59.719058 20560 net.cpp:200] loss needs backward computation.
+I0404 20:27:59.719064 20560 net.cpp:200] IP needs backward computation.
+I0404 20:27:59.719069 20560 net.cpp:200] POOLING needs backward computation.
+I0404 20:27:59.719074 20560 net.cpp:200] CONV needs backward computation.
+I0404 20:27:59.719079 20560 net.cpp:202] y_train does not need backward computation.
+I0404 20:27:59.719082 20560 net.cpp:202] x_train does not need backward computation.
+I0404 20:27:59.719089 20560 net.cpp:244] This network produces output loss
+I0404 20:27:59.719104 20560 net.cpp:257] Network initialization done.
+I0404 20:27:59.719336 20560 solver.cpp:173] Creating test net (#0) specified by net file: out.prototxt
+I0404 20:27:59.719373 20560 net.cpp:296] The NetState phase (1) differed from the phase (0) specified by a rule in layer x_train
+I0404 20:27:59.719382 20560 net.cpp:296] The NetState phase (1) differed from the phase (0) specified by a rule in layer y_train
+I0404 20:27:59.719434 20560 net.cpp:53] Initializing net from parameters: 
+name: "DummyNetbyHand"
+state {
+  phase: TEST
+}
+layer {
+  name: "x_test"
+  type: "DummyData"
+  top: "data"
+  include {
+    phase: TEST
+  }
+  dummy_data_param {
+    data_filler {
+      type: "constant"
+    }
+    shape {
+      dim: 14
+      dim: 3
+      dim: 192
+      dim: 192
+    }
+  }
+}
+layer {
+  name: "y_test"
+  type: "DummyData"
+  top: "label"
+  include {
+    phase: TEST
+  }
+  dummy_data_param {
+    data_filler {
+      type: "constant"
+    }
+    shape {
+      dim: 14
+    }
+  }
+}
+layer {
+  name: "CONV"
+  type: "Convolution"
+  bottom: "data"
+  top: "conv1"
+  param {
+    lr_mult: 1
+  }
+  param {
+    lr_mult: 1
+  }
+  convolution_param {
+    num_output: 48
+    kernel_size: 8
+    stride: 2
+    weight_filler {
+      type: "gaussian"
+    }
+    bias_filler {
+      type: "gaussian"
+    }
+  }
+}
+layer {
+  name: "POOLING"
+  type: "Pooling"
+  bottom: "conv1"
+  top: "pool1"
+  pooling_param {
+    pool: MAX
+    kernel_size: 2
+    stride: 1
+  }
+}
+layer {
+  name: "IP"
+  type: "InnerProduct"
+  bottom: "pool1"
+  top: "ip2"
+  param {
+    lr_mult: 1
+  }
+  param {
+    lr_mult: 1
+  }
+  inner_product_param {
+    num_output: 927
+    weight_filler {
+      type: "gaussian"
+    }
+    bias_filler {
+      type: "gaussian"
+    }
+  }
+}
+layer {
+  name: "accuracy"
+  type: "Accuracy"
+  bottom: "ip2"
+  bottom: "label"
+  top: "accuracy"
+  include {
+    phase: TEST
+  }
+}
+layer {
+  name: "loss"
+  type: "SoftmaxWithLoss"
+  bottom: "ip2"
+  bottom: "label"
+  top: "loss"
+}
+I0404 20:27:59.719558 20560 layer_factory.hpp:77] Creating layer x_test
+I0404 20:27:59.719576 20560 net.cpp:86] Creating Layer x_test
+I0404 20:27:59.719585 20560 net.cpp:382] x_test -> data
+I0404 20:27:59.730428 20560 net.cpp:124] Setting up x_test
+I0404 20:27:59.730463 20560 net.cpp:131] Top shape: 14 3 192 192 (1548288)
+I0404 20:27:59.730468 20560 net.cpp:139] Memory required for data: 6193152
+I0404 20:27:59.730484 20560 layer_factory.hpp:77] Creating layer y_test
+I0404 20:27:59.730523 20560 net.cpp:86] Creating Layer y_test
+I0404 20:27:59.730533 20560 net.cpp:382] y_test -> label
+I0404 20:27:59.730630 20560 net.cpp:124] Setting up y_test
+I0404 20:27:59.730640 20560 net.cpp:131] Top shape: 14 (14)
+I0404 20:27:59.730644 20560 net.cpp:139] Memory required for data: 6193208
+I0404 20:27:59.730649 20560 layer_factory.hpp:77] Creating layer label_y_test_0_split
+I0404 20:27:59.730665 20560 net.cpp:86] Creating Layer label_y_test_0_split
+I0404 20:27:59.730671 20560 net.cpp:408] label_y_test_0_split <- label
+I0404 20:27:59.730684 20560 net.cpp:382] label_y_test_0_split -> label_y_test_0_split_0
+I0404 20:27:59.730697 20560 net.cpp:382] label_y_test_0_split -> label_y_test_0_split_1
+I0404 20:27:59.730736 20560 net.cpp:124] Setting up label_y_test_0_split
+I0404 20:27:59.730746 20560 net.cpp:131] Top shape: 14 (14)
+I0404 20:27:59.730749 20560 net.cpp:131] Top shape: 14 (14)
+I0404 20:27:59.730753 20560 net.cpp:139] Memory required for data: 6193320
+I0404 20:27:59.730757 20560 layer_factory.hpp:77] Creating layer CONV
+I0404 20:27:59.730774 20560 net.cpp:86] Creating Layer CONV
+I0404 20:27:59.730780 20560 net.cpp:408] CONV <- data
+I0404 20:27:59.730794 20560 net.cpp:382] CONV -> conv1
+I0404 20:27:59.731591 20560 cudnn_conv_layer.cpp:21] start cudnn_conv LayerSetUp()
+I0404 20:27:59.732208 20560 cudnn_conv_layer.cpp:89] End cudnn_conv LayerSetUp()
+I0404 20:27:59.732321 20560 cudnn_conv_layer.cpp:96] Start cudnn_conv reshape()
+I0404 20:27:59.732336 20560 cudnn_conv_layer.cpp:196]  [CONV] reallocate 155700
+I0404 20:27:59.732350 20560 cudnn_conv_layer.cpp:234] End cudnn_conv reshape()
+I0404 20:27:59.732355 20560 net.cpp:124] Setting up CONV
+I0404 20:27:59.732362 20560 net.cpp:131] Top shape: 14 48 93 93 (5812128)
+I0404 20:27:59.732365 20560 net.cpp:139] Memory required for data: 29441832
+I0404 20:27:59.732388 20560 layer_factory.hpp:77] Creating layer POOLING
+I0404 20:27:59.732403 20560 net.cpp:86] Creating Layer POOLING
+I0404 20:27:59.732410 20560 net.cpp:408] POOLING <- conv1
+I0404 20:27:59.732422 20560 net.cpp:382] POOLING -> pool1
+I0404 20:27:59.732466 20560 net.cpp:124] Setting up POOLING
+I0404 20:27:59.732475 20560 net.cpp:131] Top shape: 14 48 92 92 (5687808)
+I0404 20:27:59.732480 20560 net.cpp:139] Memory required for data: 52193064
+I0404 20:27:59.732483 20560 layer_factory.hpp:77] Creating layer IP
+I0404 20:27:59.732496 20560 net.cpp:86] Creating Layer IP
+I0404 20:27:59.732502 20560 net.cpp:408] IP <- pool1
+I0404 20:27:59.732516 20560 net.cpp:382] IP -> ip2
+I0404 20:27:59.732527 20560 inner_product_layer.cpp:21] Start IP LayerSetUp
+I0404 20:28:25.991341 20560 inner_product_layer.cpp:56] End IP LayerSetUp
+I0404 20:28:25.991387 20560 inner_product_layer.cpp:69] Start IP Reshape()
+I0404 20:28:25.991436 20560 inner_product_layer.cpp:84] End IP Reshape()
+I0404 20:28:25.991443 20560 net.cpp:124] Setting up IP
+I0404 20:28:25.991456 20560 net.cpp:131] Top shape: 14 927 (12978)
+I0404 20:28:25.991459 20560 net.cpp:139] Memory required for data: 52244976
+I0404 20:28:25.991489 20560 layer_factory.hpp:77] Creating layer ip2_IP_0_split
+I0404 20:28:25.991509 20560 net.cpp:86] Creating Layer ip2_IP_0_split
+I0404 20:28:25.991518 20560 net.cpp:408] ip2_IP_0_split <- ip2
+I0404 20:28:25.991533 20560 net.cpp:382] ip2_IP_0_split -> ip2_IP_0_split_0
+I0404 20:28:25.991547 20560 net.cpp:382] ip2_IP_0_split -> ip2_IP_0_split_1
+I0404 20:28:25.991587 20560 net.cpp:124] Setting up ip2_IP_0_split
+I0404 20:28:25.991596 20560 net.cpp:131] Top shape: 14 927 (12978)
+I0404 20:28:25.991608 20560 net.cpp:131] Top shape: 14 927 (12978)
+I0404 20:28:25.991612 20560 net.cpp:139] Memory required for data: 52348800
+I0404 20:28:25.991616 20560 layer_factory.hpp:77] Creating layer accuracy
+I0404 20:28:25.991631 20560 net.cpp:86] Creating Layer accuracy
+I0404 20:28:25.991637 20560 net.cpp:408] accuracy <- ip2_IP_0_split_0
+I0404 20:28:25.991647 20560 net.cpp:408] accuracy <- label_y_test_0_split_0
+I0404 20:28:25.991657 20560 net.cpp:382] accuracy -> accuracy
+I0404 20:28:25.991677 20560 net.cpp:124] Setting up accuracy
+I0404 20:28:25.991683 20560 net.cpp:131] Top shape: (1)
+I0404 20:28:25.991688 20560 net.cpp:139] Memory required for data: 52348804
+I0404 20:28:25.991691 20560 layer_factory.hpp:77] Creating layer loss
+I0404 20:28:25.991704 20560 net.cpp:86] Creating Layer loss
+I0404 20:28:25.991710 20560 net.cpp:408] loss <- ip2_IP_0_split_1
+I0404 20:28:25.991719 20560 net.cpp:408] loss <- label_y_test_0_split_1
+I0404 20:28:25.991727 20560 net.cpp:382] loss -> loss
+I0404 20:28:25.991740 20560 layer_factory.hpp:77] Creating layer loss
+I0404 20:28:25.992038 20560 net.cpp:124] Setting up loss
+I0404 20:28:25.992048 20560 net.cpp:131] Top shape: (1)
+I0404 20:28:25.992053 20560 net.cpp:134]     with loss weight 1
+I0404 20:28:25.992061 20560 net.cpp:139] Memory required for data: 52348808
+I0404 20:28:25.992069 20560 net.cpp:200] loss needs backward computation.
+I0404 20:28:25.992074 20560 net.cpp:202] accuracy does not need backward computation.
+I0404 20:28:25.992080 20560 net.cpp:200] ip2_IP_0_split needs backward computation.
+I0404 20:28:25.992084 20560 net.cpp:200] IP needs backward computation.
+I0404 20:28:25.992089 20560 net.cpp:200] POOLING needs backward computation.
+I0404 20:28:25.992094 20560 net.cpp:200] CONV needs backward computation.
+I0404 20:28:25.992099 20560 net.cpp:202] label_y_test_0_split does not need backward computation.
+I0404 20:28:25.992105 20560 net.cpp:202] y_test does not need backward computation.
+I0404 20:28:25.992108 20560 net.cpp:202] x_test does not need backward computation.
+I0404 20:28:25.992111 20560 net.cpp:244] This network produces output accuracy
+I0404 20:28:25.992117 20560 net.cpp:244] This network produces output loss
+I0404 20:28:25.992132 20560 net.cpp:257] Network initialization done.
+I0404 20:28:25.992178 20560 solver.cpp:56] Solver scaffolding done.
+I0404 20:28:25.992334 20560 caffe.cpp:248] Starting Optimization
+I0404 20:28:25.992341 20560 solver.cpp:273] Solving DummyNetbyHand
+I0404 20:28:25.992346 20560 solver.cpp:274] Learning Rate Policy: inv
+I0404 20:28:25.992391 20560 syncedmem.cpp:79] to_gpu(),UNINIT : allocate and memset  36864
+I0404 20:28:25.992420 20560 syncedmem.cpp:79] to_gpu(),UNINIT : allocate and memset  192
+I0404 20:28:26.002506 20560 syncedmem.cpp:79] to_gpu(),UNINIT : allocate and memset  1506456576
+I0404 20:28:26.002713 20560 syncedmem.cpp:79] to_gpu(),UNINIT : allocate and memset  3708
+I0404 20:28:26.002730 20560 solver.cpp:331] Iteration 0, Testing net (#0)
+I0404 20:28:26.002740 20560 net.cpp:687] Ignoring source layer x_train
+I0404 20:28:26.002744 20560 net.cpp:687] Ignoring source layer y_train
+I0404 20:28:26.002748 20560 net.cpp:690] Copying source layer CONV
+I0404 20:28:26.013334 20560 net.cpp:690] Copying source layer POOLING
+I0404 20:28:26.013353 20560 net.cpp:690] Copying source layer IP
+I0404 20:28:26.136430 20560 net.cpp:690] Copying source layer loss
+I0404 20:28:26.136481 20560 net.cpp:596]  [Forward] [x_test] top blob data data size: 6193152
+I0404 20:28:26.136487 20560 net.cpp:596]  [Forward] [y_test] top blob label data size: 56
+I0404 20:28:26.136497 20560 net.cpp:596]  [Forward] [label_y_test_0_split] top blob label_y_test_0_split_0 data size: 56
+I0404 20:28:26.136500 20560 net.cpp:596]  [Forward] [label_y_test_0_split] top blob label_y_test_0_split_1 data size: 56
+I0404 20:28:26.136536 20560 cudnn_conv_layer.cpp:96] Start cudnn_conv reshape()
+I0404 20:28:26.136555 20560 cudnn_conv_layer.cpp:234] End cudnn_conv reshape()
+I0404 20:28:26.136611 20560 syncedmem.cpp:88] to_gpu(),HEAD_AT_CPU : allocate and copy from CPU to GPU  36864
+I0404 20:28:26.137339 20560 syncedmem.cpp:88] to_gpu(),HEAD_AT_CPU : allocate and copy from CPU to GPU  6193152
+I0404 20:28:26.137536 20560 syncedmem.cpp:79] to_gpu(),UNINIT : allocate and memset  23248512
+I0404 20:28:26.137543 20560 cudnn_conv_layer.cu:17] Start cudnn_conv Forward_gpu()
+I0404 20:28:27.624904 20560 syncedmem.cpp:88] to_gpu(),HEAD_AT_CPU : allocate and copy from CPU to GPU  192
+I0404 20:28:27.625156 20560 cudnn_conv_layer.cu:46] End cudnn_conv Forward_gpu()
+I0404 20:28:27.625171 20560 net.cpp:596]  [Forward] [CONV] top blob conv1 data size: 23248512
+I0404 20:28:27.625180 20560 net.cpp:610]  [Forward]  [CONV] param blob 0 data size: 36864
+I0404 20:28:27.625185 20560 net.cpp:610]  [Forward]  [CONV] param blob 1 data size: 192
+I0404 20:28:27.625214 20560 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  23248512
+I0404 20:28:27.625581 20560 syncedmem.cpp:79] to_gpu(),UNINIT : allocate and memset  22751232
+I0404 20:28:27.625845 20560 syncedmem.cpp:79] to_gpu(),UNINIT : allocate and memset  22751232
+I0404 20:28:27.625998 20560 net.cpp:596]  [Forward] [POOLING] top blob pool1 data size: 22751232
+I0404 20:28:27.626010 20560 inner_product_layer.cpp:69] Start IP Reshape()
+I0404 20:28:27.626027 20560 inner_product_layer.cpp:84] End IP Reshape()
+I0404 20:28:27.626037 20560 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  22751232
+I0404 20:28:27.626067 20560 syncedmem.cpp:79] to_gpu(),UNINIT : allocate and memset  51912
+I0404 20:28:27.749688 20560 syncedmem.cpp:88] to_gpu(),HEAD_AT_CPU : allocate and copy from CPU to GPU  1506456576
+I0404 20:28:27.749707 20560 inner_product_layer.cu:15] Started IP Forward_gpu()
+I0404 20:28:27.856433 20560 syncedmem.cpp:88] to_gpu(),HEAD_AT_CPU : allocate and copy from CPU to GPU  3708
+I0404 20:28:27.856518 20560 syncedmem.cpp:88] to_gpu(),HEAD_AT_CPU : allocate and copy from CPU to GPU  56
+I0404 20:28:27.856717 20560 inner_product_layer.cu:32] End IP Forward_gpu()
+I0404 20:28:27.856729 20560 net.cpp:596]  [Forward] [IP] top blob ip2 data size: 51912
+I0404 20:28:27.856739 20560 net.cpp:610]  [Forward]  [IP] param blob 0 data size: 1506456576
+I0404 20:28:27.856744 20560 net.cpp:610]  [Forward]  [IP] param blob 1 data size: 3708
+I0404 20:28:27.856761 20560 net.cpp:596]  [Forward] [ip2_IP_0_split] top blob ip2_IP_0_split_0 data size: 51912
+I0404 20:28:27.856767 20560 net.cpp:596]  [Forward] [ip2_IP_0_split] top blob ip2_IP_0_split_1 data size: 51912
+I0404 20:28:27.857687 20560 net.cpp:596]  [Forward] [accuracy] top blob accuracy data size: 4
+I0404 20:28:27.857715 20560 softmax_loss_layer.cu:34] start SoftmaxWithLoss Forward_gpu()
+I0404 20:28:27.857762 20560 syncedmem.cpp:79] to_gpu(),UNINIT : allocate and memset  51912
+I0404 20:28:27.857975 20560 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  51912
+I0404 20:28:27.858016 20560 syncedmem.cpp:88] to_gpu(),HEAD_AT_CPU : allocate and copy from CPU to GPU  51912
+I0404 20:28:27.858229 20560 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  51912
+I0404 20:28:27.858265 20560 syncedmem.cpp:88] to_gpu(),HEAD_AT_CPU : allocate and copy from CPU to GPU  56
+I0404 20:28:27.858295 20560 syncedmem.cpp:79] to_gpu(),UNINIT : allocate and memset  51912
+I0404 20:28:27.858655 20560 softmax_loss_layer.cu:65] end SoftmaxWithLoss Forward_gpu()
+I0404 20:28:27.858701 20560 syncedmem.cpp:88] to_gpu(),HEAD_AT_CPU : allocate and copy from CPU to GPU  4
+I0404 20:28:27.858731 20560 syncedmem.cpp:88] to_gpu(),HEAD_AT_CPU : allocate and copy from CPU to GPU  4
+I0404 20:28:27.858927 20560 net.cpp:596]  [Forward] [loss] top blob loss data size: 4
+I0404 20:28:27.858953 20560 solver.cpp:398]     Test net output #0: accuracy = 0
+I0404 20:28:27.858973 20560 solver.cpp:398]     Test net output #1: loss = 87.3365 (* 1 = 87.3365 loss)
+I0404 20:28:27.858986 20560 net.cpp:596]  [Forward] [x_train] top blob data data size: 6193152
+I0404 20:28:27.858992 20560 net.cpp:596]  [Forward] [y_train] top blob label data size: 56
+I0404 20:28:27.859035 20560 cudnn_conv_layer.cpp:96] Start cudnn_conv reshape()
+I0404 20:28:27.859058 20560 cudnn_conv_layer.cpp:234] End cudnn_conv reshape()
+I0404 20:28:27.859877 20560 syncedmem.cpp:88] to_gpu(),HEAD_AT_CPU : allocate and copy from CPU to GPU  6193152
+I0404 20:28:27.860150 20560 syncedmem.cpp:79] to_gpu(),UNINIT : allocate and memset  23248512
+I0404 20:28:27.860160 20560 cudnn_conv_layer.cu:17] Start cudnn_conv Forward_gpu()
+I0404 20:28:29.406054 20560 cudnn_conv_layer.cu:46] End cudnn_conv Forward_gpu()
+I0404 20:28:29.406083 20560 net.cpp:596]  [Forward] [CONV] top blob conv1 data size: 23248512
+I0404 20:28:29.406090 20560 net.cpp:610]  [Forward]  [CONV] param blob 0 data size: 36864
+I0404 20:28:29.406095 20560 net.cpp:610]  [Forward]  [CONV] param blob 1 data size: 192
+I0404 20:28:29.406116 20560 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  23248512
+I0404 20:28:29.406432 20560 syncedmem.cpp:79] to_gpu(),UNINIT : allocate and memset  22751232
+I0404 20:28:29.406622 20560 syncedmem.cpp:79] to_gpu(),UNINIT : allocate and memset  22751232
+I0404 20:28:29.406725 20560 net.cpp:596]  [Forward] [POOLING] top blob pool1 data size: 22751232
+I0404 20:28:29.406736 20560 inner_product_layer.cpp:69] Start IP Reshape()
+I0404 20:28:29.406749 20560 inner_product_layer.cpp:84] End IP Reshape()
+I0404 20:28:29.406757 20560 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  22751232
+I0404 20:28:29.406785 20560 syncedmem.cpp:79] to_gpu(),UNINIT : allocate and memset  51912
+I0404 20:28:29.406792 20560 inner_product_layer.cu:15] Started IP Forward_gpu()
+I0404 20:28:29.515069 20560 syncedmem.cpp:88] to_gpu(),HEAD_AT_CPU : allocate and copy from CPU to GPU  56
+I0404 20:28:29.515235 20560 inner_product_layer.cu:32] End IP Forward_gpu()
+I0404 20:28:29.515246 20560 net.cpp:596]  [Forward] [IP] top blob ip2 data size: 51912
+I0404 20:28:29.515254 20560 net.cpp:610]  [Forward]  [IP] param blob 0 data size: 1506456576
+I0404 20:28:29.515259 20560 net.cpp:610]  [Forward]  [IP] param blob 1 data size: 3708
+I0404 20:28:29.515287 20560 softmax_loss_layer.cu:34] start SoftmaxWithLoss Forward_gpu()
+I0404 20:28:29.515305 20560 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  51912
+I0404 20:28:29.515349 20560 syncedmem.cpp:79] to_gpu(),UNINIT : allocate and memset  51912
+I0404 20:28:29.515496 20560 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  51912
+I0404 20:28:29.515533 20560 syncedmem.cpp:88] to_gpu(),HEAD_AT_CPU : allocate and copy from CPU to GPU  51912
+I0404 20:28:29.515691 20560 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  51912
+I0404 20:28:29.515727 20560 syncedmem.cpp:88] to_gpu(),HEAD_AT_CPU : allocate and copy from CPU to GPU  56
+I0404 20:28:29.515750 20560 syncedmem.cpp:79] to_gpu(),UNINIT : allocate and memset  51912
+I0404 20:28:29.515970 20560 softmax_loss_layer.cu:65] end SoftmaxWithLoss Forward_gpu()
+I0404 20:28:29.516000 20560 syncedmem.cpp:88] to_gpu(),HEAD_AT_CPU : allocate and copy from CPU to GPU  4
+I0404 20:28:29.516023 20560 syncedmem.cpp:88] to_gpu(),HEAD_AT_CPU : allocate and copy from CPU to GPU  4
+I0404 20:28:29.516163 20560 net.cpp:596]  [Forward] [loss] top blob loss data size: 4
+I0404 20:28:29.516178 20560 softmax_loss_layer.cu:95] start SoftmaxWithLoss Backward_gpu()
+I0404 20:28:29.516187 20560 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  51912
+I0404 20:28:29.516203 20560 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  51912
+I0404 20:28:29.516222 20560 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  51912
+I0404 20:28:29.516365 20560 softmax_loss_layer.cu:127] end SoftmaxWithLoss Backward_gpu()
+I0404 20:28:29.516374 20560 net.cpp:628]  [Backward] [loss] bottom blob ip2 diff size: 51912
+I0404 20:28:29.516379 20560 inner_product_layer.cu:39] Started IP Backward_gpu()
+I0404 20:28:29.516386 20560 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  51912
+I0404 20:28:29.516392 20560 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  22751232
+I0404 20:28:29.516397 20560 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  1506456576
+I0404 20:28:29.516433 20560 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  51912
+I0404 20:28:29.516440 20560 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3708
+I0404 20:28:29.516543 20560 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  51912
+I0404 20:28:29.516819 20560 syncedmem.cpp:79] to_gpu(),UNINIT : allocate and memset  22751232
+I0404 20:28:29.516955 20560 inner_product_layer.cu:78] End IP Backward_gpu()
+I0404 20:28:29.516964 20560 net.cpp:628]  [Backward] [IP] bottom blob pool1 diff size: 22751232
+I0404 20:28:29.516970 20560 net.cpp:641]  [Backward] [IP] param blob 0 diff size: 1506456576
+I0404 20:28:29.516974 20560 net.cpp:641]  [Backward] [IP] param blob 1 diff size: 3708
+I0404 20:28:29.516981 20560 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  22751232
+I0404 20:28:29.517177 20560 syncedmem.cpp:79] to_gpu(),UNINIT : allocate and memset  23248512
+I0404 20:28:29.517199 20560 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  22751232
+I0404 20:28:29.517302 20560 net.cpp:628]  [Backward] [POOLING] bottom blob conv1 diff size: 23248512
+I0404 20:28:29.517315 20560 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  36864
+I0404 20:28:29.517321 20560 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  192
+I0404 20:28:29.517326 20560 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  23248512
+I0404 20:28:29.517330 20560 cudnn_conv_layer.cu:67] Start cudnn_conv Backward_gpu()
+I0404 20:28:29.517563 20560 cudnn_conv_layer.cu:115] End cudnn_conv Backward_gpu()
+I0404 20:28:29.517572 20560 net.cpp:641]  [Backward] [CONV] param blob 0 diff size: 36864
+I0404 20:28:29.517577 20560 net.cpp:641]  [Backward] [CONV] param blob 1 diff size: 192
+I0404 20:28:29.555773 20560 solver.cpp:219] Iteration 0 (0 iter/s, 3.56343s/100 iters), loss = 87.3365
+I0404 20:28:29.555804 20560 solver.cpp:238]     Train net output #0: loss = 87.3365 (* 1 = 87.3365 loss)
+I0404 20:28:29.555816 20560 sgd_solver.cpp:105] Iteration 0, lr = 0.01
+I0404 20:28:29.555829 20560 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  36864
+I0404 20:28:29.555932 20560 syncedmem.cpp:79] to_gpu(),UNINIT : allocate and memset  36864
+I0404 20:28:29.555943 20560 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  36864
+I0404 20:28:29.556023 20560 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  192
+I0404 20:28:29.556115 20560 syncedmem.cpp:79] to_gpu(),UNINIT : allocate and memset  192
+I0404 20:28:29.556124 20560 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  192
+I0404 20:28:29.556200 20560 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  1506456576
+I0404 20:28:29.556959 20560 syncedmem.cpp:79] to_gpu(),UNINIT : allocate and memset  1506456576
+I0404 20:28:29.556972 20560 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  1506456576
+I0404 20:28:29.557051 20560 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3708
+I0404 20:28:29.557140 20560 syncedmem.cpp:79] to_gpu(),UNINIT : allocate and memset  3708
+I0404 20:28:29.557150 20560 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3708
+I0404 20:28:29.557227 20560 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  36864
+I0404 20:28:29.557304 20560 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  192
+I0404 20:28:29.557371 20560 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  1506456576
+I0404 20:28:29.557438 20560 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3708
+I0404 20:28:29.557512 20560 solver.cpp:448] Snapshotting to binary proto file ./_iter_1.caffemodel
+I0404 20:28:29.557523 20560 net.cpp:854] Serializing 6 layers

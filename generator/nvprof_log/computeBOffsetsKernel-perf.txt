@@ -1,0 +1,4 @@
+==16069== NVPROF is profiling process 16069, command: /home/sbchoi/git/caffe/build/tools/caffe train --solver=/home/sbchoi/git/gpu-cloud/generator/data_generator.prototxt
+==16069== Profiling application: /home/sbchoi/git/caffe/build/tools/caffe train --solver=/home/sbchoi/git/gpu-cloud/generator/data_generator.prototxt
+==16069== Profiling result:
+No events/metrics were profiled.

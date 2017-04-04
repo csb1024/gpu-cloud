@@ -24,12 +24,12 @@ echo "Retrieving nvprof gpu_trace on ${NVPROF_LOG} for training"
 nvprof --csv --log-file ${NVPROF_LOG} --print-gpu-trace  $CAFFE_ROOT/build/tools/caffe train --solver=$SOLVER
 
 # Extracts kernels names from NVPROF_LOG
-awk -F "\"*,\"*" '{print $17}' ${NVPROF_LOG} > ${LIST}
+#awk -F "\"*,\"*" '{print $17}' ${NVPROF_LOG} > ${LIST}
 
 #scp ${NVPROF_LOG} ${TF_VLOG_1} ${TF_VLOG_2} 143.248.139.71:~/
 
-if [ $DEDUP_KERNEL == "yes" ]
-then
-  sort $LIST | uniq > $LIST2
-fi
+#if [ $DEDUP_KERNEL == "yes" ]
+#then
+#  sort $LIST | uniq > $LIST2
+#fi
 

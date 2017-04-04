@@ -6,32 +6,22 @@ layer {
   include {
     phase: TRAIN
   }
-  dummy_data_param {
-    data_filler {
-      type: "constant"
-    }
-    shape {
-      dim: 14
-      dim: 3
-      dim: 192
-      dim: 192
-    }
+  dummy_data_param{
+   shape: {dim: 128 dim:1 dim:28 dim: 28 }
+   data_filler: {type: 'constant'}
+  } 
   }
-}
+
 layer {
   name: "y_train"
   type: "DummyData"
   top: "label"
   include {
-    phase: TRAIN
+   phase: TRAIN
   }
-  dummy_data_param {
-    data_filler {
-      type: "constant"
-    }
-    shape {
-      dim: 14
-    }
+  dummy_data_param{
+   shape: {dim: 128}
+   data_filler: {type: 'constant'}
   }
 }
 layer {
@@ -41,49 +31,40 @@ layer {
   include {
     phase: TEST
   }
-  dummy_data_param {
-    data_filler {
-      type: "constant"
-    }
-    shape {
-      dim: 14
-      dim: 3
-      dim: 192
-      dim: 192
-    }
+  dummy_data_param{
+  shape: {dim: 128 dim:1 dim:28 dim: 28 }
+   data_filler: {type: 'constant'}
+  } 
   }
-}
 layer {
   name: "y_test"
   type: "DummyData"
   top: "label"
   include {
-    phase: TEST
+   phase: TEST
   }
-  dummy_data_param {
-    data_filler {
-      type: "constant"
-    }
-    shape {
-      dim: 14
-    }
+  dummy_data_param{
+   shape: {dim: 128}
+   data_filler: {type: 'constant'}
   }
 }
+
+
 layer {
-  name: "CONV"
+  name: "conv1"
   type: "Convolution"
   bottom: "data"
   top: "conv1"
   param {
-    lr_mult: 1.0
+    lr_mult: 1
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 1
   }
   convolution_param {
-    num_output: 48
-    kernel_size: 8
-    stride: 2
+    num_output: 32
+    kernel_size: 5
+    stride: 1
     weight_filler {
       type: "gaussian"
     }
@@ -93,29 +74,29 @@ layer {
   }
 }
 layer {
-  name: "POOLING"
+  name: "pool1"
   type: "Pooling"
   bottom: "conv1"
   top: "pool1"
   pooling_param {
     pool: MAX
     kernel_size: 2
-    stride: 1
+    stride: 2
   }
 }
 layer {
-  name: "IP"
+  name: "ip1"
   type: "InnerProduct"
   bottom: "pool1"
   top: "ip2"
   param {
-    lr_mult: 1.0
+    lr_mult: 1
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 1
   }
   inner_product_param {
-    num_output: 927
+    num_output: 10
     weight_filler {
       type: "gaussian"
     }

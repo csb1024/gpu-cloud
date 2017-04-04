@@ -1,0 +1,4 @@
+==29742== NVPROF is profiling process 29742, command: /home/sbchoi/git/caffe/build/tools/caffe train --solver=data_generator.prototxt
+==29742== Profiling application: /home/sbchoi/git/caffe/build/tools/caffe train --solver=data_generator.prototxt
+==29742== Profiling result:
+No events/metrics were profiled.

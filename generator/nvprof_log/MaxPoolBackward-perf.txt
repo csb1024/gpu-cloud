@@ -1,0 +1,10 @@
+==19938== NVPROF is profiling process 19938, command: /home/sbchoi/git/caffe/build/tools/caffe train --solver=/home/sbchoi/git/gpu-cloud/generator/data_generator.prototxt
+==19938== Some kernel(s) will be replayed on device 0 in order to collect all events/metrics.
+==19938== Profiling application: /home/sbchoi/git/caffe/build/tools/caffe train --solver=/home/sbchoi/git/gpu-cloud/generator/data_generator.prototxt
+==19938== Profiling result:
+==19938== Metric result:
+"Device","Kernel","Invocations","Metric Name","Metric Description","Min","Max","Avg"
+"GeForce GTX 1080 (0)","void caffe::MaxPoolBackward<float>(int, float const *, int const *, float const , int, int, int, int, int, int, int, int, int, int, int, int, caffe::MaxPoolBackward<float>*)",1,"dram_utilization","Device Memory Utilization","Low (1)","Low (1)","Low (1)"
+"GeForce GTX 1080 (0)","void caffe::MaxPoolBackward<float>(int, float const *, int const *, float const , int, int, int, int, int, int, int, int, int, int, int, int, caffe::MaxPoolBackward<float>*)",1,"achieved_occupancy","Achieved Occupancy",0.461621,0.461621,0.461621
+"GeForce GTX 1080 (0)","void caffe::MaxPoolBackward<float>(int, float const *, int const *, float const , int, int, int, int, int, int, int, int, int, int, int, int, caffe::MaxPoolBackward<float>*)",1,"sysmem_utilization","System Memory Utilization","Low (1)","Low (1)","Low (1)"
+"GeForce GTX 1080 (0)","void caffe::MaxPoolBackward<float>(int, float const *, int const *, float const , int, int, int, int, int, int, int, int, int, int, int, int, caffe::MaxPoolBackward<float>*)",1,"executed_ipc","Executed IPC",0.524567,0.524567,0.524567

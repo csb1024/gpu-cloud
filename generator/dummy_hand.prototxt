@@ -1,0 +1,58 @@
+name: "DummyNetbyHand"
+layer {
+  name: "x"
+  type: "DummyData"
+  top: "data"
+  dummy_data_param{
+   shape: {dim: 10 dim: 3 dim: 2 }
+   data_filler: {type: 'constant'}
+  }
+}
+layer {
+  name: "y"
+  type: "DummyData"
+  top: "label"
+  dummy_data_param{
+   shape: {dim: 10 dim: 3 dim:2 }
+   data_filler: {type: 'constant'}
+  }
+layer {
+  name: "conv1"
+  type: "Convolution"
+  bottom: "data"
+  top: "conv1"
+  param {
+    lr_mult: 1
+  }
+  param {
+    lr_mult: 1
+  }
+  convolution_param {
+    num_output: 32
+    kernel_size: 5
+    stride: 1
+    weight_filler {
+      type: "gaussian"
+    }
+    bias_filler {
+      type: "gaussian"
+    }
+  }
+}
+layer {
+  name: "accuracy"
+  type: "Accuracy"
+  bottom: "ip1"
+  bottom: "label"
+  top: "accuracy"
+  include {
+    phase: TEST
+  }
+}
+layer {
+  name: "loss"
+  type: "SoftmaxWithLoss"
+  bottom: "ip1"
+  bottom: "label"
+  top: "loss"
+}
