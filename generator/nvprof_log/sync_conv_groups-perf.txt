@@ -1,10 +1,10 @@
-==9234== NVPROF is profiling process 9234, command: /home/sbchoi/git/caffe/build/tools/caffe train --solver=/home/sbchoi/git/gpu-cloud/generator/data_generator.prototxt
-==9234== Some kernel(s) will be replayed on device 0 in order to collect all events/metrics.
-==9234== Profiling application: /home/sbchoi/git/caffe/build/tools/caffe train --solver=/home/sbchoi/git/gpu-cloud/generator/data_generator.prototxt
-==9234== Profiling result:
-==9234== Metric result:
+==3910== NVPROF is profiling process 3910, command: /home/sbchoi/git/caffe/build/tools/caffe train --solver=/home/sbchoi/git/gpu-cloud/generator/data_generator.prototxt
+==3910== Some kernel(s) will be replayed on device 0 in order to collect all events/metrics.
+==3910== Profiling application: /home/sbchoi/git/caffe/build/tools/caffe train --solver=/home/sbchoi/git/gpu-cloud/generator/data_generator.prototxt
+==3910== Profiling result:
+==3910== Metric result:
 "Device","Kernel","Invocations","Metric Name","Metric Description","Min","Max","Avg"
 "GeForce GTX 1080 (0)","caffe::sync_conv_groups(void)",3,"dram_utilization","Device Memory Utilization","Low (1)","Low (1)","Low (1)"
-"GeForce GTX 1080 (0)","caffe::sync_conv_groups(void)",3,"achieved_occupancy","Achieved Occupancy",0.015613,0.015625,0.015621
+"GeForce GTX 1080 (0)","caffe::sync_conv_groups(void)",3,"achieved_occupancy","Achieved Occupancy",0.015625,0.015625,0.015625
 "GeForce GTX 1080 (0)","caffe::sync_conv_groups(void)",3,"sysmem_utilization","System Memory Utilization","Low (1)","Low (1)","Low (1)"
-"GeForce GTX 1080 (0)","caffe::sync_conv_groups(void)",3,"executed_ipc","Executed IPC",0.001540,0.007576,0.004100
+"GeForce GTX 1080 (0)","caffe::sync_conv_groups(void)",3,"executed_ipc","Executed IPC",0.001511,0.007576,0.004080

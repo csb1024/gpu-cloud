@@ -1,10 +1,10 @@
-==11591== NVPROF is profiling process 11591, command: /home/sbchoi/git/caffe/build/tools/caffe train --solver=/home/sbchoi/git/gpu-cloud/generator/data_generator.prototxt
-==11591== Some kernel(s) will be replayed on device 0 in order to collect all events/metrics.
-==11591== Profiling application: /home/sbchoi/git/caffe/build/tools/caffe train --solver=/home/sbchoi/git/gpu-cloud/generator/data_generator.prototxt
-==11591== Profiling result:
-==11591== Metric result:
+==9664== NVPROF is profiling process 9664, command: /home/sbchoi/git/caffe/build/tools/caffe train --solver=/home/sbchoi/git/gpu-cloud/generator/data_generator.prototxt
+==9664== Some kernel(s) will be replayed on device 0 in order to collect all events/metrics.
+==9664== Profiling application: /home/sbchoi/git/caffe/build/tools/caffe train --solver=/home/sbchoi/git/gpu-cloud/generator/data_generator.prototxt
+==9664== Profiling result:
+==9664== Metric result:
 "Device","Kernel","Invocations","Metric Name","Metric Description","Min","Max","Avg"
 "GeForce GTX 1080 (0)","void calc_bias_diff<int=2, float, float, int=128, int=0>(cudnnTensorStruct, float const *, cudnnTensorStruct, float*, float, float, int)",1,"dram_utilization","Device Memory Utilization","Low (3)","Low (3)","Low (3)"
-"GeForce GTX 1080 (0)","void calc_bias_diff<int=2, float, float, int=128, int=0>(cudnnTensorStruct, float const *, cudnnTensorStruct, float*, float, float, int)",1,"achieved_occupancy","Achieved Occupancy",0.118722,0.118722,0.118722
+"GeForce GTX 1080 (0)","void calc_bias_diff<int=2, float, float, int=128, int=0>(cudnnTensorStruct, float const *, cudnnTensorStruct, float*, float, float, int)",1,"achieved_occupancy","Achieved Occupancy",0.106267,0.106267,0.106267
 "GeForce GTX 1080 (0)","void calc_bias_diff<int=2, float, float, int=128, int=0>(cudnnTensorStruct, float const *, cudnnTensorStruct, float*, float, float, int)",1,"sysmem_utilization","System Memory Utilization","Low (1)","Low (1)","Low (1)"
-"GeForce GTX 1080 (0)","void calc_bias_diff<int=2, float, float, int=128, int=0>(cudnnTensorStruct, float const *, cudnnTensorStruct, float*, float, float, int)",1,"executed_ipc","Executed IPC",0.167281,0.167281,0.167281
+"GeForce GTX 1080 (0)","void calc_bias_diff<int=2, float, float, int=128, int=0>(cudnnTensorStruct, float const *, cudnnTensorStruct, float*, float, float, int)",1,"executed_ipc","Executed IPC",0.149179,0.149179,0.149179
