@@ -13,6 +13,11 @@ from caffe.proto import caffe_pb2
 3. sysmem_utilization -> line num 9
 4. executed_ipc -> line num 10
 """
+
+def average(numbers):
+	total = sum(numbers)
+	total = float(total)
+	return total / len(numbers) 
 def parseNvprofLog(layer_type):
 	kernel_list_dir="/home/sbchoi/git/gpu-cloud/generator/kernel_lists/" # fixed position
 	nvprof_log_dir="/home/sbchoi/git/gpu-cloud/generator/nvprof_log/"

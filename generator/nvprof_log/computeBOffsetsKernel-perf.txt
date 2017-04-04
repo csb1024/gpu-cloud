@@ -1,10 +1,4 @@
-==20601== NVPROF is profiling process 20601, command: /home/sbchoi/git/caffe/build/tools/caffe train --solver=/home/sbchoi/git/gpu-cloud/generator/data_generator.prototxt
-==20601== Some kernel(s) will be replayed on device 0 in order to collect all events/metrics.
-==20601== Profiling application: /home/sbchoi/git/caffe/build/tools/caffe train --solver=/home/sbchoi/git/gpu-cloud/generator/data_generator.prototxt
-==20601== Profiling result:
-==20601== Metric result:
-"Device","Kernel","Invocations","Metric Name","Metric Description","Min","Max","Avg"
-"GeForce GTX 1080 (0)","cudnn::maxwell::gemm::computeBOffsetsKernel(cudnn::maxwell::gemm::ComputeBOffsetsParams)",1,"dram_utilization","Device Memory Utilization","Low (1)","Low (1)","Low (1)"
-"GeForce GTX 1080 (0)","cudnn::maxwell::gemm::computeBOffsetsKernel(cudnn::maxwell::gemm::ComputeBOffsetsParams)",1,"achieved_occupancy","Achieved Occupancy",0.081786,0.081786,0.081786
-"GeForce GTX 1080 (0)","cudnn::maxwell::gemm::computeBOffsetsKernel(cudnn::maxwell::gemm::ComputeBOffsetsParams)",1,"sysmem_utilization","System Memory Utilization","Low (1)","Low (1)","Low (1)"
-"GeForce GTX 1080 (0)","cudnn::maxwell::gemm::computeBOffsetsKernel(cudnn::maxwell::gemm::ComputeBOffsetsParams)",1,"executed_ipc","Executed IPC",0.145982,0.145982,0.145982
+==2976== NVPROF is profiling process 2976, command: /home/sbchoi/git/caffe/build/tools/caffe train --solver=/home/sbchoi/git/gpu-cloud/generator/data_generator.prototxt
+==2976== Profiling application: /home/sbchoi/git/caffe/build/tools/caffe train --solver=/home/sbchoi/git/gpu-cloud/generator/data_generator.prototxt
+==2976== Profiling result:
+No events/metrics were profiled.

@@ -1,10 +1,10 @@
-==15252== NVPROF is profiling process 15252, command: /home/sbchoi/git/caffe/build/tools/caffe train --solver=lenet_solver.prototxt
-==15252== Some kernel(s) will be replayed on device 0 in order to collect all events/metrics.
-==15252== Profiling application: /home/sbchoi/git/caffe/build/tools/caffe train --solver=lenet_solver.prototxt
-==15252== Profiling result:
-==15252== Metric result:
+==3033== NVPROF is profiling process 3033, command: /home/sbchoi/git/caffe/build/tools/caffe train --solver=/home/sbchoi/git/gpu-cloud/generator/data_generator.prototxt
+==3033== Some kernel(s) will be replayed on device 0 in order to collect all events/metrics.
+==3033== Profiling application: /home/sbchoi/git/caffe/build/tools/caffe train --solver=/home/sbchoi/git/gpu-cloud/generator/data_generator.prototxt
+==3033== Profiling result:
+==3033== Metric result:
 "Device","Kernel","Invocations","Metric Name","Metric Description","Min","Max","Avg"
-"GeForce GTX 1080 (0)","void gemmk1_kernel<float, int=256, int=5, bool=0, bool=0, bool=0, bool=0>(cublasGemmk1Params<float>, float const *, float const *, float*)",2,"dram_utilization","Device Memory Utilization","Low (1)","Low (1)","Low (1)"
-"GeForce GTX 1080 (0)","void gemmk1_kernel<float, int=256, int=5, bool=0, bool=0, bool=0, bool=0>(cublasGemmk1Params<float>, float const *, float const *, float*)",2,"achieved_occupancy","Achieved Occupancy",0.120842,0.123458,0.122150
+"GeForce GTX 1080 (0)","void gemmk1_kernel<float, int=256, int=5, bool=0, bool=0, bool=0, bool=0>(cublasGemmk1Params<float>, float const *, float const *, float*)",2,"dram_utilization","Device Memory Utilization","Mid (4)","Mid (4)","Mid (4)"
+"GeForce GTX 1080 (0)","void gemmk1_kernel<float, int=256, int=5, bool=0, bool=0, bool=0, bool=0>(cublasGemmk1Params<float>, float const *, float const *, float*)",2,"achieved_occupancy","Achieved Occupancy",0.492200,0.518016,0.505108
 "GeForce GTX 1080 (0)","void gemmk1_kernel<float, int=256, int=5, bool=0, bool=0, bool=0, bool=0>(cublasGemmk1Params<float>, float const *, float const *, float*)",2,"sysmem_utilization","System Memory Utilization","Low (1)","Low (1)","Low (1)"
-"GeForce GTX 1080 (0)","void gemmk1_kernel<float, int=256, int=5, bool=0, bool=0, bool=0, bool=0>(cublasGemmk1Params<float>, float const *, float const *, float*)",2,"executed_ipc","Executed IPC",0.188553,0.236334,0.212443
+"GeForce GTX 1080 (0)","void gemmk1_kernel<float, int=256, int=5, bool=0, bool=0, bool=0, bool=0>(cublasGemmk1Params<float>, float const *, float const *, float*)",2,"executed_ipc","Executed IPC",0.472597,0.507079,0.489838

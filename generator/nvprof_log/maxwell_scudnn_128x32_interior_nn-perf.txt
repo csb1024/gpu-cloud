@@ -1,4 +1,10 @@
-==25532== NVPROF is profiling process 25532, command: /home/sbchoi/git/caffe/build/tools/caffe train --solver=/home/sbchoi/git/gpu-cloud/generator/data_generator.prototxt
-==25532== Profiling application: /home/sbchoi/git/caffe/build/tools/caffe train --solver=/home/sbchoi/git/gpu-cloud/generator/data_generator.prototxt
-==25532== Profiling result:
-No events/metrics were profiled.
+==2897== NVPROF is profiling process 2897, command: /home/sbchoi/git/caffe/build/tools/caffe train --solver=/home/sbchoi/git/gpu-cloud/generator/data_generator.prototxt
+==2897== Some kernel(s) will be replayed on device 0 in order to collect all events/metrics.
+==2897== Profiling application: /home/sbchoi/git/caffe/build/tools/caffe train --solver=/home/sbchoi/git/gpu-cloud/generator/data_generator.prototxt
+==2897== Profiling result:
+==2897== Metric result:
+"Device","Kernel","Invocations","Metric Name","Metric Description","Min","Max","Avg"
+"GeForce GTX 1080 (0)","maxwell_scudnn_128x32_interior_nn",2,"dram_utilization","Device Memory Utilization","Low (2)","Low (2)","Low (2)"
+"GeForce GTX 1080 (0)","maxwell_scudnn_128x32_interior_nn",2,"achieved_occupancy","Achieved Occupancy",0.304778,0.305113,0.304945
+"GeForce GTX 1080 (0)","maxwell_scudnn_128x32_interior_nn",2,"sysmem_utilization","System Memory Utilization","Low (1)","Low (1)","Low (1)"
+"GeForce GTX 1080 (0)","maxwell_scudnn_128x32_interior_nn",2,"executed_ipc","Executed IPC",3.823887,3.837832,3.830859

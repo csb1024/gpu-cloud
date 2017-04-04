@@ -1,10 +1,10 @@
-==9664== NVPROF is profiling process 9664, command: /home/sbchoi/git/caffe/build/tools/caffe train --solver=/home/sbchoi/git/gpu-cloud/generator/data_generator.prototxt
-==9664== Some kernel(s) will be replayed on device 0 in order to collect all events/metrics.
-==9664== Profiling application: /home/sbchoi/git/caffe/build/tools/caffe train --solver=/home/sbchoi/git/gpu-cloud/generator/data_generator.prototxt
-==9664== Profiling result:
-==9664== Metric result:
+==2945== NVPROF is profiling process 2945, command: /home/sbchoi/git/caffe/build/tools/caffe train --solver=/home/sbchoi/git/gpu-cloud/generator/data_generator.prototxt
+==2945== Some kernel(s) will be replayed on device 0 in order to collect all events/metrics.
+==2945== Profiling application: /home/sbchoi/git/caffe/build/tools/caffe train --solver=/home/sbchoi/git/gpu-cloud/generator/data_generator.prototxt
+==2945== Profiling result:
+==2945== Metric result:
 "Device","Kernel","Invocations","Metric Name","Metric Description","Min","Max","Avg"
-"GeForce GTX 1080 (0)","void calc_bias_diff<int=2, float, float, int=128, int=0>(cudnnTensorStruct, float const *, cudnnTensorStruct, float*, float, float, int)",1,"dram_utilization","Device Memory Utilization","Low (3)","Low (3)","Low (3)"
-"GeForce GTX 1080 (0)","void calc_bias_diff<int=2, float, float, int=128, int=0>(cudnnTensorStruct, float const *, cudnnTensorStruct, float*, float, float, int)",1,"achieved_occupancy","Achieved Occupancy",0.106267,0.106267,0.106267
+"GeForce GTX 1080 (0)","void calc_bias_diff<int=2, float, float, int=128, int=0>(cudnnTensorStruct, float const *, cudnnTensorStruct, float*, float, float, int)",1,"dram_utilization","Device Memory Utilization","Low (2)","Low (2)","Low (2)"
+"GeForce GTX 1080 (0)","void calc_bias_diff<int=2, float, float, int=128, int=0>(cudnnTensorStruct, float const *, cudnnTensorStruct, float*, float, float, int)",1,"achieved_occupancy","Achieved Occupancy",0.062476,0.062476,0.062476
 "GeForce GTX 1080 (0)","void calc_bias_diff<int=2, float, float, int=128, int=0>(cudnnTensorStruct, float const *, cudnnTensorStruct, float*, float, float, int)",1,"sysmem_utilization","System Memory Utilization","Low (1)","Low (1)","Low (1)"
-"GeForce GTX 1080 (0)","void calc_bias_diff<int=2, float, float, int=128, int=0>(cudnnTensorStruct, float const *, cudnnTensorStruct, float*, float, float, int)",1,"executed_ipc","Executed IPC",0.149179,0.149179,0.149179
+"GeForce GTX 1080 (0)","void calc_bias_diff<int=2, float, float, int=128, int=0>(cudnnTensorStruct, float const *, cudnnTensorStruct, float*, float, float, int)",1,"executed_ipc","Executed IPC",0.096926,0.096926,0.096926
