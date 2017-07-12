@@ -1,0 +1,6 @@
+Validation Error= 0.001007107 of ensemble model # 0
+Validation Error= 0.001478678 of ensemble model # 1
+Validation Error= 0.002817399 of ensemble model # 2
+Validation Error= 0.004176198 of ensemble model # 3
+Validation Error= 0.011654053 of ensemble model # 4
+64

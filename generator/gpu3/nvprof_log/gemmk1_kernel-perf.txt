@@ -1,0 +1,10 @@
+==28052== NVPROF is profiling process 28052, command: /home/sbchoi/git/caffe/build/tools/caffe train --solver=/home/sbchoi/git/gpu-cloud/generator/gpu3/data_generator.prototxt
+==28052== Some kernel(s) will be replayed on device 0 in order to collect all events/metrics.
+==28052== Profiling application: /home/sbchoi/git/caffe/build/tools/caffe train --solver=/home/sbchoi/git/gpu-cloud/generator/gpu3/data_generator.prototxt
+==28052== Profiling result:
+==28052== Metric result:
+"Device","Kernel","Invocations","Metric Name","Metric Description","Min","Max","Avg"
+"GeForce GTX 1080 (0)","void gemmk1_kernel<float, int=256, int=5, bool=0, bool=0, bool=0, bool=0>(cublasGemmk1Params<float>, float const *, float const *, float*)",2,"dram_utilization","Device Memory Utilization","Low (3)","Low (3)","Low (3)"
+"GeForce GTX 1080 (0)","void gemmk1_kernel<float, int=256, int=5, bool=0, bool=0, bool=0, bool=0>(cublasGemmk1Params<float>, float const *, float const *, float*)",2,"achieved_occupancy","Achieved Occupancy",0.383880,0.403660,0.393770
+"GeForce GTX 1080 (0)","void gemmk1_kernel<float, int=256, int=5, bool=0, bool=0, bool=0, bool=0>(cublasGemmk1Params<float>, float const *, float const *, float*)",2,"sysmem_utilization","System Memory Utilization","Low (1)","Low (1)","Low (1)"
+"GeForce GTX 1080 (0)","void gemmk1_kernel<float, int=256, int=5, bool=0, bool=0, bool=0, bool=0>(cublasGemmk1Params<float>, float const *, float const *, float*)",2,"executed_ipc","Executed IPC",0.400437,0.428828,0.414633

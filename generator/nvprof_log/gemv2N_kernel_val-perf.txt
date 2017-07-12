@@ -1,10 +1,10 @@
-==3048== NVPROF is profiling process 3048, command: /home/sbchoi/git/caffe/build/tools/caffe train --solver=/home/sbchoi/git/gpu-cloud/generator/data_generator.prototxt
-==3048== Some kernel(s) will be replayed on device 0 in order to collect all events/metrics.
-==3048== Profiling application: /home/sbchoi/git/caffe/build/tools/caffe train --solver=/home/sbchoi/git/gpu-cloud/generator/data_generator.prototxt
-==3048== Profiling result:
-==3048== Metric result:
+==27620== NVPROF is profiling process 27620, command: /home/sbchoi/git/caffe/build/tools/caffe train --solver=/home/sbchoi/git/gpu-cloud/generator/data_generator.prototxt
+==27620== Some kernel(s) will be replayed on device 0 in order to collect all events/metrics.
+==27620== Profiling application: /home/sbchoi/git/caffe/build/tools/caffe train --solver=/home/sbchoi/git/gpu-cloud/generator/data_generator.prototxt
+==27620== Profiling result:
+==27620== Metric result:
 "Device","Kernel","Invocations","Metric Name","Metric Description","Min","Max","Avg"
-"GeForce GTX 1080 (0)","void gemv2N_kernel_val<float, float, float, int=128, int=8, int=4, int=4, int=1>(float, float, cublasGemv2Params_v2<float, float, float>)",1,"dram_utilization","Device Memory Utilization","Low (3)","Low (3)","Low (3)"
-"GeForce GTX 1080 (0)","void gemv2N_kernel_val<float, float, float, int=128, int=8, int=4, int=4, int=1>(float, float, cublasGemv2Params_v2<float, float, float>)",1,"achieved_occupancy","Achieved Occupancy",0.154338,0.154338,0.154338
-"GeForce GTX 1080 (0)","void gemv2N_kernel_val<float, float, float, int=128, int=8, int=4, int=4, int=1>(float, float, cublasGemv2Params_v2<float, float, float>)",1,"sysmem_utilization","System Memory Utilization","Low (1)","Low (1)","Low (1)"
-"GeForce GTX 1080 (0)","void gemv2N_kernel_val<float, float, float, int=128, int=8, int=4, int=4, int=1>(float, float, cublasGemv2Params_v2<float, float, float>)",1,"executed_ipc","Executed IPC",0.260083,0.260083,0.260083
+"GeForce GTX 1080 (0)","void gemv2N_kernel_val<float, float, float, int=128, int=4, int=4, int=4, int=1>(float, float, cublasGemv2Params_v2<float, float, float>)",1,"dram_utilization","Device Memory Utilization","Low (3)","Low (3)","Low (3)"
+"GeForce GTX 1080 (0)","void gemv2N_kernel_val<float, float, float, int=128, int=4, int=4, int=4, int=1>(float, float, cublasGemv2Params_v2<float, float, float>)",1,"achieved_occupancy","Achieved Occupancy",0.225939,0.225939,0.225939
+"GeForce GTX 1080 (0)","void gemv2N_kernel_val<float, float, float, int=128, int=4, int=4, int=4, int=1>(float, float, cublasGemv2Params_v2<float, float, float>)",1,"sysmem_utilization","System Memory Utilization","Low (1)","Low (1)","Low (1)"
+"GeForce GTX 1080 (0)","void gemv2N_kernel_val<float, float, float, int=128, int=4, int=4, int=4, int=1>(float, float, cublasGemv2Params_v2<float, float, float>)",1,"executed_ipc","Executed IPC",0.362812,0.362812,0.362812

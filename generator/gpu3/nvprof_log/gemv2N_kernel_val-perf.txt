@@ -1,0 +1,10 @@
+==28067== NVPROF is profiling process 28067, command: /home/sbchoi/git/caffe/build/tools/caffe train --solver=/home/sbchoi/git/gpu-cloud/generator/gpu3/data_generator.prototxt
+==28067== Some kernel(s) will be replayed on device 0 in order to collect all events/metrics.
+==28067== Profiling application: /home/sbchoi/git/caffe/build/tools/caffe train --solver=/home/sbchoi/git/gpu-cloud/generator/gpu3/data_generator.prototxt
+==28067== Profiling result:
+==28067== Metric result:
+"Device","Kernel","Invocations","Metric Name","Metric Description","Min","Max","Avg"
+"GeForce GTX 1080 (0)","void gemv2N_kernel_val<float, float, float, int=128, int=4, int=4, int=4, int=1>(float, float, cublasGemv2Params_v2<float, float, float>)",1,"dram_utilization","Device Memory Utilization","Low (3)","Low (3)","Low (3)"
+"GeForce GTX 1080 (0)","void gemv2N_kernel_val<float, float, float, int=128, int=4, int=4, int=4, int=1>(float, float, cublasGemv2Params_v2<float, float, float>)",1,"achieved_occupancy","Achieved Occupancy",0.225309,0.225309,0.225309
+"GeForce GTX 1080 (0)","void gemv2N_kernel_val<float, float, float, int=128, int=4, int=4, int=4, int=1>(float, float, cublasGemv2Params_v2<float, float, float>)",1,"sysmem_utilization","System Memory Utilization","Low (1)","Low (1)","Low (1)"
+"GeForce GTX 1080 (0)","void gemv2N_kernel_val<float, float, float, int=128, int=4, int=4, int=4, int=1>(float, float, cublasGemv2Params_v2<float, float, float>)",1,"executed_ipc","Executed IPC",0.327062,0.327062,0.327062

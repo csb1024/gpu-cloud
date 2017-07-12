@@ -1,0 +1,62 @@
+phase: TRAIN
+
+phase: TRAIN
+
+phase: TEST
+
+phase: TEST
+
+x_train
+y_train
+x_test
+y_test
+CONV
+POOLING
+IP
+accuracy
+loss
+Parsed Prototxt file : out.prototxt
+[[30L, 3L, 61L, 73, 10, 1, 0], [30L, 73, 52L, 2, 2, 0], [30L, 49348L, 2326], [30L, 49348L]]
+[u'Convolution', u'Pooling', u'InnerProduct', u'SoftmaxWithLoss']
+[ 30.   3.  61.  73.  10.   1.   0.]
+[array([ 30.,   3.,  61.,  73.,  10.,   1.,   0.])]
+7
+/home/sbchoi/git/gpu-cloud/predictor/Convolution-checkpoint-0
+/home/sbchoi/git/gpu-cloud/predictor/Convolution-checkpoint-1
+/home/sbchoi/git/gpu-cloud/predictor/Convolution-checkpoint-2
+/home/sbchoi/git/gpu-cloud/predictor/Convolution-checkpoint-3
+/home/sbchoi/git/gpu-cloud/predictor/Convolution-checkpoint-4
+[36142.4697265625]
+Pred finished for Convolution
+[ 30.  73.  52.   2.   2.   0.]
+[array([ 30.,  73.,  52.,   2.,   2.,   0.])]
+6
+/home/sbchoi/git/gpu-cloud/predictor/Pooling-checkpoint-0
+/home/sbchoi/git/gpu-cloud/predictor/Pooling-checkpoint-1
+/home/sbchoi/git/gpu-cloud/predictor/Pooling-checkpoint-2
+/home/sbchoi/git/gpu-cloud/predictor/Pooling-checkpoint-3
+/home/sbchoi/git/gpu-cloud/predictor/Pooling-checkpoint-4
+[58457.19921875]
+Pred finished for Pooling
+[  3.00000000e+01   4.93480000e+04   2.32600000e+03]
+[array([  3.00000000e+01,   4.93480000e+04,   2.32600000e+03])]
+3
+/home/sbchoi/git/gpu-cloud/predictor/InnerProduct-checkpoint-0
+/home/sbchoi/git/gpu-cloud/predictor/InnerProduct-checkpoint-1
+/home/sbchoi/git/gpu-cloud/predictor/InnerProduct-checkpoint-2
+/home/sbchoi/git/gpu-cloud/predictor/InnerProduct-checkpoint-3
+/home/sbchoi/git/gpu-cloud/predictor/InnerProduct-checkpoint-4
+[26742001.666666668]
+Pred finished for InnerProduct
+[  3.00000000e+01   4.93480000e+04]
+[array([  3.00000000e+01,   4.93480000e+04])]
+2
+/home/sbchoi/git/gpu-cloud/predictor/SoftmaxWithLoss-checkpoint-0
+/home/sbchoi/git/gpu-cloud/predictor/SoftmaxWithLoss-checkpoint-1
+/home/sbchoi/git/gpu-cloud/predictor/SoftmaxWithLoss-checkpoint-2
+/home/sbchoi/git/gpu-cloud/predictor/SoftmaxWithLoss-checkpoint-3
+/home/sbchoi/git/gpu-cloud/predictor/SoftmaxWithLoss-checkpoint-4
+[58606.491536458336]
+Pred finished for SoftmaxWithLoss
+[[36142.4697265625], [58457.19921875], [26742001.666666668], [58606.491536458336]]
+[26895207.827148438]

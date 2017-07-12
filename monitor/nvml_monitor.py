@@ -8,7 +8,7 @@ GPU0 = nvmlDeviceGetHandleByIndex(0)
 #GPU3 = nvmlDeviceGetHandleByIndex(3)
 
 #create log file to store resource usage results
-log = open("/home/sbchoi/GPU_CLOUD/monitor/monitor_log.txt",'w')
+log = open("/home/sbchoi/monitor_log.txt",'w')
 
  
 check = 0

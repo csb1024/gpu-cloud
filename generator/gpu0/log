@@ -1,0 +1,157 @@
+I0508 20:26:06.957610  3616 caffe.cpp:348] Use GPU with device ID 0
+I0508 20:26:07.455734  3616 net.cpp:296] The NetState phase (0) differed from the phase (1) specified by a rule in layer x_test
+I0508 20:26:07.455785  3616 net.cpp:296] The NetState phase (0) differed from the phase (1) specified by a rule in layer y_test
+I0508 20:26:07.455803  3616 net.cpp:296] The NetState phase (0) differed from the phase (1) specified by a rule in layer accuracy
+I0508 20:26:07.455905  3616 net.cpp:53] Initializing net from parameters: 
+name: "DummyNetbyHand"
+state {
+  phase: TRAIN
+  level: 0
+  stage: ""
+}
+layer {
+  name: "x_train"
+  type: "DummyData"
+  top: "data"
+  include {
+    phase: TRAIN
+  }
+  dummy_data_param {
+    data_filler {
+      type: "constant"
+    }
+    shape {
+      dim: 256
+      dim: 239
+      dim: 64
+      dim: 64
+    }
+  }
+}
+layer {
+  name: "y_train"
+  type: "DummyData"
+  top: "label"
+  include {
+    phase: TRAIN
+  }
+  dummy_data_param {
+    data_filler {
+      type: "constant"
+    }
+    shape {
+      dim: 256
+    }
+  }
+}
+layer {
+  name: "LRN"
+  type: "LRN"
+  bottom: "data"
+  top: "norm1"
+  lrn_param {
+    local_size: 5
+    alpha: 5e-05
+    beta: 0.75
+    norm_region: ACROSS_CHANNELS
+  }
+}
+layer {
+  name: "POOLING"
+  type: "Pooling"
+  bottom: "norm1"
+  top: "pool1"
+  pooling_param {
+    pool: MAX
+    kernel_size: 3
+    stride: 2
+  }
+}
+layer {
+  name: "IP"
+  type: "InnerProduct"
+  bottom: "norm1"
+  top: "ip1"
+  param {
+    lr_mult: 1
+    decay_mult: 250
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 3452
+    weight_filler {
+      type: "gaussian"
+      std: 0.01
+    }
+    bias_filler {
+      type: "constant"
+    }
+  }
+}
+layer {
+  name: "SOFTMAX"
+  type: "SoftmaxWithLoss"
+  bottom: "ip1"
+  bottom: "label"
+  top: "loss"
+}
+I0508 20:26:07.456351  3616 layer_factory.hpp:77] Creating layer x_train
+I0508 20:26:07.456425  3616 net.cpp:86] Creating Layer x_train
+I0508 20:26:07.456450  3616 net.cpp:382] x_train -> data
+I0508 20:26:08.862339  3616 net.cpp:124] Setting up x_train
+I0508 20:26:08.862515  3616 net.cpp:131] Top shape: 256 239 64 64 (250609664)
+I0508 20:26:08.862526  3616 net.cpp:139] Memory required for data: 1002438656
+I0508 20:26:08.862576  3616 layer_factory.hpp:77] Creating layer y_train
+I0508 20:26:08.862682  3616 net.cpp:86] Creating Layer y_train
+I0508 20:26:08.862715  3616 net.cpp:382] y_train -> label
+I0508 20:26:08.863070  3616 net.cpp:124] Setting up y_train
+I0508 20:26:08.863093  3616 net.cpp:131] Top shape: 256 (256)
+I0508 20:26:08.863101  3616 net.cpp:139] Memory required for data: 1002439680
+I0508 20:26:08.863113  3616 layer_factory.hpp:77] Creating layer LRN
+I0508 20:26:08.863163  3616 net.cpp:86] Creating Layer LRN
+I0508 20:26:08.863188  3616 net.cpp:408] LRN <- data
+I0508 20:26:08.863240  3616 net.cpp:382] LRN -> norm1
+I0508 20:26:09.179936  3616 net.cpp:124] Setting up LRN
+I0508 20:26:09.180004  3616 net.cpp:131] Top shape: 256 239 64 64 (250609664)
+I0508 20:26:09.180016  3616 net.cpp:139] Memory required for data: 2004878336
+I0508 20:26:09.180037  3616 layer_factory.hpp:77] Creating layer norm1_LRN_0_split
+I0508 20:26:09.180084  3616 net.cpp:86] Creating Layer norm1_LRN_0_split
+I0508 20:26:09.180104  3616 net.cpp:408] norm1_LRN_0_split <- norm1
+I0508 20:26:09.180152  3616 net.cpp:382] norm1_LRN_0_split -> norm1_LRN_0_split_0
+I0508 20:26:09.180192  3616 net.cpp:382] norm1_LRN_0_split -> norm1_LRN_0_split_1
+I0508 20:26:09.180290  3616 net.cpp:124] Setting up norm1_LRN_0_split
+I0508 20:26:09.180316  3616 net.cpp:131] Top shape: 256 239 64 64 (250609664)
+I0508 20:26:09.180330  3616 net.cpp:131] Top shape: 256 239 64 64 (250609664)
+I0508 20:26:09.180338  3616 net.cpp:139] Memory required for data: 4009755648
+I0508 20:26:09.180352  3616 layer_factory.hpp:77] Creating layer POOLING
+I0508 20:26:09.180405  3616 net.cpp:86] Creating Layer POOLING
+I0508 20:26:09.180423  3616 net.cpp:408] POOLING <- norm1_LRN_0_split_0
+I0508 20:26:09.180454  3616 net.cpp:382] POOLING -> pool1
+I0508 20:26:09.180568  3616 net.cpp:124] Setting up POOLING
+I0508 20:26:09.180589  3616 net.cpp:131] Top shape: 256 239 32 32 (62652416)
+I0508 20:26:09.180609  3616 net.cpp:139] Memory required for data: 4260365312
+I0508 20:26:09.180639  3616 layer_factory.hpp:77] Creating layer IP
+I0508 20:26:09.180681  3616 net.cpp:86] Creating Layer IP
+I0508 20:26:09.180697  3616 net.cpp:408] IP <- norm1_LRN_0_split_1
+I0508 20:26:09.180729  3616 net.cpp:382] IP -> ip1
+I0508 20:26:09.180768  3616 inner_product_layer.cpp:21] Start IP LayerSetUp
+F0508 20:26:09.180840  3616 blob.cpp:34] Check failed: shape[i] <= 2147483647 / count_ (978944 vs. 622098) blob size exceeds INT_MAX
+*** Check failure stack trace: ***
+    @     0x7f39135b4daa  (unknown)
+    @     0x7f39135b4ce4  (unknown)
+    @     0x7f39135b46e6  (unknown)
+    @     0x7f39135b7687  (unknown)
+    @     0x7f3913d4eb1b  caffe::Blob<>::Reshape()
+    @     0x7f3913d4e6d9  caffe::Blob<>::Blob()
+    @     0x7f3913e0270b  caffe::InnerProductLayer<>::LayerSetUp()
+    @     0x7f3913d9277a  caffe::Layer<>::SetUp()
+    @     0x7f3913d7e796  caffe::Net<>::Init()
+    @     0x7f3913d7d411  caffe::Net<>::Net()
+    @           0x417494  time()
+    @           0x418539  main
+    @     0x7f39125c0f45  (unknown)
+    @           0x414c79  (unknown)
+    @              (nil)  (unknown)

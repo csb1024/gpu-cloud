@@ -1,0 +1,100 @@
+name: "DummyNetbyHand"
+layer {
+  name: "x_train"
+  type: "DummyData"
+  top: "data"
+  include {
+    phase: TRAIN
+  }
+  dummy_data_param {
+    data_filler {
+      type: "constant"
+    }
+    shape {
+      dim: 104
+      dim: 226
+      dim: 209
+      dim: 209
+    }
+  }
+}
+layer {
+  name: "y_train"
+  type: "DummyData"
+  top: "label"
+  include {
+    phase: TRAIN
+  }
+  dummy_data_param {
+    data_filler {
+      type: "constant"
+    }
+    shape {
+      dim: 104
+    }
+  }
+}
+layer {
+  name: "x_test"
+  type: "DummyData"
+  top: "data"
+  include {
+    phase: TEST
+  }
+  dummy_data_param {
+    data_filler {
+      type: "constant"
+    }
+    shape {
+      dim: 104
+      dim: 226
+      dim: 209
+      dim: 209
+    }
+  }
+}
+layer {
+  name: "y_test"
+  type: "DummyData"
+  top: "label"
+  include {
+    phase: TEST
+  }
+  dummy_data_param {
+    data_filler {
+      type: "constant"
+    }
+    shape {
+      dim: 104
+    }
+  }
+}
+layer{
+  name: "lrn"
+  type: "LRN"
+  bottom: "data"
+  top: "norm1"
+  lrn_param{
+    local_size: 5
+    alpha: 0.0001
+    beta: 0.75
+
+  }
+}
+layer {
+  name: "accuracy"
+  type: "Accuracy"
+  bottom: "norm1"
+  bottom: "label"
+  top: "accuracy"
+  include {
+    phase: TEST
+  }
+}
+layer {
+  name: "SOFTMAX"
+  type: "SoftmaxWithLoss"
+  bottom: "norm1"
+  bottom: "label"
+  top: "loss"
+}

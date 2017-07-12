@@ -1,0 +1,146 @@
+name: "simple_MLP"
+layer {
+  name: "input_data"
+  type: "HDF5Data"
+  top: "data"
+  include {
+    phase: TRAIN
+  }
+  transform_param {
+    scale: 0.00390625
+  }
+  data_param {
+    source: "/home/sbchoi/git/caffe/examples/mnist/mnist_train_lmdb"
+    batch_size: 1
+    backend: LMDB
+  }
+}
+layer {
+  name: "input_label"
+  type: "HDF5Data"
+  top: "label"
+  include {
+    phase: TRAIN
+  }
+  transform_param {
+    scale: 0.00390625
+  }
+  data_param {
+    source: "/home/sbchoi/git/caffe/examples/mnist/mnist_train_lmdb"
+    batch_size: 1
+    backend: LMDB
+  }
+}
+layer {
+  name: "input_data"
+  type: "HDF5Data"
+  top: "data"
+  include {
+    phase: TEST
+  }
+  transform_param {
+    scale: 0.00390625
+  }
+  data_param {
+    source: "/home/sbchoi/git/caffe/examples/mnist/mnist_train_lmdb"
+    batch_size: 1
+    backend: LMDB
+  }
+}
+layer {
+  name: "input_label"
+  type: "HDF5Data"
+  top: "label"
+  include {
+    phase: TEST
+  }
+  transform_param {
+    scale: 0.00390625
+  }
+  data_param {
+    source: "/home/sbchoi/git/caffe/examples/mnist/mnist_train_lmdb"
+    batch_size: 1
+    backend: LMDB
+  }
+}
+layer {
+  name: "ip1"
+  type: "InnerProduct"
+  bottom: "data"
+  top: "ip1"
+  param {
+    lr_mult: 1
+  }
+  param {
+    lr_mult: 1
+  }
+  inner_product_param {
+    num_output: 20
+    weight_filler {
+      type: "gaussian"
+    }
+    bias_filler {
+      type: "gaussian"
+    }
+  }
+}
+layer {
+  name: "ip2"
+  type: "InnerProduct"
+  bottom: "ip1"
+  top: "ip2"
+  param {
+    lr_mult: 1
+  }
+  param {
+    lr_mult: 1
+  }
+  inner_product_param {
+    num_output: 20
+    weight_filler {
+      type: "gaussian"
+    }
+    bias_filler {
+      type: "gaussian"
+    }
+  }
+}
+layer {
+  name: "ip3"
+  type: "InnerProduct"
+  bottom: "ip2"
+  top: "ip3"
+  param {
+    lr_mult: 1
+  }
+  param {
+    lr_mult: 1
+  }
+  inner_product_param {
+    num_output: 3
+    weight_filler {
+      type: "gaussian"
+    }
+    bias_filler {
+      type: "gaussian"
+    }
+  }
+}
+
+layer {
+  name: "accuracy"
+  type: "Accuracy"
+  bottom: "ip3"
+  bottom: "label"
+  top: "accuracy"
+  include {
+    phase: TEST
+  }
+}
+layer {
+  name: "loss"
+  type: "SoftmaxWithLoss"
+  bottom: "ip3"
+  bottom: "label"
+  top: "loss"
+}

@@ -1,0 +1,6 @@
+Average Validation Error= 0.002231667 of ensemble model # 0
+Average Validation Error= 0.001915505 of ensemble model # 1
+Average Validation Error= 0.007639135 of ensemble model # 2
+Average Validation Error= 0.002530033 of ensemble model # 3
+Average Validation Error= 0.006830218 of ensemble model # 4
+Average Ensembled Error= 0.813271701

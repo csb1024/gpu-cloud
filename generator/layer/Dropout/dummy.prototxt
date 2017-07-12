@@ -1,0 +1,122 @@
+name: "DummyNetbyHand"
+layer {
+  name: "x_train"
+  type: "DummyData"
+  top: "data"
+  include {
+    phase: TRAIN
+  }
+  dummy_data_param {
+    data_filler {
+      type: "constant"
+    }
+    shape {
+      dim: 100
+      dim: 32
+      dim: 16
+      dim: 16
+    }
+  }
+}
+layer {
+  name: "y_train"
+  type: "DummyData"
+  top: "label"
+  include {
+    phase: TRAIN
+  }
+  dummy_data_param {
+    data_filler {
+      type: "constant"
+    }
+    shape {
+      dim: 100
+    }
+  }
+}
+layer {
+  name: "x_test"
+  type: "DummyData"
+  top: "data"
+  include {
+    phase: TEST
+  }
+  dummy_data_param {
+    data_filler {
+      type: "constant"
+    }
+    shape {
+      dim: 100
+      dim: 32
+      dim: 16
+      dim: 16
+    }
+  }
+}
+layer {
+  name: "y_test"
+  type: "DummyData"
+  top: "label"
+  include {
+    phase: TEST
+  }
+  dummy_data_param {
+    data_filler {
+      type: "constant"
+    }
+    shape {
+      dim: 100
+    }
+  }
+}
+
+layer {
+  name: "ip1"
+  type: "InnerProduct"
+  bottom: "data"
+  top: "ip1"
+  param {
+    lr_mult: 1
+    decay_mult: 250
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 10
+    weight_filler {
+      type: "gaussian"
+      std: 0.01
+    }
+    bias_filler {
+      type: "constant"
+    }
+  }
+}
+layer {
+  name: "drop1"
+  type: "Dropout"
+  bottom: "ip1"
+  top: "drop1"
+  dropout_param{
+    dropout_ratio : 0.5
+  }
+}
+layer {
+  name: "accuracy"
+  type: "Accuracy"
+  bottom: "drop1"
+  bottom: "label"
+  top: "accuracy"
+  include {
+    phase: TEST
+  }
+}
+layer {
+  name: "SOFTMAX"
+  type: "SoftmaxWithLoss"
+  bottom: "drop1"
+  bottom: "label"
+  top: "loss"
+}

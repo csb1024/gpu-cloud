@@ -1,10 +1,1 @@
-==19562== NVPROF is profiling process 19562, command: /home/sbchoi/git/caffe/build/tools/caffe train --solver=/home/sbchoi/git/gpu-cloud/generator/data_generator.prototxt
-==19562== Some kernel(s) will be replayed on device 0 in order to collect all events/metrics.
-==19562== Profiling application: /home/sbchoi/git/caffe/build/tools/caffe train --solver=/home/sbchoi/git/gpu-cloud/generator/data_generator.prototxt
-==19562== Profiling result:
-==19562== Metric result:
-"Device","Kernel","Invocations","Metric Name","Metric Description","Min","Max","Avg"
-"GeForce GTX 1080 (0)","void caffe::MaxPoolForward<float>(int, float const *, int, int, int, int, int, int, int, int, int, int, int, int, caffe::MaxPoolForward<float>*, int*, float const *)",2,"dram_utilization","Device Memory Utilization","Low (1)","Low (1)","Low (1)"
-"GeForce GTX 1080 (0)","void caffe::MaxPoolForward<float>(int, float const *, int, int, int, int, int, int, int, int, int, int, int, int, caffe::MaxPoolForward<float>*, int*, float const *)",2,"achieved_occupancy","Achieved Occupancy",0.626795,0.628939,0.627867
-"GeForce GTX 1080 (0)","void caffe::MaxPoolForward<float>(int, float const *, int, int, int, int, int, int, int, int, int, int, int, int, caffe::MaxPoolForward<float>*, int*, float const *)",2,"sysmem_utilization","System Memory Utilization","Low (1)","Low (1)","Low (1)"
-"GeForce GTX 1080 (0)","void caffe::MaxPoolForward<float>(int, float const *, int, int, int, int, int, int, int, int, int, int, int, int, caffe::MaxPoolForward<float>*, int*, float const *)",2,"executed_ipc","Executed IPC",0.655610,0.656354,0.655982
+======== Error: Application received signal 134

@@ -1,0 +1,16 @@
+I0507 17:01:51.659809 10847 caffe.cpp:348] Use GPU with device ID 0
+F0507 17:01:52.280268 10847 io.cpp:36] Check failed: fd != -1 (-1 vs. -1) File not found: models/lenet/train_val.prototxt
+*** Check failure stack trace: ***
+    @     0x7f1b3e5abdaa  (unknown)
+    @     0x7f1b3e5abce4  (unknown)
+    @     0x7f1b3e5ab6e6  (unknown)
+    @     0x7f1b3e5ae687  (unknown)
+    @     0x7f1b3edc21bf  caffe::ReadProtoFromTextFile()
+    @     0x7f1b3edc1e3e  caffe::ReadProtoFromTextFile()
+    @     0x7f1b3edbc999  caffe::ReadNetParamsFromTextFileOrDie()
+    @     0x7f1b3ed74343  caffe::Net<>::Net()
+    @           0x417494  time()
+    @           0x418539  main
+    @     0x7f1b3d5b7f45  (unknown)
+    @           0x414c79  (unknown)
+    @              (nil)  (unknown)

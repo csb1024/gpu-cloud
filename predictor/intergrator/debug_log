@@ -1,0 +1,241 @@
+I0427 15:58:49.600891 27383 caffe.cpp:352] Use CPU.
+I0427 15:58:49.832131 27383 net.cpp:296] The NetState phase (0) differed from the phase (1) specified by a rule in layer x_test
+I0427 15:58:49.832162 27383 net.cpp:296] The NetState phase (0) differed from the phase (1) specified by a rule in layer y_test
+I0427 15:58:49.832176 27383 net.cpp:296] The NetState phase (0) differed from the phase (1) specified by a rule in layer accuracy
+I0427 15:58:49.832234 27383 net.cpp:53] Initializing net from parameters: 
+name: "DummyNetbyHand"
+state {
+  phase: TRAIN
+  level: 0
+  stage: ""
+}
+layer {
+  name: "x_train"
+  type: "DummyData"
+  top: "data"
+  include {
+    phase: TRAIN
+  }
+  dummy_data_param {
+    data_filler {
+      type: "constant"
+    }
+    shape {
+      dim: 40
+      dim: 19
+      dim: 138
+      dim: 138
+    }
+  }
+}
+layer {
+  name: "y_train"
+  type: "DummyData"
+  top: "label"
+  include {
+    phase: TRAIN
+  }
+  dummy_data_param {
+    data_filler {
+      type: "constant"
+    }
+    shape {
+      dim: 40
+    }
+  }
+}
+layer {
+  name: "CONV"
+  type: "Convolution"
+  bottom: "data"
+  top: "conv1"
+  param {
+    lr_mult: 1
+  }
+  param {
+    lr_mult: 1
+  }
+  convolution_param {
+    num_output: 25
+    pad: 2
+    kernel_size: 10
+    stride: 6
+    weight_filler {
+      type: "gaussian"
+    }
+    bias_filler {
+      type: "gaussian"
+    }
+  }
+}
+layer {
+  name: "POOLING"
+  type: "Pooling"
+  bottom: "conv1"
+  top: "pool1"
+  pooling_param {
+    pool: MAX
+    kernel_size: 3
+    stride: 1
+  }
+}
+layer {
+  name: "IP"
+  type: "InnerProduct"
+  bottom: "pool1"
+  top: "ip1"
+  param {
+    lr_mult: 1
+  }
+  param {
+    lr_mult: 1
+  }
+  inner_product_param {
+    num_output: 2757
+    weight_filler {
+      type: "gaussian"
+    }
+    bias_filler {
+      type: "gaussian"
+    }
+  }
+}
+layer {
+  name: "RELU"
+  type: "ReLU"
+  bottom: "ip1"
+  top: "relu1"
+}
+layer {
+  name: "SOFTMAX"
+  type: "SoftmaxWithLoss"
+  bottom: "relu1"
+  bottom: "label"
+  top: "loss"
+}
+I0427 15:58:49.832473 27383 layer_factory.hpp:77] Creating layer x_train
+I0427 15:58:49.832511 27383 net.cpp:86] Creating Layer x_train
+I0427 15:58:49.832525 27383 net.cpp:382] x_train -> data
+I0427 15:58:49.859482 27383 net.cpp:124] Setting up x_train
+I0427 15:58:49.859542 27383 net.cpp:131] Top shape: 40 19 138 138 (14473440)
+I0427 15:58:49.859546 27383 net.cpp:139] Memory required for data: 57893760
+I0427 15:58:49.859567 27383 layer_factory.hpp:77] Creating layer y_train
+I0427 15:58:49.859611 27383 net.cpp:86] Creating Layer y_train
+I0427 15:58:49.859623 27383 net.cpp:382] y_train -> label
+I0427 15:58:49.859680 27383 net.cpp:124] Setting up y_train
+I0427 15:58:49.859689 27383 net.cpp:131] Top shape: 40 (40)
+I0427 15:58:49.859694 27383 net.cpp:139] Memory required for data: 57893920
+I0427 15:58:49.859697 27383 layer_factory.hpp:77] Creating layer CONV
+I0427 15:58:49.859726 27383 net.cpp:86] Creating Layer CONV
+I0427 15:58:49.859740 27383 net.cpp:408] CONV <- data
+I0427 15:58:49.859767 27383 net.cpp:382] CONV -> conv1
+I0427 15:58:49.863571 27383 cudnn_conv_layer.cpp:21] start cudnn_conv LayerSetUp()
+I0427 15:58:50.057134 27383 cudnn_conv_layer.cpp:89] End cudnn_conv LayerSetUp()
+I0427 15:58:50.057199 27383 cudnn_conv_layer.cpp:96] Start cudnn_conv reshape()
+I0427 15:58:50.057226 27383 cudnn_conv_layer.cpp:196]  [CONV] reallocate 48348
+I0427 15:58:50.057241 27383 cudnn_conv_layer.cpp:234] End cudnn_conv reshape()
+I0427 15:58:50.057246 27383 net.cpp:124] Setting up CONV
+I0427 15:58:50.057260 27383 net.cpp:131] Top shape: 40 25 23 23 (529000)
+I0427 15:58:50.057263 27383 net.cpp:139] Memory required for data: 60009920
+I0427 15:58:50.057317 27383 layer_factory.hpp:77] Creating layer POOLING
+I0427 15:58:50.057344 27383 net.cpp:86] Creating Layer POOLING
+I0427 15:58:50.057351 27383 net.cpp:408] POOLING <- conv1
+I0427 15:58:50.057368 27383 net.cpp:382] POOLING -> pool1
+I0427 15:58:50.057402 27383 net.cpp:124] Setting up POOLING
+I0427 15:58:50.057413 27383 net.cpp:131] Top shape: 40 25 21 21 (441000)
+I0427 15:58:50.057416 27383 net.cpp:139] Memory required for data: 61773920
+I0427 15:58:50.057421 27383 layer_factory.hpp:77] Creating layer IP
+I0427 15:58:50.057446 27383 net.cpp:86] Creating Layer IP
+I0427 15:58:50.057461 27383 net.cpp:408] IP <- pool1
+I0427 15:58:50.057474 27383 net.cpp:382] IP -> ip1
+I0427 15:58:50.057492 27383 inner_product_layer.cpp:21] Start IP LayerSetUp
+I0427 15:58:52.184520 27383 inner_product_layer.cpp:56] End IP LayerSetUp
+I0427 15:58:52.184538 27383 inner_product_layer.cpp:69] Start IP Reshape()
+I0427 15:58:52.184551 27383 inner_product_layer.cpp:84] End IP Reshape()
+I0427 15:58:52.184554 27383 net.cpp:124] Setting up IP
+I0427 15:58:52.184566 27383 net.cpp:131] Top shape: 40 2757 (110280)
+I0427 15:58:52.184571 27383 net.cpp:139] Memory required for data: 62215040
+I0427 15:58:52.184600 27383 layer_factory.hpp:77] Creating layer RELU
+I0427 15:58:52.184625 27383 net.cpp:86] Creating Layer RELU
+I0427 15:58:52.184633 27383 net.cpp:408] RELU <- ip1
+I0427 15:58:52.184646 27383 net.cpp:382] RELU -> relu1
+I0427 15:58:52.184835 27383 net.cpp:124] Setting up RELU
+I0427 15:58:52.184845 27383 net.cpp:131] Top shape: 40 2757 (110280)
+I0427 15:58:52.184849 27383 net.cpp:139] Memory required for data: 62656160
+I0427 15:58:52.184854 27383 layer_factory.hpp:77] Creating layer SOFTMAX
+I0427 15:58:52.184867 27383 net.cpp:86] Creating Layer SOFTMAX
+I0427 15:58:52.184872 27383 net.cpp:408] SOFTMAX <- relu1
+I0427 15:58:52.184882 27383 net.cpp:408] SOFTMAX <- label
+I0427 15:58:52.184893 27383 net.cpp:382] SOFTMAX -> loss
+I0427 15:58:52.184911 27383 layer_factory.hpp:77] Creating layer SOFTMAX
+I0427 15:58:52.185518 27383 net.cpp:124] Setting up SOFTMAX
+I0427 15:58:52.185529 27383 net.cpp:131] Top shape: (1)
+I0427 15:58:52.185533 27383 net.cpp:134]     with loss weight 1
+I0427 15:58:52.185546 27383 net.cpp:139] Memory required for data: 62656164
+I0427 15:58:52.185552 27383 net.cpp:200] SOFTMAX needs backward computation.
+I0427 15:58:52.185559 27383 net.cpp:200] RELU needs backward computation.
+I0427 15:58:52.185562 27383 net.cpp:200] IP needs backward computation.
+I0427 15:58:52.185567 27383 net.cpp:200] POOLING needs backward computation.
+I0427 15:58:52.185571 27383 net.cpp:200] CONV needs backward computation.
+I0427 15:58:52.185576 27383 net.cpp:202] y_train does not need backward computation.
+I0427 15:58:52.185580 27383 net.cpp:202] x_train does not need backward computation.
+I0427 15:58:52.185585 27383 net.cpp:244] This network produces output loss
+I0427 15:58:52.185598 27383 net.cpp:257] Network initialization done.
+I0427 15:58:52.185639 27383 caffe.cpp:360] Performing Forward
+I0427 15:58:52.185648 27383 net.cpp:596]  [Forward] [x_train] top blob data data size: 57893760
+I0427 15:58:52.185652 27383 net.cpp:596]  [Forward] [y_train] top blob label data size: 160
+I0427 15:58:52.185667 27383 cudnn_conv_layer.cpp:96] Start cudnn_conv reshape()
+I0427 15:58:52.185679 27383 cudnn_conv_layer.cpp:234] End cudnn_conv reshape()
+I0427 15:58:52.443704 27383 net.cpp:596]  [Forward] [CONV] top blob conv1 data size: 2116000
+I0427 15:58:52.443732 27383 net.cpp:610]  [Forward]  [CONV] param blob 0 data size: 190000
+I0427 15:58:52.443737 27383 net.cpp:610]  [Forward]  [CONV] param blob 1 data size: 100
+I0427 15:58:52.464409 27383 net.cpp:596]  [Forward] [POOLING] top blob pool1 data size: 1764000
+I0427 15:58:52.464432 27383 inner_product_layer.cpp:69] Start IP Reshape()
+I0427 15:58:52.464445 27383 inner_product_layer.cpp:84] End IP Reshape()
+I0427 15:58:52.580193 27383 net.cpp:596]  [Forward] [IP] top blob ip1 data size: 441120
+I0427 15:58:52.580215 27383 net.cpp:610]  [Forward]  [IP] param blob 0 data size: 121583700
+I0427 15:58:52.580219 27383 net.cpp:610]  [Forward]  [IP] param blob 1 data size: 11028
+I0427 15:58:52.581346 27383 net.cpp:596]  [Forward] [RELU] top blob relu1 data size: 441120
+I0427 15:58:52.586655 27383 net.cpp:596]  [Forward] [SOFTMAX] top blob loss data size: 4
+I0427 15:58:52.586664 27383 caffe.cpp:365] Initial loss: 87.3365
+I0427 15:58:52.586675 27383 caffe.cpp:366] Performing Backward
+I0427 15:58:52.586853 27383 net.cpp:628]  [Backward] [SOFTMAX] bottom blob relu1 diff size: 441120
+I0427 15:58:52.587733 27383 net.cpp:628]  [Backward] [RELU] bottom blob ip1 diff size: 441120
+I0427 15:58:53.000577 27383 net.cpp:628]  [Backward] [IP] bottom blob pool1 diff size: 1764000
+I0427 15:58:53.000609 27383 net.cpp:641]  [Backward] [IP] param blob 0 diff size: 121583700
+I0427 15:58:53.000613 27383 net.cpp:641]  [Backward] [IP] param blob 1 diff size: 11028
+I0427 15:58:53.006664 27383 net.cpp:628]  [Backward] [POOLING] bottom blob conv1 diff size: 2116000
+I0427 15:58:53.281136 27383 net.cpp:641]  [Backward] [CONV] param blob 0 diff size: 190000
+I0427 15:58:53.281163 27383 net.cpp:641]  [Backward] [CONV] param blob 1 diff size: 100
+I0427 15:58:53.281167 27383 caffe.cpp:374] *** Benchmark begins ***
+I0427 15:58:53.281170 27383 caffe.cpp:375] Testing for 1 iterations.
+I0427 15:58:53.281280 27383 cudnn_conv_layer.cpp:96] Start cudnn_conv reshape()
+I0427 15:58:53.281296 27383 cudnn_conv_layer.cpp:234] End cudnn_conv reshape()
+I0427 15:58:53.564750 27383 inner_product_layer.cpp:69] Start IP Reshape()
+I0427 15:58:53.564780 27383 inner_product_layer.cpp:84] End IP Reshape()
+I0427 15:58:54.311682 27383 caffe.cpp:403] Iteration: 1 forward-backward time: 1030 ms.
+I0427 15:58:54.311712 27383 caffe.cpp:406] Average time per layer: 
+I0427 15:58:54.311717 27383 caffe.cpp:409]    x_train	forward: 0.003 ms.
+I0427 15:58:54.311727 27383 caffe.cpp:412]    x_train	backward: 0.001 ms.
+I0427 15:58:54.311730 27383 caffe.cpp:409]    y_train	forward: 0.001 ms.
+I0427 15:58:54.311733 27383 caffe.cpp:412]    y_train	backward: 0.001 ms.
+I0427 15:58:54.311736 27383 caffe.cpp:409]       CONV	forward: 263.536 ms.
+I0427 15:58:54.311740 27383 caffe.cpp:412]       CONV	backward: 252.977 ms.
+I0427 15:58:54.311743 27383 caffe.cpp:409]    POOLING	forward: 19.92 ms.
+I0427 15:58:54.311748 27383 caffe.cpp:412]    POOLING	backward: 5.838 ms.
+I0427 15:58:54.311750 27383 caffe.cpp:409]         IP	forward: 114.825 ms.
+I0427 15:58:54.311753 27383 caffe.cpp:412]         IP	backward: 366.019 ms.
+I0427 15:58:54.311758 27383 caffe.cpp:409]       RELU	forward: 1.115 ms.
+I0427 15:58:54.311760 27383 caffe.cpp:412]       RELU	backward: 0.82 ms.
+I0427 15:58:54.311764 27383 caffe.cpp:409]    SOFTMAX	forward: 5.183 ms.
+I0427 15:58:54.311766 27383 caffe.cpp:412]    SOFTMAX	backward: 0.097 ms.
+I0427 15:58:54.311772 27383 caffe.cpp:417] Average Forward pass: 404.633 ms.
+I0427 15:58:54.311776 27383 caffe.cpp:419] Average Backward pass: 625.789 ms.
+I0427 15:58:54.311780 27383 caffe.cpp:421] Average Forward-Backward: 1030 ms.
+I0427 15:58:54.311784 27383 caffe.cpp:423] Total Time: 1030 ms.
+I0427 15:58:54.311787 27383 caffe.cpp:424] *** Benchmark ends ***
+I0427 15:58:54.314008 27383 cudnn_conv_layer.cpp:242] Start ~cudnn_conv() 
+I0427 15:58:54.314198 27383 cudnn_conv_layer.cpp:259] during ~cudnn_conv() : Freed workspace size 48348
+I0427 15:58:54.314203 27383 cudnn_conv_layer.cpp:268] End ~cudnn_conv()
+I0427 15:58:54.323653 27383 cudnn_relu_layer.cpp:36] Start ~CuDNNReLULayer() 
+I0427 15:58:54.323848 27383 cudnn_relu_layer.cpp:40] End ~CuDNNReLULayer() 

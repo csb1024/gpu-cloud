@@ -1,0 +1,150 @@
+name: "DummyNetbyHand"
+layer {
+  name: "x_train"
+  type: "DummyData"
+  top: "data"
+  include {
+    phase: TRAIN
+  }
+  dummy_data_param {
+    data_filler {
+      type: "constant"
+    }
+    shape {
+      dim: 40
+      dim: 19
+      dim: 138
+      dim: 138
+    }
+  }
+}
+layer {
+  name: "y_train"
+  type: "DummyData"
+  top: "label"
+  include {
+    phase: TRAIN
+  }
+  dummy_data_param {
+    data_filler {
+      type: "constant"
+    }
+    shape {
+      dim: 40
+    }
+  }
+}
+layer {
+  name: "x_test"
+  type: "DummyData"
+  top: "data"
+  include {
+    phase: TEST
+  }
+  dummy_data_param {
+    data_filler {
+      type: "constant"
+    }
+    shape {
+      dim: 40
+      dim: 19
+      dim: 138
+      dim: 138
+    }
+  }
+}
+layer {
+  name: "y_test"
+  type: "DummyData"
+  top: "label"
+  include {
+    phase: TEST
+  }
+  dummy_data_param {
+    data_filler {
+      type: "constant"
+    }
+    shape {
+      dim: 40
+    }
+  }
+}
+layer {
+  name: "CONV"
+  type: "Convolution"
+  bottom: "data"
+  top: "conv1"
+  param {
+    lr_mult: 1.0
+  }
+  param {
+    lr_mult: 1.0
+  }
+  convolution_param {
+    num_output: 25
+    pad: 2
+    kernel_size: 10
+    stride: 6
+    weight_filler {
+      type: "gaussian"
+    }
+    bias_filler {
+      type: "gaussian"
+    }
+  }
+}
+layer {
+  name: "POOLING"
+  type: "Pooling"
+  bottom: "conv1"
+  top: "pool1"
+  pooling_param {
+    pool: MAX
+    kernel_size: 3
+    stride: 1
+  }
+}
+layer {
+  name: "IP"
+  type: "InnerProduct"
+  bottom: "pool1"
+  top: "ip1"
+  param {
+    lr_mult: 1.0
+  }
+  param {
+    lr_mult: 1.0
+  }
+  inner_product_param {
+    num_output: 2757
+    weight_filler {
+      type: "gaussian"
+    }
+    bias_filler {
+      type: "gaussian"
+    }
+  }
+}
+layer {
+  name: "RELU"
+  type: "ReLU"
+  bottom: "ip1"
+  top: "relu1"
+}
+layer {
+  name: "accuracy"
+  type: "Accuracy"
+  bottom: "relu1"
+  bottom: "label"
+  top: "accuracy"
+  include {
+    phase: TEST
+  }
+}
+layer {
+  name: "SOFTMAX"
+  type: "SoftmaxWithLoss"
+  bottom: "relu1"
+  bottom: "label"
+  top: "loss"
+}

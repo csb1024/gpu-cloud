@@ -18,7 +18,7 @@ mnist = input_data.read_data_sets("/tmp/data/", one_hot=True)
 
 # Parameters
 learning_rate = 0.001
-training_iters = 200000
+training_iters = 2000000
 batch_size = 128
 display_step = 10
 
@@ -30,7 +30,7 @@ dropout = 0.75 # Dropout, probability to keep units
 #by CSB, tell GPU to allocate as only as much memory required during runtime
 #config = tf.ConfigProto()
 config = tf.ConfigProto(log_device_placement=False)
-#config.gpu_options.allow_growth = True
+config.gpu_options.allow_growth = True
 
 # tf Graph input
 x = tf.placeholder(tf.float32, [None, n_input])

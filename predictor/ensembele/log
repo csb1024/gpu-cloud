@@ -1,0 +1,176 @@
+trainTFE3.py:47: RuntimeWarning: overflow encountered in exp
+  new_vectors.append(np.exp(vectors[i]))
+trainTFE3.py:39: RuntimeWarning: invalid value encountered in log
+  vector=np.log(vectors[i])
+2017-05-04 19:13:14.595382: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-05-04 19:13:14.595427: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2017-05-04 19:13:14.595432: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-05-04 19:13:14.595436: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+2017-05-04 19:13:14.702854: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:909] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2017-05-04 19:13:14.703218: I tensorflow/core/common_runtime/gpu/gpu_device.cc:885] Found device 0 with properties: 
+name: GeForce GTX 1080
+major: 6 minor: 1 memoryClockRate (GHz) 1.8225
+pciBusID 0000:01:00.0
+Total memory: 7.92GiB
+Free memory: 7.81GiB
+2017-05-04 19:13:14.703246: I tensorflow/core/common_runtime/gpu/gpu_device.cc:906] DMA: 0 
+2017-05-04 19:13:14.703252: I tensorflow/core/common_runtime/gpu/gpu_device.cc:916] 0:   Y 
+2017-05-04 19:13:14.703258: I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1080, pci bus id: 0000:01:00.0)
+Traceback (most recent call last):
+  File "trainTFE3.py", line 345, in <module>
+    main()
+  File "trainTFE3.py", line 306, in main
+    _, c = sess.run([optimizer, cost], feed_dict={x: batch_x,y: batch_y})
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/client/session.py", line 767, in run
+    run_metadata_ptr)
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/client/session.py", line 965, in _run
+    feed_dict_string, options, run_metadata)
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/client/session.py", line 1015, in _do_run
+    target_list, options, run_metadata)
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/client/session.py", line 1022, in _do_call
+    return fn(*args)
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/client/session.py", line 1004, in _run_fn
+    status, run_metadata)
+KeyboardInterrupt
+mv: cannot stat ‘/home/sbchoi/git/gpu-cloud/predictor/model.ckpt*’: No such file or directory
+mv: cannot stat ‘/home/sbchoi/git/gpu-cloud/predictor/checkpoint’: No such file or directory
+mv: cannot stat ‘/home/sbchoi/git/gpu-cloud/predictor/ensembele/input_vec.txt’: No such file or directory
+mv: cannot stat ‘/home/sbchoi/git/gpu-cloud/predictor/ensembele/output_vec.txt’: No such file or directory
+mv: cannot stat ‘/home/sbchoi/git/gpu-cloud/predictor/ensembele/label_vec.txt’: No such file or directory
+Traceback (most recent call last):
+  File "trainTFE3.py", line 7, in <module>
+    import tensorflow as tf
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/__init__.py", line 24, in <module>
+    from tensorflow.python import *
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/__init__.py", line 75, in <module>
+    from tensorflow.core.framework.graph_pb2 import *
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/core/framework/graph_pb2.py", line 6, in <module>
+    from google.protobuf import descriptor as _descriptor
+  File "/usr/local/lib/python2.7/dist-packages/google/protobuf/__init__.py", line 37, in <module>
+    __import__('pkg_resources').declare_namespace(__name__)
+  File "/usr/local/lib/python2.7/dist-packages/pkg_resources/__init__.py", line 3018, in <module>
+    @_call_aside
+  File "/usr/local/lib/python2.7/dist-packages/pkg_resources/__init__.py", line 3002, in _call_aside
+    f(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/pkg_resources/__init__.py", line 3031, in _initialize_master_working_set
+    working_set = WorkingSet._build_master()
+  File "/usr/local/lib/python2.7/dist-packages/pkg_resources/__init__.py", line 645, in _build_master
+    ws = cls()
+  File "/usr/local/lib/python2.7/dist-packages/pkg_resources/__init__.py", line 638, in __init__
+    self.add_entry(entry)
+  File "/usr/local/lib/python2.7/dist-packages/pkg_resources/__init__.py", line 694, in add_entry
+    for dist in find_distributions(entry, True):
+  File "/usr/local/lib/python2.7/dist-packages/pkg_resources/__init__.py", line 2018, in find_on_path
+    path_item, entry, metadata, precedence=DEVELOP_DIST
+  File "/usr/local/lib/python2.7/dist-packages/pkg_resources/__init__.py", line 2431, in from_location
+    py_version=py_version, platform=platform, **kw
+  File "/usr/local/lib/python2.7/dist-packages/pkg_resources/__init__.py", line 2410, in __init__
+    self._version = safe_version(version)
+  File "/usr/local/lib/python2.7/dist-packages/pkg_resources/__init__.py", line 1381, in safe_version
+    return str(packaging.version.Version(version))
+  File "/usr/local/lib/python2.7/dist-packages/packaging/version.py", line 207, in __init__
+    release=tuple(int(i) for i in match.group("release").split(".")),
+  File "/usr/local/lib/python2.7/dist-packages/packaging/version.py", line 207, in <genexpr>
+    release=tuple(int(i) for i in match.group("release").split(".")),
+KeyboardInterrupt
+mv: cannot stat ‘/home/sbchoi/git/gpu-cloud/predictor/model.ckpt*’: No such file or directory
+mv: cannot stat ‘/home/sbchoi/git/gpu-cloud/predictor/checkpoint’: No such file or directory
+mv: cannot stat ‘/home/sbchoi/git/gpu-cloud/predictor/ensembele/input_vec.txt’: No such file or directory
+mv: cannot stat ‘/home/sbchoi/git/gpu-cloud/predictor/ensembele/output_vec.txt’: No such file or directory
+mv: cannot stat ‘/home/sbchoi/git/gpu-cloud/predictor/ensembele/label_vec.txt’: No such file or directory
+Traceback (most recent call last):
+  File "trainTFE3.py", line 7, in <module>
+    import tensorflow as tf
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/__init__.py", line 24, in <module>
+    from tensorflow.python import *
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/__init__.py", line 84, in <module>
+    from tensorflow.python.framework.framework_lib import *
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/framework/framework_lib.py", line 98, in <module>
+    from tensorflow.python.framework.subscribe import subscribe
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/framework/subscribe.py", line 25, in <module>
+    from tensorflow.python.ops import array_ops
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/ops/array_ops.py", line 115, in <module>
+    from tensorflow.python.ops import gen_math_ops
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/ops/gen_math_ops.py", line 1865, in <module>
+    _quantized_mul_outputs)
+  File "/usr/lib/python2.7/collections.py", line 366, in namedtuple
+    exec class_definition in namespace
+  File "<string>", line 1, in <module>
+KeyboardInterrupt
+mv: cannot stat ‘/home/sbchoi/git/gpu-cloud/predictor/model.ckpt*’: No such file or directory
+mv: cannot stat ‘/home/sbchoi/git/gpu-cloud/predictor/checkpoint’: No such file or directory
+mv: cannot stat ‘/home/sbchoi/git/gpu-cloud/predictor/ensembele/input_vec.txt’: No such file or directory
+mv: cannot stat ‘/home/sbchoi/git/gpu-cloud/predictor/ensembele/output_vec.txt’: No such file or directory
+mv: cannot stat ‘/home/sbchoi/git/gpu-cloud/predictor/ensembele/label_vec.txt’: No such file or directory
+Traceback (most recent call last):
+  File "trainTFE3.py", line 7, in <module>
+    import tensorflow as tf
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/__init__.py", line 24, in <module>
+    from tensorflow.python import *
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/__init__.py", line 84, in <module>
+    from tensorflow.python.framework.framework_lib import *
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/framework/framework_lib.py", line 98, in <module>
+    from tensorflow.python.framework.subscribe import subscribe
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/framework/subscribe.py", line 25, in <module>
+    from tensorflow.python.ops import array_ops
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/ops/array_ops.py", line 114, in <module>
+    from tensorflow.python.ops import gen_array_ops
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/ops/gen_array_ops.py", line 6811, in <module>
+    _op_def_lib = _InitOpDefLibrary()
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/ops/gen_array_ops.py", line 4034, in _InitOpDefLibrary
+    _text_format.Merge(_InitOpDefLibrary.op_list_ascii, op_list)
+  File "/usr/local/lib/python2.7/dist-packages/google/protobuf/text_format.py", line 476, in Merge
+    descriptor_pool=descriptor_pool)
+  File "/usr/local/lib/python2.7/dist-packages/google/protobuf/text_format.py", line 526, in MergeLines
+    return parser.MergeLines(lines, message)
+  File "/usr/local/lib/python2.7/dist-packages/google/protobuf/text_format.py", line 559, in MergeLines
+    self._ParseOrMerge(lines, message)
+  File "/usr/local/lib/python2.7/dist-packages/google/protobuf/text_format.py", line 574, in _ParseOrMerge
+    self._MergeField(tokenizer, message)
+  File "/usr/local/lib/python2.7/dist-packages/google/protobuf/text_format.py", line 675, in _MergeField
+    merger(tokenizer, message, field)
+  File "/usr/local/lib/python2.7/dist-packages/google/protobuf/text_format.py", line 764, in _MergeMessageField
+    self._MergeField(tokenizer, sub_message)
+  File "/usr/local/lib/python2.7/dist-packages/google/protobuf/text_format.py", line 675, in _MergeField
+    merger(tokenizer, message, field)
+  File "/usr/local/lib/python2.7/dist-packages/google/protobuf/text_format.py", line 764, in _MergeMessageField
+    self._MergeField(tokenizer, sub_message)
+  File "/usr/local/lib/python2.7/dist-packages/google/protobuf/text_format.py", line 619, in _MergeField
+    name = tokenizer.ConsumeIdentifierOrNumber()
+  File "/usr/local/lib/python2.7/dist-packages/google/protobuf/text_format.py", line 1067, in ConsumeIdentifierOrNumber
+    self.NextToken()
+  File "/usr/local/lib/python2.7/dist-packages/google/protobuf/text_format.py", line 1226, in NextToken
+    self._previous_line = self._line
+KeyboardInterrupt
+mv: cannot stat ‘/home/sbchoi/git/gpu-cloud/predictor/model.ckpt*’: No such file or directory
+mv: cannot stat ‘/home/sbchoi/git/gpu-cloud/predictor/checkpoint’: No such file or directory
+mv: cannot stat ‘/home/sbchoi/git/gpu-cloud/predictor/ensembele/input_vec.txt’: No such file or directory
+mv: cannot stat ‘/home/sbchoi/git/gpu-cloud/predictor/ensembele/output_vec.txt’: No such file or directory
+mv: cannot stat ‘/home/sbchoi/git/gpu-cloud/predictor/ensembele/label_vec.txt’: No such file or directory
+Traceback (most recent call last):
+  File "trainTFE3.py", line 7, in <module>
+    import tensorflow as tf
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/__init__.py", line 24, in <module>
+    from tensorflow.python import *
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/__init__.py", line 112, in <module>
+    from tensorflow.python.training import training as train
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/training/training.py", line 206, in <module>
+    from tensorflow.python.training.monitored_session import Scaffold
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/training/monitored_session.py", line 419, in <module>
+    class _MonitoredSession(object):
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/training/monitored_session.py", line 471, in _MonitoredSession
+    def should_stop(self):
+KeyboardInterrupt
+mv: cannot stat ‘/home/sbchoi/git/gpu-cloud/predictor/model.ckpt*’: No such file or directory
+mv: cannot stat ‘/home/sbchoi/git/gpu-cloud/predictor/checkpoint’: No such file or directory
+mv: cannot stat ‘/home/sbchoi/git/gpu-cloud/predictor/ensembele/input_vec.txt’: No such file or directory
+mv: cannot stat ‘/home/sbchoi/git/gpu-cloud/predictor/ensembele/output_vec.txt’: No such file or directory
+mv: cannot stat ‘/home/sbchoi/git/gpu-cloud/predictor/ensembele/label_vec.txt’: No such file or directory
+  File "inferTFE3.py", line 31
+    def returnExp
+                ^
+SyntaxError: invalid syntax
+mv: cannot stat ‘new_output_vec.txt’: No such file or directory
+mv: cannot stat ‘output_vec*.txt’: No such file or directory
+mv: cannot stat ‘input_vec.txt’: No such file or directory
+mv: cannot stat ‘label_vec.txt’: No such file or directory

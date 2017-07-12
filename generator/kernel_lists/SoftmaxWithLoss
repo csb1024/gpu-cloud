@@ -1,7 +1,7 @@
-cudnn::detail::softmax_fw_kernel
-caffe::SoftmaxLossForwardGPU
-dot_kernel<float
+softmax_fw_kernel
+SoftmaxLossForwardGPU
+dot_kernel
 reduce_1Block_kernel
 asum_kernel
-caffe::SoftmaxLossBackwardGPU
+SoftmaxLossBackwardGPU
 scal_kernel_val

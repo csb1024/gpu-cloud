@@ -1,0 +1,269 @@
+2017-04-19 23:48:45.921913: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-04-19 23:48:45.921956: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2017-04-19 23:48:45.921962: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-04-19 23:48:45.921965: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+2017-04-19 23:48:46.034931: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:909] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2017-04-19 23:48:46.035245: I tensorflow/core/common_runtime/gpu/gpu_device.cc:885] Found device 0 with properties: 
+name: GeForce GTX 1080
+major: 6 minor: 1 memoryClockRate (GHz) 1.8225
+pciBusID 0000:01:00.0
+Total memory: 7.92GiB
+Free memory: 7.81GiB
+2017-04-19 23:48:46.035258: I tensorflow/core/common_runtime/gpu/gpu_device.cc:906] DMA: 0 
+2017-04-19 23:48:46.035263: I tensorflow/core/common_runtime/gpu/gpu_device.cc:916] 0:   Y 
+2017-04-19 23:48:46.035270: I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1080, pci bus id: 0000:01:00.0)
+2017-04-19 23:48:46.484464: I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1080, pci bus id: 0000:01:00.0)
+2017-04-19 23:48:46.563143: W tensorflow/core/framework/op_kernel.cc:993] Not found: Key b3_1 not found in checkpoint. Found: 
+Variable (DT_INT32) []
+b1 (DT_FLOAT) [6]
+b2 (DT_FLOAT) [6]
+b3 (DT_FLOAT) [6]
+h1 (DT_FLOAT) [3,6]
+h2 (DT_FLOAT) [6,6]
+h3 (DT_FLOAT) [6,6]
+h4 (DT_FLOAT) [6,1]
+out (DT_FLOAT) [1]
+
+2017-04-19 23:48:46.564867: W tensorflow/core/framework/op_kernel.cc:993] Not found: Key b3_1 not found in checkpoint. Found: 
+Variable (DT_INT32) []
+b1 (DT_FLOAT) [6]
+b2 (DT_FLOAT) [6]
+b3 (DT_FLOAT) [6]
+h1 (DT_FLOAT) [3,6]
+h2 (DT_FLOAT) [6,6]
+h3 (DT_FLOAT) [6,6]
+h4 (DT_FLOAT) [6,1]
+out (DT_FLOAT) [1]
+
+	 [[Node: save_1/RestoreV2_7 = RestoreV2[dtypes=[DT_FLOAT], _device="/job:localhost/replica:0/task:0/cpu:0"](_recv_save_1/Const_0, save_1/RestoreV2_7/tensor_names, save_1/RestoreV2_7/shape_and_slices)]]
+2017-04-19 23:48:46.565016: W tensorflow/core/framework/op_kernel.cc:993] Not found: Key b2_1 not found in checkpoint. Found: 
+Variable (DT_INT32) []
+b1 (DT_FLOAT) [6]
+b2 (DT_FLOAT) [6]
+b3 (DT_FLOAT) [6]
+h1 (DT_FLOAT) [3,6]
+h2 (DT_FLOAT) [6,6]
+h3 (DT_FLOAT) [6,6]
+h4 (DT_FLOAT) [6,1]
+out (DT_FLOAT) [1]
+
+2017-04-19 23:48:46.565063: W tensorflow/core/framework/op_kernel.cc:993] Not found: Key h2_1 not found in checkpoint. Found: 
+Variable (DT_INT32) []
+b1 (DT_FLOAT) [6]
+b2 (DT_FLOAT) [6]
+b3 (DT_FLOAT) [6]
+h1 (DT_FLOAT) [3,6]
+h2 (DT_FLOAT) [6,6]
+h3 (DT_FLOAT) [6,6]
+h4 (DT_FLOAT) [6,1]
+out (DT_FLOAT) [1]
+
+2017-04-19 23:48:46.565540: W tensorflow/core/framework/op_kernel.cc:993] Not found: Key b1_1 not found in checkpoint. Found: 
+Variable (DT_INT32) []
+b1 (DT_FLOAT) [6]
+b2 (DT_FLOAT) [6]
+b3 (DT_FLOAT) [6]
+h1 (DT_FLOAT) [3,6]
+h2 (DT_FLOAT) [6,6]
+h3 (DT_FLOAT) [6,6]
+h4 (DT_FLOAT) [6,1]
+out (DT_FLOAT) [1]
+
+2017-04-19 23:48:46.565724: W tensorflow/core/framework/op_kernel.cc:993] Not found: Key h1_1 not found in checkpoint. Found: 
+Variable (DT_INT32) []
+b1 (DT_FLOAT) [6]
+b2 (DT_FLOAT) [6]
+b3 (DT_FLOAT) [6]
+h1 (DT_FLOAT) [3,6]
+h2 (DT_FLOAT) [6,6]
+h3 (DT_FLOAT) [6,6]
+h4 (DT_FLOAT) [6,1]
+out (DT_FLOAT) [1]
+
+2017-04-19 23:48:46.565984: W tensorflow/core/framework/op_kernel.cc:993] Not found: Key b3_1 not found in checkpoint. Found: 
+Variable (DT_INT32) []
+b1 (DT_FLOAT) [6]
+b2 (DT_FLOAT) [6]
+b3 (DT_FLOAT) [6]
+h1 (DT_FLOAT) [3,6]
+h2 (DT_FLOAT) [6,6]
+h3 (DT_FLOAT) [6,6]
+h4 (DT_FLOAT) [6,1]
+out (DT_FLOAT) [1]
+
+	 [[Node: save_1/RestoreV2_7 = RestoreV2[dtypes=[DT_FLOAT], _device="/job:localhost/replica:0/task:0/cpu:0"](_recv_save_1/Const_0, save_1/RestoreV2_7/tensor_names, save_1/RestoreV2_7/shape_and_slices)]]
+2017-04-19 23:48:46.570609: W tensorflow/core/framework/op_kernel.cc:993] Not found: Key h3_1 not found in checkpoint. Found: 
+Variable (DT_INT32) []
+b1 (DT_FLOAT) [6]
+b2 (DT_FLOAT) [6]
+b3 (DT_FLOAT) [6]
+h1 (DT_FLOAT) [3,6]
+h2 (DT_FLOAT) [6,6]
+h3 (DT_FLOAT) [6,6]
+h4 (DT_FLOAT) [6,1]
+out (DT_FLOAT) [1]
+
+2017-04-19 23:48:46.571363: W tensorflow/core/framework/op_kernel.cc:993] Not found: Key b3_1 not found in checkpoint. Found: 
+Variable (DT_INT32) []
+b1 (DT_FLOAT) [6]
+b2 (DT_FLOAT) [6]
+b3 (DT_FLOAT) [6]
+h1 (DT_FLOAT) [3,6]
+h2 (DT_FLOAT) [6,6]
+h3 (DT_FLOAT) [6,6]
+h4 (DT_FLOAT) [6,1]
+out (DT_FLOAT) [1]
+
+	 [[Node: save_1/RestoreV2_7 = RestoreV2[dtypes=[DT_FLOAT], _device="/job:localhost/replica:0/task:0/cpu:0"](_recv_save_1/Const_0, save_1/RestoreV2_7/tensor_names, save_1/RestoreV2_7/shape_and_slices)]]
+2017-04-19 23:48:46.571531: W tensorflow/core/framework/op_kernel.cc:993] Not found: Key h4_1 not found in checkpoint. Found: 
+Variable (DT_INT32) []
+b1 (DT_FLOAT) [6]
+b2 (DT_FLOAT) [6]
+b3 (DT_FLOAT) [6]
+h1 (DT_FLOAT) [3,6]
+h2 (DT_FLOAT) [6,6]
+h3 (DT_FLOAT) [6,6]
+h4 (DT_FLOAT) [6,1]
+out (DT_FLOAT) [1]
+
+2017-04-19 23:48:46.572253: W tensorflow/core/framework/op_kernel.cc:993] Not found: Key b3_1 not found in checkpoint. Found: 
+Variable (DT_INT32) []
+b1 (DT_FLOAT) [6]
+b2 (DT_FLOAT) [6]
+b3 (DT_FLOAT) [6]
+h1 (DT_FLOAT) [3,6]
+h2 (DT_FLOAT) [6,6]
+h3 (DT_FLOAT) [6,6]
+h4 (DT_FLOAT) [6,1]
+out (DT_FLOAT) [1]
+
+	 [[Node: save_1/RestoreV2_7 = RestoreV2[dtypes=[DT_FLOAT], _device="/job:localhost/replica:0/task:0/cpu:0"](_recv_save_1/Const_0, save_1/RestoreV2_7/tensor_names, save_1/RestoreV2_7/shape_and_slices)]]
+2017-04-19 23:48:46.572373: W tensorflow/core/framework/op_kernel.cc:993] Not found: Key out_1 not found in checkpoint. Found: 
+Variable (DT_INT32) []
+b1 (DT_FLOAT) [6]
+b2 (DT_FLOAT) [6]
+b3 (DT_FLOAT) [6]
+h1 (DT_FLOAT) [3,6]
+h2 (DT_FLOAT) [6,6]
+h3 (DT_FLOAT) [6,6]
+h4 (DT_FLOAT) [6,1]
+out (DT_FLOAT) [1]
+
+2017-04-19 23:48:46.572485: W tensorflow/core/framework/op_kernel.cc:993] Not found: Key b3_1 not found in checkpoint. Found: 
+Variable (DT_INT32) []
+b1 (DT_FLOAT) [6]
+b2 (DT_FLOAT) [6]
+b3 (DT_FLOAT) [6]
+h1 (DT_FLOAT) [3,6]
+h2 (DT_FLOAT) [6,6]
+h3 (DT_FLOAT) [6,6]
+h4 (DT_FLOAT) [6,1]
+out (DT_FLOAT) [1]
+
+	 [[Node: save_1/RestoreV2_7 = RestoreV2[dtypes=[DT_FLOAT], _device="/job:localhost/replica:0/task:0/cpu:0"](_recv_save_1/Const_0, save_1/RestoreV2_7/tensor_names, save_1/RestoreV2_7/shape_and_slices)]]
+2017-04-19 23:48:46.572619: W tensorflow/core/framework/op_kernel.cc:993] Not found: Key b3_1 not found in checkpoint. Found: 
+Variable (DT_INT32) []
+b1 (DT_FLOAT) [6]
+b2 (DT_FLOAT) [6]
+b3 (DT_FLOAT) [6]
+h1 (DT_FLOAT) [3,6]
+h2 (DT_FLOAT) [6,6]
+h3 (DT_FLOAT) [6,6]
+h4 (DT_FLOAT) [6,1]
+out (DT_FLOAT) [1]
+
+	 [[Node: save_1/RestoreV2_7 = RestoreV2[dtypes=[DT_FLOAT], _device="/job:localhost/replica:0/task:0/cpu:0"](_recv_save_1/Const_0, save_1/RestoreV2_7/tensor_names, save_1/RestoreV2_7/shape_and_slices)]]
+2017-04-19 23:48:46.572746: W tensorflow/core/framework/op_kernel.cc:993] Not found: Key b3_1 not found in checkpoint. Found: 
+Variable (DT_INT32) []
+b1 (DT_FLOAT) [6]
+b2 (DT_FLOAT) [6]
+b3 (DT_FLOAT) [6]
+h1 (DT_FLOAT) [3,6]
+h2 (DT_FLOAT) [6,6]
+h3 (DT_FLOAT) [6,6]
+h4 (DT_FLOAT) [6,1]
+out (DT_FLOAT) [1]
+
+	 [[Node: save_1/RestoreV2_7 = RestoreV2[dtypes=[DT_FLOAT], _device="/job:localhost/replica:0/task:0/cpu:0"](_recv_save_1/Const_0, save_1/RestoreV2_7/tensor_names, save_1/RestoreV2_7/shape_and_slices)]]
+2017-04-19 23:48:46.578269: W tensorflow/core/framework/op_kernel.cc:993] Not found: Key Variable_1 not found in checkpoint. Found: 
+Variable (DT_INT32) []
+b1 (DT_FLOAT) [6]
+b2 (DT_FLOAT) [6]
+b3 (DT_FLOAT) [6]
+h1 (DT_FLOAT) [3,6]
+h2 (DT_FLOAT) [6,6]
+h3 (DT_FLOAT) [6,6]
+h4 (DT_FLOAT) [6,1]
+out (DT_FLOAT) [1]
+
+Traceback (most recent call last):
+  File "predictor.py", line 229, in <module>
+    main()
+  File "predictor.py", line 213, in main
+    output_vector = inferTFE.predictPerf(param_input_array, output_vec_size,en_num,net_struct[i])
+  File "/home/sbchoi/git/gpu-cloud/predictor/intergrator/inferTFE.py", line 103, in predictPerf
+    saver.restore(sess,checkpoint_dir+"/model.ckpt")		
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/training/saver.py", line 1456, in restore
+    {self.saver_def.filename_tensor_name: save_path})
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/client/session.py", line 767, in run
+    run_metadata_ptr)
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/client/session.py", line 965, in _run
+    feed_dict_string, options, run_metadata)
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/client/session.py", line 1015, in _do_run
+    target_list, options, run_metadata)
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/client/session.py", line 1035, in _do_call
+    raise type(e)(node_def, op, message)
+tensorflow.python.framework.errors_impl.NotFoundError: Key b3_1 not found in checkpoint. Found: 
+Variable (DT_INT32) []
+b1 (DT_FLOAT) [6]
+b2 (DT_FLOAT) [6]
+b3 (DT_FLOAT) [6]
+h1 (DT_FLOAT) [3,6]
+h2 (DT_FLOAT) [6,6]
+h3 (DT_FLOAT) [6,6]
+h4 (DT_FLOAT) [6,1]
+out (DT_FLOAT) [1]
+
+	 [[Node: save_1/RestoreV2_7 = RestoreV2[dtypes=[DT_FLOAT], _device="/job:localhost/replica:0/task:0/cpu:0"](_recv_save_1/Const_0, save_1/RestoreV2_7/tensor_names, save_1/RestoreV2_7/shape_and_slices)]]
+	 [[Node: save_1/RestoreV2_15/_9 = _Recv[client_terminated=false, recv_device="/job:localhost/replica:0/task:0/gpu:0", send_device="/job:localhost/replica:0/task:0/cpu:0", send_device_incarnation=1, tensor_name="edge_123_save_1/RestoreV2_15", tensor_type=DT_FLOAT, _device="/job:localhost/replica:0/task:0/gpu:0"]()]]
+
+Caused by op u'save_1/RestoreV2_7', defined at:
+  File "predictor.py", line 229, in <module>
+    main()
+  File "predictor.py", line 213, in main
+    output_vector = inferTFE.predictPerf(param_input_array, output_vec_size,en_num,net_struct[i])
+  File "/home/sbchoi/git/gpu-cloud/predictor/intergrator/inferTFE.py", line 87, in predictPerf
+    saver = tf.train.Saver()
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/training/saver.py", line 1067, in __init__
+    self.build()
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/training/saver.py", line 1097, in build
+    restore_sequentially=self._restore_sequentially)
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/training/saver.py", line 691, in build
+    restore_sequentially, reshape)
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/training/saver.py", line 407, in _AddRestoreOps
+    tensors = self.restore_op(filename_tensor, saveable, preferred_shard)
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/training/saver.py", line 247, in restore_op
+    [spec.tensor.dtype])[0])
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/ops/gen_io_ops.py", line 669, in restore_v2
+    dtypes=dtypes, name=name)
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/framework/op_def_library.py", line 768, in apply_op
+    op_def=op_def)
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/framework/ops.py", line 2402, in create_op
+    original_op=self._default_original_op, op_def=op_def)
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/framework/ops.py", line 1264, in __init__
+    self._traceback = _extract_stack()
+
+NotFoundError (see above for traceback): Key b3_1 not found in checkpoint. Found: 
+Variable (DT_INT32) []
+b1 (DT_FLOAT) [6]
+b2 (DT_FLOAT) [6]
+b3 (DT_FLOAT) [6]
+h1 (DT_FLOAT) [3,6]
+h2 (DT_FLOAT) [6,6]
+h3 (DT_FLOAT) [6,6]
+h4 (DT_FLOAT) [6,1]
+out (DT_FLOAT) [1]
+
+	 [[Node: save_1/RestoreV2_7 = RestoreV2[dtypes=[DT_FLOAT], _device="/job:localhost/replica:0/task:0/cpu:0"](_recv_save_1/Const_0, save_1/RestoreV2_7/tensor_names, save_1/RestoreV2_7/shape_and_slices)]]
+	 [[Node: save_1/RestoreV2_15/_9 = _Recv[client_terminated=false, recv_device="/job:localhost/replica:0/task:0/gpu:0", send_device="/job:localhost/replica:0/task:0/cpu:0", send_device_incarnation=1, tensor_name="edge_123_save_1/RestoreV2_15", tensor_type=DT_FLOAT, _device="/job:localhost/replica:0/task:0/gpu:0"]()]]
+

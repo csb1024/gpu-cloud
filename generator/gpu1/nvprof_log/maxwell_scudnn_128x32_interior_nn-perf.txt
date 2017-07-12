@@ -1,0 +1,10 @@
+==28758== NVPROF is profiling process 28758, command: /home/sbchoi/git/caffe/build/tools/caffe train --solver=/home/sbchoi/git/gpu-cloud/generator/gpu1/data_generator.prototxt
+==28758== Some kernel(s) will be replayed on device 0 in order to collect all events/metrics.
+==28758== Profiling application: /home/sbchoi/git/caffe/build/tools/caffe train --solver=/home/sbchoi/git/gpu-cloud/generator/gpu1/data_generator.prototxt
+==28758== Profiling result:
+==28758== Metric result:
+"Device","Kernel","Invocations","Metric Name","Metric Description","Min","Max","Avg"
+"GeForce GTX 1080 (0)","maxwell_scudnn_128x32_interior_nn",2,"dram_utilization","Device Memory Utilization","Low (2)","Low (2)","Low (2)"
+"GeForce GTX 1080 (0)","maxwell_scudnn_128x32_interior_nn",2,"achieved_occupancy","Achieved Occupancy",0.306155,0.306628,0.306392
+"GeForce GTX 1080 (0)","maxwell_scudnn_128x32_interior_nn",2,"sysmem_utilization","System Memory Utilization","Low (1)","Low (1)","Low (1)"
+"GeForce GTX 1080 (0)","maxwell_scudnn_128x32_interior_nn",2,"executed_ipc","Executed IPC",3.948504,3.950895,3.949700

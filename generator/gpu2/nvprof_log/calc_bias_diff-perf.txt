@@ -1,0 +1,10 @@
+==28979== NVPROF is profiling process 28979, command: /home/sbchoi/git/caffe/build/tools/caffe train --solver=/home/sbchoi/git/gpu-cloud/generator/gpu2/data_generator.prototxt
+==28979== Some kernel(s) will be replayed on device 0 in order to collect all events/metrics.
+==28979== Profiling application: /home/sbchoi/git/caffe/build/tools/caffe train --solver=/home/sbchoi/git/gpu-cloud/generator/gpu2/data_generator.prototxt
+==28979== Profiling result:
+==28979== Metric result:
+"Device","Kernel","Invocations","Metric Name","Metric Description","Min","Max","Avg"
+"GeForce GTX 1080 (0)","void calc_bias_diff<int=2, float, float, int=128, int=0>(cudnnTensorStruct, float const *, cudnnTensorStruct, float*, float, float, int)",1,"dram_utilization","Device Memory Utilization","Mid (4)","Mid (4)","Mid (4)"
+"GeForce GTX 1080 (0)","void calc_bias_diff<int=2, float, float, int=128, int=0>(cudnnTensorStruct, float const *, cudnnTensorStruct, float*, float, float, int)",1,"achieved_occupancy","Achieved Occupancy",0.226988,0.226988,0.226988
+"GeForce GTX 1080 (0)","void calc_bias_diff<int=2, float, float, int=128, int=0>(cudnnTensorStruct, float const *, cudnnTensorStruct, float*, float, float, int)",1,"sysmem_utilization","System Memory Utilization","Low (1)","Low (1)","Low (1)"
+"GeForce GTX 1080 (0)","void calc_bias_diff<int=2, float, float, int=128, int=0>(cudnnTensorStruct, float const *, cudnnTensorStruct, float*, float, float, int)",1,"executed_ipc","Executed IPC",0.307160,0.307160,0.307160

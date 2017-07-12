@@ -1,0 +1,10 @@
+==28532== NVPROF is profiling process 28532, command: /home/sbchoi/git/caffe/build/tools/caffe train --solver=/home/sbchoi/git/gpu-cloud/generator/gpu0/data_generator.prototxt
+==28532== Some kernel(s) will be replayed on device 0 in order to collect all events/metrics.
+==28532== Profiling application: /home/sbchoi/git/caffe/build/tools/caffe train --solver=/home/sbchoi/git/gpu-cloud/generator/gpu0/data_generator.prototxt
+==28532== Profiling result:
+==28532== Metric result:
+"Device","Kernel","Invocations","Metric Name","Metric Description","Min","Max","Avg"
+"GeForce GTX 1080 (0)","void add_tensor_kernel_v3<int=2, float, float, int=128, int=1, int=1, int=4, int=2>(cudnnTensorStruct, float*, cudnnTensorStruct, float const *, float, float)",2,"dram_utilization","Device Memory Utilization","High (8)","High (8)","High (8)"
+"GeForce GTX 1080 (0)","void add_tensor_kernel_v3<int=2, float, float, int=128, int=1, int=1, int=4, int=2>(cudnnTensorStruct, float*, cudnnTensorStruct, float const *, float, float)",2,"achieved_occupancy","Achieved Occupancy",0.919828,0.927136,0.923482
+"GeForce GTX 1080 (0)","void add_tensor_kernel_v3<int=2, float, float, int=128, int=1, int=1, int=4, int=2>(cudnnTensorStruct, float*, cudnnTensorStruct, float const *, float, float)",2,"sysmem_utilization","System Memory Utilization","Low (1)","Low (1)","Low (1)"
+"GeForce GTX 1080 (0)","void add_tensor_kernel_v3<int=2, float, float, int=128, int=1, int=1, int=4, int=2>(cudnnTensorStruct, float*, cudnnTensorStruct, float const *, float, float)",2,"executed_ipc","Executed IPC",0.587042,0.587775,0.587408

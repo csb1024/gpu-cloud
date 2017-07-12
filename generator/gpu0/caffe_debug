@@ -1,0 +1,566 @@
+I0510 23:28:51.890399  1073 caffe.cpp:348] Use GPU with device ID 0
+I0510 23:28:52.371748  1073 net.cpp:296] The NetState phase (0) differed from the phase (1) specified by a rule in layer IMAGEDATA
+I0510 23:28:52.371800  1073 net.cpp:296] The NetState phase (0) differed from the phase (1) specified by a rule in layer accuracy
+I0510 23:28:52.371896  1073 net.cpp:53] Initializing net from parameters: 
+name: "DummyNetbyHand"
+state {
+  phase: TRAIN
+  level: 0
+  stage: ""
+}
+layer {
+  name: "IMAGEDATA"
+  type: "Data"
+  top: "data"
+  top: "label"
+  include {
+    phase: TRAIN
+  }
+  transform_param {
+    mirror: true
+    crop_size: 224
+    mean_file: "/home/sbchoi/git/caffe/data/ilsvrc12/imagenet_mean.binaryproto"
+  }
+  data_param {
+    source: "/home/sbchoi/git/caffe/examples/imagenet/ilsvrc12_train_lmdb"
+    batch_size: 16
+    backend: LMDB
+  }
+}
+layer {
+  name: "IP"
+  type: "InnerProduct"
+  bottom: "data"
+  top: "ip1"
+  param {
+    lr_mult: 1
+    decay_mult: 250
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 58
+    weight_filler {
+      type: "gaussian"
+      std: 0.01
+    }
+    bias_filler {
+      type: "constant"
+    }
+  }
+}
+layer {
+  name: "SOFTMAX"
+  type: "SoftmaxWithLoss"
+  bottom: "ip1"
+  bottom: "label"
+  top: "loss"
+}
+I0510 23:28:52.372344  1073 layer_factory.hpp:77] Creating layer IMAGEDATA
+I0510 23:28:52.372578  1073 db_lmdb.cpp:35] Opened lmdb /home/sbchoi/git/caffe/examples/imagenet/ilsvrc12_train_lmdb
+I0510 23:28:52.372669  1073 net.cpp:86] Creating Layer IMAGEDATA
+I0510 23:28:52.372702  1073 net.cpp:382] IMAGEDATA -> data
+I0510 23:28:52.372849  1073 net.cpp:382] IMAGEDATA -> label
+I0510 23:28:52.372896  1073 data_transformer.cpp:25] Loading mean file from: /home/sbchoi/git/caffe/data/ilsvrc12/imagenet_mean.binaryproto
+I0510 23:28:52.453862  1073 data_layer.cpp:45] output data size: 16,3,224,224
+I0510 23:28:52.476549  1073 syncedmem.cpp:88] to_gpu(),HEAD_AT_CPU : allocate and copy from CPU to GPU  9633792
+I0510 23:28:52.476629  1073 syncedmem.cpp:88] to_gpu(),HEAD_AT_CPU : allocate and copy from CPU to GPU  64
+I0510 23:28:52.478078  1073 syncedmem.cpp:88] to_gpu(),HEAD_AT_CPU : allocate and copy from CPU to GPU  9633792
+I0510 23:28:52.478126  1073 syncedmem.cpp:88] to_gpu(),HEAD_AT_CPU : allocate and copy from CPU to GPU  64
+I0510 23:28:52.479557  1073 syncedmem.cpp:88] to_gpu(),HEAD_AT_CPU : allocate and copy from CPU to GPU  9633792
+I0510 23:28:52.479601  1073 syncedmem.cpp:88] to_gpu(),HEAD_AT_CPU : allocate and copy from CPU to GPU  64
+I0510 23:28:52.481027  1073 syncedmem.cpp:88] to_gpu(),HEAD_AT_CPU : allocate and copy from CPU to GPU  9633792
+I0510 23:28:52.481071  1073 syncedmem.cpp:88] to_gpu(),HEAD_AT_CPU : allocate and copy from CPU to GPU  64
+I0510 23:28:52.481081  1073 base_data_layer.cpp:72] Initializing prefetch
+I0510 23:28:52.481276  1073 base_data_layer.cpp:75] Prefetch initialized.
+I0510 23:28:52.481294  1073 net.cpp:124] Setting up IMAGEDATA
+I0510 23:28:52.481353  1073 net.cpp:131] Top shape: 16 3 224 224 (2408448)
+I0510 23:28:52.481366  1073 net.cpp:131] Top shape: 16 (16)
+I0510 23:28:52.481374  1073 net.cpp:139] Memory required for data: 9633856
+I0510 23:28:52.481410  1073 layer_factory.hpp:77] Creating layer IP
+I0510 23:28:52.481487  1073 net.cpp:86] Creating Layer IP
+I0510 23:28:52.481518  1073 net.cpp:408] IP <- data
+I0510 23:28:52.481586  1073 net.cpp:382] IP -> ip1
+I0510 23:28:52.481638  1073 inner_product_layer.cpp:21] Start IP LayerSetUp
+I0510 23:28:52.541373  1078 data_layer.cpp:128] Prefetch batch: 43 ms.
+I0510 23:28:52.541426  1078 data_layer.cpp:129]      Read time: 2.085 ms.
+I0510 23:28:52.541442  1078 data_layer.cpp:130] Transform time: 40.99 ms.
+I0510 23:28:52.541538  1078 syncedmem.cpp:177] async_gpu_push() : memcopied from CPU to GPU  9633792
+I0510 23:28:52.541594  1078 syncedmem.cpp:177] async_gpu_push() : memcopied from CPU to GPU  64
+I0510 23:28:52.577260  1078 data_layer.cpp:128] Prefetch batch: 34 ms.
+I0510 23:28:52.577287  1078 data_layer.cpp:129]      Read time: 1.614 ms.
+I0510 23:28:52.577298  1078 data_layer.cpp:130] Transform time: 33.161 ms.
+I0510 23:28:52.577352  1078 syncedmem.cpp:177] async_gpu_push() : memcopied from CPU to GPU  9633792
+I0510 23:28:52.577406  1078 syncedmem.cpp:177] async_gpu_push() : memcopied from CPU to GPU  64
+I0510 23:28:52.608825  1078 data_layer.cpp:128] Prefetch batch: 30 ms.
+I0510 23:28:52.608844  1078 data_layer.cpp:129]      Read time: 1.439 ms.
+I0510 23:28:52.608852  1078 data_layer.cpp:130] Transform time: 29.125 ms.
+I0510 23:28:52.608891  1078 syncedmem.cpp:177] async_gpu_push() : memcopied from CPU to GPU  9633792
+I0510 23:28:52.608925  1078 syncedmem.cpp:177] async_gpu_push() : memcopied from CPU to GPU  64
+I0510 23:28:52.637128  1078 data_layer.cpp:128] Prefetch batch: 27 ms.
+I0510 23:28:52.637147  1078 data_layer.cpp:129]      Read time: 1.339 ms.
+I0510 23:28:52.637156  1078 data_layer.cpp:130] Transform time: 25.997 ms.
+I0510 23:28:52.637197  1078 syncedmem.cpp:177] async_gpu_push() : memcopied from CPU to GPU  9633792
+I0510 23:28:52.637229  1078 syncedmem.cpp:177] async_gpu_push() : memcopied from CPU to GPU  64
+I0510 23:28:53.241448  1073 inner_product_layer.cpp:56] End IP LayerSetUp
+I0510 23:28:53.241478  1073 inner_product_layer.cpp:69] Start IP Reshape()
+I0510 23:28:53.241556  1073 inner_product_layer.cpp:84] End IP Reshape()
+I0510 23:28:53.241580  1073 net.cpp:124] Setting up IP
+I0510 23:28:53.241614  1073 net.cpp:131] Top shape: 16 58 (928)
+I0510 23:28:53.241619  1073 net.cpp:139] Memory required for data: 9637568
+I0510 23:28:53.241694  1073 layer_factory.hpp:77] Creating layer SOFTMAX
+I0510 23:28:53.241741  1073 net.cpp:86] Creating Layer SOFTMAX
+I0510 23:28:53.241755  1073 net.cpp:408] SOFTMAX <- ip1
+I0510 23:28:53.241772  1073 net.cpp:408] SOFTMAX <- label
+I0510 23:28:53.241791  1073 net.cpp:382] SOFTMAX -> loss
+I0510 23:28:53.241822  1073 layer_factory.hpp:77] Creating layer SOFTMAX
+I0510 23:28:53.565889  1073 net.cpp:124] Setting up SOFTMAX
+I0510 23:28:53.565937  1073 net.cpp:131] Top shape: (1)
+I0510 23:28:53.565943  1073 net.cpp:134]     with loss weight 1
+I0510 23:28:53.565956  1073 net.cpp:139] Memory required for data: 9637572
+I0510 23:28:53.565979  1073 net.cpp:200] SOFTMAX needs backward computation.
+I0510 23:28:53.565994  1073 net.cpp:200] IP needs backward computation.
+I0510 23:28:53.566002  1073 net.cpp:202] IMAGEDATA does not need backward computation.
+I0510 23:28:53.566012  1073 net.cpp:244] This network produces output loss
+I0510 23:28:53.566045  1073 net.cpp:257] Network initialization done.
+I0510 23:28:53.566109  1073 caffe.cpp:360] Performing Forward
+I0510 23:28:53.566143  1073 net.cpp:596]  [Forward] [IMAGEDATA] top blob data data size: 9633792
+I0510 23:28:53.566151  1073 net.cpp:596]  [Forward] [IMAGEDATA] top blob label data size: 64
+I0510 23:28:53.566159  1073 inner_product_layer.cpp:69] Start IP Reshape()
+I0510 23:28:53.566169  1073 inner_product_layer.cpp:84] End IP Reshape()
+I0510 23:28:53.566176  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  9633792
+I0510 23:28:53.566654  1073 syncedmem.cpp:79] to_gpu(),UNINIT : allocate and memset  3712
+I0510 23:28:53.570063  1073 syncedmem.cpp:88] to_gpu(),HEAD_AT_CPU : allocate and copy from CPU to GPU  34922496
+I0510 23:28:53.570076  1073 inner_product_layer.cu:15] Started IP Forward_gpu()
+I0510 23:28:53.580147  1073 syncedmem.cpp:88] to_gpu(),HEAD_AT_CPU : allocate and copy from CPU to GPU  232
+I0510 23:28:53.580186  1073 syncedmem.cpp:88] to_gpu(),HEAD_AT_CPU : allocate and copy from CPU to GPU  64
+I0510 23:28:53.580210  1073 inner_product_layer.cu:32] End IP Forward_gpu()
+I0510 23:28:53.580219  1073 net.cpp:596]  [Forward] [IP] top blob ip1 data size: 3712
+I0510 23:28:53.580226  1073 net.cpp:610]  [Forward]  [IP] param blob 0 data size: 34922496
+I0510 23:28:53.580231  1073 net.cpp:610]  [Forward]  [IP] param blob 1 data size: 232
+I0510 23:28:53.580247  1073 softmax_loss_layer.cu:34] start SoftmaxWithLoss Forward_gpu()
+I0510 23:28:53.580258  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.580281  1073 syncedmem.cpp:79] to_gpu(),UNINIT : allocate and memset  3712
+I0510 23:28:53.580322  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.580361  1073 syncedmem.cpp:88] to_gpu(),HEAD_AT_CPU : allocate and copy from CPU to GPU  3712
+I0510 23:28:53.580420  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.580430  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  64
+I0510 23:28:53.580449  1073 syncedmem.cpp:79] to_gpu(),UNINIT : allocate and memset  3712
+I0510 23:28:53.580533  1073 softmax_loss_layer.cu:65] end SoftmaxWithLoss Forward_gpu()
+I0510 23:28:53.580564  1073 syncedmem.cpp:88] to_gpu(),HEAD_AT_CPU : allocate and copy from CPU to GPU  4
+I0510 23:28:53.580590  1073 syncedmem.cpp:88] to_gpu(),HEAD_AT_CPU : allocate and copy from CPU to GPU  4
+I0510 23:28:53.580622  1073 net.cpp:596]  [Forward] [SOFTMAX] top blob loss data size: 4
+I0510 23:28:53.580631  1073 caffe.cpp:365] Initial loss: 87.3365
+I0510 23:28:53.580642  1073 caffe.cpp:366] Performing Backward
+I0510 23:28:53.580652  1073 softmax_loss_layer.cu:95] start SoftmaxWithLoss Backward_gpu()
+I0510 23:28:53.580662  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.580668  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.580688  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  64
+I0510 23:28:53.580696  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.580729  1073 softmax_loss_layer.cu:127] end SoftmaxWithLoss Backward_gpu()
+I0510 23:28:53.580739  1073 net.cpp:628]  [Backward] [SOFTMAX] bottom blob ip1 diff size: 3712
+I0510 23:28:53.580744  1073 inner_product_layer.cu:39] Started IP Backward_gpu()
+I0510 23:28:53.580751  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.580756  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  9633792
+I0510 23:28:53.581262  1073 syncedmem.cpp:79] to_gpu(),UNINIT : allocate and memset  34922496
+I0510 23:28:53.581315  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.581343  1073 syncedmem.cpp:79] to_gpu(),UNINIT : allocate and memset  232
+I0510 23:28:53.581370  1073 inner_product_layer.cu:78] End IP Backward_gpu()
+I0510 23:28:53.581380  1073 net.cpp:641]  [Backward] [IP] param blob 0 diff size: 34922496
+I0510 23:28:53.581387  1073 net.cpp:641]  [Backward] [IP] param blob 1 diff size: 232
+I0510 23:28:53.581392  1073 caffe.cpp:374] *** Benchmark begins ***
+I0510 23:28:53.581396  1073 caffe.cpp:375] Testing for 10 iterations.
+I0510 23:28:53.581883  1073 inner_product_layer.cpp:69] Start IP Reshape()
+I0510 23:28:53.581900  1073 inner_product_layer.cpp:84] End IP Reshape()
+I0510 23:28:53.581907  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  9633792
+I0510 23:28:53.581914  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.581920  1073 inner_product_layer.cu:15] Started IP Forward_gpu()
+I0510 23:28:53.591881  1073 syncedmem.cpp:88] to_gpu(),HEAD_AT_CPU : allocate and copy from CPU to GPU  64
+I0510 23:28:53.591902  1073 inner_product_layer.cu:32] End IP Forward_gpu()
+I0510 23:28:53.592764  1073 softmax_loss_layer.cu:34] start SoftmaxWithLoss Forward_gpu()
+I0510 23:28:53.592818  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.592833  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.592880  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.592892  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.592967  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.592980  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  64
+I0510 23:28:53.592991  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.593003  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.593081  1073 softmax_loss_layer.cu:65] end SoftmaxWithLoss Forward_gpu()
+I0510 23:28:53.593127  1073 syncedmem.cpp:88] to_gpu(),HEAD_AT_CPU : allocate and copy from CPU to GPU  4
+I0510 23:28:53.593264  1073 softmax_loss_layer.cu:95] start SoftmaxWithLoss Backward_gpu()
+I0510 23:28:53.593298  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.593314  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.593354  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  64
+I0510 23:28:53.593371  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.593420  1073 softmax_loss_layer.cu:127] end SoftmaxWithLoss Backward_gpu()
+I0510 23:28:53.593454  1073 inner_product_layer.cu:39] Started IP Backward_gpu()
+I0510 23:28:53.593473  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.593487  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  9633792
+I0510 23:28:53.593502  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  34922496
+I0510 23:28:53.593611  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.593634  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  232
+I0510 23:28:53.593668  1073 inner_product_layer.cu:78] End IP Backward_gpu()
+I0510 23:28:53.594095  1073 caffe.cpp:403] Iteration: 1 forward-backward time: 12.2214 ms.
+I0510 23:28:53.594203  1073 inner_product_layer.cpp:69] Start IP Reshape()
+I0510 23:28:53.594234  1073 inner_product_layer.cpp:84] End IP Reshape()
+I0510 23:28:53.594250  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  9633792
+I0510 23:28:53.594265  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.594281  1073 inner_product_layer.cu:15] Started IP Forward_gpu()
+I0510 23:28:53.604265  1073 syncedmem.cpp:88] to_gpu(),HEAD_AT_CPU : allocate and copy from CPU to GPU  64
+I0510 23:28:53.604311  1073 inner_product_layer.cu:32] End IP Forward_gpu()
+I0510 23:28:53.604384  1073 softmax_loss_layer.cu:34] start SoftmaxWithLoss Forward_gpu()
+I0510 23:28:53.604414  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.604431  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.604466  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.604483  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.604549  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.604567  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  64
+I0510 23:28:53.604581  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.604595  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.604668  1073 softmax_loss_layer.cu:65] end SoftmaxWithLoss Forward_gpu()
+I0510 23:28:53.604703  1073 syncedmem.cpp:88] to_gpu(),HEAD_AT_CPU : allocate and copy from CPU to GPU  4
+I0510 23:28:53.604791  1073 softmax_loss_layer.cu:95] start SoftmaxWithLoss Backward_gpu()
+I0510 23:28:53.604812  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.604827  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.604861  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  64
+I0510 23:28:53.604878  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.604919  1073 softmax_loss_layer.cu:127] end SoftmaxWithLoss Backward_gpu()
+I0510 23:28:53.604953  1073 inner_product_layer.cu:39] Started IP Backward_gpu()
+I0510 23:28:53.604970  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.604982  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  9633792
+I0510 23:28:53.605007  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  34922496
+I0510 23:28:53.605093  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.605113  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  232
+I0510 23:28:53.605144  1073 inner_product_layer.cu:78] End IP Backward_gpu()
+I0510 23:28:53.605578  1073 caffe.cpp:403] Iteration: 2 forward-backward time: 11.4196 ms.
+I0510 23:28:53.605661  1073 inner_product_layer.cpp:69] Start IP Reshape()
+I0510 23:28:53.605690  1073 inner_product_layer.cpp:84] End IP Reshape()
+I0510 23:28:53.605705  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  9633792
+I0510 23:28:53.605720  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.605732  1073 inner_product_layer.cu:15] Started IP Forward_gpu()
+I0510 23:28:53.615733  1073 syncedmem.cpp:88] to_gpu(),HEAD_AT_CPU : allocate and copy from CPU to GPU  64
+I0510 23:28:53.615769  1073 inner_product_layer.cu:32] End IP Forward_gpu()
+I0510 23:28:53.615816  1073 softmax_loss_layer.cu:34] start SoftmaxWithLoss Forward_gpu()
+I0510 23:28:53.615844  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.615859  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.615890  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.615906  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.615965  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.615981  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  64
+I0510 23:28:53.615994  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.616008  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.616075  1073 softmax_loss_layer.cu:65] end SoftmaxWithLoss Forward_gpu()
+I0510 23:28:53.616107  1073 syncedmem.cpp:88] to_gpu(),HEAD_AT_CPU : allocate and copy from CPU to GPU  4
+I0510 23:28:53.616190  1073 softmax_loss_layer.cu:95] start SoftmaxWithLoss Backward_gpu()
+I0510 23:28:53.616210  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.616225  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.616255  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  64
+I0510 23:28:53.616271  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.616325  1073 softmax_loss_layer.cu:127] end SoftmaxWithLoss Backward_gpu()
+I0510 23:28:53.616358  1073 inner_product_layer.cu:39] Started IP Backward_gpu()
+I0510 23:28:53.616374  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.616386  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  9633792
+I0510 23:28:53.616400  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  34922496
+I0510 23:28:53.616477  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.616497  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  232
+I0510 23:28:53.616526  1073 inner_product_layer.cu:78] End IP Backward_gpu()
+I0510 23:28:53.616957  1073 caffe.cpp:403] Iteration: 3 forward-backward time: 11.3299 ms.
+I0510 23:28:53.617009  1073 blocking_queue.cpp:49] Waiting for data
+I0510 23:28:53.642984  1078 data_layer.cpp:128] Prefetch batch: 61 ms.
+I0510 23:28:53.643018  1078 data_layer.cpp:129]      Read time: 1.927 ms.
+I0510 23:28:53.643031  1078 data_layer.cpp:130] Transform time: 59.284 ms.
+I0510 23:28:53.643090  1078 syncedmem.cpp:177] async_gpu_push() : memcopied from CPU to GPU  9633792
+I0510 23:28:53.643133  1078 syncedmem.cpp:177] async_gpu_push() : memcopied from CPU to GPU  64
+I0510 23:28:53.643975  1073 inner_product_layer.cpp:69] Start IP Reshape()
+I0510 23:28:53.644022  1073 inner_product_layer.cpp:84] End IP Reshape()
+I0510 23:28:53.644049  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  9633792
+I0510 23:28:53.644078  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.644093  1073 inner_product_layer.cu:15] Started IP Forward_gpu()
+I0510 23:28:53.654981  1073 syncedmem.cpp:88] to_gpu(),HEAD_AT_CPU : allocate and copy from CPU to GPU  64
+I0510 23:28:53.655041  1073 inner_product_layer.cu:32] End IP Forward_gpu()
+I0510 23:28:53.655103  1073 softmax_loss_layer.cu:34] start SoftmaxWithLoss Forward_gpu()
+I0510 23:28:53.655133  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.655149  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.655186  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.655202  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.655270  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.655287  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  64
+I0510 23:28:53.655300  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.655313  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.655390  1073 softmax_loss_layer.cu:65] end SoftmaxWithLoss Forward_gpu()
+I0510 23:28:53.655426  1073 syncedmem.cpp:88] to_gpu(),HEAD_AT_CPU : allocate and copy from CPU to GPU  4
+I0510 23:28:53.655514  1073 softmax_loss_layer.cu:95] start SoftmaxWithLoss Backward_gpu()
+I0510 23:28:53.655534  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.655549  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.655582  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  64
+I0510 23:28:53.655599  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.655640  1073 softmax_loss_layer.cu:127] end SoftmaxWithLoss Backward_gpu()
+I0510 23:28:53.655671  1073 inner_product_layer.cu:39] Started IP Backward_gpu()
+I0510 23:28:53.655689  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.655700  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  9633792
+I0510 23:28:53.655714  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  34922496
+I0510 23:28:53.655788  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.655808  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  232
+I0510 23:28:53.655838  1073 inner_product_layer.cu:78] End IP Backward_gpu()
+I0510 23:28:53.656270  1073 caffe.cpp:403] Iteration: 4 forward-backward time: 39.2663 ms.
+I0510 23:28:53.687353  1078 data_layer.cpp:128] Prefetch batch: 43 ms.
+I0510 23:28:53.687378  1078 data_layer.cpp:129]      Read time: 1.646 ms.
+I0510 23:28:53.687388  1078 data_layer.cpp:130] Transform time: 41.664 ms.
+I0510 23:28:53.687433  1078 syncedmem.cpp:177] async_gpu_push() : memcopied from CPU to GPU  9633792
+I0510 23:28:53.687469  1078 syncedmem.cpp:177] async_gpu_push() : memcopied from CPU to GPU  64
+I0510 23:28:53.688318  1073 inner_product_layer.cpp:69] Start IP Reshape()
+I0510 23:28:53.688371  1073 inner_product_layer.cpp:84] End IP Reshape()
+I0510 23:28:53.688388  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  9633792
+I0510 23:28:53.688405  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.688421  1073 inner_product_layer.cu:15] Started IP Forward_gpu()
+I0510 23:28:53.699236  1073 syncedmem.cpp:88] to_gpu(),HEAD_AT_CPU : allocate and copy from CPU to GPU  64
+I0510 23:28:53.699292  1073 inner_product_layer.cu:32] End IP Forward_gpu()
+I0510 23:28:53.699353  1073 softmax_loss_layer.cu:34] start SoftmaxWithLoss Forward_gpu()
+I0510 23:28:53.699383  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.699419  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.699472  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.699489  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.699559  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.699575  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  64
+I0510 23:28:53.699589  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.699604  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.699679  1073 softmax_loss_layer.cu:65] end SoftmaxWithLoss Forward_gpu()
+I0510 23:28:53.699713  1073 syncedmem.cpp:88] to_gpu(),HEAD_AT_CPU : allocate and copy from CPU to GPU  4
+I0510 23:28:53.699801  1073 softmax_loss_layer.cu:95] start SoftmaxWithLoss Backward_gpu()
+I0510 23:28:53.699822  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.699836  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.699869  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  64
+I0510 23:28:53.699885  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.699928  1073 softmax_loss_layer.cu:127] end SoftmaxWithLoss Backward_gpu()
+I0510 23:28:53.699960  1073 inner_product_layer.cu:39] Started IP Backward_gpu()
+I0510 23:28:53.699977  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.699988  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  9633792
+I0510 23:28:53.700002  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  34922496
+I0510 23:28:53.700072  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.700091  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  232
+I0510 23:28:53.700121  1073 inner_product_layer.cu:78] End IP Backward_gpu()
+I0510 23:28:53.700557  1073 caffe.cpp:403] Iteration: 5 forward-backward time: 44.2374 ms.
+I0510 23:28:53.727004  1078 data_layer.cpp:128] Prefetch batch: 38 ms.
+I0510 23:28:53.727027  1078 data_layer.cpp:129]      Read time: 1.515 ms.
+I0510 23:28:53.727037  1078 data_layer.cpp:130] Transform time: 37.11 ms.
+I0510 23:28:53.727080  1078 syncedmem.cpp:177] async_gpu_push() : memcopied from CPU to GPU  9633792
+I0510 23:28:53.727115  1078 syncedmem.cpp:177] async_gpu_push() : memcopied from CPU to GPU  64
+I0510 23:28:53.727963  1073 inner_product_layer.cpp:69] Start IP Reshape()
+I0510 23:28:53.728011  1073 inner_product_layer.cpp:84] End IP Reshape()
+I0510 23:28:53.728027  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  9633792
+I0510 23:28:53.728042  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.728056  1073 inner_product_layer.cu:15] Started IP Forward_gpu()
+I0510 23:28:53.738845  1073 syncedmem.cpp:88] to_gpu(),HEAD_AT_CPU : allocate and copy from CPU to GPU  64
+I0510 23:28:53.738917  1073 inner_product_layer.cu:32] End IP Forward_gpu()
+I0510 23:28:53.738986  1073 softmax_loss_layer.cu:34] start SoftmaxWithLoss Forward_gpu()
+I0510 23:28:53.739024  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.739042  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.739082  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.739100  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.739174  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.739192  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  64
+I0510 23:28:53.739207  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.739222  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.739313  1073 softmax_loss_layer.cu:65] end SoftmaxWithLoss Forward_gpu()
+I0510 23:28:53.739368  1073 syncedmem.cpp:88] to_gpu(),HEAD_AT_CPU : allocate and copy from CPU to GPU  4
+I0510 23:28:53.739462  1073 softmax_loss_layer.cu:95] start SoftmaxWithLoss Backward_gpu()
+I0510 23:28:53.739485  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.739500  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.739537  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  64
+I0510 23:28:53.739554  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.739598  1073 softmax_loss_layer.cu:127] end SoftmaxWithLoss Backward_gpu()
+I0510 23:28:53.739632  1073 inner_product_layer.cu:39] Started IP Backward_gpu()
+I0510 23:28:53.739651  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.739663  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  9633792
+I0510 23:28:53.739678  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  34922496
+I0510 23:28:53.739768  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.739790  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  232
+I0510 23:28:53.739823  1073 inner_product_layer.cu:78] End IP Backward_gpu()
+I0510 23:28:53.740253  1073 caffe.cpp:403] Iteration: 6 forward-backward time: 39.6444 ms.
+I0510 23:28:53.772892  1078 data_layer.cpp:128] Prefetch batch: 45 ms.
+I0510 23:28:53.772934  1078 data_layer.cpp:129]      Read time: 1.676 ms.
+I0510 23:28:53.772950  1078 data_layer.cpp:130] Transform time: 43.138 ms.
+I0510 23:28:53.773036  1078 syncedmem.cpp:177] async_gpu_push() : memcopied from CPU to GPU  9633792
+I0510 23:28:53.773102  1078 syncedmem.cpp:177] async_gpu_push() : memcopied from CPU to GPU  64
+I0510 23:28:53.773946  1073 inner_product_layer.cpp:69] Start IP Reshape()
+I0510 23:28:53.773999  1073 inner_product_layer.cpp:84] End IP Reshape()
+I0510 23:28:53.774016  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  9633792
+I0510 23:28:53.774034  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.774049  1073 inner_product_layer.cu:15] Started IP Forward_gpu()
+I0510 23:28:53.784044  1073 syncedmem.cpp:88] to_gpu(),HEAD_AT_CPU : allocate and copy from CPU to GPU  64
+I0510 23:28:53.784096  1073 inner_product_layer.cu:32] End IP Forward_gpu()
+I0510 23:28:53.784963  1073 softmax_loss_layer.cu:34] start SoftmaxWithLoss Forward_gpu()
+I0510 23:28:53.785013  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.785033  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.785078  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.785095  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.785172  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.785207  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  64
+I0510 23:28:53.785223  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.785238  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.785320  1073 softmax_loss_layer.cu:65] end SoftmaxWithLoss Forward_gpu()
+I0510 23:28:53.785359  1073 syncedmem.cpp:88] to_gpu(),HEAD_AT_CPU : allocate and copy from CPU to GPU  4
+I0510 23:28:53.785450  1073 softmax_loss_layer.cu:95] start SoftmaxWithLoss Backward_gpu()
+I0510 23:28:53.785473  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.785490  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.785524  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  64
+I0510 23:28:53.785542  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.785599  1073 softmax_loss_layer.cu:127] end SoftmaxWithLoss Backward_gpu()
+I0510 23:28:53.785650  1073 inner_product_layer.cu:39] Started IP Backward_gpu()
+I0510 23:28:53.785670  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.785683  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  9633792
+I0510 23:28:53.785697  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  34922496
+I0510 23:28:53.785778  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.785799  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  232
+I0510 23:28:53.785830  1073 inner_product_layer.cu:78] End IP Backward_gpu()
+I0510 23:28:53.786258  1073 caffe.cpp:403] Iteration: 7 forward-backward time: 45.951 ms.
+I0510 23:28:53.825417  1078 data_layer.cpp:128] Prefetch batch: 51 ms.
+I0510 23:28:53.825458  1078 data_layer.cpp:129]      Read time: 1.854 ms.
+I0510 23:28:53.825471  1078 data_layer.cpp:130] Transform time: 49.469 ms.
+I0510 23:28:53.825529  1078 syncedmem.cpp:177] async_gpu_push() : memcopied from CPU to GPU  9633792
+I0510 23:28:53.825580  1078 syncedmem.cpp:177] async_gpu_push() : memcopied from CPU to GPU  64
+I0510 23:28:53.826457  1073 inner_product_layer.cpp:69] Start IP Reshape()
+I0510 23:28:53.826514  1073 inner_product_layer.cpp:84] End IP Reshape()
+I0510 23:28:53.826531  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  9633792
+I0510 23:28:53.826548  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.826563  1073 inner_product_layer.cu:15] Started IP Forward_gpu()
+I0510 23:28:53.837431  1073 syncedmem.cpp:88] to_gpu(),HEAD_AT_CPU : allocate and copy from CPU to GPU  64
+I0510 23:28:53.837530  1073 inner_product_layer.cu:32] End IP Forward_gpu()
+I0510 23:28:53.837602  1073 softmax_loss_layer.cu:34] start SoftmaxWithLoss Forward_gpu()
+I0510 23:28:53.837635  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.837651  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.837693  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.837712  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.837785  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.837802  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  64
+I0510 23:28:53.837818  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.837832  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.837914  1073 softmax_loss_layer.cu:65] end SoftmaxWithLoss Forward_gpu()
+I0510 23:28:53.837951  1073 syncedmem.cpp:88] to_gpu(),HEAD_AT_CPU : allocate and copy from CPU to GPU  4
+I0510 23:28:53.838044  1073 softmax_loss_layer.cu:95] start SoftmaxWithLoss Backward_gpu()
+I0510 23:28:53.838068  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.838083  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.838122  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  64
+I0510 23:28:53.838140  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.838184  1073 softmax_loss_layer.cu:127] end SoftmaxWithLoss Backward_gpu()
+I0510 23:28:53.838217  1073 inner_product_layer.cu:39] Started IP Backward_gpu()
+I0510 23:28:53.838237  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.838249  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  9633792
+I0510 23:28:53.838264  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  34922496
+I0510 23:28:53.838341  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.838363  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  232
+I0510 23:28:53.838409  1073 inner_product_layer.cu:78] End IP Backward_gpu()
+I0510 23:28:53.838824  1073 caffe.cpp:403] Iteration: 8 forward-backward time: 52.5107 ms.
+I0510 23:28:53.868623  1078 data_layer.cpp:128] Prefetch batch: 42 ms.
+I0510 23:28:53.868652  1078 data_layer.cpp:129]      Read time: 1.54 ms.
+I0510 23:28:53.868664  1078 data_layer.cpp:130] Transform time: 40.533 ms.
+I0510 23:28:53.868712  1078 syncedmem.cpp:177] async_gpu_push() : memcopied from CPU to GPU  9633792
+I0510 23:28:53.868752  1078 syncedmem.cpp:177] async_gpu_push() : memcopied from CPU to GPU  64
+I0510 23:28:53.869630  1073 inner_product_layer.cpp:69] Start IP Reshape()
+I0510 23:28:53.869684  1073 inner_product_layer.cpp:84] End IP Reshape()
+I0510 23:28:53.869702  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  9633792
+I0510 23:28:53.869719  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.869735  1073 inner_product_layer.cu:15] Started IP Forward_gpu()
+I0510 23:28:53.880537  1073 syncedmem.cpp:88] to_gpu(),HEAD_AT_CPU : allocate and copy from CPU to GPU  64
+I0510 23:28:53.880643  1073 inner_product_layer.cu:32] End IP Forward_gpu()
+I0510 23:28:53.880725  1073 softmax_loss_layer.cu:34] start SoftmaxWithLoss Forward_gpu()
+I0510 23:28:53.880759  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.880776  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.880830  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.880844  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.880929  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.880945  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  64
+I0510 23:28:53.880959  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.880969  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.881043  1073 softmax_loss_layer.cu:65] end SoftmaxWithLoss Forward_gpu()
+I0510 23:28:53.881074  1073 syncedmem.cpp:88] to_gpu(),HEAD_AT_CPU : allocate and copy from CPU to GPU  4
+I0510 23:28:53.881147  1073 softmax_loss_layer.cu:95] start SoftmaxWithLoss Backward_gpu()
+I0510 23:28:53.881166  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.881186  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.881218  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  64
+I0510 23:28:53.881232  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.881273  1073 softmax_loss_layer.cu:127] end SoftmaxWithLoss Backward_gpu()
+I0510 23:28:53.881300  1073 inner_product_layer.cu:39] Started IP Backward_gpu()
+I0510 23:28:53.881314  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.881323  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  9633792
+I0510 23:28:53.881335  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  34922496
+I0510 23:28:53.881423  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.881440  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  232
+I0510 23:28:53.881469  1073 inner_product_layer.cu:78] End IP Backward_gpu()
+I0510 23:28:53.881898  1073 caffe.cpp:403] Iteration: 9 forward-backward time: 43.0162 ms.
+I0510 23:28:53.921057  1078 data_layer.cpp:128] Prefetch batch: 51 ms.
+I0510 23:28:53.921100  1078 data_layer.cpp:129]      Read time: 2.139 ms.
+I0510 23:28:53.921114  1078 data_layer.cpp:130] Transform time: 49.166 ms.
+I0510 23:28:53.921187  1078 syncedmem.cpp:177] async_gpu_push() : memcopied from CPU to GPU  9633792
+I0510 23:28:53.921242  1078 syncedmem.cpp:177] async_gpu_push() : memcopied from CPU to GPU  64
+I0510 23:28:53.922086  1073 inner_product_layer.cpp:69] Start IP Reshape()
+I0510 23:28:53.922134  1073 inner_product_layer.cpp:84] End IP Reshape()
+I0510 23:28:53.922160  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  9633792
+I0510 23:28:53.922171  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.922181  1073 inner_product_layer.cu:15] Started IP Forward_gpu()
+I0510 23:28:53.932152  1073 syncedmem.cpp:88] to_gpu(),HEAD_AT_CPU : allocate and copy from CPU to GPU  64
+I0510 23:28:53.932188  1073 inner_product_layer.cu:32] End IP Forward_gpu()
+I0510 23:28:53.933012  1073 softmax_loss_layer.cu:34] start SoftmaxWithLoss Forward_gpu()
+I0510 23:28:53.933044  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.933058  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.933087  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.933099  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.933152  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.933166  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  64
+I0510 23:28:53.933183  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.933195  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.933253  1073 softmax_loss_layer.cu:65] end SoftmaxWithLoss Forward_gpu()
+I0510 23:28:53.933280  1073 syncedmem.cpp:88] to_gpu(),HEAD_AT_CPU : allocate and copy from CPU to GPU  4
+I0510 23:28:53.933347  1073 softmax_loss_layer.cu:95] start SoftmaxWithLoss Backward_gpu()
+I0510 23:28:53.933363  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.933372  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.933396  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  64
+I0510 23:28:53.933408  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.933439  1073 softmax_loss_layer.cu:127] end SoftmaxWithLoss Backward_gpu()
+I0510 23:28:53.933464  1073 inner_product_layer.cu:39] Started IP Backward_gpu()
+I0510 23:28:53.933476  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.933485  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  9633792
+I0510 23:28:53.933493  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  34922496
+I0510 23:28:53.933548  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  3712
+I0510 23:28:53.933563  1073 syncedmem.cpp:92] to_gpu(),HEAD_AT_GPU : referencing data on GPU  232
+I0510 23:28:53.933588  1073 inner_product_layer.cu:78] End IP Backward_gpu()
+I0510 23:28:53.934027  1073 caffe.cpp:403] Iteration: 10 forward-backward time: 52.0865 ms.
+I0510 23:28:53.934046  1073 caffe.cpp:406] Average time per layer: 
+I0510 23:28:53.934054  1073 caffe.cpp:409]  [time]  IMAGEDATA	forward: 23.0891 ms.
+I0510 23:28:53.934084  1073 caffe.cpp:412]  IMAGEDATA	backward: 0.0035744 ms.
+I0510 23:28:53.934093  1073 caffe.cpp:409]  [time]         IP	forward: 10.7459 ms.
+I0510 23:28:53.934101  1073 caffe.cpp:412]         IP	backward: 0.569261 ms.
+I0510 23:28:53.934108  1073 caffe.cpp:409]  [time]    SOFTMAX	forward: 0.433306 ms.
+I0510 23:28:53.934115  1073 caffe.cpp:412]    SOFTMAX	backward: 0.155811 ms.
+I0510 23:28:53.934131  1073 caffe.cpp:417] Average Forward pass: 34.3869 ms.
+I0510 23:28:53.934141  1073 caffe.cpp:419] Average Backward pass: 0.760176 ms.
+I0510 23:28:53.934154  1073 caffe.cpp:421] Average Forward-Backward: 35.2262 ms.
+I0510 23:28:53.934166  1073 caffe.cpp:423] Total Time: 352.262 ms.
+I0510 23:28:53.934175  1073 caffe.cpp:424] *** Benchmark ends ***
+I0510 23:28:53.934360  1073 syncedmem.cpp:36] ~SyncedMemory() : freed GPU data 3712
+I0510 23:28:53.934391  1073 syncedmem.cpp:36] ~SyncedMemory() : freed GPU data 3712
+I0510 23:28:53.934442  1073 syncedmem.cpp:36] ~SyncedMemory() : freed GPU data 4
+I0510 23:28:53.934494  1073 syncedmem.cpp:36] ~SyncedMemory() : freed GPU data 4
+I0510 23:28:53.967597  1078 data_layer.cpp:128] Prefetch batch: 45 ms.
+I0510 23:28:53.967627  1078 data_layer.cpp:129]      Read time: 1.585 ms.
+I0510 23:28:53.967638  1078 data_layer.cpp:130] Transform time: 43.818 ms.
+I0510 23:28:53.967681  1078 syncedmem.cpp:177] async_gpu_push() : memcopied from CPU to GPU  9633792
+I0510 23:28:53.967725  1078 syncedmem.cpp:177] async_gpu_push() : memcopied from CPU to GPU  64
+I0510 23:28:53.969666  1073 syncedmem.cpp:36] ~SyncedMemory() : freed GPU data 64
+I0510 23:28:53.972939  1073 syncedmem.cpp:36] ~SyncedMemory() : freed GPU data 9633792
+I0510 23:28:53.973067  1073 syncedmem.cpp:36] ~SyncedMemory() : freed GPU data 64
+I0510 23:28:53.976135  1073 syncedmem.cpp:36] ~SyncedMemory() : freed GPU data 9633792
+I0510 23:28:53.976258  1073 syncedmem.cpp:36] ~SyncedMemory() : freed GPU data 64
+I0510 23:28:53.979313  1073 syncedmem.cpp:36] ~SyncedMemory() : freed GPU data 9633792
+I0510 23:28:53.979434  1073 syncedmem.cpp:36] ~SyncedMemory() : freed GPU data 64
+I0510 23:28:53.982434  1073 syncedmem.cpp:36] ~SyncedMemory() : freed GPU data 9633792
+I0510 23:28:53.983391  1073 syncedmem.cpp:36] ~SyncedMemory() : freed GPU data 64
+I0510 23:28:53.983687  1073 syncedmem.cpp:36] ~SyncedMemory() : freed GPU data 34922496
+I0510 23:28:53.992530  1073 syncedmem.cpp:36] ~SyncedMemory() : freed GPU data 34922496
+I0510 23:28:53.992638  1073 syncedmem.cpp:36] ~SyncedMemory() : freed GPU data 232
+I0510 23:28:53.992702  1073 syncedmem.cpp:36] ~SyncedMemory() : freed GPU data 232
+I0510 23:28:53.993595  1073 syncedmem.cpp:36] ~SyncedMemory() : freed GPU data 3712
+I0510 23:28:53.993829  1073 syncedmem.cpp:36] ~SyncedMemory() : freed GPU data 3712

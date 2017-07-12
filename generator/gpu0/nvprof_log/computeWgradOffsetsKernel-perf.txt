@@ -1,0 +1,10 @@
+==28583== NVPROF is profiling process 28583, command: /home/sbchoi/git/caffe/build/tools/caffe train --solver=/home/sbchoi/git/gpu-cloud/generator/gpu0/data_generator.prototxt
+==28583== Some kernel(s) will be replayed on device 0 in order to collect all events/metrics.
+==28583== Profiling application: /home/sbchoi/git/caffe/build/tools/caffe train --solver=/home/sbchoi/git/gpu-cloud/generator/gpu0/data_generator.prototxt
+==28583== Profiling result:
+==28583== Metric result:
+"Device","Kernel","Invocations","Metric Name","Metric Description","Min","Max","Avg"
+"GeForce GTX 1080 (0)","cudnn::maxwell::gemm::computeWgradOffsetsKernel(cudnn::maxwell::gemm::ComputeOffsetsParams)",1,"dram_utilization","Device Memory Utilization","Low (1)","Low (1)","Low (1)"
+"GeForce GTX 1080 (0)","cudnn::maxwell::gemm::computeWgradOffsetsKernel(cudnn::maxwell::gemm::ComputeOffsetsParams)",1,"achieved_occupancy","Achieved Occupancy",0.137946,0.137946,0.137946
+"GeForce GTX 1080 (0)","cudnn::maxwell::gemm::computeWgradOffsetsKernel(cudnn::maxwell::gemm::ComputeOffsetsParams)",1,"sysmem_utilization","System Memory Utilization","Low (1)","Low (1)","Low (1)"
+"GeForce GTX 1080 (0)","cudnn::maxwell::gemm::computeWgradOffsetsKernel(cudnn::maxwell::gemm::ComputeOffsetsParams)",1,"executed_ipc","Executed IPC",0.364810,0.364810,0.364810

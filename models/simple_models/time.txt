@@ -1,40 +1,4 @@
-Extracting /tmp/data/train-images-idx3-ubyte.gz
-Extracting /tmp/data/train-labels-idx1-ubyte.gz
-Extracting /tmp/data/t10k-images-idx3-ubyte.gz
-Extracting /tmp/data/t10k-labels-idx1-ubyte.gz
-init time :  0.561431884766  cost time:  0.251132011414
-MLP Finished!
-/home/sbchoi/GPU_CLOUD/models/simple_models/monitor_log.txt 
-Elapsed : 2.174861 
-Extracting /tmp/data/train-images-idx3-ubyte.gz
-Extracting /tmp/data/train-labels-idx1-ubyte.gz
-Extracting /tmp/data/t10k-images-idx3-ubyte.gz
-Extracting /tmp/data/t10k-labels-idx1-ubyte.gz
-init time :  0.564291000366  cost time:  0.248746156693
-MLP Finished!
-/home/sbchoi/GPU_CLOUD/models/simple_models/monitor_log.txt 
-Elapsed : 2.075196 
-Extracting /tmp/data/train-images-idx3-ubyte.gz
-Extracting /tmp/data/train-labels-idx1-ubyte.gz
-Extracting /tmp/data/t10k-images-idx3-ubyte.gz
-Extracting /tmp/data/t10k-labels-idx1-ubyte.gz
-init time :  0.550894021988  cost time:  0.242416143417
-MLP Finished!
-/home/sbchoi/GPU_CLOUD/models/simple_models/monitor_log.txt 
-Elapsed : 2.065573 
-Extracting /tmp/data/train-images-idx3-ubyte.gz
-Extracting /tmp/data/train-labels-idx1-ubyte.gz
-Extracting /tmp/data/t10k-images-idx3-ubyte.gz
-Extracting /tmp/data/t10k-labels-idx1-ubyte.gz
-init time :  0.54515504837  cost time:  0.230544090271
-MLP Finished!
-/home/sbchoi/GPU_CLOUD/models/simple_models/monitor_log.txt 
-Elapsed : 2.030696 
-Extracting /tmp/data/train-images-idx3-ubyte.gz
-Extracting /tmp/data/train-labels-idx1-ubyte.gz
-Extracting /tmp/data/t10k-images-idx3-ubyte.gz
-Extracting /tmp/data/t10k-labels-idx1-ubyte.gz
-init time :  0.549897909164  cost time:  0.242573022842
-MLP Finished!
-/home/sbchoi/GPU_CLOUD/models/simple_models/monitor_log.txt 
-Elapsed : 2.096445 
+
+real	0m0.003s
+user	0m0.000s
+sys	0m0.000s

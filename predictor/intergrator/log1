@@ -1,0 +1,44 @@
+[256, 3, 227]
+data
+data
+conv1
+relu1
+norm1
+pool1
+conv2
+relu2
+norm2
+pool2
+conv3
+relu3
+conv4
+relu4
+conv5
+relu5
+pool5
+fc6
+relu6
+drop6
+fc7
+relu7
+drop7
+fc8
+accuracy
+loss
+Parsed Prototxt file : alexnet_train.prototxt
+[[256, 3, 227, 96, 11, 4, 0], [256, 96, 55], [256, 96, 55, 3, 2, 0], [256, 96, 27, 256, 5, 1, 2], [256, 256, 27], [256, 256, 27, 3, 2, 0], [256, 256, 13, 384, 3, 1, 1], [256, 384, 13], [256, 384, 13, 384, 3, 1, 1], [256, 384, 13], [256, 384, 13, 256, 3, 1, 1], [256, 256, 13], [256, 256, 13, 3, 2, 0], [256, 9216, 4096], [256, 9216, 1], [256, 9216, 4096], [256, 9216, 1], [256, 9216, 1000], [256, 9216]]
+[u'Convolution', u'ReLU', u'Pooling', u'Convolution', u'ReLU', u'Pooling', u'Convolution', u'ReLU', u'Convolution', u'ReLU', u'Convolution', u'ReLU', u'Pooling', u'InnerProduct', u'ReLU', u'InnerProduct', u'ReLU', u'InnerProduct', u'SoftmaxWithLoss']
+[ 256.    3.  227.   96.   11.    4.    0.]
+[array([ 256.,    3.,  227.,   96.,   11.,    4.,    0.])]
+7
+/home/sbchoi/git/gpu-cloud/predictor/Convolution-checkpoint-0
+/home/sbchoi/git/gpu-cloud/predictor/Convolution-checkpoint-1
+/home/sbchoi/git/gpu-cloud/predictor/Convolution-checkpoint-2
+/home/sbchoi/git/gpu-cloud/predictor/Convolution-checkpoint-3
+/home/sbchoi/git/gpu-cloud/predictor/Convolution-checkpoint-4
+[[ 71370.03125]]
+Pred finished for Convolution
+[ 256.   96.   55.]
+[array([ 256.,   96.,   55.])]
+3
+/home/sbchoi/git/gpu-cloud/predictor/ReLU-checkpoint-0

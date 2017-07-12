@@ -1,0 +1,117 @@
+name: "DummyNetbyHand"
+layer {
+  name: "x_train"
+  type: "DummyData"
+  top: "data"
+  include {
+    phase: TRAIN
+  }
+  dummy_data_param {
+    data_filler {
+      type: "constant"
+    }
+    shape {
+      dim: 128
+      dim: 3
+      dim: 224
+      dim: 224
+    }
+  }
+}
+layer {
+  name: "y_train"
+  type: "DummyData"
+  top: "label"
+  include {
+    phase: TRAIN
+  }
+  dummy_data_param {
+    data_filler {
+      type: "constant"
+    }
+    shape {
+      dim: 128
+    }
+  }
+}
+layer {
+  name: "x_test"
+  type: "DummyData"
+  top: "data"
+  include {
+    phase: TEST
+  }
+  dummy_data_param {
+    data_filler {
+      type: "constant"
+    }
+    shape {
+      dim: 128
+      dim: 3
+      dim: 224
+      dim: 224
+    }
+  }
+}
+layer {
+  name: "y_test"
+  type: "DummyData"
+  top: "label"
+  include {
+    phase: TEST
+  }
+  dummy_data_param {
+    data_filler {
+      type: "constant"
+    }
+    shape {
+      dim: 128
+    }
+  }
+}
+layer {
+  name: "RELU"
+  type: "ReLU"
+  bottom: "data"
+  top: "relu1"
+  
+}
+
+layer {
+  name: "IP"
+  type: "InnerProduct"
+  bottom: "relu1"
+  top: "ip1"
+  param {
+    lr_mult: 1.0
+  }
+  param {
+    lr_mult: 1.0
+  }
+  inner_product_param {
+    num_output: 626
+    weight_filler {
+      type: "gaussian"
+    }
+    bias_filler {
+      type: "gaussian"
+    }
+  }
+}
+layer {
+  name: "accuracy"
+  type: "Accuracy"
+  bottom: "ip1"
+  bottom: "label"
+  top: "accuracy"
+  include {
+    phase: TEST
+  }
+}
+layer {
+  name: "SOFTMAX"
+  type: "SoftmaxWithLoss"
+  bottom: "ip1"
+  bottom: "label"
+  top: "loss"
+}

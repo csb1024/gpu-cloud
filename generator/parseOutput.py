@@ -14,13 +14,39 @@ from caffe.proto import caffe_pb2
 4. executed_ipc -> line num 10
 """
 
+"""
+**
+Execution time was added to this code,2017-4-12
+"""
+def parseCaffeLogforTime(caffe_log,layer_name):
+	exec_time=0.
+	isbw = False
+	foundline = False
+        fw_time = 0
+	bw_time = 0
+	with open(caffe_log) as fp:
+	    for line in fp:
+	    	words = line.split()
+	    	for word in words:
+			if word == "[time]":
+				foundline=True
+	    		if foundline and word == layer_name:
+				if not isbw:
+					fw_time = float(words[-2])
+					isbw= True
+				else:
+					bw_time = float(words[-2])
+	    foundline = False
+	exec_time = fw_time + bw_time
+	return exec_time
+
+
 def average(numbers):
 	total = sum(numbers)
 	total = float(total)
 	return total / len(numbers) 
-def parseNvprofLog(layer_type):
+def parseNvprofLog(layer_type,nvprof_log_dir):
 	kernel_list_dir="/home/sbchoi/git/gpu-cloud/generator/kernel_lists/" # fixed position
-	nvprof_log_dir="/home/sbchoi/git/gpu-cloud/generator/nvprof_log/"
 	#below are the vectors for each kernel 
 	dram_util = []
 	occupancy = []
@@ -30,7 +56,7 @@ def parseNvprofLog(layer_type):
 	with open(kernel_list) as fp:
 		for kernel in fp:
 			kernel = kernel[:-1] # erase the last character(carriage return)
-			nvprof_log = nvprof_log_dir+ kernel + "-perf.txt"
+			nvprof_log = nvprof_log_dir+"/" + kernel + "-perf.txt"
 			cnt = 1 # counter used for referencing certain lines
 			with open(nvprof_log) as np:
 				print "opened nvprof log" + nvprof_log
@@ -67,17 +93,15 @@ def parseNvprofLog(layer_type):
 						
 				
 
-def parseCaffeLog(caffe_log, layer):
-	fin = open(caffe_log,"r")
+def parseCaffeLog(caffe_log,layer):
 	layer_name = '['+layer+']' # adding big brackets to both side
-	total_mem = 0
+	total_mem = 0.
 	with open(caffe_log) as fp:
 	    for line in fp:
 	    	words = line.split()
 	    	for word in words:
 	    		if word == layer_name:
-	    			total_mem = total_mem + int(words[-1])
-	fin.close()
+	    			total_mem = total_mem + float(words[-1])
 	return total_mem
 
 # leaving the argument function and main function for debugging
@@ -90,16 +114,23 @@ def parse_args():
 			help='name of layer to parse')
 	parser.add_argument('layer_type',
 			help='type of layer to parse')
+
 	parser.add_argument('output_csv_file',
 			help='file to store output vector')
+
+	parser.add_argument('nvprof_log_dir',
+			help='directory where nvprof logs are stored')
 	args = parser.parse_args()
 	return args
 def main():
 	args = parse_args()
-	mem_allocated=parseCaffeLog(args.caffe, args.layer_name)
-	
-	result_vec = parseNvprofLog(args.layer_type)
-	result_vec.append(mem_allocated)
+	result_vec = []
+#	mem_allocated=parseCaffeLog(args.caffe, args.layer_name)	
+#	result_vec = parseNvprofLog(args.layer_type,args.nvprof_log_dir)
+	exec_time = parseCaffeLogforTime(args.caffe,args.layer_name)
+#        result_vec.append(mem_allocated)
+	result_vec.append(exec_time)
+#	print result_vec
 		
 	with open(args.output_csv_file,"a") as f:
         	for item in result_vec:

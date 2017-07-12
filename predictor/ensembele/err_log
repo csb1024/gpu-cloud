@@ -1,0 +1,139 @@
+2017-05-01 21:41:49.676951: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-05-01 21:41:49.677000: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2017-05-01 21:41:49.677006: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-05-01 21:41:49.677010: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+2017-05-01 21:41:49.785643: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:909] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2017-05-01 21:41:49.785986: I tensorflow/core/common_runtime/gpu/gpu_device.cc:885] Found device 0 with properties: 
+name: GeForce GTX 1080
+major: 6 minor: 1 memoryClockRate (GHz) 1.8225
+pciBusID 0000:01:00.0
+Total memory: 7.92GiB
+Free memory: 7.81GiB
+2017-05-01 21:41:49.786001: I tensorflow/core/common_runtime/gpu/gpu_device.cc:906] DMA: 0 
+2017-05-01 21:41:49.786006: I tensorflow/core/common_runtime/gpu/gpu_device.cc:916] 0:   Y 
+2017-05-01 21:41:49.786012: I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1080, pci bus id: 0000:01:00.0)
+2017-05-01 21:41:58.276524: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-05-01 21:41:58.276571: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2017-05-01 21:41:58.276591: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-05-01 21:41:58.276595: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+2017-05-01 21:41:58.367337: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:909] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2017-05-01 21:41:58.367661: I tensorflow/core/common_runtime/gpu/gpu_device.cc:885] Found device 0 with properties: 
+name: GeForce GTX 1080
+major: 6 minor: 1 memoryClockRate (GHz) 1.8225
+pciBusID 0000:01:00.0
+Total memory: 7.92GiB
+Free memory: 7.81GiB
+2017-05-01 21:41:58.367689: I tensorflow/core/common_runtime/gpu/gpu_device.cc:906] DMA: 0 
+2017-05-01 21:41:58.367694: I tensorflow/core/common_runtime/gpu/gpu_device.cc:916] 0:   Y 
+2017-05-01 21:41:58.367700: I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1080, pci bus id: 0000:01:00.0)
+2017-05-01 21:42:06.889314: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-05-01 21:42:06.889348: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2017-05-01 21:42:06.889353: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-05-01 21:42:06.889362: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+2017-05-01 21:42:06.979570: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:909] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2017-05-01 21:42:06.979951: I tensorflow/core/common_runtime/gpu/gpu_device.cc:885] Found device 0 with properties: 
+name: GeForce GTX 1080
+major: 6 minor: 1 memoryClockRate (GHz) 1.8225
+pciBusID 0000:01:00.0
+Total memory: 7.92GiB
+Free memory: 7.81GiB
+2017-05-01 21:42:06.979964: I tensorflow/core/common_runtime/gpu/gpu_device.cc:906] DMA: 0 
+2017-05-01 21:42:06.979969: I tensorflow/core/common_runtime/gpu/gpu_device.cc:916] 0:   Y 
+2017-05-01 21:42:06.979975: I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1080, pci bus id: 0000:01:00.0)
+2017-05-01 21:42:15.402946: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-05-01 21:42:15.402989: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2017-05-01 21:42:15.403009: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-05-01 21:42:15.403013: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+2017-05-01 21:42:15.495563: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:909] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2017-05-01 21:42:15.495932: I tensorflow/core/common_runtime/gpu/gpu_device.cc:885] Found device 0 with properties: 
+name: GeForce GTX 1080
+major: 6 minor: 1 memoryClockRate (GHz) 1.8225
+pciBusID 0000:01:00.0
+Total memory: 7.92GiB
+Free memory: 7.81GiB
+2017-05-01 21:42:15.495947: I tensorflow/core/common_runtime/gpu/gpu_device.cc:906] DMA: 0 
+2017-05-01 21:42:15.495952: I tensorflow/core/common_runtime/gpu/gpu_device.cc:916] 0:   Y 
+2017-05-01 21:42:15.495957: I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1080, pci bus id: 0000:01:00.0)
+2017-05-01 21:42:24.026874: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-05-01 21:42:24.026909: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2017-05-01 21:42:24.026915: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-05-01 21:42:24.026919: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+2017-05-01 21:42:24.117573: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:909] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2017-05-01 21:42:24.117942: I tensorflow/core/common_runtime/gpu/gpu_device.cc:885] Found device 0 with properties: 
+name: GeForce GTX 1080
+major: 6 minor: 1 memoryClockRate (GHz) 1.8225
+pciBusID 0000:01:00.0
+Total memory: 7.92GiB
+Free memory: 7.81GiB
+2017-05-01 21:42:24.117976: I tensorflow/core/common_runtime/gpu/gpu_device.cc:906] DMA: 0 
+2017-05-01 21:42:24.117982: I tensorflow/core/common_runtime/gpu/gpu_device.cc:916] 0:   Y 
+2017-05-01 21:42:24.117988: I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1080, pci bus id: 0000:01:00.0)
+2017-05-01 21:42:32.544484: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-05-01 21:42:32.544534: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2017-05-01 21:42:32.544555: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-05-01 21:42:32.544559: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+2017-05-01 21:42:32.635919: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:909] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2017-05-01 21:42:32.636288: I tensorflow/core/common_runtime/gpu/gpu_device.cc:885] Found device 0 with properties: 
+name: GeForce GTX 1080
+major: 6 minor: 1 memoryClockRate (GHz) 1.8225
+pciBusID 0000:01:00.0
+Total memory: 7.92GiB
+Free memory: 7.81GiB
+2017-05-01 21:42:32.636303: I tensorflow/core/common_runtime/gpu/gpu_device.cc:906] DMA: 0 
+2017-05-01 21:42:32.636308: I tensorflow/core/common_runtime/gpu/gpu_device.cc:916] 0:   Y 
+2017-05-01 21:42:32.636327: I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1080, pci bus id: 0000:01:00.0)
+2017-05-01 21:42:32.670720: W tensorflow/core/framework/op_kernel.cc:993] Invalid argument: Assign requires shapes of both tensors to match. lhs shape= [2] rhs shape= [3]
+	 [[Node: save/Assign_1 = Assign[T=DT_FLOAT, _class=["loc:@b1"], use_locking=true, validate_shape=true, _device="/job:localhost/replica:0/task:0/gpu:0"](b1, save/RestoreV2_1/_5)]]
+Traceback (most recent call last):
+  File "inferTFE2.py", line 261, in <module>
+    main()
+  File "inferTFE2.py", line 190, in main
+    saver.restore(sess,checkpoint_dir+"/model.ckpt")		
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/training/saver.py", line 1456, in restore
+    {self.saver_def.filename_tensor_name: save_path})
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/client/session.py", line 767, in run
+    run_metadata_ptr)
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/client/session.py", line 965, in _run
+    feed_dict_string, options, run_metadata)
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/client/session.py", line 1015, in _do_run
+    target_list, options, run_metadata)
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/client/session.py", line 1035, in _do_call
+    raise type(e)(node_def, op, message)
+tensorflow.python.framework.errors_impl.InvalidArgumentError: Assign requires shapes of both tensors to match. lhs shape= [2] rhs shape= [3]
+	 [[Node: save/Assign_1 = Assign[T=DT_FLOAT, _class=["loc:@b1"], use_locking=true, validate_shape=true, _device="/job:localhost/replica:0/task:0/gpu:0"](b1, save/RestoreV2_1/_5)]]
+	 [[Node: save/RestoreV2_4/_8 = _Send[T=DT_FLOAT, client_terminated=false, recv_device="/job:localhost/replica:0/task:0/gpu:0", send_device="/job:localhost/replica:0/task:0/cpu:0", send_device_incarnation=1, tensor_name="edge_34_save/RestoreV2_4", _device="/job:localhost/replica:0/task:0/cpu:0"](save/RestoreV2_4)]]
+
+Caused by op u'save/Assign_1', defined at:
+  File "inferTFE2.py", line 261, in <module>
+    main()
+  File "inferTFE2.py", line 167, in main
+    saver = tf.train.Saver()
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/training/saver.py", line 1067, in __init__
+    self.build()
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/training/saver.py", line 1097, in build
+    restore_sequentially=self._restore_sequentially)
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/training/saver.py", line 691, in build
+    restore_sequentially, reshape)
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/training/saver.py", line 419, in _AddRestoreOps
+    assign_ops.append(saveable.restore(tensors, shapes))
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/training/saver.py", line 155, in restore
+    self.op.get_shape().is_fully_defined())
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/ops/state_ops.py", line 320, in assign
+    validate_shape=validate_shape)
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/ops/gen_state_ops.py", line 47, in assign
+    use_locking=use_locking, name=name)
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/framework/op_def_library.py", line 768, in apply_op
+    op_def=op_def)
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/framework/ops.py", line 2402, in create_op
+    original_op=self._default_original_op, op_def=op_def)
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/framework/ops.py", line 1264, in __init__
+    self._traceback = _extract_stack()
+
+InvalidArgumentError (see above for traceback): Assign requires shapes of both tensors to match. lhs shape= [2] rhs shape= [3]
+	 [[Node: save/Assign_1 = Assign[T=DT_FLOAT, _class=["loc:@b1"], use_locking=true, validate_shape=true, _device="/job:localhost/replica:0/task:0/gpu:0"](b1, save/RestoreV2_1/_5)]]
+	 [[Node: save/RestoreV2_4/_8 = _Send[T=DT_FLOAT, client_terminated=false, recv_device="/job:localhost/replica:0/task:0/gpu:0", send_device="/job:localhost/replica:0/task:0/cpu:0", send_device_incarnation=1, tensor_name="edge_34_save/RestoreV2_4", _device="/job:localhost/replica:0/task:0/cpu:0"](save/RestoreV2_4)]]
+
+mv: cannot stat ‘new_output_vec.txt’: No such file or directory
+mv: cannot stat ‘output_vec*.txt’: No such file or directory
+mv: cannot stat ‘input_vec.txt’: No such file or directory
+mv: cannot stat ‘label_vec.txt’: No such file or directory

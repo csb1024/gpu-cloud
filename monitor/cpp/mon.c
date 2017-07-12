@@ -4,6 +4,9 @@
 #include <string.h>
 #include <time.h>
 #include <sys/time.h>
+#include<signal.h>
+#include<unistd.h>
+
 char *time_stamp(){
 	char *timestamp = (char *)malloc(sizeof(char) * 16);
 	time_t ltime;
@@ -18,7 +21,7 @@ char *time_stamp(){
 	return timestamp;
 }
 
-
+void sig_handler(int signo);
 
 
 int main(int argc, char* argv[])
@@ -29,9 +32,10 @@ int main(int argc, char* argv[])
     char check, finish; //flag values
     char buffer1[100]={0,};
     nvmlDevice_t gpu0, gpu1, gpu2, gpu3;
-    unsigned int g0_link_bandwidth, currLinkGen, maxBandwidth;
+    unsigned int g0_link_bandwidth, currLinkGen;
+    float maxBandwidth;
     nvmlProcessInfo_t pInfo[32];
-    unsigned int nProc = 32;
+    unsigned int initnProc, nProc = 32;
     unsigned int  pciInfo;
     float rx, tx;
     float memUsage;
@@ -44,10 +48,13 @@ int main(int argc, char* argv[])
 
 
     FILE* fp;
+     
     if( argc == 1){
 	printf("Please specify the directory of the log\n");
         return 1;
     }   
+    signal(SIGINT,(void *)sig_handler);
+
     strcpy(buffer1,argv[1]);
     strcat(buffer1,"/monitor_log.txt");
     printf("%s \n",buffer1);
@@ -68,17 +75,19 @@ int main(int argc, char* argv[])
     else //gen4
 	    maxBandwidth = 1.969 * g0_link_bandwidth;
 
-
+    maxBandwidth = 15.76; // decided to hardcode this value
     printf("link width : %u \n",g0_link_bandwidth);
     printf("link generation : %u\n",currLinkGen);
-    printf("link max bandwidth : %u GB/s \n",maxBandwidth);
+    printf("link max bandwidth : %f GB/s \n",maxBandwidth);
     printf("Total memory : %3f MB\n",(float)memInfo.total/1024/1024);
     check=0;
 
     finish=0;
+    nvmlDeviceGetComputeRunningProcesses(gpu0,&nProc,pInfo);
+    initnProc = nProc;
     while (finish == 0){
     	nvmlDeviceGetComputeRunningProcesses(gpu0,&nProc,pInfo);
-    	if(nProc == 0){
+    	if(nProc == initnProc){
 		if(check == 1 )
 		{
 			clock_gettime(CLOCK_MONOTONIC_RAW,&stop);
@@ -90,6 +99,7 @@ int main(int argc, char* argv[])
 		continue;
 	}	
 	if (check == 0){
+		printf("Started Profiling\n");
 		fprintf(fp,"Timestamp, Memory Usage(%%), PCI TX(%%), PCI RX(%%), Core Util, Mem Util \n");
 		clock_gettime(CLOCK_MONOTONIC_RAW, &start);
 	}
@@ -123,4 +133,10 @@ int main(int argc, char* argv[])
     fclose(fp);   
     result = nvmlShutdown();
     return 0;
+}
+
+void sig_handler(int signo)
+{
+   printf("Recieved SIGINT\n");
+   exit(0);
 }
