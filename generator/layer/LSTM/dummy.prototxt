@@ -11,26 +11,27 @@ layer {
       type: "constant"
     }
     shape {
-      dim: 44
-      dim: 40
-      dim: 40
+      dim: 32
+      dim: 50
+      dim: 16
     }
   }
 }
 layer {
-  name: "cont"
-  type: "DummyData"
-  top: "cont"
-  dummy_data_param {
-    data_filler {
-      type: "constant"
-    }
-    shape {
-      dim: 44
-      dim: 40
-    }
-  }
+   name: "cont"
+   type: "DummyData"
+   top: "cont"
+   dummy_data_param {
+     data_filler {
+       type: "constant"
+   }
+   shape {
+      dim: 8
+      dim: 50
+      }
+   }
 }
+
 layer {
   name: "y_train"
   type: "DummyData"
@@ -43,8 +44,8 @@ layer {
       type: "constant"
     }
     shape {
-      dim: 44
-      dim: 40
+      dim: 8
+      dim: 16
     }
   }
 }
@@ -60,9 +61,9 @@ layer {
       type: "constant"
     }
     shape {
-      dim: 44
-      dim: 40
-      dim: 40
+      dim: 8
+      dim: 50
+      dim: 16
     }
   }
 }
@@ -78,28 +79,34 @@ layer {
       type: "constant"
     }
     shape {
-      dim: 44
-      dim: 40
+      dim: 8
+      dim: 16
     }
   }
 }
+
 layer {
-  name: "LSTM"
+  name: "lstm1"
   type: "LSTM"
   bottom: "data"
   bottom: "cont"
   top: "ip1"
-  recurrent_param {
-    num_output: 40
-    weight_filler {
+  recurrent_param
+  {
+   num_output: 16
+   weight_filler {
       type: "gaussian"
       std: 0.1
-    }
-    bias_filler {
+   }
+   bias_filler {
       type: "constant"
-    }
+   }
+   
   }
-}
+ }
+
+
+  
 layer {
   name: "accuracy"
   type: "Accuracy"

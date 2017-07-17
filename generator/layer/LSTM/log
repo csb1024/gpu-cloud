@@ -1,0 +1,122 @@
+I0717 12:21:55.887955 27013 caffe.cpp:348] Use GPU with device ID 1
+I0717 12:21:56.713939 27013 net.cpp:296] The NetState phase (0) differed from the phase (1) specified by a rule in layer x_test
+I0717 12:21:56.713979 27013 net.cpp:296] The NetState phase (0) differed from the phase (1) specified by a rule in layer y_test
+I0717 12:21:56.713987 27013 net.cpp:296] The NetState phase (0) differed from the phase (1) specified by a rule in layer accuracy
+I0717 12:21:56.714072 27013 net.cpp:53] Initializing net from parameters: 
+name: "DummyNetbyHand"
+state {
+  phase: TRAIN
+  level: 0
+  stage: ""
+}
+layer {
+  name: "x_train"
+  type: "DummyData"
+  top: "data"
+  include {
+    phase: TRAIN
+  }
+  dummy_data_param {
+    data_filler {
+      type: "constant"
+    }
+    shape {
+      dim: 32
+      dim: 50
+      dim: 16
+    }
+  }
+}
+layer {
+  name: "cont"
+  type: "DummyData"
+  top: "cont"
+  dummy_data_param {
+    data_filler {
+      type: "constant"
+    }
+    shape {
+      dim: 8
+      dim: 50
+    }
+  }
+}
+layer {
+  name: "y_train"
+  type: "DummyData"
+  top: "label"
+  include {
+    phase: TRAIN
+  }
+  dummy_data_param {
+    data_filler {
+      type: "constant"
+    }
+    shape {
+      dim: 8
+      dim: 16
+    }
+  }
+}
+layer {
+  name: "lstm1"
+  type: "LSTM"
+  bottom: "data"
+  bottom: "cont"
+  top: "ip1"
+  recurrent_param {
+    num_output: 16
+    weight_filler {
+      type: "gaussian"
+      std: 0.1
+    }
+    bias_filler {
+      type: "constant"
+    }
+  }
+}
+layer {
+  name: "SOFTMAX"
+  type: "SoftmaxWithLoss"
+  bottom: "ip1"
+  bottom: "label"
+  top: "loss"
+}
+I0717 12:21:56.714136 27013 layer_factory.hpp:77] Creating layer x_train
+I0717 12:21:56.714159 27013 net.cpp:86] Creating Layer x_train
+I0717 12:21:56.714169 27013 net.cpp:382] x_train -> data
+I0717 12:21:56.766625 27013 net.cpp:124] Setting up x_train
+I0717 12:21:56.766679 27013 net.cpp:131] Top shape: 32 50 16 (25600)
+I0717 12:21:56.766685 27013 net.cpp:139] Memory required for data: 102400
+I0717 12:21:56.766698 27013 layer_factory.hpp:77] Creating layer cont
+I0717 12:21:56.766719 27013 net.cpp:86] Creating Layer cont
+I0717 12:21:56.766731 27013 net.cpp:382] cont -> cont
+I0717 12:21:56.768013 27013 net.cpp:124] Setting up cont
+I0717 12:21:56.768038 27013 net.cpp:131] Top shape: 8 50 (400)
+I0717 12:21:56.768043 27013 net.cpp:139] Memory required for data: 104000
+I0717 12:21:56.768049 27013 layer_factory.hpp:77] Creating layer y_train
+I0717 12:21:56.768061 27013 net.cpp:86] Creating Layer y_train
+I0717 12:21:56.768070 27013 net.cpp:382] y_train -> label
+I0717 12:21:56.768121 27013 net.cpp:124] Setting up y_train
+I0717 12:21:56.768132 27013 net.cpp:131] Top shape: 8 16 (128)
+I0717 12:21:56.768137 27013 net.cpp:139] Memory required for data: 104512
+I0717 12:21:56.768142 27013 layer_factory.hpp:77] Creating layer lstm1
+I0717 12:21:56.768160 27013 net.cpp:86] Creating Layer lstm1
+I0717 12:21:56.768168 27013 net.cpp:408] lstm1 <- data
+I0717 12:21:56.768182 27013 net.cpp:408] lstm1 <- cont
+I0717 12:21:56.768189 27013 net.cpp:382] lstm1 -> ip1
+I0717 12:21:56.768208 27013 recurrent_layer.cpp:20] Initializing recurrent layer: assuming input batch contains 32 timesteps of 50 independent streams.
+F0717 12:21:56.768224 27013 recurrent_layer.cpp:25] Check failed: T_ == bottom[1]->shape(0) (32 vs. 8) 
+*** Check failure stack trace: ***
+    @     0x7fd7db7d6daa  (unknown)
+    @     0x7fd7db7d6ce4  (unknown)
+    @     0x7fd7db7d66e6  (unknown)
+    @     0x7fd7db7d9687  (unknown)
+    @     0x7fd7dbea6ec1  caffe::RecurrentLayer<>::LayerSetUp()
+    @     0x7fd7dbe08e8d  caffe::Net<>::Init()
+    @     0x7fd7dbe0b2fb  caffe::Net<>::Net()
+    @           0x40b16c  time()
+    @           0x4080dc  main
+    @     0x7fd7da7def45  (unknown)
+    @           0x4089c1  (unknown)
+    @              (nil)  (unknown)

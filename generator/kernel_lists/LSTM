@@ -1,0 +1,9 @@
+gemmSN_TN_kernel
+Slice
+gemmSN_NN_kernel
+LSTMUnitBackward
+LSTMUnitForward
+LSTMActsForward
+LSTMActsBackward
+ScaleForward
+add_kernel

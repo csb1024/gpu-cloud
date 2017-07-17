@@ -1,16 +1,162 @@
-I0507 17:01:51.659809 10847 caffe.cpp:348] Use GPU with device ID 0
-F0507 17:01:52.280268 10847 io.cpp:36] Check failed: fd != -1 (-1 vs. -1) File not found: models/lenet/train_val.prototxt
-*** Check failure stack trace: ***
-    @     0x7f1b3e5abdaa  (unknown)
-    @     0x7f1b3e5abce4  (unknown)
-    @     0x7f1b3e5ab6e6  (unknown)
-    @     0x7f1b3e5ae687  (unknown)
-    @     0x7f1b3edc21bf  caffe::ReadProtoFromTextFile()
-    @     0x7f1b3edc1e3e  caffe::ReadProtoFromTextFile()
-    @     0x7f1b3edbc999  caffe::ReadNetParamsFromTextFileOrDie()
-    @     0x7f1b3ed74343  caffe::Net<>::Net()
-    @           0x417494  time()
-    @           0x418539  main
-    @     0x7f1b3d5b7f45  (unknown)
-    @           0x414c79  (unknown)
-    @              (nil)  (unknown)
+I0716 20:32:36.122189 24441 caffe.cpp:348] Use GPU with device ID 1
+I0716 20:32:37.087554 24441 net.cpp:296] The NetState phase (0) differed from the phase (1) specified by a rule in layer x_test
+I0716 20:32:37.087610 24441 net.cpp:296] The NetState phase (0) differed from the phase (1) specified by a rule in layer y_test
+I0716 20:32:37.087621 24441 net.cpp:296] The NetState phase (0) differed from the phase (1) specified by a rule in layer accuracy
+I0716 20:32:37.087721 24441 net.cpp:53] Initializing net from parameters: 
+name: "DummyNetbyHand"
+state {
+  phase: TRAIN
+  level: 0
+  stage: ""
+}
+layer {
+  name: "x_train"
+  type: "DummyData"
+  top: "data"
+  include {
+    phase: TRAIN
+  }
+  dummy_data_param {
+    data_filler {
+      type: "constant"
+    }
+    shape {
+      dim: 64
+      dim: 24
+      dim: 24
+      dim: 24
+    }
+  }
+}
+layer {
+  name: "y_train"
+  type: "DummyData"
+  top: "label"
+  include {
+    phase: TRAIN
+  }
+  dummy_data_param {
+    data_filler {
+      type: "constant"
+    }
+    shape {
+      dim: 64
+    }
+  }
+}
+layer {
+  name: "ip1"
+  type: "InnerProduct"
+  bottom: "data"
+  top: "ip1"
+  param {
+    lr_mult: 1
+    decay_mult: 250
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 4096
+    weight_filler {
+      type: "gaussian"
+      std: 0.01
+    }
+    bias_filler {
+      type: "constant"
+    }
+  }
+}
+layer {
+  name: "DROP"
+  type: "Dropout"
+  bottom: "ip1"
+  top: "drop1"
+  dropout_param {
+    dropout_ratio: 0.5
+  }
+}
+layer {
+  name: "SOFTMAX"
+  type: "SoftmaxWithLoss"
+  bottom: "drop1"
+  bottom: "label"
+  top: "loss"
+}
+I0716 20:32:37.087798 24441 layer_factory.hpp:77] Creating layer x_train
+I0716 20:32:37.087824 24441 net.cpp:86] Creating Layer x_train
+I0716 20:32:37.087834 24441 net.cpp:382] x_train -> data
+I0716 20:32:37.144008 24441 net.cpp:124] Setting up x_train
+I0716 20:32:37.144073 24441 net.cpp:131] Top shape: 64 24 24 24 (884736)
+I0716 20:32:37.144079 24441 net.cpp:139] Memory required for data: 3538944
+I0716 20:32:37.144095 24441 layer_factory.hpp:77] Creating layer y_train
+I0716 20:32:37.144129 24441 net.cpp:86] Creating Layer y_train
+I0716 20:32:37.144138 24441 net.cpp:382] y_train -> label
+I0716 20:32:37.144209 24441 net.cpp:124] Setting up y_train
+I0716 20:32:37.144224 24441 net.cpp:131] Top shape: 64 (64)
+I0716 20:32:37.144230 24441 net.cpp:139] Memory required for data: 3539200
+I0716 20:32:37.144237 24441 layer_factory.hpp:77] Creating layer ip1
+I0716 20:32:37.144253 24441 net.cpp:86] Creating Layer ip1
+I0716 20:32:37.144261 24441 net.cpp:408] ip1 <- data
+I0716 20:32:37.144279 24441 net.cpp:382] ip1 -> ip1
+I0716 20:32:39.025629 24441 net.cpp:124] Setting up ip1
+I0716 20:32:39.025697 24441 net.cpp:131] Top shape: 64 4096 (262144)
+I0716 20:32:39.025708 24441 net.cpp:139] Memory required for data: 4587776
+I0716 20:32:39.025759 24441 layer_factory.hpp:77] Creating layer DROP
+I0716 20:32:39.025813 24441 net.cpp:86] Creating Layer DROP
+I0716 20:32:39.025820 24441 net.cpp:408] DROP <- ip1
+I0716 20:32:39.025830 24441 net.cpp:382] DROP -> drop1
+I0716 20:32:39.025900 24441 net.cpp:124] Setting up DROP
+I0716 20:32:39.025909 24441 net.cpp:131] Top shape: 64 4096 (262144)
+I0716 20:32:39.025913 24441 net.cpp:139] Memory required for data: 5636352
+I0716 20:32:39.025918 24441 layer_factory.hpp:77] Creating layer SOFTMAX
+I0716 20:32:39.025938 24441 net.cpp:86] Creating Layer SOFTMAX
+I0716 20:32:39.025943 24441 net.cpp:408] SOFTMAX <- drop1
+I0716 20:32:39.025948 24441 net.cpp:408] SOFTMAX <- label
+I0716 20:32:39.025955 24441 net.cpp:382] SOFTMAX -> loss
+I0716 20:32:39.025975 24441 layer_factory.hpp:77] Creating layer SOFTMAX
+I0716 20:32:39.491847 24441 net.cpp:124] Setting up SOFTMAX
+I0716 20:32:39.491890 24441 net.cpp:131] Top shape: (1)
+I0716 20:32:39.491895 24441 net.cpp:134]     with loss weight 1
+I0716 20:32:39.491924 24441 net.cpp:139] Memory required for data: 5636356
+I0716 20:32:39.491930 24441 net.cpp:200] SOFTMAX needs backward computation.
+I0716 20:32:39.491937 24441 net.cpp:200] DROP needs backward computation.
+I0716 20:32:39.491942 24441 net.cpp:200] ip1 needs backward computation.
+I0716 20:32:39.491956 24441 net.cpp:202] y_train does not need backward computation.
+I0716 20:32:39.491976 24441 net.cpp:202] x_train does not need backward computation.
+I0716 20:32:39.491979 24441 net.cpp:244] This network produces output loss
+I0716 20:32:39.491991 24441 net.cpp:257] Network initialization done.
+I0716 20:32:39.492048 24441 caffe.cpp:360] Performing Forward
+I0716 20:32:39.492059 24441 net.cpp:596]  [Forward] [x_train] top blob data data size: 3538944
+I0716 20:32:39.492064 24441 net.cpp:596]  [Forward] [y_train] top blob label data size: 256
+I0716 20:32:39.516041 24441 net.cpp:596]  [Forward] [ip1] top blob ip1 data size: 1048576
+I0716 20:32:39.516079 24441 net.cpp:610]  [Forward]  [ip1] param blob 0 data size: 226492416
+I0716 20:32:39.516091 24441 net.cpp:610]  [Forward]  [ip1] param blob 1 data size: 16384
+I0716 20:32:39.522786 24441 net.cpp:596]  [Forward] [DROP] top blob drop1 data size: 1048576
+I0716 20:32:39.524273 24441 net.cpp:596]  [Forward] [SOFTMAX] top blob loss data size: 4
+I0716 20:32:39.524304 24441 caffe.cpp:365] Initial loss: 8.31777
+I0716 20:32:39.524327 24441 caffe.cpp:366] Performing Backward
+I0716 20:32:39.524534 24441 net.cpp:628]  [Backward] [SOFTMAX] bottom blob drop1 diff size: 1048576
+I0716 20:32:39.525144 24441 net.cpp:628]  [Backward] [DROP] bottom blob ip1 diff size: 1048576
+I0716 20:32:39.526231 24441 net.cpp:641]  [Backward] [ip1] param blob 0 diff size: 226492416
+I0716 20:32:39.526260 24441 net.cpp:641]  [Backward] [ip1] param blob 1 diff size: 16384
+I0716 20:32:39.526270 24441 caffe.cpp:374] *** Benchmark begins ***
+I0716 20:32:39.526279 24441 caffe.cpp:375] Testing for 1 iterations.
+I0716 20:32:39.535557 24441 caffe.cpp:403] Iteration: 1 forward-backward time: 6.29914 ms.
+I0716 20:32:39.535603 24441 caffe.cpp:406] Average time per layer: 
+I0716 20:32:39.535614 24441 caffe.cpp:409]  [time]    x_train	forward: 0.001568 ms.
+I0716 20:32:39.535630 24441 caffe.cpp:412]    x_train	backward: 0.01552 ms.
+I0716 20:32:39.535640 24441 caffe.cpp:409]  [time]    y_train	forward: 0.00528 ms.
+I0716 20:32:39.535650 24441 caffe.cpp:412]    y_train	backward: 0.004736 ms.
+I0716 20:32:39.535660 24441 caffe.cpp:409]  [time]        ip1	forward: 3.11443 ms.
+I0716 20:32:39.535668 24441 caffe.cpp:412]        ip1	backward: 2.45046 ms.
+I0716 20:32:39.535677 24441 caffe.cpp:409]  [time]       DROP	forward: 0.061696 ms.
+I0716 20:32:39.535686 24441 caffe.cpp:412]       DROP	backward: 0.030048 ms.
+I0716 20:32:39.535696 24441 caffe.cpp:409]  [time]    SOFTMAX	forward: 0.344032 ms.
+I0716 20:32:39.535704 24441 caffe.cpp:412]    SOFTMAX	backward: 0.082368 ms.
+I0716 20:32:39.535724 24441 caffe.cpp:417] Average Forward pass: 3.62214 ms.
+I0716 20:32:39.535737 24441 caffe.cpp:419] Average Backward pass: 2.64998 ms.
+I0716 20:32:39.535754 24441 caffe.cpp:421] Average Forward-Backward: 6.47907 ms.
+I0716 20:32:39.535773 24441 caffe.cpp:423] Total Time: 6.47907 ms.
+I0716 20:32:39.535782 24441 caffe.cpp:424] *** Benchmark ends ***

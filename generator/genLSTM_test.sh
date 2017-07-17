@@ -32,6 +32,7 @@ GENERATOR_DIR=$GENERATOR_ROOT_DIR/gpu"$GPU_ID"
 STORE_DIR=$GPU_CLOUD_DIR/backup/gpu"$GPU_ID"
 #DIR related to input
 GENERATOR='genPrototxt.py'
+LSTM_GENERATOR='genPrototxt_lstm.py'
 BASE_PROTOTXT='dummy.prototxt'
 RAND_PROTOTXT='out.prototxt'
 INPUT_VEC="input_vec.txt"
@@ -51,27 +52,13 @@ do
 layer=${LAYERS[${h}]}
 layer_name=${LAYER_NAME[${h}]}
 BASE_DIR=$PWD/layer/$layer
+
 if [ "$layer" == "LSTM" ]
 then
-GENERATOR='genPrototxt_lstm.py'
-fi 
+$PYTHON $GENERATOR_ROOT_DIR/$LSTM_GENERATOR  $BASE_DIR/$BASE_PROTOTXT $GENERATOR_DIR/$RAND_PROTOTXT $layer $GENERATOR_DIR/$INPUT_VEC 
 
-i=1
-while [ $i -le ${NUM_DATA} ] ; do
+else
 
 $PYTHON $GENERATOR_ROOT_DIR/$GENERATOR  $BASE_DIR/$BASE_PROTOTXT $GENERATOR_DIR/$RAND_PROTOTXT $layer $GENERATOR_DIR/$INPUT_VEC 
-
-
-./analyzeCaffe_kernel.sh $GENERATOR_DIR/data_generator.prototxt $layer $NVPROF_LOG_DIR $CAFFE_LOG_DIR $GPU_ID
-
-
-$PYTHON $GENERATOR_ROOT_DIR/$LOG_PARSER $CAFFE_LOG_DIR/$CAFFE_LOG $layer_name $layer $GENERATOR_DIR/$OUTPUT_VEC $NVPROF_LOG_DIR
-
-echo "data number "$i" has been generated on GPU"$GPU_ID" congrats!"
-((i++))
-
-done
-mv $GENERATOR_DIR/$INPUT_VEC $STORE_DIR/$layer_name-input_vec.txt
-mv $GENERATOR_DIR/$OUTPUT_VEC $STORE_DIR/$layer_name-output_vec.txt
-rm _*
+fi
 done
