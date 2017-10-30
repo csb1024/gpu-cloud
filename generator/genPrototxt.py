@@ -1,5 +1,6 @@
 #!/usr/bin/env python
-
+import matplotlib
+matplotlib.use('Agg')
 import sys
 from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter
 from google.protobuf import text_format
@@ -35,8 +36,10 @@ def randomizePoolingLayer(layer, new_data_shape):
 	return input_vector
 	
 	
-def randomizeIPLayer(layer,new_data_shape):
+def randomizeIPLayer(layer,new_data_shape,relu_flag):
 	layer.name="IP"
+	if relu_flag :
+		layer.name="IP2"
 	ip_param = layer.inner_product_param
 	#used to cap maximum number of random generation 
 	rand_max = 4097 
@@ -58,6 +61,10 @@ def randomizeIPLayer(layer,new_data_shape):
 		rand_max = rand_limit
 	if (rand_max == 1):
 		rand_max = 2
+
+#	if relu_flag :
+#		ip_param.num_output = new_data_shape[0]
+#	else:		
 	ip_param.num_output= random.randrange(1,rand_max) # needs to be random  
 	input_vector = []
 	input_vector.append(new_data_shape[0])
@@ -180,6 +187,7 @@ def parse_args():
 	return args
 
 def randomizeLayers(net_prototxt,layer_type):
+	relu_flag=False # specially used for generating relu data
 	input_data_shape = []
 	# batches are normally a power of 2 
 	random_batchs = [ 16, 32, 64, 128, 256 ]
@@ -220,8 +228,8 @@ def randomizeLayers(net_prototxt,layer_type):
 				layer.inner_product_param.num_output = new_output
 				input_data_shape[1]=new_output
 				input_data_shape[2]=1
-			else:
-				input_vector=randomizeIPLayer(layer,input_data_shape)
+			else:										
+				input_vector=randomizeIPLayer(layer,input_data_shape,relu_flag)
 			if layer_type == "InnerProduct":
 				return_vec = input_vector
 		elif layer.type == "Pooling":
@@ -231,6 +239,7 @@ def randomizeLayers(net_prototxt,layer_type):
 		elif layer.type == "ReLU":
 			input_vector=randomizeReLULayer(layer,input_data_shape)
 			if layer_type == "ReLU":
+				relu_flag=True
 				return_vec = input_vector
 		elif layer.type == "SoftmaxWithLoss":
 			input_vector=randomizeSoftmaxLossLayer(layer,input_data_shape)

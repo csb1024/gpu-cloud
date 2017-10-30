@@ -1,5 +1,6 @@
 #!/usr/bin/env python
-
+import matplotlib 
+matplotlib.use('Agg') 
 import sys
 from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter
 from google.protobuf import text_format

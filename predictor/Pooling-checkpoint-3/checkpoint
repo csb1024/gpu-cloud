@@ -1,2 +1,2 @@
-model_checkpoint_path: "/home/sbchoi/git/gpu-cloud/predictor/model.ckpt"
-all_model_checkpoint_paths: "/home/sbchoi/git/gpu-cloud/predictor/model.ckpt"
+model_checkpoint_path: "/home/sbchoi/git/gpu-cloud/predictor//model.ckpt"
+all_model_checkpoint_paths: "/home/sbchoi/git/gpu-cloud/predictor//model.ckpt"

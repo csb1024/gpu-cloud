@@ -1,0 +1,4 @@
+==3423== NVPROF is profiling process 3423, command: /home/sbchoi/git/caffe/build/tools/caffe train --solver /home/sbchoi/git/gpu-cloud/generator/gpu0/data_generator.prototxt -gpu 0 -profile convb
+==3423== Profiling application: /home/sbchoi/git/caffe/build/tools/caffe train --solver /home/sbchoi/git/gpu-cloud/generator/gpu0/data_generator.prototxt -gpu 0 -profile convb
+==3423== Profiling result:
+No events/metrics were profiled.

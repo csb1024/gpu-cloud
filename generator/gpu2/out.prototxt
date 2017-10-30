@@ -1,63 +1,122 @@
 name: "DummyNetbyHand"
 layer {
-  name: "IMAGEDATA"
-  type: "Data"
+  name: "x_train"
+  type: "DummyData"
   top: "data"
+  include {
+    phase: TRAIN
+  }
+  dummy_data_param {
+    data_filler {
+      type: "constant"
+    }
+    shape {
+      dim: 256
+      dim: 188
+      dim: 16
+      dim: 16
+    }
+  }
+}
+layer {
+  name: "y_train"
+  type: "DummyData"
   top: "label"
   include {
     phase: TRAIN
   }
-  transform_param {
-    mirror: true
-    crop_size: 227
-    mean_file: "/home/sbchoi/git/caffe/data/ilsvrc12/imagenet_mean.binaryproto"
-  }
-  data_param {
-    source: "/home/sbchoi/git/caffe/examples/imagenet/ilsvrc12_train_lmdb"
-    batch_size: 32
-    backend: LMDB
+  dummy_data_param {
+    data_filler {
+      type: "constant"
+    }
+    shape {
+      dim: 256
+    }
   }
 }
 layer {
-  name: "IMAGEDATA"
-  type: "Data"
+  name: "x_test"
+  type: "DummyData"
   top: "data"
+  include {
+    phase: TEST
+  }
+  dummy_data_param {
+    data_filler {
+      type: "constant"
+    }
+    shape {
+      dim: 256
+      dim: 188
+      dim: 16
+      dim: 16
+    }
+  }
+}
+layer {
+  name: "y_test"
+  type: "DummyData"
   top: "label"
   include {
     phase: TEST
   }
-  transform_param {
-    mirror: false
-    crop_size: 229
-    mean_file: "/home/sbchoi/git/caffe/data/ilsvrc12/imagenet_mean.binaryproto"
-  }
-  data_param {
-    source: "/home/sbchoi/git/caffe/examples/imagenet/ilsvrc12_val_lmdb"
-    batch_size: 32
-    backend: LMDB
+  dummy_data_param {
+    data_filler {
+      type: "constant"
+    }
+    shape {
+      dim: 256
+    }
   }
 }
 layer {
   name: "IP"
   type: "InnerProduct"
   bottom: "data"
-  top: "ip1"
+  top: "ip2"
   param {
     lr_mult: 1.0
-    decay_mult: 250.0
+    decay_mult: 0.0
   }
   param {
     lr_mult: 2.0
     decay_mult: 0.0
   }
   inner_product_param {
-    num_output: 98
+    num_output: 114
     weight_filler {
       type: "gaussian"
-      std: 0.00999999977648
+      std: 0.01
     }
     bias_filler {
       type: "constant"
+    }
+  }
+}
+layer {
+  name: "RELU"
+  type: "ReLU"
+  bottom: "ip2"
+  top: "relu1"
+}
+layer {
+  name: "IP2"
+  type: "InnerProduct"
+  bottom: "relu1"
+  top: "ip1"
+  param {
+    lr_mult: 1.0
+  }
+  param {
+    lr_mult: 1.0
+  }
+  inner_product_param {
+    num_output: 2690
+    weight_filler {
+      type: "gaussian"
+    }
+    bias_filler {
+      type: "gaussian"
     }
   }
 }

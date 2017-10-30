@@ -18,89 +18,155 @@ The input vectors of Scenario 2
 
 
 """
-def parsePoolingLayer(layer):
+def parsePoolingLayer(layer, new_data_shape):
+	layer.name="POOLING"
+	pool_param = layer.pooling_param
+	input_vector = []
+	input_vector.append(new_data_shape[0])
+	input_vector.append(new_data_shape[1])
+	input_vector.append(new_data_shape[2])
+#	if len(pool_param.pad) == 0:
+#		pad_size = 0
+#	else:
+#		pad_size = pool_param.pad[0]
+
+#	if len(pool_param.stride == 0):
+#		stride_size = pool_param.stride
+#	else:
+	
+	input_vector.append(pool_param.pad)	
+	input_vector.append(pool_param.kernel_size)
+	input_vector.append(pool_param.stride)
+	#reshaping for output
+	new_data_shape[2] = int(new_data_shape[2] + 2*pool_param.pad - pool_param.kernel_size)/pool_param.stride + 1
+	return input_vector
+
+def parseReLULayer(layer,new_data_shape):
+	input_vector = []
+	input_vector.append(new_data_shape[0])
+	input_vector.append(new_data_shape[1])
+	input_vector.append(new_data_shape[2])
+	return input_vector
 
 def parseDataLayer(layer):
+	new_data_shape = []
+	trans_param = layer.transform_param
+	dat_param = layer.data_param
+	
+	
+	# batch
+	new_data_shape.append(dat_param.batch_size)
+	
+	# channel
+	if "imagenet" in dat_param.source: 
+		new_data_shape.append(3)
+	else:
+		new_data_shape.append(5)
 
-def parseConvLayer(layer,prev_output):
-      # empty input vector for conv layer
-      vector = []
+	# h/w (square sized)
+	new_data_shape.append(trans_param.crop_size)
+	# input_vector : batch, cropsize
+	return new_data_shape
 
-      #parameters for input vector 
-      stride = 0
-      kernel_size = 0
-      output_size = 0
-      input_size = prev_output
-     
-      # stride
-      if len(layer.convolution_param.stride) == 1:
-	 stride = layer.convolution_param.stride[0] # only one
-      else:
-	 stride = min(layer.convolution_param.stride) # choose the smaller one, strides are usually a single value
-      
-      # kernel_size   
-      if len(layer.convolution_param.kernel_size) == 1:
-	 kernel_size = layer.convolution_param.kernel_size[0] * layer.convolution_param.kernel_size[0]# only one
-      else:
-	 kernel_size = layer.convolution_param.kernel_size[1] * layer.convolution_param.kernel_size[2]
-      output_size = layer.convolution_param.num_output
-      vector.append(stride)
-      vector.append(kernel_size)
-      vector.append(output_size)
-      vector.append(input_size)
-      next_layer_input = output_size
-      return [vector, next_layer_input]
+def parseConvLayer(layer,new_data_shape):
+	conv_param = layer.convolution_param
+	
+	input_vector = [] # input_vector used for training
+	input_vector.append(new_data_shape[0])
+	input_vector.append(new_data_shape[1])
+	input_vector.append(new_data_shape[2])
+	#reshaping for output
+	new_data_shape[1] = conv_param.num_output
+	if len(conv_param.pad) == 0:
+		pad_size = 0
+	else:
+		pad_size = conv_param.pad[0]
+	if (len(conv_param.stride) == 0):
+		stride_size = 1
+	else:
+		stride_size = conv_param.stride[0]
+	new_data_shape[2] = int(new_data_shape[2] + 2*pad_size - conv_param.kernel_size[0])/stride_size + 1
+	
+	# making input vector
+	input_vector.append(conv_param.num_output)
+	input_vector.append(conv_param.kernel_size[0])
+	input_vector.append(stride_size)
+	input_vector.append(pad_size)
+	return input_vector
+def parseLSTMLayer(layer,new_data_shape):
+	input_vector = []
+	params = layer.recurrent_param
 
+	# dimension of data and label need to match 
+	new_num_output = new_data_shape[2]
+	# assume that data is a 1-d vector
+	input_vector.append(new_data_shape[0]) # len/stream
+	input_vector.append(new_data_shape[1]) # num of streamsa
+	input_vector.append(new_data_shape[2]) # data size
+	input_vector.append(new_num_output)
 
+	# resulting data
+	# new_data_shape[0] and new_data_shape[1] are unchanged
+	# since label = dimension data, new_data_shape[2] also does not change
+		
+	return input_vector
+
+def parseIPLayer(layer,new_data_shape):
+	vector = []
+	ip_param = layer.inner_product_param
+	# reshaping input
+	new_data_shape[1] = new_data_shape[1]*new_data_shape[2]*new_data_shape[2]
+	new_data_shape[2] = 1 # this flattens out the data
+
+	vector.append(new_data_shape[0])
+	vector.append(new_data_shape[1])
+	vector.append(ip_param.num_output)
+	#reshaping for output
+	new_data_shape[1] = ip_param.num_output
+	return vector
 def parseLayers(net_prototxt,phase):
+
+   layer_type = []# vector of layer types(string)
+   layer_info = []#vector of layer info (vectors)
 # list of variables(and vectors) to maintain thoughout the execution
-   layer_num = 0
-   batch_size = 0
-   next_layer_input=0
-#input_size = 0
-   conv_num = 0
-   conv_output = []
-   conv_stride = []  
-   conv_kernel = []
-   ip_num = 0
-   ip_output = []
-   pool_num = 0
-   pool_stride = []
-   pool_kernel = []
+   input_data =[] # must follow the caffe convention of defining data type
+   
+
+# input_vectors 
+   
 # output_type = 0
    for layer in net_prototxt.layer:
-      if layer.type == "Data":
+      if layer.type == "Data": # used for parsing the initial data size
 	 for layer_phase in layer.include:
 	   if layer_phase.phase == phase:
 	      batch_size = layer.data_param.batch_size
-	      parseDataLayer(layer)
+	      next_layer_input=parseDataLayer(layer)
+	      		
       elif layer.type == "Convolution":
-         [vector, next_layer_input]=parseConvLayer(layer,next_layer_input)
-	 # stride
-     elif layer.type == "Pooling":
-	 pool_num = pool_num + 1
-	 pool_stride.append(layer.pooling_param.stride)
-	 pool_kernel.append(layer.pooling_param.kernel_size)
-	 parsePoolingLayer(layer)
+         vector=parseConvLayer(layer,next_layer_input)
+	 layer_type.append(layer.type)
+	 layer_info.append(vector)
+
+      elif layer.type == "Pooling":
+	 vector=parsePoolingLayer(layer,next_layer_input)
+	 layer_type.append(layer.type)
+	 layer_info.append(vector)
+	 
       elif layer.type == "InnerProduct":
-	 ip_num = ip_num + 1
-	 ip_output.append(layer.inner_product_param.num_output)
-    layer_num = layer_num + 1
-   
-# The following will change for scenario 2 
-   vector = []
-   vector.append(layer_num)
-   vector.append(batch_size)
-   vector.append(conv_num)
-   vector.append(sum(conv_output))
-   vector.append(min(conv_stride))
-   vector.append(min(conv_kernel))
-   vector.append(ip_num)
-   vector.append(sum(ip_output))
-   vector.append(pool_num)
-   vector.append(min(pool_stride))
-   vector.append(min(pool_kernel))
-   return vector
+	 vector=parseIPLayer(layer,next_layer_input)
+	 layer_type.append(layer.type)
+	 layer_info.append(vector)
+      elif layer.type == "ReLU":
+	 vector=parseReLULayer(layer,next_layer_input)
+	 layer_type.append(layer.type)
+	 layer_info.append(vector)
+      elif layer.type == "LSTM":
+	 vector = parseLSTMLayer(layer,next_layer_input)
+	 layer_type.append(layer.type)
+	 layer_info.append(vector)
+	  
+
+   return layer_type, layer_info
 
 
 
@@ -133,21 +199,20 @@ def main():
     text_format.Merge(fin.read(), net)
     fin.close()
 
-    input_vector = parseLayers(net,phase)
+    [layer_types, layer_infos] = parseLayers(net,phase)
 
     #for debugging
-    i=0
-    while i < len(input_vector):
-    	print i+1,"th item : ",input_vector[i]
-	i = i+1
+	
+    for name in layer_types:
+    	print name
     print('Printing net to %s' % args.output_text_file)
     output = open(args.output_text_file,"w")
-    i=0
-    while i < len(input_vector):
-	string = str(input_vector[i]) + "\n"
-	output.write(string)
-	i = i+1
-
+    for vector in layer_infos:
+	print vector
+	string=""
+	for item in vector:
+		string = string+str(item) + ","
+	output.write(string+"\n")
     output.close()
     
 if __name__ == '__main__':

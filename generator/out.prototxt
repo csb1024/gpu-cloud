@@ -11,10 +11,10 @@ layer {
       type: "constant"
     }
     shape {
-      dim: 64
-      dim: 24
-      dim: 24
-      dim: 24
+      dim: 256
+      dim: 160
+      dim: 4
+      dim: 4
     }
   }
 }
@@ -30,7 +30,7 @@ layer {
       type: "constant"
     }
     shape {
-      dim: 64
+      dim: 256
     }
   }
 }
@@ -46,10 +46,10 @@ layer {
       type: "constant"
     }
     shape {
-      dim: 64
-      dim: 24
-      dim: 24
-      dim: 24
+      dim: 256
+      dim: 160
+      dim: 4
+      dim: 4
     }
   }
 }
@@ -65,28 +65,28 @@ layer {
       type: "constant"
     }
     shape {
-      dim: 64
+      dim: 256
     }
   }
 }
 layer {
-  name: "ip1"
+  name: "IP"
   type: "InnerProduct"
   bottom: "data"
-  top: "ip1"
+  top: "ip2"
   param {
     lr_mult: 1.0
-    decay_mult: 250.0
+    decay_mult: 0.0
   }
   param {
     lr_mult: 2.0
     decay_mult: 0.0
   }
   inner_product_param {
-    num_output: 4096
+    num_output: 2163
     weight_filler {
       type: "gaussian"
-      std: 0.01
+      std: 0.00999999977648
     }
     bias_filler {
       type: "constant"
@@ -94,18 +94,36 @@ layer {
   }
 }
 layer {
-  name: "DROP"
-  type: "Dropout"
-  bottom: "ip1"
-  top: "drop1"
-  dropout_param {
-    dropout_ratio: 0.5
+  name: "RELU"
+  type: "ReLU"
+  bottom: "ip2"
+  top: "relu1"
+}
+layer {
+  name: "IP"
+  type: "InnerProduct"
+  bottom: "relu1"
+  top: "ip1"
+  param {
+    lr_mult: 1.0
+  }
+  param {
+    lr_mult: 1.0
+  }
+  inner_product_param {
+    num_output: 1874
+    weight_filler {
+      type: "gaussian"
+    }
+    bias_filler {
+      type: "gaussian"
+    }
   }
 }
 layer {
   name: "accuracy"
   type: "Accuracy"
-  bottom: "drop1"
+  bottom: "ip1"
   bottom: "label"
   top: "accuracy"
   include {
@@ -115,7 +133,7 @@ layer {
 layer {
   name: "SOFTMAX"
   type: "SoftmaxWithLoss"
-  bottom: "drop1"
+  bottom: "ip1"
   bottom: "label"
   top: "loss"
 }

@@ -1,2 +1,3 @@
 Err = (Predicted - Label)/label * 100, Arith Average
-1, 319.942955785
+2, 75.0027300839
+1, 74.9380070967

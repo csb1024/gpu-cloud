@@ -1,0 +1,7 @@
+==23686== NVPROF is profiling process 23686, command: /home/sbchoi/git/caffe/build/tools/caffe train -solver gpu1/data_generator.prototxt -profile lstmunitb
+==23686== Profiling application: /home/sbchoi/git/caffe/build/tools/caffe train -solver gpu1/data_generator.prototxt -profile lstmunitb
+==23686== Profiling result:
+==23686== Metric result:
+"Device","Kernel","Invocations","Metric Name","Metric Description","Min","Max","Avg"
+"GeForce GTX 1080 (0)","void caffe::LSTMActsBackward<float>(int, int, float const *, float const , caffe::LSTMActsBackward<float>*)",36,"dram_utilization","Device Memory Utilization","Low (1)","Low (1)","Low (1)"
+"GeForce GTX 1080 (0)","void caffe::LSTMUnitBackward<float>(int, int, float const *, float const , float const , float const , float const , float const , float const , caffe::LSTMUnitBackward<float>*, float const *)",36,"dram_utilization","Device Memory Utilization","Low (1)","Low (2)","Low (1)"

@@ -1,0 +1,6 @@
+==1063== NVPROF is profiling process 1063, command: /home/sbchoi/git/caffe/build/tools/caffe train --solver /home/sbchoi/git/gpu-cloud/generator/gpu1/data_generator.prototxt -gpu 1 -profile reluf
+==1063== Profiling application: /home/sbchoi/git/caffe/build/tools/caffe train --solver /home/sbchoi/git/gpu-cloud/generator/gpu1/data_generator.prototxt -gpu 1 -profile reluf
+==1063== Profiling result:
+==1063== Metric result:
+"Device","Kernel","Invocations","Metric Name","Metric Description","Min","Max","Avg"
+"GeForce GTX 1080 (1)","void cudnn::detail::activation_fw_4d_kernel<float, float, int=128, int=1, int=4, cudnn::detail::relu_func<float, cudnnNanPropagation_t=1, bool=0>>(cudnnTensorStruct, float const *, cudnn::detail::activation_fw_4d_kernel<float, float, int=128, int=1, int=4, cudnn::detail::relu_func<float, cudnnNanPropagation_t=1, bool=0>>, cudnnTensorStruct*, float, cudnnTensorStruct*, int, double)",2,"sm_activity","Multiprocessor Activity",35.345211%,40.147394%,37.746302%

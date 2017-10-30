@@ -1,168 +1,36 @@
-name: "LeNet"
-layer {
-  name: "mnist"
-  type: "Data"
-  top: "data"
-  top: "label"
-  include {
-    phase: TRAIN
-  }
-  transform_param {
-    scale: 0.00390625
-  }
-  data_param {
-    source: "examples/mnist/mnist_train_lmdb"
-    batch_size: 64
-    backend: LMDB
-  }
-}
-layer {
-  name: "mnist"
-  type: "Data"
-  top: "data"
-  top: "label"
-  include {
-    phase: TEST
-  }
-  transform_param {
-    scale: 0.00390625
-  }
-  data_param {
-    source: "examples/mnist/mnist_test_lmdb"
-    batch_size: 100
-    backend: LMDB
-  }
-}
-layer {
-  name: "conv1"
-  type: "Convolution"
-  bottom: "data"
-  top: "conv1"
-  param {
-    lr_mult: 1.0
-  }
-  param {
-    lr_mult: 2.0
-  }
-  convolution_param {
-    num_output: 20
-    kernel_size: 5
-    stride: 1
-    weight_filler {
-      type: "xavier"
-    }
-    bias_filler {
-      type: "constant"
-    }
-  }
-}
-layer {
-  name: "pool1"
-  type: "Pooling"
-  bottom: "conv1"
-  top: "pool1"
-  pooling_param {
-    pool: MAX
-    kernel_size: 2
-    stride: 2
-  }
-}
-layer {
-  name: "conv2"
-  type: "Convolution"
-  bottom: "pool1"
-  top: "conv2"
-  param {
-    lr_mult: 1.0
-  }
-  param {
-    lr_mult: 2.0
-  }
-  convolution_param {
-    num_output: 50
-    kernel_size: 5
-    stride: 1
-    weight_filler {
-      type: "xavier"
-    }
-    bias_filler {
-      type: "constant"
-    }
-  }
-}
-layer {
-  name: "pool2"
-  type: "Pooling"
-  bottom: "conv2"
-  top: "pool2"
-  pooling_param {
-    pool: MAX
-    kernel_size: 2
-    stride: 2
-  }
-}
-layer {
-  name: "ip1"
-  type: "InnerProduct"
-  bottom: "pool2"
-  top: "ip1"
-  param {
-    lr_mult: 1.0
-  }
-  param {
-    lr_mult: 2.0
-  }
-  inner_product_param {
-    num_output: 500
-    weight_filler {
-      type: "xavier"
-    }
-    bias_filler {
-      type: "constant"
-    }
-  }
-}
-layer {
-  name: "relu1"
-  type: "ReLU"
-  bottom: "ip1"
-  top: "ip1"
-}
-layer {
-  name: "ip2"
-  type: "InnerProduct"
-  bottom: "ip1"
-  top: "ip2"
-  param {
-    lr_mult: 1.0
-  }
-  param {
-    lr_mult: 2.0
-  }
-  inner_product_param {
-    num_output: 10
-    weight_filler {
-      type: "xavier"
-    }
-    bias_filler {
-      type: "constant"
-    }
-  }
-}
-layer {
-  name: "accuracy"
-  type: "Accuracy"
-  bottom: "ip2"
-  bottom: "label"
-  top: "accuracy"
-  include {
-    phase: TEST
-  }
-}
-layer {
-  name: "loss"
-  type: "SoftmaxWithLoss"
-  bottom: "ip2"
-  bottom: "label"
-  top: "loss"
-}
+32,3,224,64,3,1,1,
+32,64,224,
+32,64,224,64,3,1,1,
+32,64,224,
+32,64,224,0,2,2,
+32,64,112,128,3,1,1,
+32,128,112,
+32,128,112,128,3,1,1,
+32,128,112,
+32,128,112,0,2,2,
+32,128,56,256,3,1,1,
+32,256,56,
+32,256,56,256,3,1,1,
+32,256,56,
+32,256,56,256,3,1,1,
+32,256,56,
+32,256,56,0,2,2,
+32,256,28,512,3,1,1,
+32,512,28,
+32,512,28,512,3,1,1,
+32,512,28,
+32,512,28,512,3,1,1,
+32,512,28,
+32,512,28,0,2,2,
+32,512,14,512,3,1,1,
+32,512,14,
+32,512,14,512,3,1,1,
+32,512,14,
+32,512,14,512,3,1,1,
+32,512,14,
+32,512,14,0,2,2,
+32,25088,4096,
+32,4096,1,
+32,4096,4096,
+32,4096,1,
+32,4096,1000,

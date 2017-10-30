@@ -69,10 +69,34 @@ layer {
     }
   }
 }
+
+layer{
+  name: "conv1"
+  type: "Convolution"
+  bottom: "data"
+  top: "conv1"
+  param{
+   lr_mult: 1
+  }
+  param{
+   lr_mult: 1
+  }
+  convolution_param{
+   num_output: 32
+   kernel_size: 5
+   stride: 1
+   weight_filler {
+    type: "gaussian"
+    }
+    bias_filler {
+    type: "gaussian"
+    }
+    }
+}
 layer {
   name: "pool1"
   type: "Pooling"
-  bottom: "data"
+  bottom: "conv1"
   top: "pool1"
   pooling_param {
    pool: MAX

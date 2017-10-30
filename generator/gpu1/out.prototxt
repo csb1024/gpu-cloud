@@ -11,23 +11,10 @@ layer {
       type: "constant"
     }
     shape {
-      dim: 44
-      dim: 40
-      dim: 40
-    }
-  }
-}
-layer {
-  name: "cont"
-  type: "DummyData"
-  top: "cont"
-  dummy_data_param {
-    data_filler {
-      type: "constant"
-    }
-    shape {
-      dim: 44
-      dim: 40
+      dim: 128
+      dim: 23
+      dim: 53
+      dim: 53
     }
   }
 }
@@ -43,8 +30,7 @@ layer {
       type: "constant"
     }
     shape {
-      dim: 44
-      dim: 40
+      dim: 128
     }
   }
 }
@@ -60,9 +46,10 @@ layer {
       type: "constant"
     }
     shape {
-      dim: 44
-      dim: 40
-      dim: 40
+      dim: 128
+      dim: 23
+      dim: 53
+      dim: 53
     }
   }
 }
@@ -78,25 +65,58 @@ layer {
       type: "constant"
     }
     shape {
-      dim: 44
-      dim: 40
+      dim: 128
     }
   }
 }
 layer {
-  name: "LSTM"
-  type: "LSTM"
+  name: "IP"
+  type: "InnerProduct"
   bottom: "data"
-  bottom: "cont"
-  top: "ip1"
-  recurrent_param {
-    num_output: 40
+  top: "ip2"
+  param {
+    lr_mult: 1.0
+    decay_mult: 0.0
+  }
+  param {
+    lr_mult: 2.0
+    decay_mult: 0.0
+  }
+  inner_product_param {
+    num_output: 35
     weight_filler {
       type: "gaussian"
-      std: 0.1
+      std: 0.01
     }
     bias_filler {
       type: "constant"
+    }
+  }
+}
+layer {
+  name: "RELU"
+  type: "ReLU"
+  bottom: "ip2"
+  top: "relu1"
+}
+layer {
+  name: "IP2"
+  type: "InnerProduct"
+  bottom: "relu1"
+  top: "ip1"
+  param {
+    lr_mult: 1.0
+  }
+  param {
+    lr_mult: 1.0
+  }
+  inner_product_param {
+    num_output: 4080
+    weight_filler {
+      type: "gaussian"
+    }
+    bias_filler {
+      type: "gaussian"
     }
   }
 }

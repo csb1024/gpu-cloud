@@ -73,5 +73,4 @@ echo "data number "$i" has been generated on GPU"$GPU_ID" congrats!"
 done
 mv $GENERATOR_DIR/$INPUT_VEC $STORE_DIR/$layer_name-input_vec.txt
 mv $GENERATOR_DIR/$OUTPUT_VEC $STORE_DIR/$layer_name-output_vec.txt
-rm _*
 done

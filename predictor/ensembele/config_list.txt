@@ -1,2 +1,5 @@
 Batch,initial learning rate,num of nidden neurons, maximum epochs 
-64,1,40,1000000
+256,1,80,500000
+256,1,80,500000
+256,1,80,500000
+256,1,80,500000

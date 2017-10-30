@@ -70,9 +70,33 @@ layer {
   }
 }
 layer {
+  name: "ip1"
+  type: "InnerProduct"
+  bottom: "data"
+  top: "ip2"
+  param: {
+  lr_mult: 1
+  decay_mult: 0
+  }
+  param{ 
+  lr_mult: 2
+  decay_mult: 0 
+  }
+  inner_product_param{
+   num_output: 10
+  weight_filler {
+   type: "gaussian"
+   std: 0.01
+}
+ bias_filler{
+   type: "constant"
+}
+}
+}
+layer {
   name: "RELU"
   type: "ReLU"
-  bottom: "data"
+  bottom: "ip2"
   top: "relu1"
   
 }

@@ -1,0 +1,4 @@
+==15829== NVPROF is profiling process 15829, command: /home/sbchoi/git/caffe/build/tools/caffe train --solver=data_generator.prototxt -gpu 1 -profile lstmunitb
+==15829== Profiling application: /home/sbchoi/git/caffe/build/tools/caffe train --solver=data_generator.prototxt -gpu 1 -profile lstmunitb
+==15829== Profiling result:
+No events/metrics were profiled.
